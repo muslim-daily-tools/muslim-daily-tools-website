@@ -43,7 +43,7 @@ function RootDocument() {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="bg-[#FAF8F5]">
         <Header />
         <main className="flex-1">
           <Outlet />
