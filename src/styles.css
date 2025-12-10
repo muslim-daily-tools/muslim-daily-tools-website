@@ -139,3 +139,40 @@ code {
     @apply bg-background text-foreground;
   }
 }
+
+/* Apple-style glassmorphism */
+.glass-header {
+  --glass-bg: oklch(1 0 0 / 0.72);
+  --glass-border: oklch(1 0 0 / 0.5);
+  --glass-shadow: oklch(0 0 0 / 0.04);
+
+  background: var(--glass-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--glass-border);
+  box-shadow:
+    0 1px 3px var(--glass-shadow),
+    0 0 0 0.5px var(--glass-border) inset;
+}
+
+.dark .glass-header {
+  --glass-bg: oklch(0.141 0.005 285.823 / 0.78);
+  --glass-border: oklch(1 0 0 / 0.08);
+  --glass-shadow: oklch(0 0 0 / 0.2);
+}
+
+/* Glass panel for mobile menu */
+.glass-panel {
+  --glass-bg: oklch(1 0 0 / 0.85);
+  --glass-border: oklch(0 0 0 / 0.06);
+
+  background: var(--glass-bg);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--glass-border);
+}
+
+.dark .glass-panel {
+  --glass-bg: oklch(0.141 0.005 285.823 / 0.88);
+  --glass-border: oklch(1 0 0 / 0.06);
+}

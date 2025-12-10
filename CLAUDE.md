@@ -53,3 +53,30 @@ import { Hero } from '@/components/Hero'
 - shadcn components go in `src/components/ui/`
 - Icons from `lucide-react`
 - Styling uses Tailwind with CSS variables for theming
+
+### Layout Components
+- `Header.tsx` - Sticky header with Apple-style glassmorphism, contains Logo + Navigation
+- `Navigation.tsx` - Desktop nav + mobile hamburger menu with toggle state
+- `Logo.tsx` - Site logo/branding
+- `Footer.tsx` - Site footer
+
+### Custom CSS Classes (in `src/styles.css`)
+- `.glass-header` - Apple-style glassmorphism for header (saturate + blur + transparency)
+- `.glass-panel` - Glass effect for dropdowns/panels (mobile menu)
+
+Both support dark mode automatically via `.dark` variant.
+
+### Mobile Menu Pattern
+The mobile menu in `Navigation.tsx` uses:
+- `useState` for open/close toggle
+- Hamburger icon switches to X when open
+- Menu panel uses absolute positioning relative to header
+- Links call `closeMenu()` on click to dismiss
+
+### Section Pattern
+Homepage sections alternate backgrounds for visual separation:
+- **Hero** - inherits `bg-background` (transparent/default)
+- **About** - explicit `bg-white`
+- **Tools** - inherits `bg-background` (transparent/default)
+
+When adding new sections, alternate between `bg-white` and no background class to maintain visual rhythm.
