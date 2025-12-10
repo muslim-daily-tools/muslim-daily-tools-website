@@ -78,5 +78,6 @@ Homepage sections alternate backgrounds for visual separation:
 - **Hero** - inherits `bg-background` (transparent/default)
 - **About** - explicit `bg-white`
 - **Tools** - inherits `bg-background` (transparent/default)
+- **Stats** - explicit `bg-white`
 
 When adding new sections, alternate between `bg-white` and no background class to maintain visual rhythm.
