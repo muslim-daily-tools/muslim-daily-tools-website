@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import { Facebook, Twitter, Youtube, Github, Linkedin } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 import mohamedImg from '@/assets/mohamed.jpg'
 import ahmedImg from '@/assets/ahmed.jpg'
 
-interface TeamMember {
-  name: string
-  title: string
-  bio: string
+interface TeamMemberData {
+  id: string // Key for translations
   image: string
   socials: {
     facebook?: string
@@ -18,12 +17,9 @@ interface TeamMember {
   }
 }
 
-const team: TeamMember[] = [
+const teamData: TeamMemberData[] = [
   {
-    name: 'Ahmed Fathy',
-    title:
-      'Senior Engineering Manager at Yassir | Founder of Almdrasa | CGO of HaramBlur',
-    bio: "Ahmed Fathy is a seasoned technology leader and entrepreneur with over 18 years of experience building products, leading engineering teams, and scaling businesses. He has founded and co-founded 8 startups, including Almdrasa, an EdTech platform empowering learners across the Arab world, and currently serves as Chief Growth Officer at HaramBlur, an innovative tool protecting Muslims' digital experience.\n\nAlongside his entrepreneurial journey, Ahmed has held senior roles at global companies such as Yassir, Fivos Health, Crossover, and QbDVision, where he led high-performing teams and delivered mission-critical software at scale. His expertise spans engineering management, product strategy, and growth, with a track record of bridging business vision with technical execution.\n\nDriven by a passion for impact, innovation, and Islamic values, Ahmed continues to build tools and platforms that serve communities and shape the future of technology.",
+    id: 'ahmed',
     image: ahmedImg,
     socials: {
       facebook: 'https://www.facebook.com/ahmedfathykhalid',
@@ -34,9 +30,7 @@ const team: TeamMember[] = [
     },
   },
   {
-    name: 'Mohamed Abusrea',
-    title: 'Staff Frontend Engineer | Founder of Quran Tab & Quran Station',
-    bio: 'Mohamed Abusrea is a Staff Frontend Engineer and entrepreneur with over 10 years of experience building scalable, user-focused web applications and digital products. He is the creator of Quran Tab and Quran Station, two widely adopted tools that help millions of Muslims stay connected to the Quran in their daily lives.\n\nOver the past decade, Mohamed has contributed to global companies such as Yassir, QbDVision, Nord Security, Delivery Hero, and Landmark Group, where he specialized in frontend architecture, performance optimization, and building seamless user experiences at scale.\n\nPassionate about the intersection of faith and technology, Mohamed continues to pioneer products that combine modern design, accessibility, and spiritual purpose, making Islamic tools available and delightful for users worldwide.',
+    id: 'mohamed',
     image: mohamedImg,
     socials: {
       facebook: 'https://www.facebook.com/m.abusre3',
@@ -48,7 +42,7 @@ const team: TeamMember[] = [
   },
 ]
 
-function SocialLinks({ socials }: { socials: TeamMember['socials'] }) {
+function SocialLinks({ socials }: { socials: TeamMemberData['socials'] }) {
   return (
     <div className="flex justify-center gap-3 mt-6">
       {socials.facebook && (
@@ -110,12 +104,19 @@ function SocialLinks({ socials }: { socials: TeamMember['socials'] }) {
   )
 }
 
-function TeamCard({ member, index }: { member: TeamMember; index: number }) {
+function TeamCard({ member, index }: { member: TeamMemberData; index: number }) {
   const [isExpanded, setIsExpanded] = useState(false)
+  const { t } = useTranslation('common')
+  const { t: tHome } = useTranslation('home')
+
+  // Get translated content
+  const name = tHome(`team.members.${member.id}.name`)
+  const title = tHome(`team.members.${member.id}.title`)
+  const bio = tHome(`team.members.${member.id}.bio`)
 
   // Get first paragraph for truncated view
-  const firstParagraph = member.bio.split('\n\n')[0]
-  const hasMoreContent = member.bio.includes('\n\n')
+  const firstParagraph = bio.split('\n\n')[0]
+  const hasMoreContent = bio.includes('\n\n')
 
   return (
     <div
@@ -128,31 +129,27 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
       {/* Photo */}
       <img
         src={member.image}
-        alt={member.name}
+        alt={name}
         className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-2 border-border"
       />
 
       {/* Name */}
-      <h3 className="text-xl font-bold text-foreground text-center">
-        {member.name}
-      </h3>
+      <h3 className="text-xl font-bold text-foreground text-center">{name}</h3>
 
       {/* Title */}
-      <p className="text-sm text-muted-foreground mt-1 text-center">
-        {member.title}
-      </p>
+      <p className="text-sm text-muted-foreground mt-1 text-center">{title}</p>
 
       {/* Bio */}
       <div className="mt-6">
         <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-          {isExpanded ? member.bio : firstParagraph}
+          {isExpanded ? bio : firstParagraph}
         </p>
         {hasMoreContent && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="text-sm font-medium text-foreground hover:text-foreground/80 mt-3 transition-colors"
           >
-            {isExpanded ? 'Read less' : 'Read more'}
+            {isExpanded ? t('actions.readLess') : t('actions.readMore')}
           </button>
         )}
       </div>
@@ -164,20 +161,22 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
 }
 
 export function Team() {
+  const { t } = useTranslation('home')
+
   return (
     <section id="team" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Team
+            {t('team.title')}
           </h2>
         </div>
 
         {/* Team grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {team.map((member, index) => (
-            <TeamCard key={member.name} member={member} index={index} />
+          {teamData.map((member, index) => (
+            <TeamCard key={member.id} member={member} index={index} />
           ))}
         </div>
       </div>

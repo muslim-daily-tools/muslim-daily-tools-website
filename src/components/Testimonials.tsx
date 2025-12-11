@@ -1,4 +1,5 @@
 import { Star } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 interface Testimonial {
   quote: string
@@ -10,14 +11,14 @@ interface Testimonial {
 
 interface Stat {
   value: string
-  label: string
+  labelKey: string
 }
 
 const stats: Stat[] = [
-  { value: '50,000+', label: 'Active Users' },
-  { value: '1M+', label: 'Listening Sessions' },
-  { value: '500K+', label: 'Downloads' },
-  { value: '40+', label: 'Languages' },
+  { value: '50,000+', labelKey: 'testimonials.stats.activeUsers' },
+  { value: '1M+', labelKey: 'testimonials.stats.listeningSessions' },
+  { value: '500K+', labelKey: 'testimonials.stats.downloads' },
+  { value: '40+', labelKey: 'testimonials.stats.languages' },
 ]
 
 const testimonials: Testimonial[] = [
@@ -155,12 +156,16 @@ function Avatar({ name, avatar }: { name: string; avatar?: string }) {
 }
 
 function StatCard({ stat }: { stat: Stat }) {
+  const { t } = useTranslation('home')
+
   return (
     <div className="flex flex-col items-center text-center px-4 py-2">
       <span className="text-2xl md:text-3xl font-bold text-foreground">
         {stat.value}
       </span>
-      <span className="text-sm text-muted-foreground mt-1">{stat.label}</span>
+      <span className="text-sm text-muted-foreground mt-1">
+        {t(stat.labelKey)}
+      </span>
     </div>
   )
 }
@@ -172,6 +177,8 @@ function TestimonialCard({
   testimonial: Testimonial
   index: number
 }) {
+  const { t } = useTranslation('home')
+
   return (
     <div
       className="group bg-card rounded-xl p-5 shadow-sm border border-border hover:shadow-md hover:border-border/80 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4 flex flex-col"
@@ -201,7 +208,7 @@ function TestimonialCard({
       {/* Tool badge at bottom */}
       <div className="mt-4 pt-3 border-t border-border">
         <span className="text-xs text-muted-foreground/70">
-          Review for{' '}
+          {t('testimonials.reviewFor')}{' '}
           <span className="font-medium text-foreground/70">
             {testimonial.tool}
           </span>
@@ -212,6 +219,8 @@ function TestimonialCard({
 }
 
 export function Testimonials() {
+  const { t } = useTranslation('home')
+
   // Split testimonials into 3 columns for masonry effect
   const columns: Testimonial[][] = [[], [], []]
   testimonials.forEach((testimonial, index) => {
@@ -224,17 +233,17 @@ export function Testimonials() {
         {/* Section header */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Trusted by thousands of Muslims worldwide
+            {t('testimonials.title')}
           </h2>
         </div>
 
         {/* Stats row */}
         <div className="flex flex-wrap justify-center items-center gap-x-2 md:gap-x-4 mb-16">
           {stats.map((stat, index) => (
-            <div key={stat.label} className="flex items-center">
+            <div key={stat.labelKey} className="flex items-center">
               <StatCard stat={stat} />
               {index < stats.length - 1 && (
-                <div className="hidden md:block w-px h-12 bg-border ml-4" />
+                <div className="hidden md:block w-px h-12 bg-border ms-4" />
               )}
             </div>
           ))}

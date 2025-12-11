@@ -13,6 +13,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* RTL (Arabic) font support */
+[dir='rtl'] body {
+  font-family: 'Readex Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 code {
   font-family:
     source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
