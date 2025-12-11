@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Hero } from '../components/Hero'
 import { About } from '../components/About'
 import { Tools } from '../components/Tools'
-import { Stats } from '../components/Stats'
+import { Testimonials } from '../components/Testimonials'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -15,7 +15,7 @@ function HomePage() {
       <Hero />
       <About />
       <Tools />
-      <Stats />
+      <Testimonials />
     </>
   )
 }

@@ -78,6 +78,21 @@ Homepage sections alternate backgrounds for visual separation:
 - **Hero** - inherits `bg-background` (transparent/default)
 - **About** - explicit `bg-white`
 - **Tools** - inherits `bg-background` (transparent/default)
-- **Stats** - explicit `bg-white`
+- **Testimonials** - inherits `bg-background` (transparent/default), includes stats row
 
 When adding new sections, alternate between `bg-white` and no background class to maintain visual rhythm.
+
+### Testimonials Design (Chrome Web Store Style)
+Combined stats + testimonials section inspired by Chrome Web Store reviews:
+- **Stats row** at top with key metrics (users, ratings, downloads, languages)
+  - Stats with optional star ratings displayed inline
+  - Vertical dividers between stats on desktop
+- **Masonry layout** - Cards distributed across 3 columns for varying heights
+- **Testimonial cards** feature:
+  - Circular avatar (image or colored initials based on name)
+  - Author name next to avatar
+  - 5-star rating with amber fill
+  - Review text in muted color
+  - Subtle hover shadow and border effect
+  - Staggered fade-in animation
+- **Avatar generation**: Initials from name with deterministic color based on first character
