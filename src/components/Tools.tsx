@@ -88,7 +88,7 @@ function StarRating({ rating }: { rating: number }) {
               ? 'fill-amber-400 text-amber-400'
               : i === fullStars && hasHalfStar
                 ? 'fill-amber-400/50 text-amber-400'
-                : 'fill-gray-200 text-gray-200'
+                : 'fill-muted text-muted'
           }`}
         />
       ))}
@@ -100,16 +100,16 @@ function ToolCard({ tool }: { tool: Tool }) {
   const hasStats = !tool.comingSoon && (tool.rating || tool.userCount)
 
   return (
-    <div className="group relative bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col h-full transition-all duration-200 hover:shadow-md hover:border-gray-200">
+    <div className="group relative bg-card rounded-xl p-6 shadow-sm border border-border flex flex-col h-full transition-all duration-200 hover:shadow-md hover:border-border/80">
       {tool.comingSoon && (
-        <span className="absolute top-4 right-4 text-xs font-medium bg-amber-100 text-amber-700 px-2 py-1 rounded-full">
+        <span className="absolute top-4 right-4 text-xs font-medium bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded-full">
           Coming Soon
         </span>
       )}
 
       {/* Header: Logo + Title & Stats */}
       <div className="flex items-start gap-4 mb-4">
-        <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-gray-100">
+        <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-border">
           <img
             src={tool.logo}
             alt={`${tool.title} logo`}

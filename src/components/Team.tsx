@@ -119,7 +119,7 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
 
   return (
     <div
-      className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
+      className="bg-card rounded-xl p-8 shadow-sm border border-border hover:shadow-md hover:border-border/80 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
       style={{
         animationDelay: `${index * 100}ms`,
         animationFillMode: 'backwards',
@@ -129,7 +129,7 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
       <img
         src={member.image}
         alt={member.name}
-        className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-2 border-gray-200"
+        className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-2 border-border"
       />
 
       {/* Name */}

@@ -9,11 +9,18 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
+import { ThemeProvider } from '../lib/theme'
 
 import appCss from '../styles.css?url'
 
 export const Route = createRootRoute({
   head: () => ({
+    scripts: [
+      {
+        // Inline script to prevent flash of wrong theme
+        children: `(function(){var t=localStorage.getItem('theme');var d=t||((window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light');if(d==='dark')document.documentElement.classList.add('dark')})()`,
+      },
+    ],
     meta: [
       {
         charSet: 'utf-8',
@@ -43,12 +50,14 @@ function RootDocument() {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-[#FAF8F5]">
-        <Header />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <Footer />
+      <body className="bg-background ambient-glow">
+        <ThemeProvider>
+          <Header />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <Footer />
+        </ThemeProvider>
         <TanStackDevtools
           config={{
             position: 'bottom-right',

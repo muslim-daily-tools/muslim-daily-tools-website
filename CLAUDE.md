@@ -76,11 +76,26 @@ The mobile menu in `Navigation.tsx` uses:
 ### Section Pattern
 Homepage sections alternate backgrounds for visual separation:
 - **Hero** - inherits `bg-background` (transparent/default)
-- **About** - explicit `bg-white`
+- **About** - explicit `bg-card` (for contrast)
 - **Tools** - inherits `bg-background` (transparent/default)
 - **Testimonials** - inherits `bg-background` (transparent/default), includes stats row
+- **Team** - inherits `bg-background` (transparent/default)
 
-When adding new sections, alternate between `bg-white` and no background class to maintain visual rhythm.
+When adding new sections, alternate between `bg-card` and no background class to maintain visual rhythm.
+
+### Dark Mode / Theming
+The site supports light and dark themes with:
+- **Theme Context** (`src/lib/theme.tsx`) - `ThemeProvider` wraps the app, `useTheme()` hook for access
+- **Theme Toggle** (`src/components/ThemeToggle.tsx`) - Sun/Moon button in header
+- **Persistence** - Theme stored in localStorage, defaults to system preference
+- **Flash Prevention** - Inline script in `<head>` applies `.dark` class before paint
+
+**Color conventions for dark mode compatibility:**
+- Use `bg-background` for page background, `bg-card` for elevated surfaces
+- Use `border-border` instead of hardcoded gray borders
+- Use `text-foreground` and `text-muted-foreground` for text
+- For semantic colors (amber badges), add dark variants: `bg-amber-100 dark:bg-amber-900/30`
+- Star ratings use `fill-amber-400` (works in both modes) and `fill-muted` for empty
 
 ### Testimonials Design (Chrome Web Store Style)
 Combined stats + testimonials section inspired by Chrome Web Store reviews:

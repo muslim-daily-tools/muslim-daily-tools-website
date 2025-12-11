@@ -1,6 +1,6 @@
 export function About() {
   return (
-    <section id="about" className="bg-white py-24 px-6">
+    <section id="about" className="bg-card py-24 px-6">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground">
           Who Are We

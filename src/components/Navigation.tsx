@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ThemeToggle } from './ThemeToggle'
 
 const navLinks = [
   { href: '#testimonials', label: 'Testimonials' },
@@ -24,6 +25,7 @@ export function Navigation() {
             {link.label}
           </a>
         ))}
+        <ThemeToggle />
         <a
           href="https://donate.example.com"
           className="bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
@@ -86,6 +88,12 @@ export function Navigation() {
                 {link.label}
               </a>
             ))}
+            <div className="flex items-center justify-between py-2">
+              <span className="text-sm font-medium text-muted-foreground">
+                Theme
+              </span>
+              <ThemeToggle />
+            </div>
             <a
               href="https://donate.example.com"
               className="bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-md hover:bg-primary/90 transition-colors text-center"

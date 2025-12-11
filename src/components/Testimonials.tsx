@@ -102,7 +102,7 @@ function StarRating({
           className={`${sizeClass} ${
             star <= rating
               ? 'fill-amber-400 text-amber-400'
-              : 'fill-gray-200 text-gray-200'
+              : 'fill-muted text-muted'
           }`}
         />
       ))}
@@ -174,7 +174,7 @@ function TestimonialCard({
 }) {
   return (
     <div
-      className="group bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4 flex flex-col"
+      className="group bg-card rounded-xl p-5 shadow-sm border border-border hover:shadow-md hover:border-border/80 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4 flex flex-col"
       style={{
         animationDelay: `${index * 50}ms`,
         animationFillMode: 'backwards',
@@ -199,7 +199,7 @@ function TestimonialCard({
       </p>
 
       {/* Tool badge at bottom */}
-      <div className="mt-4 pt-3 border-t border-gray-100">
+      <div className="mt-4 pt-3 border-t border-border">
         <span className="text-xs text-muted-foreground/70">
           Review for{' '}
           <span className="font-medium text-foreground/70">
@@ -219,7 +219,7 @@ export function Testimonials() {
   })
 
   return (
-    <section id="testimonials" className="py-24 px-6 bg-white">
+    <section id="testimonials" className="bg-card py-24 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="text-center mb-10">
@@ -234,7 +234,7 @@ export function Testimonials() {
             <div key={stat.label} className="flex items-center">
               <StatCard stat={stat} />
               {index < stats.length - 1 && (
-                <div className="hidden md:block w-px h-12 bg-gray-200 ml-4" />
+                <div className="hidden md:block w-px h-12 bg-border ml-4" />
               )}
             </div>
           ))}
