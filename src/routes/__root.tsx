@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import {
   HeadContent,
   Outlet,
@@ -12,12 +12,17 @@ import { useTranslation } from 'react-i18next'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { ThemeProvider } from '../lib/theme'
-import { isRTL } from '../lib/i18n'
+import { isRTL, setSSRLanguage } from '../lib/i18n'
 import '../lib/i18n' // Initialize i18n
 
 import appCss from '../styles.css?url'
 
 export const Route = createRootRoute({
+  // Set language on server before rendering (reads from cookie)
+  beforeLoad: async () => {
+    await setSSRLanguage()
+  },
+
   head: () => ({
     scripts: [
       {
@@ -48,6 +53,12 @@ export const Route = createRootRoute({
         href: 'https://fonts.gstatic.com',
         crossOrigin: 'anonymous',
       },
+      // Preload Readex Pro font CSS for faster Arabic font loading
+      {
+        rel: 'preload',
+        href: 'https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200..700&display=swap',
+        as: 'style',
+      },
       // Readex Pro font for Arabic RTL support
       {
         rel: 'stylesheet',
@@ -67,8 +78,14 @@ function RootDocument() {
   const { i18n } = useTranslation()
   const dir = isRTL(i18n.language) ? 'rtl' : 'ltr'
 
+  // Update dir and lang attributes when language changes on client
+  useEffect(() => {
+    document.documentElement.dir = dir
+    document.documentElement.lang = i18n.language
+  }, [i18n.language, dir])
+
   return (
-    <html lang={i18n.language} dir={dir}>
+    <html lang={i18n.language} dir={dir} suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

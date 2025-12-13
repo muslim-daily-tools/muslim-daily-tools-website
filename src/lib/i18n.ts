@@ -1,16 +1,28 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
+import { createIsomorphicFn } from '@tanstack/react-start'
+import { getCookie } from '@tanstack/react-start/server'
 
 // Supported languages
 export const supportedLanguages = ['en', 'ar'] as const
 export type SupportedLanguage = (typeof supportedLanguages)[number]
+
+// Cookie name for language persistence
+export const i18nCookieName = 'i18nextLng'
 
 // RTL languages
 export const rtlLanguages: SupportedLanguage[] = ['ar']
 
 export const isRTL = (lang: string): boolean =>
   rtlLanguages.includes(lang as SupportedLanguage)
+
+// Server-side function to set language before rendering
+// This reads the cookie and sets i18n language on the server
+export const setSSRLanguage = createIsomorphicFn().server(async () => {
+  const language = getCookie(i18nCookieName)
+  await i18n.changeLanguage(language || 'en')
+})
 
 // Language display names
 export const languageNames: Record<SupportedLanguage, string> = {
@@ -221,13 +233,14 @@ i18n
     },
 
     detection: {
-      // Order of detection methods
-      order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
+      // Order of detection methods - use cookie for SSR compatibility
+      order: ['querystring', 'cookie', 'navigator', 'htmlTag'],
       // Keys to look for
       lookupQuerystring: 'lang',
-      lookupLocalStorage: 'i18nextLng',
-      // Cache user language preference
-      caches: ['localStorage'],
+      lookupCookie: i18nCookieName,
+      // Cache user language preference in cookie (accessible on server)
+      caches: ['cookie'],
+      cookieMinutes: 60 * 24 * 365, // 1 year
     },
 
     react: {
