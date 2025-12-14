@@ -38,7 +38,7 @@ const resources = {
         testimonials: 'Testimonials',
         team: 'Team',
         tools: 'Tools',
-        donate: 'Donate',
+        donate: 'Share Thawab 🌱',
         theme: 'Theme',
       },
       footer: {
@@ -107,6 +107,16 @@ const resources = {
           languages: 'Languages',
         },
       },
+      donate: {
+        title: 'Support Muslim Daily Tools 🌱',
+        description:
+          'We started with a simple idea: to bring the Quran closer every day. Today, thousands of Muslims use our tools and your support helps us continue building tools that serve the Ummah.',
+        options: {
+          patreon: 'Become a Patron',
+          coffee: 'Buy Me a Coffee',
+          paypal: 'Donate via PayPal',
+        },
+      },
       team: {
         title: 'Team',
         members: {
@@ -132,7 +142,7 @@ const resources = {
         testimonials: 'الشهادات',
         team: 'الفريق',
         tools: 'الأدوات',
-        donate: 'تبرّع',
+        donate: 'شارك الثواب 🌱',
         theme: 'المظهر',
       },
       footer: {
@@ -199,6 +209,19 @@ const resources = {
           listeningSessions: 'جلسة استماع',
           downloads: 'تحميل',
           languages: 'لغة',
+        },
+      },
+      donate: {
+        label: 'شارك الثواب',
+        title: 'شارك الثواب 🌱',
+        description:
+          'بدأنا بفكرة بسيطة: أن يكون القرآن أقرب في كل يوم. اليوم، يستخدم أدواتنا آلاف المسلمين و دعمك يُساعدنا على الاستمرار في بناء أدوات تخدم الأمة.',
+        hadith:
+          'قال ﷺ: «إذا مات ابن آدم انقطع عمله إلا من ثلاث: صدقة جارية، أو علم يُنتفع به، أو ولد صالح يدعو له» رواه مسلم',
+        options: {
+          patreon: 'كن داعمًا على Patreon',
+          coffee: 'اشترِ لنا قهوة',
+          paypal: 'تبرّع عبر PayPal',
         },
       },
       team: {

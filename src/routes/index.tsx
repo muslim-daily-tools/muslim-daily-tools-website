@@ -5,6 +5,7 @@ import { About } from '../components/About'
 import { Tools } from '../components/Tools'
 import { Testimonials } from '../components/Testimonials'
 import { Team } from '../components/Team'
+import { Donate } from '../components/Donate'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -18,6 +19,7 @@ function HomePage() {
       <Tools />
       <Testimonials />
       <Team />
+      <Donate />
     </>
   )
 }
