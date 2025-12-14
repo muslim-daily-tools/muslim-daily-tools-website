@@ -15,7 +15,11 @@ body {
 
 /* RTL (Arabic) font support */
 [dir='rtl'] body {
-  font-family: 'Readex Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    'Readex Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
 }
 
 code {
@@ -176,6 +180,10 @@ code {
   body {
     @apply bg-background text-foreground;
   }
+  /* Offset anchor scrolling for sticky header */
+  [id] {
+    @apply scroll-mt-24;
+  }
 }
 
 /* Apple-style glassmorphism */
@@ -222,14 +230,38 @@ code {
  */
 .ambient-glow {
   background-image:
-    radial-gradient(ellipse 100% 60% at 50% -10%, oklch(0.94 0.06 75) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 50% at 105% 90%, oklch(0.92 0.05 55) 0%, transparent 45%),
-    radial-gradient(ellipse 60% 45% at -5% 70%, oklch(0.93 0.04 95) 0%, transparent 40%);
+    radial-gradient(
+      ellipse 100% 60% at 50% -10%,
+      oklch(0.94 0.06 75) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 105% 90%,
+      oklch(0.92 0.05 55) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse 60% 45% at -5% 70%,
+      oklch(0.93 0.04 95) 0%,
+      transparent 40%
+    );
 }
 
 .dark .ambient-glow {
   background-image:
-    radial-gradient(ellipse 100% 60% at 50% -10%, oklch(0.22 0.06 270) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 50% at 105% 90%, oklch(0.20 0.08 300) 0%, transparent 45%),
-    radial-gradient(ellipse 60% 45% at -5% 70%, oklch(0.25 0.10 60) 0%, transparent 40%);
+    radial-gradient(
+      ellipse 100% 60% at 50% -10%,
+      oklch(0.22 0.06 270) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 105% 90%,
+      oklch(0.2 0.08 300) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse 60% 45% at -5% 70%,
+      oklch(0.25 0.1 60) 0%,
+      transparent 40%
+    );
 }
