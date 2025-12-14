@@ -42,9 +42,9 @@ code {
   /* Popovers match cards */
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.02 260);
-  /* Primary: deep warm slate */
-  --primary: oklch(0.25 0.03 260);
-  --primary-foreground: oklch(0.98 0.01 85);
+  /* Primary */
+  --primary: oklch(0.76 0.12 81.89);
+  --primary-foreground: oklch(1 0 0);
   /* Secondary: warm gray */
   --secondary: oklch(0.96 0.008 85);
   --secondary-foreground: oklch(0.25 0.03 260);
@@ -95,9 +95,6 @@ code {
   /* Popovers match cards */
   --popover: oklch(0.19 0.022 258);
   --popover-foreground: oklch(0.95 0.01 80);
-  /* Primary: warm sand/gold for CTAs */
-  --primary: oklch(0.82 0.12 85);
-  --primary-foreground: oklch(0.18 0.03 260);
   /* Secondary: muted slate */
   --secondary: oklch(0.25 0.025 255);
   --secondary-foreground: oklch(0.9 0.01 80);
@@ -182,7 +179,7 @@ code {
   }
   /* Offset anchor scrolling for sticky header */
   [id] {
-    @apply scroll-mt-24;
+    @apply scroll-mt-8 md:scroll-mt-24;
   }
 }
 

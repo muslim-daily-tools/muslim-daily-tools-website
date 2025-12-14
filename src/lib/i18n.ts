@@ -35,9 +35,10 @@ const resources = {
   en: {
     common: {
       nav: {
+        about: 'About',
+        tools: 'Tools',
         testimonials: 'Testimonials',
         team: 'Team',
-        tools: 'Tools',
         donate: 'Share Thawab 🌱',
         theme: 'Theme',
       },
@@ -111,6 +112,8 @@ const resources = {
         title: 'Support Muslim Daily Tools 🌱',
         description:
           'We started with a simple idea: to bring the Quran closer every day. Today, thousands of Muslims use our tools and your support helps us continue building tools that serve the Ummah.',
+        hadith:
+          'The Prophet ﷺ said: "When a person dies, their deeds end except for three: ongoing charity (sadaqah jariyah), beneficial knowledge, or a righteous child who prays for them." — Sahih Muslim',
         options: {
           patreon: 'Become a Patron',
           coffee: 'Buy Me a Coffee',
@@ -139,9 +142,10 @@ const resources = {
   ar: {
     common: {
       nav: {
-        testimonials: 'الشهادات',
-        team: 'الفريق',
+        about: 'من نحن',
         tools: 'الأدوات',
+        testimonials: 'التوصيات',
+        team: 'الفريق',
         donate: 'شارك الثواب 🌱',
         theme: 'المظهر',
       },
@@ -180,17 +184,14 @@ const resources = {
         ratings: 'تقييم',
         users: 'مستخدم',
         quranStation: {
-          title: 'محطة القرآن',
           description:
             'استمع لأكثر من 100 محطة إذاعية للقرآن الكريم بأصوات قرّاء مشهورين. تشغيل بنقرة واحدة، خفيف الوزن، ومُزامن عبر أجهزتك لتكون محطتك المفضلة دائمًا.',
         },
         quranTab: {
-          title: 'تبويب القرآن',
           description:
             'تبويب جديد مُستوحى من القرآن لمتصفحك. كل تبويب يُرحّب بك بآية، ومواقيت الصلاة، ومساحة هادئة للتأمل. اقرأ الترجمات بأكثر من 40 لغة، واستمع للقرّاء، واحفظ المفضلات.',
         },
         prayerCal: {
-          title: 'تقويم الصلاة',
           description:
             'أضف مواقيت الصلاة الدقيقة مباشرة إلى تقويمك. اختر طرق الحساب، وعيّن الإشعارات، ونظّم يومك حول الصلاة دون تغيير طريقة عملك المعتادة.',
         },

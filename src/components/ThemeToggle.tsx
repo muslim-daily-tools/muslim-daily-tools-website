@@ -1,4 +1,4 @@
-import { Moon, Sun } from 'lucide-react'
+import { LuMoon, LuSun } from 'react-icons/lu'
 import { useEffect, useState } from 'react'
 import { useTheme } from '@/lib/theme'
 
@@ -17,7 +17,7 @@ export function ThemeToggle() {
         className="text-muted-foreground hover:text-foreground transition-colors"
         aria-label="Toggle theme"
       >
-        <Moon className="w-5 h-5" />
+        <LuMoon className="w-5 h-5" />
       </button>
     )
   }
@@ -31,9 +31,9 @@ export function ThemeToggle() {
       }
     >
       {theme === 'light' ? (
-        <Moon className="w-5 h-5" />
+        <LuMoon className="w-5 h-5" />
       ) : (
-        <Sun className="w-5 h-5" />
+        <LuSun className="w-5 h-5" />
       )}
     </button>
   )

@@ -1,4 +1,4 @@
-import { ExternalLink, Star, Users } from 'lucide-react'
+import { LuExternalLink, LuStar, LuUsers } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
 
 import PrayerCalLogo from '../assets/prayer-cal-logo.png'
@@ -79,7 +79,7 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <div className="inline-flex items-center gap-0.5">
       {[...Array(5)].map((_, i) => (
-        <Star
+        <LuStar
           key={i}
           className={`w-3 h-3 ${
             i < fullStars
@@ -127,16 +127,22 @@ function ToolCard({ tool }: { tool: Tool }) {
               {tool.rating && (
                 <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                   <StarRating rating={tool.rating} />
-                  <span className="font-medium text-foreground">{tool.rating}</span>
+                  <span className="font-medium text-foreground">
+                    {tool.rating}
+                  </span>
                   {tool.reviewCount && (
-                    <span>({tool.reviewCount.toLocaleString()} {t('tools.ratings')})</span>
+                    <span>
+                      ({tool.reviewCount.toLocaleString()} {t('tools.ratings')})
+                    </span>
                   )}
                 </div>
               )}
               {tool.userCount && (
                 <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <Users className="w-3 h-3" />
-                  <span>{tool.userCount} {t('tools.users')}</span>
+                  <LuUsers className="w-3 h-3" />
+                  <span>
+                    {tool.userCount} {t('tools.users')}
+                  </span>
                 </div>
               )}
             </div>
@@ -146,7 +152,7 @@ function ToolCard({ tool }: { tool: Tool }) {
                 <StarRating rating={0} />
               </div>
               <div className="flex items-center gap-1.5 text-xs text-muted-foreground/50">
-                <Users className="w-3 h-3" />
+                <LuUsers className="w-3 h-3" />
                 <span>∞ {t('tools.users')}</span>
               </div>
             </div>
@@ -173,7 +179,7 @@ function ToolCard({ tool }: { tool: Tool }) {
             onClick={tool.comingSoon ? (e) => e.preventDefault() : undefined}
           >
             {t(link.labelKey)}
-            {!tool.comingSoon && <ExternalLink className="w-3 h-3" />}
+            {!tool.comingSoon && <LuExternalLink className="w-3 h-3" />}
           </a>
         ))}
       </div>

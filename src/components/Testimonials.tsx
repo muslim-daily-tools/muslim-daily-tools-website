@@ -1,4 +1,4 @@
-import { Star } from 'lucide-react'
+import { LuStar } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
 
 interface Testimonial {
@@ -98,7 +98,7 @@ function StarRating({
   return (
     <div className="flex gap-0.5">
       {[1, 2, 3, 4, 5].map((star) => (
-        <Star
+        <LuStar
           key={star}
           className={`${sizeClass} ${
             star <= rating

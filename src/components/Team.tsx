@@ -1,5 +1,11 @@
 import { useState } from 'react'
-import { Facebook, Twitter, Youtube, Github, Linkedin } from 'lucide-react'
+import {
+  FaFacebook,
+  FaXTwitter,
+  FaYoutube,
+  FaGithub,
+  FaLinkedin,
+} from 'react-icons/fa6'
 import { useTranslation } from 'react-i18next'
 
 import mohamedImg from '@/assets/mohamed.jpg'
@@ -53,7 +59,7 @@ function SocialLinks({ socials }: { socials: TeamMemberData['socials'] }) {
           className="text-muted-foreground hover:text-foreground transition-colors"
           aria-label="Facebook"
         >
-          <Facebook className="w-5 h-5" />
+          <FaFacebook className="w-5 h-5" />
         </a>
       )}
       {socials.twitter && (
@@ -64,7 +70,7 @@ function SocialLinks({ socials }: { socials: TeamMemberData['socials'] }) {
           className="text-muted-foreground hover:text-foreground transition-colors"
           aria-label="Twitter"
         >
-          <Twitter className="w-5 h-5" />
+          <FaXTwitter className="w-5 h-5" />
         </a>
       )}
       {socials.youtube && (
@@ -75,7 +81,7 @@ function SocialLinks({ socials }: { socials: TeamMemberData['socials'] }) {
           className="text-muted-foreground hover:text-foreground transition-colors"
           aria-label="YouTube"
         >
-          <Youtube className="w-5 h-5" />
+          <FaYoutube className="w-5 h-5" />
         </a>
       )}
       {socials.linkedin && (
@@ -86,7 +92,7 @@ function SocialLinks({ socials }: { socials: TeamMemberData['socials'] }) {
           className="text-muted-foreground hover:text-foreground transition-colors"
           aria-label="LinkedIn"
         >
-          <Linkedin className="w-5 h-5" />
+          <FaLinkedin className="w-5 h-5" />
         </a>
       )}
       {socials.github && (
@@ -97,14 +103,20 @@ function SocialLinks({ socials }: { socials: TeamMemberData['socials'] }) {
           className="text-muted-foreground hover:text-foreground transition-colors"
           aria-label="GitHub"
         >
-          <Github className="w-5 h-5" />
+          <FaGithub className="w-5 h-5" />
         </a>
       )}
     </div>
   )
 }
 
-function TeamCard({ member, index }: { member: TeamMemberData; index: number }) {
+function TeamCard({
+  member,
+  index,
+}: {
+  member: TeamMemberData
+  index: number
+}) {
   const [isExpanded, setIsExpanded] = useState(false)
   const { t } = useTranslation('common')
   const { t: tHome } = useTranslation('home')

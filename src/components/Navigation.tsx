@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { FaHandHoldingHeart } from 'react-icons/fa6'
 import { ThemeToggle } from './ThemeToggle'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 const navLinks = [
+  { href: '#about', labelKey: 'nav.about' },
+  { href: '#tools', labelKey: 'nav.tools' },
   { href: '#testimonials', labelKey: 'nav.testimonials' },
   { href: '#team', labelKey: 'nav.team' },
-  { href: '#tools', labelKey: 'nav.tools' },
 ]
 
 export function Navigation() {
@@ -17,8 +19,8 @@ export function Navigation() {
 
   return (
     <>
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center gap-8">
+      {/* Desktop Navigation - Center column */}
+      <nav className="hidden md:flex items-center justify-center gap-8">
         {navLinks.map((link) => (
           <a
             key={link.href}
@@ -28,20 +30,28 @@ export function Navigation() {
             {t(link.labelKey)}
           </a>
         ))}
-        <LanguageSwitcher />
-        <ThemeToggle />
-        <a
-          href="https://donate.example.com"
-          className="bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
-        >
-          {t('nav.donate')}
-        </a>
       </nav>
+
+      {/* Desktop Actions - Right column */}
+      <div className="hidden md:flex items-center justify-end gap-5">
+        <ThemeToggle />
+        <LanguageSwitcher />
+        <a
+          href="#donate"
+          className="flex items-center justify-center w-9 h-9 rounded-full bg-primary text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow"
+          aria-label={t('nav.donate')}
+          title={t('nav.donate')}
+        >
+          <FaHandHoldingHeart className="w-4 h-4" />
+        </a>
+      </div>
 
       {/* Mobile menu button */}
       <button
         className="md:hidden p-2 text-foreground"
-        aria-label={isOpen ? t('accessibility.closeMenu') : t('accessibility.openMenu')}
+        aria-label={
+          isOpen ? t('accessibility.closeMenu') : t('accessibility.openMenu')
+        }
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -102,8 +112,8 @@ export function Navigation() {
               <LanguageSwitcher />
             </div>
             <a
-              href="https://donate.example.com"
-              className="bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-md hover:bg-primary/90 transition-colors text-center"
+              href="#donate"
+              className="flex items-center justify-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
               onClick={closeMenu}
             >
               {t('nav.donate')}
