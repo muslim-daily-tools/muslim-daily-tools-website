@@ -6,10 +6,10 @@ import { ThemeToggle } from './ThemeToggle'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 const navLinks = [
-  { href: '#about', labelKey: 'nav.about' },
-  { href: '#tools', labelKey: 'nav.tools' },
-  { href: '#testimonials', labelKey: 'nav.testimonials' },
-  { href: '#team', labelKey: 'nav.team' },
+  { href: '/#about', labelKey: 'nav.about' },
+  { href: '/#tools', labelKey: 'nav.tools' },
+  { href: '/#testimonials', labelKey: 'nav.testimonials' },
+  { href: '/#team', labelKey: 'nav.team' },
   { href: '/changelog', labelKey: 'nav.changelog', isRoute: true },
 ]
 
@@ -49,7 +49,7 @@ export function Navigation() {
         <ThemeToggle />
         <LanguageSwitcher />
         <a
-          href="#donate"
+          href="/#donate"
           className="flex items-center justify-center w-9 h-9 rounded-full bg-primary text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow"
           aria-label={t('nav.donate')}
           title={t('nav.donate')}
@@ -135,7 +135,7 @@ export function Navigation() {
               <LanguageSwitcher />
             </div>
             <a
-              href="#donate"
+              href="/#donate"
               className="flex items-center justify-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
               onClick={closeMenu}
             >
