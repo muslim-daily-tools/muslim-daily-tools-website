@@ -6,13 +6,13 @@
     "dev": "vite dev --port 3000",
     "build": "vite build",
     "preview": "vite preview",
+    "deploy": "pnpm build && wrangler deploy",
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier",
     "check": "prettier --write . && eslint --fix"
   },
   "dependencies": {
-    "@netlify/vite-plugin-tanstack-start": "^1.0.2",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-devtools": "^0.7.0",
     "@tanstack/react-router": "^1.132.0",
@@ -34,6 +34,7 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.17.1",
     "@tanstack/devtools-vite": "^0.3.11",
     "@tanstack/eslint-config": "^0.3.0",
     "@testing-library/dom": "^10.4.0",
@@ -47,6 +48,7 @@
     "typescript": "^5.7.2",
     "vite": "^7.1.7",
     "vitest": "^3.0.5",
-    "web-vitals": "^5.1.0"
+    "web-vitals": "^5.1.0",
+    "wrangler": "^4.54.0"
   }
 }
