@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from '@tanstack/react-router'
 import { FaHandHoldingHeart } from 'react-icons/fa6'
 import { ThemeToggle } from './ThemeToggle'
 import { LanguageSwitcher } from './LanguageSwitcher'
@@ -9,6 +10,7 @@ const navLinks = [
   { href: '#tools', labelKey: 'nav.tools' },
   { href: '#testimonials', labelKey: 'nav.testimonials' },
   { href: '#team', labelKey: 'nav.team' },
+  { href: '/changelog', labelKey: 'nav.changelog', isRoute: true },
 ]
 
 export function Navigation() {
@@ -20,16 +22,26 @@ export function Navigation() {
   return (
     <>
       {/* Desktop Navigation - Center column */}
-      <nav className="hidden md:flex items-center justify-center gap-8">
-        {navLinks.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {t(link.labelKey)}
-          </a>
-        ))}
+      <nav className="hidden md:flex items-center justify-center gap-8 col-span-3">
+        {navLinks.map((link) =>
+          link.isRoute ? (
+            <Link
+              key={link.href}
+              to={link.href}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t(link.labelKey)}
+            </Link>
+          ) : (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {t(link.labelKey)}
+            </a>
+          ),
+        )}
       </nav>
 
       {/* Desktop Actions - Right column */}
@@ -92,16 +104,27 @@ export function Navigation() {
       {isOpen && (
         <div className="glass-panel absolute top-full left-0 right-0 md:hidden">
           <nav className="flex flex-col px-6 py-4 gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-                onClick={closeMenu}
-              >
-                {t(link.labelKey)}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                  onClick={closeMenu}
+                >
+                  {t(link.labelKey)}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                  onClick={closeMenu}
+                >
+                  {t(link.labelKey)}
+                </a>
+              ),
+            )}
             <div className="flex items-center justify-between py-2">
               <span className="text-sm font-medium text-muted-foreground">
                 {t('nav.theme')}

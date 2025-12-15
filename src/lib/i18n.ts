@@ -39,6 +39,7 @@ const resources = {
         tools: 'Tools',
         testimonials: 'Testimonials',
         team: 'Team',
+        changelog: 'Changelog',
         donate: 'Share Thawab 🌱',
         theme: 'Theme',
       },
@@ -138,6 +139,52 @@ const resources = {
         },
       },
     },
+    changelog: {
+      title: 'Changelog',
+      subtitle: 'Stay updated with the latest improvements',
+      noChanges: 'No changelog entries yet',
+      categories: {
+        new: 'New',
+        improved: 'Improved',
+        fixed: 'Fixed',
+      },
+      quranTab: {
+        v413: {
+          new1: 'Added favorite reciters feature with filtering capability',
+          new2: 'Added verse search feature',
+          improved1: 'Enhanced prayer times display with improved UI/UX',
+        },
+        v412: {
+          fixed1: 'Fix adhan audio issue in Firefox',
+          improved1: 'Show loading icon when loading a new verse',
+        },
+        v411: {
+          fixed1: 'Fix broken audio for Ashuraym',
+          improved1: 'General performance improvements and bug fixes',
+        },
+        v410: {
+          new1: 'New islamic backgrounds',
+          new2: 'Ability to choose the background type and the exact background image from the list',
+          new3: 'Light and Dark theme',
+          new4: 'New dropdown for reciters inside the verse box',
+          new5: 'Added 24 new reciters',
+          new6: 'Include Sunrise to prayer times',
+          new7: 'New adhan sound for shiekh Mohamed bin Marwan Qasas',
+          new8: 'Added more locations (countries/cities) to generate accurate prayer times',
+          new9: 'Added calculation method property to generate accurate prayer times',
+          new10: 'Ability to choose Indian or Arabic numeral type',
+          new11: 'Increase prayer times box size',
+        },
+        v4: {
+          new1: 'Firefox version now available with full feature support',
+          improved1:
+            'Refreshed user interface with improved visual design and usability',
+          improved2:
+            'Enhanced Quran display with new UthmanicHafs font for clearer Arabic text and integrated verse numbers',
+          fixed1: 'General performance improvements and bug fixes',
+        },
+      },
+    },
   },
   ar: {
     common: {
@@ -146,6 +193,7 @@ const resources = {
         tools: 'الأدوات',
         testimonials: 'التوصيات',
         team: 'الفريق',
+        changelog: 'سجل التحديثات',
         donate: 'شارك الثواب 🌱',
         theme: 'المظهر',
       },
@@ -239,6 +287,52 @@ const resources = {
         },
       },
     },
+    changelog: {
+      title: 'سجل التحديثات',
+      subtitle: 'تابع آخر التحسينات والتحديثات',
+      noChanges: 'لا توجد تحديثات بعد',
+      categories: {
+        new: 'جديد',
+        improved: 'تحسينات',
+        fixed: 'إصلاحات',
+      },
+      quranTab: {
+        v413: {
+          new1: 'إضافة ميزة القراء المفضلين مع إمكانية التصفية',
+          new2: 'إضافة ميزة البحث في الآيات',
+          improved1: 'تحسين عرض مواقيت الصلاة مع واجهة مستخدم محسّنة',
+        },
+        v412: {
+          fixed1: 'إصلاح مشكلة صوت الأذان في فايرفوكس',
+          improved1: 'إظهار أيقونة التحميل عند تحميل آية جديدة',
+        },
+        v411: {
+          fixed1: 'إصلاح الصوت المعطل للقارئ الشريم',
+          improved1: 'تحسينات عامة في الأداء وإصلاح الأخطاء',
+        },
+        v410: {
+          new1: 'خلفيات إسلامية جديدة',
+          new2: 'إمكانية اختيار نوع الخلفية والصورة المحددة من القائمة',
+          new3: 'المظهر الفاتح والداكن',
+          new4: 'قائمة منسدلة جديدة للقراء داخل مربع الآية',
+          new5: 'إضافة 24 قارئًا جديدًا',
+          new6: 'إضافة وقت الشروق لمواقيت الصلاة',
+          new7: 'صوت أذان جديد للشيخ محمد بن مروان قصاص',
+          new8: 'إضافة المزيد من المواقع (الدول/المدن) لتوليد مواقيت صلاة دقيقة',
+          new9: 'إضافة خاصية طريقة الحساب لتوليد مواقيت صلاة دقيقة',
+          new10: 'إمكانية اختيار نوع الأرقام الهندية أو العربية',
+          new11: 'زيادة حجم مربع مواقيت الصلاة',
+        },
+        v4: {
+          new1: 'إصدار فايرفوكس متاح الآن بدعم كامل للميزات',
+          improved1:
+            'تجديد واجهة المستخدم مع تحسين التصميم المرئي وسهولة الاستخدام',
+          improved2:
+            'تحسين عرض القرآن بخط حفص العثماني الجديد لنص عربي أوضح وأرقام الآيات المدمجة',
+          fixed1: 'تحسينات عامة في الأداء وإصلاح الأخطاء',
+        },
+      },
+    },
   },
 }
 
@@ -250,7 +344,7 @@ i18n
     fallbackLng: 'en',
     supportedLngs: supportedLanguages,
     defaultNS: 'common',
-    ns: ['common', 'home'],
+    ns: ['common', 'home', 'changelog'],
 
     interpolation: {
       escapeValue: false, // React already escapes values
