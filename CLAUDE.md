@@ -20,13 +20,14 @@ pnpm dlx shadcn@latest add <component>
 
 ## Architecture
 
-**TanStack Start + React 19** application deployed on Netlify with SSR support.
+**TanStack Start + React 19** application deployed on Cloudflare Workers with SSR support.
 
 ### Stack
 - **Framework**: TanStack Start (full-stack React meta-framework)
 - **Routing**: TanStack Router with file-based routing (`src/routes/`)
 - **Styling**: Tailwind CSS v4 + shadcn/ui (new-york style, zinc base)
-- **Build**: Vite 7 with Netlify adapter
+- **Build**: Vite 7 with Cloudflare adapter (`@cloudflare/vite-plugin`)
+- **Deployment**: Cloudflare Workers (auto-deploy via GitHub Actions on push to `main`)
 - **Testing**: Vitest + Testing Library
 
 ### Key Directories
@@ -51,7 +52,7 @@ import { Hero } from '@/components/Hero'
 
 ### Component Conventions
 - shadcn components go in `src/components/ui/`
-- Icons from `lucide-react`
+- Icons from `react-icons` (e.g., `react-icons/fi` for Feather icons)
 - Styling uses Tailwind with CSS variables for theming
 
 ### Layout Components
