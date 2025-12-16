@@ -31,18 +31,60 @@ export const Route = createRootRoute({
       },
     ],
     meta: [
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { title: 'Muslim Daily Tools - Quran & Prayer Tools for Your Daily Worship' },
       {
-        charSet: 'utf-8',
+        name: 'description',
+        content:
+          "Muslim Daily Tools helps you keep the Qur'an close, your prayers on time, and remembrance in rhythm with fast, minimalist browser extensions and apps.",
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
+        name: 'keywords',
+        content:
+          'Quran, Muslim, Islam, prayer times, Quran Tab, Quran Station, Islamic tools, browser extension, daily worship, salah, dhikr',
+      },
+      { name: 'author', content: 'Muslim Daily Tools' },
+      { name: 'robots', content: 'index, follow' },
+      { name: 'theme-color', content: '#d7a94f' },
+      { name: 'color-scheme', content: 'light dark' },
+      // Open Graph / Facebook
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://muslimdailytools.com' },
+      {
+        property: 'og:title',
+        content: 'Muslim Daily Tools - Quran & Prayer Tools for Your Daily Worship',
       },
       {
-        title: 'Muslim Daily Tools',
+        property: 'og:description',
+        content:
+          "Muslim Daily Tools helps you keep the Qur'an close, your prayers on time, and remembrance in rhythm with fast, minimalist browser extensions and apps.",
       },
+      { property: 'og:image', content: 'https://muslimdailytools.com/og-image.jpg' },
+      { property: 'og:site_name', content: 'Muslim Daily Tools' },
+      { property: 'og:locale', content: 'en_US' },
+      { property: 'og:locale:alternate', content: 'ar_AR' },
+      // Twitter Card
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:url', content: 'https://muslimdailytools.com' },
+      {
+        name: 'twitter:title',
+        content: 'Muslim Daily Tools - Quran & Prayer Tools for Your Daily Worship',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          "Muslim Daily Tools helps you keep the Qur'an close, your prayers on time, and remembrance in rhythm with fast, minimalist browser extensions and apps.",
+      },
+      { name: 'twitter:image', content: 'https://muslimdailytools.com/og-image.jpg' },
     ],
     links: [
+      // Canonical URL
+      { rel: 'canonical', href: 'https://muslimdailytools.com' },
+      // Favicon
+      { rel: 'icon', href: '/favicon.ico', sizes: '32x32' },
+      { rel: 'icon', href: '/logo.png', type: 'image/png', sizes: '192x192' },
+      { rel: 'apple-touch-icon', href: '/logo.png' },
       // Preconnect to Google Fonts for faster loading
       {
         rel: 'preconnect',

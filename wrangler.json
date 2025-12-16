@@ -3,5 +3,9 @@
   "name": "muslim-daily-tools",
   "compatibility_date": "2025-01-01",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "@tanstack/react-start/server-entry"
+  "main": "@tanstack/react-start/server-entry",
+  "routes": [
+    { "pattern": "muslimdailytools.com", "custom_domain": true },
+    { "pattern": "www.muslimdailytools.com", "custom_domain": true }
+  ]
 }
