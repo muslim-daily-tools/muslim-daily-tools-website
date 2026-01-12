@@ -1,4 +1,4 @@
-import PrayerCal from '../assets/prayer-cal-logo.png'
+import PrayerCal from '../assets/prayer-calendar-logo.png'
 import QuranTab from '../assets/quran-tab-logo.png'
 import QuranStation from '../assets/quran-station-logo.png'
 
@@ -9,7 +9,7 @@ const tools = [
     href: '#quran-station',
   },
   { label: 'Quran Tab', logo: QuranTab, href: '#quran-tab' },
-  { label: 'PrayerCal', logo: PrayerCal, href: '#prayer-cal' },
+  { label: 'Prayer Calendar', logo: PrayerCal, href: '#prayer-cal' },
 ]
 
 export function ToolsPreview() {

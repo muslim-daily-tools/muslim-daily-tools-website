@@ -1,7 +1,7 @@
 import { LuExternalLink, LuStar, LuUsers } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
 
-import PrayerCalLogo from '../assets/prayer-cal-logo.png'
+import PrayerCalLogo from '../assets/prayer-calendar-logo.png'
 import QuranStationLogo from '../assets/quran-station-logo.png'
 import QuranTabLogo from '../assets/quran-tab-logo.png'
 
@@ -109,7 +109,7 @@ function ToolCard({ tool }: { tool: Tool }) {
 
       {/* Header: Logo + Title & Stats */}
       <div className="flex items-start gap-4 mb-4">
-        <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-border">
+        <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0">
           <img
             src={tool.logo}
             alt={`${title} logo`}
