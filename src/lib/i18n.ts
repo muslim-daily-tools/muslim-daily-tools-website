@@ -133,7 +133,7 @@ const resources = {
           mohamed: {
             name: 'Mohamed Abusrea',
             title:
-              'Staff Frontend Engineer | Founder of Quran Tab & Quran Station',
+              'Staff Frontend Engineer | Co-Founder of Almdrasa | Creator of Quran Tab & Quran Station',
             bio: 'Mohamed Abusrea is a Staff Frontend Engineer and entrepreneur with over 10 years of experience building scalable, user-focused web applications and digital products. He is the creator of Quran Tab and Quran Station, two widely adopted tools that help millions of Muslims stay connected to the Quran in their daily lives.\n\nOver the past decade, Mohamed has contributed to global companies such as Yassir, QbDVision, Nord Security, Delivery Hero, and Landmark Group, where he specialized in frontend architecture, performance optimization, and building seamless user experiences at scale.\n\nPassionate about the intersection of faith and technology, Mohamed continues to pioneer products that combine modern design, accessibility, and spiritual purpose, making Islamic tools available and delightful for users worldwide.',
           },
         },
@@ -149,6 +149,21 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v430: {
+          new1: 'Adjustable image quality options for verse copying',
+          new2: 'Data management tab for exporting and importing settings',
+          improved1: 'Changelog moved to Muslim Daily Tools website',
+        },
+        v421: {
+          fixed1: 'Fixed verse image copy not working in Firefox',
+        },
+        v420: {
+          new1: 'Share verses as beautiful images with customizable themes',
+          new2: 'Include translation or tafseer in verse images',
+          new3: 'Seamless audio playback with no gaps between verses',
+          new4: 'Advanced verse search with minimum character requirement',
+          improved1: 'Enhanced copy verse modal with theme and content options',
+        },
         v413: {
           new1: 'Added favorite reciters feature with filtering capability',
           new2: 'Added verse search feature',
@@ -297,6 +312,21 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v430: {
+          new1: 'خيارات جودة الصورة القابلة للتعديل لنسخ الآيات',
+          new2: 'تبويب إدارة البيانات لتصدير واستيراد الإعدادات',
+          improved1: 'نقل سجل التحديثات إلى موقع أدوات المسلم اليومية',
+        },
+        v421: {
+          fixed1: 'إصلاح مشكلة نسخ صورة الآية في فايرفوكس',
+        },
+        v420: {
+          new1: 'مشاركة الآيات كصور جميلة مع سمات قابلة للتخصيص',
+          new2: 'إضافة الترجمة أو التفسير في صور الآيات',
+          new3: 'تشغيل صوتي سلس بدون فجوات بين الآيات',
+          new4: 'بحث متقدم في الآيات مع حد أدنى للأحرف',
+          improved1: 'تحسين نافذة نسخ الآية مع خيارات السمات والمحتوى',
+        },
         v413: {
           new1: 'إضافة ميزة القراء المفضلين مع إمكانية التصفية',
           new2: 'إضافة ميزة البحث في الآيات',
