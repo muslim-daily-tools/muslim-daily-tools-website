@@ -102,7 +102,7 @@ export function Navigation() {
 
       {/* Mobile menu panel */}
       {isOpen && (
-        <div className="glass-panel absolute top-full left-0 right-0 md:hidden">
+        <div className="absolute top-full left-0 right-0 md:hidden bg-white/90 dark:bg-slate-900/95 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5 dark:border-white/10">
           <nav className="flex flex-col px-6 py-4 gap-4">
             {navLinks.map((link) =>
               link.isRoute ? (

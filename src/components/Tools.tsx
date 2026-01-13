@@ -1,5 +1,6 @@
 import { LuExternalLink, LuStar, LuUsers } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
+import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
 
 import PrayerCalLogo from '../assets/prayer-calendar-logo.png'
 import QuranStationLogo from '../assets/quran-station-logo.png'
@@ -193,15 +194,23 @@ export function Tools() {
   return (
     <section id="tools" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-          {t('tools.title')}
-        </h2>
+        <FadeIn>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
+            {t('tools.title')}
+          </h2>
+        </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <StaggerContainer
+          as="div"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          staggerDelay={0.12}
+        >
           {tools.map((tool) => (
-            <ToolCard key={tool.titleKey} tool={tool} />
+            <StaggerItem key={tool.titleKey} variant="scaleIn">
+              <ToolCard tool={tool} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   )

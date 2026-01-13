@@ -7,6 +7,7 @@ import {
   FaLinkedin,
 } from 'react-icons/fa6'
 import { useTranslation } from 'react-i18next'
+import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
 
 import mohamedImg from '@/assets/mohamed.jpg'
 import ahmedImg from '@/assets/ahmed.jpg'
@@ -110,13 +111,7 @@ function SocialLinks({ socials }: { socials: TeamMemberData['socials'] }) {
   )
 }
 
-function TeamCard({
-  member,
-  index,
-}: {
-  member: TeamMemberData
-  index: number
-}) {
+function TeamCard({ member }: { member: TeamMemberData }) {
   const [isExpanded, setIsExpanded] = useState(false)
   const { t } = useTranslation('common')
   const { t: tHome } = useTranslation('home')
@@ -131,13 +126,7 @@ function TeamCard({
   const hasMoreContent = bio.includes('\n\n')
 
   return (
-    <div
-      className="bg-card rounded-xl p-8 shadow-sm border border-border hover:shadow-md hover:border-border/80 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4"
-      style={{
-        animationDelay: `${index * 100}ms`,
-        animationFillMode: 'backwards',
-      }}
-    >
+    <div className="bg-card rounded-xl p-8 shadow-sm border border-border hover:shadow-md hover:border-border/80 transition-all duration-200">
       {/* Photo */}
       <img
         src={member.image}
@@ -179,18 +168,24 @@ export function Team() {
     <section id="team" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-12">
+        <FadeIn className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             {t('team.title')}
           </h2>
-        </div>
+        </FadeIn>
 
         {/* Team grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {teamData.map((member, index) => (
-            <TeamCard key={member.id} member={member} index={index} />
+        <StaggerContainer
+          as="div"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          staggerDelay={0.15}
+        >
+          {teamData.map((member) => (
+            <StaggerItem key={member.id} variant="scaleIn">
+              <TeamCard member={member} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   )

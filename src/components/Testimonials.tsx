@@ -1,5 +1,6 @@
 import { LuStar } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
+import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
 
 interface Testimonial {
   quote: string
@@ -172,21 +173,13 @@ function StatCard({ stat }: { stat: Stat }) {
 
 function TestimonialCard({
   testimonial,
-  index,
 }: {
   testimonial: Testimonial
-  index: number
 }) {
   const { t } = useTranslation('home')
 
   return (
-    <div
-      className="group bg-card rounded-xl p-5 shadow-sm border border-border hover:shadow-md hover:border-border/80 transition-all duration-200 animate-in fade-in slide-in-from-bottom-4 flex flex-col"
-      style={{
-        animationDelay: `${index * 50}ms`,
-        animationFillMode: 'backwards',
-      }}
-    >
+    <div className="group bg-card rounded-xl p-5 shadow-sm border border-border hover:shadow-md hover:border-border/80 transition-all duration-200 flex flex-col h-full">
       {/* Header: Avatar + Name */}
       <div className="flex items-center gap-3 mb-3">
         <Avatar name={testimonial.author} avatar={testimonial.avatar} />
@@ -231,58 +224,54 @@ export function Testimonials() {
     <section id="testimonials" className="bg-card py-24 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-10">
+        <FadeIn className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             {t('testimonials.title')}
           </h2>
-        </div>
+        </FadeIn>
 
         {/* Stats row */}
-        <div className="flex flex-wrap justify-center items-center gap-x-2 md:gap-x-4 mb-16">
-          {stats.map((stat, index) => (
-            <div key={stat.labelKey} className="flex items-center">
-              <StatCard stat={stat} />
-              {index < stats.length - 1 && (
-                <div className="hidden md:block w-px h-12 bg-border ms-4" />
-              )}
-            </div>
-          ))}
-        </div>
+        <FadeIn delay={0.1}>
+          <div className="flex flex-wrap justify-center items-center gap-x-2 md:gap-x-4 mb-16">
+            {stats.map((stat, index) => (
+              <div key={stat.labelKey} className="flex items-center">
+                <StatCard stat={stat} />
+                {index < stats.length - 1 && (
+                  <div className="hidden md:block w-px h-12 bg-border ms-4" />
+                )}
+              </div>
+            ))}
+          </div>
+        </FadeIn>
 
         {/* Masonry testimonials grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Column 1 */}
-          <div className="flex flex-col gap-4">
-            {columns[0].map((testimonial, idx) => (
-              <TestimonialCard
-                key={testimonial.author}
-                testimonial={testimonial}
-                index={idx}
-              />
+          <StaggerContainer className="flex flex-col gap-4" staggerDelay={0.1}>
+            {columns[0].map((testimonial) => (
+              <StaggerItem key={testimonial.author}>
+                <TestimonialCard testimonial={testimonial} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           {/* Column 2 */}
-          <div className="flex flex-col gap-4">
-            {columns[1].map((testimonial, idx) => (
-              <TestimonialCard
-                key={testimonial.author}
-                testimonial={testimonial}
-                index={idx + columns[0].length}
-              />
+          <StaggerContainer className="flex flex-col gap-4" staggerDelay={0.1}>
+            {columns[1].map((testimonial) => (
+              <StaggerItem key={testimonial.author}>
+                <TestimonialCard testimonial={testimonial} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
           {/* Column 3 */}
-          <div className="flex flex-col gap-4">
-            {columns[2].map((testimonial, idx) => (
-              <TestimonialCard
-                key={testimonial.author}
-                testimonial={testimonial}
-                index={idx + columns[0].length + columns[1].length}
-              />
+          <StaggerContainer className="flex flex-col gap-4" staggerDelay={0.1}>
+            {columns[2].map((testimonial) => (
+              <StaggerItem key={testimonial.author}>
+                <TestimonialCard testimonial={testimonial} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
     </section>

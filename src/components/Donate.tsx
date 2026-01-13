@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SiBuymeacoffee, SiPatreon, SiPaypal } from 'react-icons/si'
+import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
 
 interface SupportOption {
   id: string
@@ -39,31 +40,39 @@ export function Donate() {
     <section id="donate" className="bg-card py-24 px-6">
       <div className="max-w-3xl mx-auto text-center">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-          {t('donate.title')}
-        </h2>
+        <FadeIn>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            {t('donate.title')}
+          </h2>
+        </FadeIn>
         {/* Description */}
-        <p className="flex flex-col gap-3 text-muted-foreground mt-4 max-w-xl mx-auto leading-relaxed">
-          <span>{t('donate.description')}</span>
-          <span className="text-primary font-semibold">
-            {t('donate.hadith')}
-          </span>
-        </p>
+        <FadeIn delay={0.1}>
+          <p className="flex flex-col gap-3 text-muted-foreground mt-4 max-w-xl mx-auto leading-relaxed">
+            <span>{t('donate.description')}</span>
+            <span className="text-primary font-semibold">
+              {t('donate.hadith')}
+            </span>
+          </p>
+        </FadeIn>
         {/* Donation buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mt-8">
+        <StaggerContainer
+          className="flex flex-wrap justify-center gap-3 mt-8"
+          staggerDelay={0.1}
+        >
           {supportOptions.map((option) => (
-            <a
-              key={option.id}
-              href={option.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium transition-colors ${option.className}`}
-            >
-              {option.icon}
-              {t(`donate.options.${option.id}`)}
-            </a>
+            <StaggerItem key={option.id} variant="scaleIn">
+              <a
+                href={option.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium transition-colors ${option.className}`}
+              >
+                {option.icon}
+                {t(`donate.options.${option.id}`)}
+              </a>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   )
