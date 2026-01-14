@@ -12,7 +12,7 @@ export type SupportedLanguage = (typeof supportedLanguages)[number]
 export const i18nCookieName = 'i18nextLng'
 
 // RTL languages
-export const rtlLanguages: SupportedLanguage[] = ['ar']
+export const rtlLanguages: Array<SupportedLanguage> = ['ar']
 
 export const isRTL = (lang: string): boolean =>
   rtlLanguages.includes(lang as SupportedLanguage)
@@ -35,7 +35,7 @@ const resources = {
   en: {
     common: {
       nav: {
-        about: 'About',
+        resources: 'Resources',
         tools: 'Tools',
         testimonials: 'Testimonials',
         team: 'Team',
@@ -139,6 +139,120 @@ const resources = {
         },
       },
     },
+    resources: {
+      title: 'Resources & Tech Stack',
+      subtitle:
+        'A collection of APIs, libraries, and tools used to build our tools. We hope this helps developers who want to build similar Islamic applications.',
+      openLink: 'Open link',
+      noResources: 'Resources coming soon',
+      footerNote:
+        'This list is maintained to help the Muslim developer community. If you find any issues or have suggestions, feel free to reach out.',
+      categories: {
+        apis: 'APIs & Services',
+        libraries: 'Libraries & Frameworks',
+        fonts: 'Fonts',
+        data: 'Data Sources',
+        tools: 'Development Tools',
+      },
+      items: {
+        quranenc: {
+          name: 'QuranEnc API',
+          description:
+            'Provides 100+ Quran translations in various languages from quranenc.com',
+        },
+        tafsirApi: {
+          name: 'Tafsir API',
+          description:
+            'Verse interpretations including Tafsir Al-Muyassar, hosted on jsDelivr CDN',
+        },
+        everyayah: {
+          name: 'Every Ayah',
+          description:
+            'Audio recitations from renowned reciters with verse-by-verse playback',
+        },
+        nominatim: {
+          name: 'OpenStreetMap Nominatim',
+          description:
+            'Geocoding service for worldwide location search to calculate prayer times',
+        },
+        react: {
+          name: 'React 19',
+          description:
+            'Modern UI library for building interactive user interfaces',
+        },
+        zustand: {
+          name: 'Zustand',
+          description:
+            'Lightweight state management with localStorage persistence',
+        },
+        tanstackQuery: {
+          name: 'TanStack Query',
+          description:
+            'Server state management with 24-hour caching for translations and tafseer',
+        },
+        adhanjs: {
+          name: 'Adhan.js',
+          description:
+            'High precision prayer time calculations supporting multiple methods',
+        },
+        tailwind: {
+          name: 'Tailwind CSS',
+          description: 'Utility-first CSS framework for rapid UI development',
+        },
+        vite: {
+          name: 'Vite',
+          description:
+            'Next-generation frontend tooling with fast HMR development',
+        },
+        crxjs: {
+          name: 'CRXJS Vite Plugin',
+          description:
+            'Chrome extension development with Hot Module Replacement',
+        },
+        readexPro: {
+          name: 'Readex Pro',
+          description:
+            'Variable Arabic-Latin font for UI text and modern Arabic typography',
+        },
+        uthmanicHafs: {
+          name: 'Uthmanic Hafs V22',
+          description:
+            'Arabic Quran text with embedded verse numbers in authentic Uthmani script from Qul by Tarteel AI',
+        },
+        qcfSurahHeader: {
+          name: 'QCF Surah Header',
+          description:
+            'Decorative font for surah name headers with beautiful ligatures from Qul by Tarteel AI',
+        },
+        qpcHafs: {
+          name: 'QPC Hafs Script',
+          description:
+            'Complete Quran text data in Hafs narration from Qul by Tarteel AI',
+        },
+        quranMetadata: {
+          name: 'Quran Metadata',
+          description:
+            'Comprehensive metadata including surah names, verse counts, and divisions (Juz, Hizb, Rub) from Qul by Tarteel AI',
+        },
+        recitersCatalog: {
+          name: 'Reciters Catalog',
+          description:
+            'Complete catalog of Quran reciters with Arabic and English labels',
+        },
+        typescript: {
+          name: 'TypeScript',
+          description: 'Type-safe JavaScript for better developer experience',
+        },
+        playwright: {
+          name: 'Playwright',
+          description: 'End-to-end testing framework for cross-browser testing',
+        },
+        vitest: {
+          name: 'Vitest',
+          description: 'Fast unit testing framework powered by Vite',
+        },
+      },
+    },
     changelog: {
       title: 'Changelog',
       subtitle: 'Stay updated with the latest improvements',
@@ -204,7 +318,7 @@ const resources = {
   ar: {
     common: {
       nav: {
-        about: 'من نحن',
+        resources: 'الموارد',
         tools: 'الأدوات',
         testimonials: 'التوصيات',
         team: 'الفريق',
@@ -302,6 +416,113 @@ const resources = {
         },
       },
     },
+    resources: {
+      title: 'الموارد والتقنيات',
+      subtitle:
+        'مجموعة من واجهات البرمجة والمكتبات والأدوات المستخدمة في بناء أدواتنا. نأمل أن تساعد المطورين الراغبين في بناء تطبيقات إسلامية مماثلة.',
+      openLink: 'فتح الرابط',
+      noResources: 'الموارد قريبًا',
+      footerNote:
+        'هذه القائمة مُعدّة لمساعدة مجتمع المطورين المسلمين. إذا وجدت أي مشكلة أو لديك اقتراحات، لا تتردد في التواصل معنا.',
+      categories: {
+        apis: 'واجهات البرمجة والخدمات',
+        libraries: 'المكتبات وأُطر العمل',
+        fonts: 'الخطوط',
+        data: 'مصادر البيانات',
+        tools: 'أدوات التطوير',
+      },
+      items: {
+        quranenc: {
+          name: 'QuranEnc API',
+          description:
+            'يوفر أكثر من 100 ترجمة للقرآن بلغات مختلفة من موقع quranenc.com',
+        },
+        tafsirApi: {
+          name: 'Tafsir API',
+          description:
+            'تفسير الآيات بما في ذلك التفسير الميسر، مستضاف على شبكة jsDelivr',
+        },
+        everyayah: {
+          name: 'Every Ayah',
+          description: 'تلاوات صوتية من قراء مشهورين مع تشغيل آية بآية',
+        },
+        nominatim: {
+          name: 'OpenStreetMap Nominatim',
+          description:
+            'خدمة تحديد المواقع للبحث عن المدن حول العالم لحساب مواقيت الصلاة',
+        },
+        react: {
+          name: 'React 19',
+          description: 'مكتبة حديثة لبناء واجهات مستخدم تفاعلية',
+        },
+        zustand: {
+          name: 'Zustand',
+          description: 'إدارة حالة خفيفة مع حفظ في التخزين المحلي',
+        },
+        tanstackQuery: {
+          name: 'TanStack Query',
+          description:
+            'إدارة حالة الخادم مع تخزين مؤقت لمدة 24 ساعة للترجمات والتفسير',
+        },
+        adhanjs: {
+          name: 'Adhan.js',
+          description: 'حسابات دقيقة لمواقيت الصلاة تدعم طرق حساب متعددة',
+        },
+        tailwind: {
+          name: 'Tailwind CSS',
+          description: 'إطار عمل CSS للتطوير السريع للواجهات',
+        },
+        vite: {
+          name: 'Vite',
+          description: 'أداة تطوير حديثة مع تحديث فوري سريع',
+        },
+        crxjs: {
+          name: 'CRXJS Vite Plugin',
+          description: 'تطوير إضافات كروم مع التحديث الفوري',
+        },
+        readexPro: {
+          name: 'Readex Pro',
+          description:
+            'خط متغير عربي-لاتيني لنصوص الواجهة والطباعة العربية الحديثة',
+        },
+        uthmanicHafs: {
+          name: 'خط حفص العثماني V22',
+          description:
+            'نص القرآن العربي بأرقام الآيات المدمجة بالخط العثماني الأصيل من Qul by Tarteel AI',
+        },
+        qcfSurahHeader: {
+          name: 'خط رأس السورة',
+          description:
+            'خط زخرفي لعناوين السور بحروف مزخرفة جميلة من Qul by Tarteel AI',
+        },
+        qpcHafs: {
+          name: 'نص حفص',
+          description:
+            'بيانات نص القرآن الكامل برواية حفص من Qul by Tarteel AI',
+        },
+        quranMetadata: {
+          name: 'بيانات القرآن الوصفية',
+          description:
+            'بيانات شاملة تشمل أسماء السور وعدد الآيات والتقسيمات (الجزء، الحزب، الربع) من Qul by Tarteel AI',
+        },
+        recitersCatalog: {
+          name: 'فهرس القراء',
+          description: 'فهرس كامل لقراء القرآن بالعربية والإنجليزية',
+        },
+        typescript: {
+          name: 'TypeScript',
+          description: 'جافاسكريبت مع أنواع البيانات لتجربة تطوير أفضل',
+        },
+        playwright: {
+          name: 'Playwright',
+          description: 'إطار اختبار شامل للمتصفحات المتعددة',
+        },
+        vitest: {
+          name: 'Vitest',
+          description: 'إطار اختبار وحدات سريع مدعوم من Vite',
+        },
+      },
+    },
     changelog: {
       title: 'سجل التحديثات',
       subtitle: 'تابع آخر التحسينات والتحديثات',
@@ -374,7 +595,7 @@ i18n
     fallbackLng: 'en',
     supportedLngs: supportedLanguages,
     defaultNS: 'common',
-    ns: ['common', 'home', 'changelog'],
+    ns: ['common', 'home', 'changelog', 'resources'],
 
     interpolation: {
       escapeValue: false, // React already escapes values

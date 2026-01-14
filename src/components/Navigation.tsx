@@ -6,10 +6,10 @@ import { ThemeToggle } from './ThemeToggle'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 const navLinks = [
-  { href: '/#about', labelKey: 'nav.about' },
   { href: '/#tools', labelKey: 'nav.tools' },
   { href: '/#testimonials', labelKey: 'nav.testimonials' },
   { href: '/#team', labelKey: 'nav.team' },
+  { href: '/resources', labelKey: 'nav.resources', isRoute: true },
   { href: '/changelog', labelKey: 'nav.changelog', isRoute: true },
 ]
 

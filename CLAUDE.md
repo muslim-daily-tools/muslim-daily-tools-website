@@ -8,10 +8,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 pnpm dev              # Start dev server on port 3000
 pnpm build            # Production build (outputs to dist/)
 pnpm test             # Run Vitest tests
-pnpm lint             # ESLint check
-pnpm format           # Prettier check
-pnpm check            # Format + lint with auto-fix
+pnpm lint             # ESLint check (safe, no modifications)
+pnpm format           # Prettier check (safe, no modifications)
+pnpm lint:fix         # ESLint with auto-fix
+pnpm format:fix       # Prettier with auto-fix
 ```
+
+### Commands to Avoid
+
+- **Never run `pnpm lint:fix` or `pnpm format:fix`** on the whole project - adds noise to diffs
+- To verify changes compile, use `pnpm build` instead
+- To fix specific files only: `pnpm exec prettier --write <file>` or `pnpm exec eslint --fix <file>`
 
 **Add shadcn components:**
 ```bash
