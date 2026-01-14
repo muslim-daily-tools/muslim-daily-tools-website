@@ -183,7 +183,112 @@ const toolResources: Array<ToolResources> = [
     toolId: 'quran-station',
     titleKey: 'home:tools.quranStation.title',
     logo: QuranStationLogo,
-    groups: [],
+    groups: [
+      {
+        category: 'apis',
+        titleKey: 'resources:categories.apis',
+        items: [
+          {
+            nameKey: 'resources:items.mp3quran.name',
+            descriptionKey: 'resources:items.mp3quran.description',
+            url: 'https://www.mp3quran.net/ar/api',
+          },
+          {
+            nameKey: 'resources:items.posthog.name',
+            descriptionKey: 'resources:items.posthog.description',
+            url: 'https://posthog.com',
+          },
+        ],
+      },
+      {
+        category: 'libraries',
+        titleKey: 'resources:categories.libraries',
+        items: [
+          {
+            nameKey: 'resources:items.nextjs.name',
+            descriptionKey: 'resources:items.nextjs.description',
+            url: 'https://nextjs.org',
+            license: 'MIT',
+          },
+          {
+            nameKey: 'resources:items.react.name',
+            descriptionKey: 'resources:items.react.description',
+            url: 'https://react.dev',
+            license: 'MIT',
+          },
+          {
+            nameKey: 'resources:items.zustand.name',
+            descriptionKey: 'resources:items.zustand.description',
+            url: 'https://zustand-demo.pmnd.rs',
+            license: 'MIT',
+          },
+          {
+            nameKey: 'resources:items.nextIntl.name',
+            descriptionKey: 'resources:items.nextIntl.description',
+            url: 'https://next-intl.dev',
+            license: 'MIT',
+          },
+          {
+            nameKey: 'resources:items.tailwind.name',
+            descriptionKey: 'resources:items.tailwind.description',
+            url: 'https://tailwindcss.com',
+            license: 'MIT',
+          },
+          {
+            nameKey: 'resources:items.radixUi.name',
+            descriptionKey: 'resources:items.radixUi.description',
+            url: 'https://www.radix-ui.com',
+            license: 'MIT',
+          },
+        ],
+      },
+      {
+        category: 'fonts',
+        titleKey: 'resources:categories.fonts',
+        items: [
+          {
+            nameKey: 'resources:items.readexPro.name',
+            descriptionKey: 'resources:items.readexPro.description',
+            url: 'https://fonts.google.com/specimen/Readex+Pro',
+            license: 'OFL',
+          },
+        ],
+      },
+      {
+        category: 'data',
+        titleKey: 'resources:categories.data',
+        items: [
+          {
+            nameKey: 'resources:items.surahMetadata.name',
+            descriptionKey: 'resources:items.surahMetadata.description',
+            url: 'https://www.mp3quran.net/ar/api',
+          },
+        ],
+      },
+      {
+        category: 'tools',
+        titleKey: 'resources:categories.tools',
+        items: [
+          {
+            nameKey: 'resources:items.typescript.name',
+            descriptionKey: 'resources:items.typescript.description',
+            url: 'https://www.typescriptlang.org',
+          },
+          {
+            nameKey: 'resources:items.playwright.name',
+            descriptionKey: 'resources:items.playwright.description',
+            url: 'https://playwright.dev',
+            license: 'Apache-2.0',
+          },
+          {
+            nameKey: 'resources:items.vitest.name',
+            descriptionKey: 'resources:items.vitest.description',
+            url: 'https://vitest.dev',
+            license: 'MIT',
+          },
+        ],
+      },
+    ],
   },
 ]
 

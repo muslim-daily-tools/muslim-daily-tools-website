@@ -251,6 +251,36 @@ const resources = {
           name: 'Vitest',
           description: 'Fast unit testing framework powered by Vite',
         },
+        mp3quran: {
+          name: 'MP3Quran API',
+          description:
+            'Comprehensive API for Quran reciters, surahs, and audio streams',
+        },
+        posthog: {
+          name: 'PostHog',
+          description:
+            'Open-source product analytics platform for user insights and event tracking',
+        },
+        nextjs: {
+          name: 'Next.js 15',
+          description:
+            'React framework with server-side rendering, file-based routing, and optimizations',
+        },
+        nextIntl: {
+          name: 'next-intl',
+          description:
+            'Internationalization library for Next.js with server component support',
+        },
+        radixUi: {
+          name: 'Radix UI',
+          description:
+            'Unstyled, accessible UI primitives for building design systems',
+        },
+        surahMetadata: {
+          name: 'Surah Metadata',
+          description:
+            'Complete mapping of all 114 surahs with verse counts and metadata',
+        },
       },
     },
     changelog: {
@@ -520,6 +550,34 @@ const resources = {
         vitest: {
           name: 'Vitest',
           description: 'إطار اختبار وحدات سريع مدعوم من Vite',
+        },
+        mp3quran: {
+          name: 'MP3Quran API',
+          description: 'واجهة برمجة شاملة للقراء والسور والبث الصوتي للقرآن',
+        },
+        posthog: {
+          name: 'PostHog',
+          description:
+            'منصة تحليلات مفتوحة المصدر لرؤى المستخدم وتتبع الأحداث',
+        },
+        nextjs: {
+          name: 'Next.js 15',
+          description:
+            'إطار عمل React مع العرض من جانب الخادم والتوجيه والتحسينات',
+        },
+        nextIntl: {
+          name: 'next-intl',
+          description:
+            'مكتبة تدويل لـ Next.js مع دعم مكونات الخادم',
+        },
+        radixUi: {
+          name: 'Radix UI',
+          description:
+            'مكونات UI بدون تنسيق وقابلة للوصول لبناء أنظمة التصميم',
+        },
+        surahMetadata: {
+          name: 'بيانات السور',
+          description: 'قائمة كاملة لجميع السور الـ 114 مع عدد الآيات والبيانات',
         },
       },
     },
