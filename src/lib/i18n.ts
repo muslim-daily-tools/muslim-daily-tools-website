@@ -40,6 +40,7 @@ const resources = {
         testimonials: 'Testimonials',
         team: 'Team',
         changelog: 'Changelog',
+        mindMaps: 'Mind Maps',
         donate: 'Share Thawab 🌱',
         theme: 'Theme',
       },
@@ -344,6 +345,98 @@ const resources = {
         },
       },
     },
+    mindMaps: {
+      title: 'Mind Maps',
+      subtitle:
+        'Visual learning tools using Chunking, Semantic Grouping, Mnemonic Sentences, and other proven techniques.',
+      reference: {
+        text: 'Inspired by',
+        linkText: 'Effective Learning Strategies',
+        linkSuffix: 'course on Almdrasa',
+        url: 'https://almdrasa.com/products/courses/effective-learning-strategies',
+      },
+      filter: {
+        all: 'All',
+      },
+      comingSoon: 'Coming Soon',
+      categories: {
+        quran: 'Quran',
+        seerah: 'Seerah',
+        books: 'Books',
+      },
+      actions: {
+        preview: 'Preview',
+        download: 'Download PDF',
+      },
+      items: {
+        prophetLineage: {
+          title: "Prophet's Lineage",
+          description: "Memorize the lineage of Prophet Muhammad ﷺ",
+        },
+        juzAmmaNames: {
+          title: "Juz Amma Surah Names",
+          description:
+            "Mind map for memorizing the names of all surahs in Juz Amma (30th Juz)",
+        },
+        juzTabarakNames: {
+          title: "Juz Tabarak Surah Names",
+          description:
+            "Mind map for memorizing the names of all surahs in Juz Tabarak (29th Juz)",
+        },
+        surahAlMursalat: {
+          title: 'Surah Al-Mursalat',
+          description: 'Visual mind map for Surah Al-Mursalat (The Emissaries)',
+        },
+        surahAlInsan: {
+          title: 'Surah Al-Insan',
+          description: 'Visual mind map for Surah Al-Insan (Man)',
+        },
+        surahAlQiyamah: {
+          title: 'Surah Al-Qiyamah',
+          description: 'Visual mind map for Surah Al-Qiyamah (The Resurrection)',
+        },
+        surahAlMuddathir: {
+          title: 'Surah Al-Muddathir',
+          description: 'Visual mind map for Surah Al-Muddathir (The Cloaked One)',
+        },
+        surahAlMuzzammil: {
+          title: 'Surah Al-Muzzammil',
+          description: 'Visual mind map for Surah Al-Muzzammil (The Enshrouded One)',
+        },
+        surahAlJinn: {
+          title: 'Surah Al-Jinn',
+          description: 'Visual mind map for Surah Al-Jinn (The Jinn)',
+        },
+        surahNuh: {
+          title: 'Surah Nuh',
+          description: 'Visual mind map for Surah Nuh (Noah)',
+        },
+        surahAlMaarij: {
+          title: 'Surah Al-Maarij',
+          description: 'Visual mind map for Surah Al-Maarij (The Ascending Stairways)',
+        },
+        surahAlHaqqah: {
+          title: 'Surah Al-Haqqah',
+          description: 'Visual mind map for Surah Al-Haqqah (The Reality)',
+        },
+        surahAlQalam: {
+          title: 'Surah Al-Qalam',
+          description: 'Visual mind map for Surah Al-Qalam (The Pen)',
+        },
+        bookFindingFlow: {
+          title: 'The Art of Finding Flow',
+          description: 'Book summary mind map for achieving flow state and productivity',
+        },
+        bookTodoFormula: {
+          title: 'To-Do List Formula',
+          description: 'Book summary mind map for effective task management',
+        },
+        bookSkilledSpeaker: {
+          title: 'The Skilled Speaker',
+          description: 'Book summary mind map for public speaking mastery',
+        },
+      },
+    },
   },
   ar: {
     common: {
@@ -353,6 +446,7 @@ const resources = {
         testimonials: 'التوصيات',
         team: 'الفريق',
         changelog: 'سجل التحديثات',
+        mindMaps: 'الخرائط الذهنية',
         donate: 'شارك الثواب 🌱',
         theme: 'المظهر',
       },
@@ -642,6 +736,98 @@ const resources = {
         },
       },
     },
+    mindMaps: {
+      title: 'الخرائط الذهنية',
+      subtitle:
+        'أدوات تعلّم بصرية باستخدام التقطيع، التصنيف الدلالي، الجمل المُعينة، وتقنيات أخرى مُجرّبة.',
+      reference: {
+        text: 'مُستوحاة من كورس',
+        linkText: 'التعلم الفعّال',
+        linkSuffix: 'على منصة المدرسة',
+        url: 'https://almdrasa.com/products/courses/effective-learning-strategies',
+      },
+      filter: {
+        all: 'الكل',
+      },
+      comingSoon: 'قريبًا',
+      categories: {
+        quran: 'القرآن',
+        seerah: 'السيرة',
+        books: 'الكتب',
+      },
+      actions: {
+        preview: 'معاينة',
+        download: 'تحميل PDF',
+      },
+      items: {
+        prophetLineage: {
+          title: 'حفظ نسب النبي ﷺ',
+          description: 'احفظ نسب النبي محمد ﷺ المتفق عليه',
+        },
+        juzAmmaNames: {
+          title: 'حفظ أسماء سور جزء عم',
+          description:
+            'خريطة ذهنية لحفظ أسماء جميع سور جزء عم (الجزء الثلاثون)',
+        },
+        juzTabarakNames: {
+          title: 'حفظ أسماء سور جزء تبارك',
+          description:
+            'خريطة ذهنية لحفظ أسماء جميع سور جزء تبارك (الجزء التاسع والعشرون)',
+        },
+        surahAlMursalat: {
+          title: 'سورة المرسلات',
+          description: 'خريطة ذهنية لسورة المرسلات',
+        },
+        surahAlInsan: {
+          title: 'سورة الإنسان',
+          description: 'خريطة ذهنية لسورة الإنسان',
+        },
+        surahAlQiyamah: {
+          title: 'سورة القيامة',
+          description: 'خريطة ذهنية لسورة القيامة',
+        },
+        surahAlMuddathir: {
+          title: 'سورة المدثر',
+          description: 'خريطة ذهنية لسورة المدثر',
+        },
+        surahAlMuzzammil: {
+          title: 'سورة المزمل',
+          description: 'خريطة ذهنية لسورة المزمل',
+        },
+        surahAlJinn: {
+          title: 'سورة الجن',
+          description: 'خريطة ذهنية لسورة الجن',
+        },
+        surahNuh: {
+          title: 'سورة نوح',
+          description: 'خريطة ذهنية لسورة نوح',
+        },
+        surahAlMaarij: {
+          title: 'سورة المعارج',
+          description: 'خريطة ذهنية لسورة المعارج',
+        },
+        surahAlHaqqah: {
+          title: 'سورة الحاقة',
+          description: 'خريطة ذهنية لسورة الحاقة',
+        },
+        surahAlQalam: {
+          title: 'سورة القلم',
+          description: 'خريطة ذهنية لسورة القلم',
+        },
+        bookFindingFlow: {
+          title: 'The Art of Finding Flow',
+          description: 'ملخص كتاب فن الدخول في حالة التدفق والإنتاجية',
+        },
+        bookTodoFormula: {
+          title: 'To-Do List Formula',
+          description: 'ملخص كتاب صيغة قائمة المهام لإدارة المهام بفعالية',
+        },
+        bookSkilledSpeaker: {
+          title: 'المتحدث البارع',
+          description: 'ملخص كتاب المتحدث البارع لإتقان فن الإلقاء',
+        },
+      },
+    },
   },
 }
 
@@ -653,7 +839,7 @@ i18n
     fallbackLng: 'en',
     supportedLngs: supportedLanguages,
     defaultNS: 'common',
-    ns: ['common', 'home', 'changelog', 'resources'],
+    ns: ['common', 'home', 'changelog', 'resources', 'mindMaps'],
 
     interpolation: {
       escapeValue: false, // React already escapes values
