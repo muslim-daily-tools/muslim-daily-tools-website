@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as MindMapsRouteImport } from './routes/mind-maps'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ResourcesRoute = ResourcesRouteImport.update({
   id: '/resources',
   path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MindMapsRoute = MindMapsRouteImport.update({
+  id: '/mind-maps',
+  path: '/mind-maps',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChangelogRoute = ChangelogRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/changelog': typeof ChangelogRoute
+  '/mind-maps': typeof MindMapsRoute
   '/resources': typeof ResourcesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/changelog': typeof ChangelogRoute
+  '/mind-maps': typeof MindMapsRoute
   '/resources': typeof ResourcesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/changelog': typeof ChangelogRoute
+  '/mind-maps': typeof MindMapsRoute
   '/resources': typeof ResourcesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/changelog' | '/resources'
+  fullPaths: '/' | '/changelog' | '/mind-maps' | '/resources'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/changelog' | '/resources'
-  id: '__root__' | '/' | '/changelog' | '/resources'
+  to: '/' | '/changelog' | '/mind-maps' | '/resources'
+  id: '__root__' | '/' | '/changelog' | '/mind-maps' | '/resources'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ChangelogRoute: typeof ChangelogRoute
+  MindMapsRoute: typeof MindMapsRoute
   ResourcesRoute: typeof ResourcesRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/resources'
       fullPath: '/resources'
       preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mind-maps': {
+      id: '/mind-maps'
+      path: '/mind-maps'
+      fullPath: '/mind-maps'
+      preLoaderRoute: typeof MindMapsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/changelog': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ChangelogRoute: ChangelogRoute,
+  MindMapsRoute: MindMapsRoute,
   ResourcesRoute: ResourcesRoute,
 }
 export const routeTree = rootRouteImport

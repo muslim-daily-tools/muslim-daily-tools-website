@@ -10,7 +10,7 @@ const navLinks = [
   { href: '/#testimonials', labelKey: 'nav.testimonials' },
   { href: '/#team', labelKey: 'nav.team' },
   { href: '/resources', labelKey: 'nav.resources', isRoute: true },
-  { href: '/changelog', labelKey: 'nav.changelog', isRoute: true },
+  { href: '/mind-maps', labelKey: 'nav.mindMaps', isRoute: true },
 ]
 
 export function Navigation() {
