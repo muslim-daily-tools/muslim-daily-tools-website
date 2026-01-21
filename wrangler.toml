@@ -1,0 +1,23 @@
+#:schema node_modules/wrangler/config-schema.json
+
+name = "muslim-daily-tools"
+main = "@tanstack/react-start/server-entry"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[routes]]
+pattern = "muslimdailytools.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.muslimdailytools.com"
+custom_domain = true
+
+# Preview environment for PR deployments
+[env.preview]
+name = "muslim-daily-tools-preview"
+workers_dev = true
+
+[[env.preview.routes]]
+pattern = "preview.muslimdailytools.com"
+custom_domain = true

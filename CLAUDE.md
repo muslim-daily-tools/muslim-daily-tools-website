@@ -25,6 +25,13 @@ pnpm format:fix       # Prettier with auto-fix
 pnpm dlx shadcn@latest add <component>
 ```
 
+## Deployment
+
+- **Production**: Deploys automatically on push to `main` branch → `muslimdailytools.com`
+- **Preview**: Deploys automatically on PR to `main` branch → `muslim-daily-tools-preview.mohamedabusrea.workers.dev`
+- Preview deployments post a comment on PR with preview URL
+- See `docs/preview-deployments.md` for details
+
 ## Best Practices
 
 ### Problem-Solving Approach

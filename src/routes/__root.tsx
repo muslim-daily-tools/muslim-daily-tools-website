@@ -13,6 +13,7 @@ import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { ThemeProvider } from '../lib/theme'
 import { AnimationProvider } from '../lib/animations'
+import { PostHogProvider } from '../lib/posthog'
 import { isRTL, setSSRLanguage } from '../lib/i18n'
 import '../lib/i18n' // Initialize i18n
 
@@ -134,15 +135,17 @@ function RootDocument() {
       </head>
       <body className="bg-background ambient-glow">
         <Suspense fallback={<div className="min-h-screen" />}>
-          <AnimationProvider>
-            <ThemeProvider>
-              <Header />
-              <main className="flex-1">
-                <Outlet />
-              </main>
-              <Footer />
-            </ThemeProvider>
-          </AnimationProvider>
+          <PostHogProvider>
+            <AnimationProvider>
+              <ThemeProvider>
+                <Header />
+                <main className="flex-1">
+                  <Outlet />
+                </main>
+                <Footer />
+              </ThemeProvider>
+            </AnimationProvider>
+          </PostHogProvider>
         </Suspense>
         <TanStackDevtools
           config={{

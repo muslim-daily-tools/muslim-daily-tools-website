@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { LuDownload, LuExternalLink } from 'react-icons/lu'
 import { cn } from '@/lib/utils'
 import { categories, type MindMap, type MindMapCategory } from '@/data/mindmaps'
+import { posthog } from '@/lib/posthog'
 
 interface MindMapCardProps {
   mindMap: MindMap
@@ -19,6 +20,14 @@ export function MindMapCard({ mindMap, index = 0 }: MindMapCardProps) {
   const isTeaser = !mindMap.published
 
   const handleDownload = () => {
+    // Track download event
+    posthog.capture('mind_map_download', {
+      product: 'mind-maps', // Separate from other products like quran-station
+      slug: mindMap.slug,
+      category: mindMap.category,
+      title: t(mindMap.titleKey),
+    })
+
     const link = document.createElement('a')
     link.href = mindMap.pdfPath
     link.download = `${mindMap.slug}.pdf`
@@ -109,6 +118,15 @@ export function MindMapCard({ mindMap, index = 0 }: MindMapCardProps) {
             href={mindMap.pdfPath}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              // Track preview event
+              posthog.capture('mind_map_preview', {
+                product: 'mind-maps', // Separate from other products like quran-station
+                slug: mindMap.slug,
+                category: mindMap.category,
+                title: t(mindMap.titleKey),
+              })
+            }}
             className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
             title={t('mindMaps:actions.preview')}
           >
