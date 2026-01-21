@@ -1,18 +1,13 @@
-# ⚠️ Preview Subdomain Setup Required
+# ✅ Preview Subdomain - Fully Configured
 
-## Quick Setup (2 minutes)
+## Live Preview URL
+**https://preview.muslimdailytools.com**
 
-1. **Open Cloudflare Dashboard**: [dash.cloudflare.com](https://dash.cloudflare.com) → `muslimdailytools.com` → DNS
-2. **Add AAAA Record**:
-   - Type: `AAAA`
-   - Name: `preview`
-   - IPv6: `100::`
-   - Proxy: ☁️ **Enabled** (orange cloud)
-3. **Save** and wait 2-3 minutes
-4. **Test**: Visit [preview.muslimdailytools.com](https://preview.muslimdailytools.com)
+All preview deployments are automatically deployed to this URL on every PR push.
 
-## What's Already Configured
+## What's Configured
 
+✅ DNS record configured (AAAA: `100::` → proxied)
 ✅ Preview worker deployed (`muslim-daily-tools-preview`)
 ✅ Custom domain route configured
 ✅ GitHub Actions workflow for automatic PR deployments
