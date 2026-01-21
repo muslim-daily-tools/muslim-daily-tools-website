@@ -47,6 +47,12 @@ jobs:
           VITE_POSTHOG_KEY: ${{ secrets.VITE_POSTHOG_KEY }}
           VITE_POSTHOG_HOST: ${{ secrets.VITE_POSTHOG_HOST }}
 
+      - name: Remove custom domains from wrangler config
+        run: |
+          cd dist/server
+          # Remove routes array from wrangler.json for preview deployment
+          node -e "const fs = require('fs'); const config = JSON.parse(fs.readFileSync('wrangler.json', 'utf8')); delete config.routes; fs.writeFileSync('wrangler.json', JSON.stringify(config, null, 2));"
+
       - name: Deploy to Cloudflare Workers (Preview)
         uses: cloudflare/wrangler-action@v3
         with:
