@@ -159,8 +159,7 @@ Edit `src/components/Navigation.tsx` if you need to change navigation placement.
 
 PDFs are served as static assets, bypassing the Worker for optimal performance:
 
-- `public/_routes.json` - Excludes `/mindmaps/*` from Worker processing
-- `vite.config.ts` - Explicitly lists routes to prerender (excludes PDFs)
-- `MindMapCard.tsx` - Uses `<button>` instead of `<a>` for preview to prevent prerender crawler from discovering PDF links
+- `public/_routes.json` - Excludes `/mindmaps/*` from Worker processing for direct CDN serving
+- `vite.config.ts` - Uses `filter: ({ path }) => !path.endsWith('.pdf')` to exclude PDFs from prerendering
 
-**Why this matters**: TanStack Start's prerenderer crawls `<a href>` links and attempts to SSR them. This corrupts binary files like PDFs by overwriting them with HTML output. Using `<button>` + `window.open()` prevents crawler discovery while maintaining the same UX.
+**Why this matters**: TanStack Start's prerenderer crawls links and attempts to SSR them. Without the filter, binary files like PDFs get overwritten with HTML output. The `filter` option prevents the prerenderer from processing PDFs while allowing it to discover and crawl other routes normally.
