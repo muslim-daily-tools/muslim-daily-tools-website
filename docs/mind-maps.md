@@ -154,3 +154,12 @@ Tests verify:
 Mind Maps is linked in the main header navigation (replaced Changelog).
 
 Edit `src/components/Navigation.tsx` if you need to change navigation placement.
+
+## Cloudflare Workers Configuration
+
+PDFs are served as static assets, bypassing the Worker for optimal performance:
+
+- `public/_routes.json` - Excludes `/mindmaps/*` from Worker processing
+- `vite.config.ts` - Attempts to exclude PDFs from prerendering (prerender still crawls links but PDFs are served correctly)
+
+This ensures PDFs are served directly from Cloudflare's CDN without SSR overhead.
