@@ -25,6 +25,29 @@ pnpm format:fix       # Prettier with auto-fix
 pnpm dlx shadcn@latest add <component>
 ```
 
+## Best Practices
+
+### Problem-Solving Approach
+
+**ALWAYS research framework-native solutions and plugins BEFORE implementing workarounds:**
+
+1. **Search first**: When encountering framework-specific issues (build, prerendering, asset handling), search for:
+   - Official framework documentation and configuration options
+   - Framework-specific plugins (e.g., Vite plugins, TanStack Start options)
+   - Community solutions in npm/GitHub
+
+2. **Prefer native solutions**: Framework authors provide built-in options for common problems:
+   - Example: TanStack Start has `filter` option to exclude paths from prerendering
+   - Example: Vite has `publicDir` for static assets that should be copied as-is
+
+3. **Avoid premature workarounds**: Don't modify application code (components, UI) to work around build/framework issues:
+   - ❌ Bad: Changing `<a>` to `<button>` to prevent link crawling
+   - ✅ Good: Using framework's `filter` configuration option
+
+4. **Document the "why"**: When using framework options, explain in comments/docs why it's needed to help future maintainers
+
+**Lesson from Mind Maps PDF issue**: When PDFs were being corrupted by TanStack Start's prerenderer, the proper fix was using the built-in `filter` option in `vite.config.ts`, not modifying UI components to hide links from the crawler.
+
 ## Architecture
 
 **TanStack Start + React 19** application deployed on Cloudflare Workers with SSR support.
