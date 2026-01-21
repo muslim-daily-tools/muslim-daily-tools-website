@@ -18,9 +18,7 @@ const config = defineConfig({
     tanstackStart({
       prerender: {
         enabled: true,
-        crawlLinks: true,
-        // Exclude PDFs and other static assets from prerendering
-        ignore: [(path) => path.endsWith('.pdf')],
+        routes: ['/', '/mind-maps', '/resources', '/changelog'],
       },
     }),
     viteReact(),

@@ -18,6 +18,10 @@ export function MindMapCard({ mindMap, index = 0 }: MindMapCardProps) {
   const { t } = useTranslation()
   const isTeaser = !mindMap.published
 
+  const handlePreview = () => {
+    window.open(mindMap.pdfPath, '_blank', 'noopener,noreferrer')
+  }
+
   const handleDownload = () => {
     const link = document.createElement('a')
     link.href = mindMap.pdfPath
@@ -105,15 +109,13 @@ export function MindMapCard({ mindMap, index = 0 }: MindMapCardProps) {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 mt-4">
-          <a
-            href={mindMap.pdfPath}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={handlePreview}
             className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
             title={t('mindMaps:actions.preview')}
           >
             <LuExternalLink className="w-4 h-4" />
-          </a>
+          </button>
           <button
             onClick={handleDownload}
             className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
