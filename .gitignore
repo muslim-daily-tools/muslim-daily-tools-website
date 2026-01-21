@@ -14,4 +14,4 @@ todos.json
 
 # Local Netlify folder
 .netlify
-coverage
+coverage**/*.local.json

@@ -47,17 +47,21 @@ jobs:
           VITE_POSTHOG_KEY: ${{ secrets.VITE_POSTHOG_KEY }}
           VITE_POSTHOG_HOST: ${{ secrets.VITE_POSTHOG_HOST }}
 
-      - name: Remove custom domains from wrangler config
+      - name: Configure preview worker
         run: |
-          cd dist/server
-          # Remove routes array from wrangler.json for preview deployment
-          node -e "const fs = require('fs'); const config = JSON.parse(fs.readFileSync('wrangler.json', 'utf8')); delete config.routes; fs.writeFileSync('wrangler.json', JSON.stringify(config, null, 2));"
+          node -e "
+          const fs = require('fs');
+          const config = JSON.parse(fs.readFileSync('dist/server/wrangler.json', 'utf8'));
+          config.name = 'muslim-daily-tools-preview';
+          config.routes = [{ pattern: 'preview.muslimdailytools.com', custom_domain: true }];
+          fs.writeFileSync('dist/server/wrangler.json', JSON.stringify(config, null, 2));
+          "
 
       - name: Deploy to Cloudflare Workers (Preview)
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy --name muslim-daily-tools-preview --no-bundle
+          command: deploy
         env:
           VITE_POSTHOG_KEY: ${{ secrets.VITE_POSTHOG_KEY }}
           VITE_POSTHOG_HOST: ${{ secrets.VITE_POSTHOG_HOST }}

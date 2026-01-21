@@ -1,68 +1,49 @@
-# Setting Up preview.muslimdailytools.com
+# ⚠️ Preview Subdomain Setup Required
 
-Steps to configure the preview subdomain for PR deployments.
+## Quick Setup (2 minutes)
 
-## What's Already Done
+1. **Open Cloudflare Dashboard**: [dash.cloudflare.com](https://dash.cloudflare.com) → `muslimdailytools.com` → DNS
+2. **Add AAAA Record**:
+   - Type: `AAAA`
+   - Name: `preview`
+   - IPv6: `100::`
+   - Proxy: ☁️ **Enabled** (orange cloud)
+3. **Save** and wait 2-3 minutes
+4. **Test**: Visit [preview.muslimdailytools.com](https://preview.muslimdailytools.com)
 
-✅ Custom domain route added to `muslim-daily-tools-preview` worker
-✅ Worker configured to respond to `preview.muslimdailytools.com/*`
+## What's Already Configured
 
-## What's Needed
-
-⏳ DNS record for `preview.muslimdailytools.com`
-
-## Steps to Add DNS Record
-
-### Option 1: Via Cloudflare Dashboard (Recommended)
-
-1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
-2. Select the `muslimdailytools.com` domain
-3. Go to **DNS** → **Records**
-4. Click **Add record**
-5. Configure:
-   - **Type**: `AAAA`
-   - **Name**: `preview`
-   - **IPv6 address**: `100::`
-   - **Proxy status**: **Proxied** (orange cloud)
-   - **TTL**: Auto
-6. Click **Save**
-
-### Option 2: Via Wrangler CLI
-
-```bash
-# This requires Cloudflare API token with Zone:Edit permissions
-# Add as CNAME record pointing to the worker
-```
+✅ Preview worker deployed (`muslim-daily-tools-preview`)
+✅ Custom domain route configured
+✅ GitHub Actions workflow for automatic PR deployments
+✅ PostHog analytics integrated
 
 ## Why `100::`?
 
-When you add a custom domain to a Cloudflare Worker via routes, Cloudflare automatically handles the routing. The IPv6 address `100::` is a placeholder that Cloudflare recognizes for Workers. When the domain is proxied (orange cloud), Cloudflare intercepts the traffic and routes it to your worker.
+Cloudflare uses `100::` as a placeholder for Workers on custom domains. When proxied (orange cloud), Cloudflare routes traffic to your worker automatically.
 
 ## Verification
 
-After adding the DNS record:
+```bash
+# Should return HTTP/2 200
+curl -I https://preview.muslimdailytools.com
 
-1. Wait 1-2 minutes for DNS propagation
-2. Test: `curl -I https://preview.muslimdailytools.com`
-3. Should return `HTTP/2 200` with Cloudflare headers
-
-## Update Workflow
-
-Once DNS is working, the workflow will automatically use the custom domain in PR comments instead of the workers.dev URL.
+# Check worker deployment
+pnpm wrangler deployments list --name muslim-daily-tools-preview
+```
 
 ## Troubleshooting
 
-### DNS not resolving
-- Check that record is **Proxied** (orange cloud icon)
-- Wait a few minutes for global propagation
-- Clear local DNS cache: `sudo dscacheutil -flushcache` (macOS)
+**DNS not resolving?**
+- Verify orange cloud (Proxy) is enabled
+- Wait 5 minutes for DNS propagation
+- Clear DNS cache: `sudo dscacheutil -flushcache` (macOS)
 
-### SSL errors
-- Cloudflare automatically provisions SSL for custom domains
-- May take 1-2 minutes after DNS record creation
+**502/504 errors?**
+- Check worker deployment status in Cloudflare Dashboard
+- Verify route is configured: `preview.muslimdailytools.com`
+- Test workers.dev URL: `muslim-daily-tools-preview.mohamedabusrea.workers.dev`
+
+**SSL certificate errors?**
+- Cloudflare auto-provisions SSL (takes 1-2 minutes)
 - Ensure domain is proxied through Cloudflare
-
-### Worker not responding
-- Verify worker is deployed: `pnpm wrangler deployments list --name muslim-daily-tools-preview`
-- Check triggers: Should show `preview.muslimdailytools.com/*`
-- Test workers.dev URL first: `https://muslim-daily-tools-preview.mohamedabusrea.workers.dev`
