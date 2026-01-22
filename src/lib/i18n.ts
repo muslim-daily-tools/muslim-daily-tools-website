@@ -294,6 +294,16 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v440: {
+          new1: 'Prayer countdown badge on extension icon with color-coded indicators',
+          new2: 'Manual location entry for precise prayer time calculations',
+          new3: 'Regional prayer calculation methods for Morocco, Algeria, France, Russia, Indonesia, and Malaysia',
+          new4: 'Tafseer modal with 7 renowned scholars and keyboard navigation',
+          improved1: 'Unified modal design with better organization',
+          improved2: 'Enhanced badge countdown display formatting',
+          fixed1: 'Audio playback no longer stops when switching tabs',
+          fixed2: 'Location search reliability improvements',
+        },
         v430: {
           new1: 'Adjustable image quality options for verse copying',
           new2: 'Data management tab for exporting and importing settings',
@@ -685,6 +695,16 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v440: {
+          new1: 'شارة العد التنازلي للصلاة على أيقونة الإضافة مع مؤشرات ملونة',
+          new2: 'إدخال الموقع اليدوي لحسابات دقيقة لمواقيت الصلاة',
+          new3: 'طرق حساب إقليمية للصلاة للمغرب والجزائر وفرنسا وروسيا وإندونيسيا وماليزيا',
+          new4: 'نافذة التفسير مع 7 علماء مشهورين والتنقل بلوحة المفاتيح',
+          improved1: 'تصميم نوافذ موحد مع تنظيم أفضل',
+          improved2: 'تحسين تنسيق عرض العد التنازلي للشارة',
+          fixed1: 'لم يعد التشغيل الصوتي يتوقف عند التبديل بين علامات التبويب',
+          fixed2: 'تحسينات موثوقية البحث عن الموقع',
+        },
         v430: {
           new1: 'خيارات جودة الصورة القابلة للتعديل لنسخ الآيات',
           new2: 'تبويب إدارة البيانات لتصدير واستيراد الإعدادات',
