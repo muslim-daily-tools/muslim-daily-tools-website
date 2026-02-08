@@ -294,6 +294,13 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v450: {
+          new1: 'Search, sort, and group reciters for easier selection',
+          new2: 'Repeat current surah for continuous listening',
+          improved1: 'Seamless gapless audio playback with new Gapless-5 engine',
+          improved2: 'Better audio error messages and memory management',
+          fixed1: 'Audio playback stability improvements in background tabs',
+        },
         v440: {
           new1: 'Prayer countdown badge on extension icon with color-coded indicators',
           new2: 'Manual location entry for precise prayer time calculations',
@@ -695,6 +702,13 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v450: {
+          new1: 'البحث والترتيب والتجميع للقراء لاختيار أسهل',
+          new2: 'تكرار السورة الحالية للاستماع المتواصل',
+          improved1: 'تشغيل صوتي سلس بدون انقطاع مع محرك Gapless-5 الجديد',
+          improved2: 'رسائل خطأ صوتية أفضل وإدارة محسّنة للذاكرة',
+          fixed1: 'تحسينات استقرار التشغيل الصوتي في علامات التبويب الخلفية',
+        },
         v440: {
           new1: 'شارة العد التنازلي للصلاة على أيقونة الإضافة مع مؤشرات ملونة',
           new2: 'إدخال الموقع اليدوي لحسابات دقيقة لمواقيت الصلاة',
