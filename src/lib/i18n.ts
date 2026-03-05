@@ -89,9 +89,9 @@ const resources = {
             'A Quran-inspired new tab for your browser. Each tab greets you with an ayah, prayer times, and a calm space for reflection. Read translations in 40+ languages, listen to reciters, and save favourites.',
         },
         prayerCal: {
-          title: 'PrayerCal',
+          title: 'Pray On Time',
           description:
-            'Add accurate prayer times directly to your calendar. Choose methods, set notifications, and plan around Salah without changing how you already work.',
+            'Never miss a prayer. Automatically sync accurate prayer times to your Google or Microsoft calendar, set smart reminders, and plan your day around Salah.',
         },
         links: {
           website: 'Website',
@@ -116,6 +116,11 @@ const resources = {
           'We started with a simple idea: to bring the Quran closer every day. Today, thousands of Muslims use our tools and your support helps us continue building tools that serve the Ummah.',
         hadith:
           'The Prophet ﷺ said: "When a person dies, their deeds end except for three: ongoing charity (sadaqah jariyah), beneficial knowledge, or a righteous child who prays for them." — Sahih Muslim',
+        oneTime: 'One-time',
+        monthly: 'Monthly',
+        custom: 'Custom',
+        startMonthly: 'Start Monthly Support',
+        oneTimeButton: 'Support Now',
         options: {
           patreon: 'Become a Patron',
           coffee: 'Buy Me a Coffee',
@@ -511,7 +516,7 @@ const resources = {
         },
         prayerCal: {
           description:
-            'أضف مواقيت الصلاة الدقيقة مباشرة إلى تقويمك. اختر طرق الحساب، وعيّن الإشعارات، ونظّم يومك حول الصلاة دون تغيير طريقة عملك المعتادة.',
+            'لا تفوّت صلاة. زامن مواقيت الصلاة الدقيقة تلقائيًا مع تقويم Google أو Microsoft، واضبط تذكيرات ذكية، ونظّم يومك حول الصلاة.',
         },
         links: {
           website: 'الموقع',
@@ -537,6 +542,11 @@ const resources = {
           'بدأنا بفكرة بسيطة: أن يكون القرآن أقرب في كل يوم. اليوم، يستخدم أدواتنا آلاف المسلمين و دعمك يُساعدنا على الاستمرار في بناء أدوات تخدم الأمة.',
         hadith:
           'قال ﷺ: «إذا مات ابن آدم انقطع عمله إلا من ثلاث: صدقة جارية، أو علم يُنتفع به، أو ولد صالح يدعو له» رواه مسلم',
+        oneTime: 'مرة واحدة',
+        monthly: 'شهري',
+        custom: 'مخصص',
+        startMonthly: 'ابدأ الدعم الشهري',
+        oneTimeButton: 'ادعم الآن',
         options: {
           patreon: 'كن داعمًا على Patreon',
           coffee: 'اشترِ لنا قهوة',
