@@ -68,8 +68,9 @@ const tools: Tool[] = [
     logo: PrayerCalLogo,
     titleKey: 'tools.prayerCal.title',
     descriptionKey: 'tools.prayerCal.description',
-    links: [],
-    comingSoon: true,
+    links: [
+      { labelKey: 'tools.links.website', href: 'https://prayontime.today' },
+    ],
   },
 ]
 

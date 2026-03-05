@@ -10,7 +10,7 @@ const tools = [
     href: '#quran-station',
   },
   { label: 'Quran Tab', logo: QuranTab, href: '#quran-tab' },
-  { label: 'Prayer Calendar', logo: PrayerCal, href: '#prayer-cal' },
+  { label: 'Pray On Time', logo: PrayerCal, href: '#prayer-cal' },
 ]
 
 export function ToolsPreview() {

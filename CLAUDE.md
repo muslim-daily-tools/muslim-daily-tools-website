@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-pnpm dev              # Start dev server on port 3000
+pnpm dev              # Start dev server on port 3006
 pnpm build            # Production build (outputs to dist/)
 pnpm test             # Run Vitest tests
 pnpm lint             # ESLint check (safe, no modifications)
@@ -71,7 +71,7 @@ pnpm dlx shadcn@latest add <component>
 - `src/routes/` - File-based routes (auto-generates `routeTree.gen.ts`)
 - `src/components/` - React components (page-level and shared)
 - `src/assets/` - Static images (tool logos)
-- `src/lib/` - Utilities (includes shadcn `cn()` helper)
+- `src/lib/` - Utilities (includes shadcn `cn()` helper, `stripe.ts` for payment links)
 - `public/` - Static assets (favicon, manifest, robots.txt)
 
 ### Routing Pattern
@@ -120,6 +120,9 @@ Homepage sections alternate backgrounds for visual separation:
 - **Team** - inherits `bg-background` (transparent/default)
 
 When adding new sections, alternate between `bg-card` and no background class to maintain visual rhythm.
+
+### Stripe Support Widget
+The Donate section uses Stripe Payment Links (hardcoded in `src/lib/stripe.ts`) for $10/$50/$100 one-time and monthly tiers plus a custom amount option. No Stripe SDK or server-side code needed — links open Stripe's hosted checkout page directly.
 
 ### Dark Mode / Theming
 The site supports light and dark themes with:
