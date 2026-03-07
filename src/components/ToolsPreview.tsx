@@ -2,6 +2,7 @@ import { StaggerContainer, StaggerItem } from '@/lib/animations'
 import PrayerCal from '../assets/prayer-calendar-logo.png'
 import QuranTab from '../assets/quran-tab-logo.png'
 import QuranStation from '../assets/quran-station-logo.png'
+import Nawaya from '../assets/nawaya-logo.png'
 
 const tools = [
   {
@@ -11,6 +12,7 @@ const tools = [
   },
   { label: 'Quran Tab', logo: QuranTab, href: '#quran-tab' },
   { label: 'Pray On Time', logo: PrayerCal, href: '#prayer-cal' },
+  { label: 'Nawaya', logo: Nawaya, href: '#nawaya' },
 ]
 
 export function ToolsPreview() {

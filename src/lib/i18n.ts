@@ -93,6 +93,11 @@ const resources = {
           description:
             'Never miss a prayer. Automatically sync accurate prayer times to your Google or Microsoft calendar, set smart reminders, and plan your day around Salah.',
         },
+        nawaya: {
+          title: 'Nawaya',
+          description:
+            'Transform everyday actions into worship through mindful Islamic intentions. Browse Quran and Hadith-based intentions for daily life, share beautiful cards, and build a habit of purposeful living.',
+        },
         links: {
           website: 'Website',
           chrome: 'Chrome',
@@ -517,6 +522,10 @@ const resources = {
         prayerCal: {
           description:
             'لا تفوّت صلاة. زامن مواقيت الصلاة الدقيقة تلقائيًا مع تقويم Google أو Microsoft، واضبط تذكيرات ذكية، ونظّم يومك حول الصلاة.',
+        },
+        nawaya: {
+          description:
+            'حوّل أعمالك اليومية إلى عبادة من خلال النوايا الإسلامية. تصفّح نوايا مستندة إلى القرآن والحديث لحياتك اليومية، وشارك بطاقات جميلة، وابنِ عادة الحياة الهادفة.',
         },
         links: {
           website: 'الموقع',

@@ -5,6 +5,7 @@ import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
 import PrayerCalLogo from '../assets/prayer-calendar-logo.png'
 import QuranStationLogo from '../assets/quran-station-logo.png'
 import QuranTabLogo from '../assets/quran-tab-logo.png'
+import NawayaLogo from '../assets/nawaya-logo.png'
 
 interface ToolLink {
   labelKey: string
@@ -70,6 +71,14 @@ const tools: Tool[] = [
     descriptionKey: 'tools.prayerCal.description',
     links: [
       { labelKey: 'tools.links.website', href: 'https://prayontime.today' },
+    ],
+  },
+  {
+    logo: NawayaLogo,
+    titleKey: 'tools.nawaya.title',
+    descriptionKey: 'tools.nawaya.description',
+    links: [
+      { labelKey: 'tools.links.website', href: 'https://nawaya.life' },
     ],
   },
 ]
@@ -203,7 +212,7 @@ export function Tools() {
 
         <StaggerContainer
           as="div"
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           staggerDelay={0.12}
         >
           {tools.map((tool) => (
