@@ -304,6 +304,15 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v452: {
+          improved1:
+            'Mobile layouts now fit better across header, footer, popovers, modals, verse controls, and prayer times',
+          improved2:
+            'Audio playback mode and speed controls are easier to scan and adjust',
+          fixed1: 'Prayer time settings are more reliable on smaller screens',
+          fixed2:
+            'Removed unused extension permissions to keep browser store review cleaner',
+        },
         v450: {
           new1: 'Search, sort, and group reciters for easier selection',
           new2: 'Repeat current surah for continuous listening',
@@ -721,6 +730,15 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v452: {
+          improved1:
+            'أصبحت الواجهة على الهاتف أنسب في الهيدر والفوتر والنوافذ والقوائم وأدوات الآيات ومواقيت الصلاة',
+          improved2:
+            'أصبحت خيارات وضع التشغيل وسرعة الصوت أوضح وأسهل في التعديل',
+          fixed1: 'تحسين موثوقية إعدادات مواقيت الصلاة على الشاشات الصغيرة',
+          fixed2:
+            'إزالة صلاحيات غير مستخدمة لتسهيل مراجعة الإضافة في المتاجر',
+        },
         v450: {
           new1: 'البحث والترتيب والتجميع للقراء لاختيار أسهل',
           new2: 'تكرار السورة الحالية للاستماع المتواصل',

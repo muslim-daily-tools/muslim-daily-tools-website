@@ -48,6 +48,26 @@ const changelogs: ToolChangelog[] = [
     logo: QuranTabLogo,
     versions: [
       {
+        version: '4.5.2',
+        date: '2026-05-29',
+        changes: [
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v452.improved1' },
+              { description: 'changelog:quranTab.v452.improved2' },
+            ],
+          },
+          {
+            category: 'fixed',
+            items: [
+              { description: 'changelog:quranTab.v452.fixed1' },
+              { description: 'changelog:quranTab.v452.fixed2' },
+            ],
+          },
+        ],
+      },
+      {
         version: '4.5.0',
         date: '2026-02-08',
         changes: [
