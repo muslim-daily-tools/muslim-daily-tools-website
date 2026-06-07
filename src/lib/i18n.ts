@@ -304,6 +304,13 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v453: {
+          improved1:
+            'Prayer settings now open as a side panel on desktop, keeping prayer times visible while you adjust them',
+          improved2:
+            'Prayer settings now open full screen on mobile for easier reading and controls',
+          fixed1: 'Restored the prayer settings slide-in animation',
+        },
         v452: {
           improved1:
             'Mobile layouts now fit better across header, footer, popovers, modals, verse controls, and prayer times',
@@ -730,6 +737,13 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v453: {
+          improved1:
+            'إعدادات الصلاة تفتح الآن كلوحة جانبية على الكمبيوتر حتى تبقى مواقيت الصلاة ظاهرة أثناء التعديل',
+          improved2:
+            'إعدادات الصلاة تفتح الآن بملء الشاشة على الهاتف لتكون القراءة والتحكم أسهل',
+          fixed1: 'تمت إعادة حركة ظهور إعدادات الصلاة',
+        },
         v452: {
           improved1:
             'أصبحت الواجهة على الهاتف أنسب في الهيدر والفوتر والنوافذ والقوائم وأدوات الآيات ومواقيت الصلاة',
