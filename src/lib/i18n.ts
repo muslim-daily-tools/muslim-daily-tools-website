@@ -304,6 +304,14 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v460: {
+          new1: 'System theme mode can now follow your browser or operating system automatically',
+          new2: 'Quick Links can now be edited and reordered',
+          improved1:
+            'Morning and evening adhkar now open based on the time of day, with clearer localized counters',
+          improved2:
+            'Favorites and verse search are easier to use with quick add and remove controls',
+        },
         v453: {
           improved1:
             'Prayer settings now open as a side panel on desktop, keeping prayer times visible while you adjust them',
@@ -323,7 +331,8 @@ const resources = {
         v450: {
           new1: 'Search, sort, and group reciters for easier selection',
           new2: 'Repeat current surah for continuous listening',
-          improved1: 'Seamless gapless audio playback with new Gapless-5 engine',
+          improved1:
+            'Seamless gapless audio playback with new Gapless-5 engine',
           improved2: 'Better audio error messages and memory management',
           fixed1: 'Audio playback stability improvements in background tabs',
         },
@@ -414,17 +423,17 @@ const resources = {
       items: {
         prophetLineage: {
           title: "Prophet's Lineage",
-          description: "Memorize the lineage of Prophet Muhammad ﷺ",
+          description: 'Memorize the lineage of Prophet Muhammad ﷺ',
         },
         juzAmmaNames: {
-          title: "Juz Amma Surah Names",
+          title: 'Juz Amma Surah Names',
           description:
-            "Mind map for memorizing the names of all surahs in Juz Amma (30th Juz)",
+            'Mind map for memorizing the names of all surahs in Juz Amma (30th Juz)',
         },
         juzTabarakNames: {
-          title: "Juz Tabarak Surah Names",
+          title: 'Juz Tabarak Surah Names',
           description:
-            "Mind map for memorizing the names of all surahs in Juz Tabarak (29th Juz)",
+            'Mind map for memorizing the names of all surahs in Juz Tabarak (29th Juz)',
         },
         surahAlMursalat: {
           title: 'Surah Al-Mursalat',
@@ -436,15 +445,18 @@ const resources = {
         },
         surahAlQiyamah: {
           title: 'Surah Al-Qiyamah',
-          description: 'Visual mind map for Surah Al-Qiyamah (The Resurrection)',
+          description:
+            'Visual mind map for Surah Al-Qiyamah (The Resurrection)',
         },
         surahAlMuddathir: {
           title: 'Surah Al-Muddathir',
-          description: 'Visual mind map for Surah Al-Muddathir (The Cloaked One)',
+          description:
+            'Visual mind map for Surah Al-Muddathir (The Cloaked One)',
         },
         surahAlMuzzammil: {
           title: 'Surah Al-Muzzammil',
-          description: 'Visual mind map for Surah Al-Muzzammil (The Enshrouded One)',
+          description:
+            'Visual mind map for Surah Al-Muzzammil (The Enshrouded One)',
         },
         surahAlJinn: {
           title: 'Surah Al-Jinn',
@@ -456,7 +468,8 @@ const resources = {
         },
         surahAlMaarij: {
           title: 'Surah Al-Maarij',
-          description: 'Visual mind map for Surah Al-Maarij (The Ascending Stairways)',
+          description:
+            'Visual mind map for Surah Al-Maarij (The Ascending Stairways)',
         },
         surahAlHaqqah: {
           title: 'Surah Al-Haqqah',
@@ -468,7 +481,8 @@ const resources = {
         },
         bookFindingFlow: {
           title: 'The Art of Finding Flow',
-          description: 'Book summary mind map for achieving flow state and productivity',
+          description:
+            'Book summary mind map for achieving flow state and productivity',
         },
         bookTodoFormula: {
           title: 'To-Do List Formula',
@@ -703,8 +717,7 @@ const resources = {
         },
         posthog: {
           name: 'PostHog',
-          description:
-            'منصة تحليلات مفتوحة المصدر لرؤى المستخدم وتتبع الأحداث',
+          description: 'منصة تحليلات مفتوحة المصدر لرؤى المستخدم وتتبع الأحداث',
         },
         nextjs: {
           name: 'Next.js 15',
@@ -713,17 +726,16 @@ const resources = {
         },
         nextIntl: {
           name: 'next-intl',
-          description:
-            'مكتبة تدويل لـ Next.js مع دعم مكونات الخادم',
+          description: 'مكتبة تدويل لـ Next.js مع دعم مكونات الخادم',
         },
         radixUi: {
           name: 'Radix UI',
-          description:
-            'مكونات UI بدون تنسيق وقابلة للوصول لبناء أنظمة التصميم',
+          description: 'مكونات UI بدون تنسيق وقابلة للوصول لبناء أنظمة التصميم',
         },
         surahMetadata: {
           name: 'بيانات السور',
-          description: 'قائمة كاملة لجميع السور الـ 114 مع عدد الآيات والبيانات',
+          description:
+            'قائمة كاملة لجميع السور الـ 114 مع عدد الآيات والبيانات',
         },
       },
     },
@@ -737,6 +749,14 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v460: {
+          new1: 'يمكن لوضع المظهر الآن أن يتبع إعدادات المتصفح أو النظام تلقائيًا',
+          new2: 'يمكن الآن تعديل الروابط السريعة وإعادة ترتيبها',
+          improved1:
+            'تفتح أذكار الصباح والمساء الآن حسب وقت اليوم، مع عدادات أوضح حسب اللغة',
+          improved2:
+            'أصبح استخدام المفضلة والبحث في الآيات أسهل مع أزرار سريعة للإضافة والإزالة',
+        },
         v453: {
           improved1:
             'إعدادات الصلاة تفتح الآن كلوحة جانبية على الكمبيوتر حتى تبقى مواقيت الصلاة ظاهرة أثناء التعديل',
@@ -750,8 +770,7 @@ const resources = {
           improved2:
             'أصبحت خيارات وضع التشغيل وسرعة الصوت أوضح وأسهل في التعديل',
           fixed1: 'تحسين موثوقية إعدادات مواقيت الصلاة على الشاشات الصغيرة',
-          fixed2:
-            'إزالة صلاحيات غير مستخدمة لتسهيل مراجعة الإضافة في المتاجر',
+          fixed2: 'إزالة صلاحيات غير مستخدمة لتسهيل مراجعة الإضافة في المتاجر',
         },
         v450: {
           new1: 'البحث والترتيب والتجميع للقراء لاختيار أسهل',
