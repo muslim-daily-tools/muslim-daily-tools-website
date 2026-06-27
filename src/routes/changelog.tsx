@@ -72,6 +72,33 @@ const changelogs: ToolChangelog[] = [
         ],
       },
       {
+        version: '4.7.0',
+        date: '2026-06-27',
+        changes: [
+          {
+            category: 'new',
+            items: [
+              { description: 'changelog:quranTab.v470.new1' },
+              { description: 'changelog:quranTab.v470.new2' },
+            ],
+          },
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v470.improved1' },
+              { description: 'changelog:quranTab.v470.improved2' },
+            ],
+          },
+          {
+            category: 'fixed',
+            items: [
+              { description: 'changelog:quranTab.v470.fixed1' },
+              { description: 'changelog:quranTab.v470.fixed2' },
+            ],
+          },
+        ],
+      },
+      {
         version: '4.6.0',
         date: '2026-06-24',
         changes: [

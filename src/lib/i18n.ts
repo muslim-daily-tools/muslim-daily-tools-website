@@ -305,8 +305,7 @@ const resources = {
       },
       quranTab: {
         v480: {
-          new1:
-            'Prayer times now use a visual sun-arc tracker that shows where you are in the day and highlights the next prayer',
+          new1: 'Prayer times now use a visual sun-arc tracker that shows where you are in the day and highlights the next prayer',
           improved1:
             'Prayer settings now live directly under the prayer tracker, making location, calculation method, madhab, reminders, adhan voice, adjustments, DST, and labels easier to change',
           improved2:
@@ -315,6 +314,17 @@ const resources = {
             'Prayer label toggles now work correctly for users with older saved settings',
           fixed2:
             'Adhan voice preview buttons are clearer for screen readers, and focus rings are more consistent on glass surfaces',
+        },
+        v470: {
+          new1: 'Islamic event reminders now highlight upcoming sunnah fasts and special days from the new tab',
+          new2: 'A new Islamic Events Center lets you review upcoming reminders, event details, and source links',
+          improved1:
+            'Menus, modals, settings, favourites, and reciter selection now have a more polished frosted-glass design',
+          improved2: 'The Share Thawab modal is clearer and easier to use',
+          fixed1:
+            'Settings import and app startup now restore missing nested settings safely for older backups',
+          fixed2:
+            'Adhkar progress no longer crashes when older saved data contains empty counter slots',
         },
         v460: {
           new1: 'System theme mode can now follow your browser or operating system automatically',
@@ -762,8 +772,7 @@ const resources = {
       },
       quranTab: {
         v480: {
-          new1:
-            'مواقيت الصلاة تظهر الآن في مسار بصري للشمس يوضح تقدم اليوم ويبرز الصلاة القادمة',
+          new1: 'مواقيت الصلاة تظهر الآن في مسار بصري للشمس يوضح تقدم اليوم ويبرز الصلاة القادمة',
           improved1:
             'أصبحت إعدادات الصلاة موجودة مباشرة أسفل مسار المواقيت لتعديل الموقع وطريقة الحساب والمذهب والتذكيرات وصوت الأذان والضبط اليدوي والتوقيت الصيفي والأسماء بسهولة',
           improved2:
@@ -772,6 +781,17 @@ const resources = {
             'أصبح زر إظهار أسماء الصلوات يعمل بشكل صحيح لمن لديهم إعدادات محفوظة قديمة',
           fixed2:
             'أزرار معاينة أصوات الأذان أوضح لقارئات الشاشة، وحلقات التركيز أصبحت أنسب على الواجهات الزجاجية',
+        },
+        v470: {
+          new1: 'تذكيرات المناسبات الإسلامية تعرض الآن صيام السنن والأيام الفاضلة القريبة من تبويبك الجديد',
+          new2: 'مركز جديد للمناسبات الإسلامية يعرض التذكيرات القادمة والتفاصيل وروابط المصادر',
+          improved1:
+            'تحسين شكل القوائم والنوافذ والإعدادات والمفضلة واختيار القارئ بواجهة زجاجية أهدأ',
+          improved2: 'نافذة شارك الثواب أصبحت أوضح وأسهل في الاستخدام',
+          fixed1:
+            'استيراد الإعدادات وبدء التطبيق يعيدان الحقول الداخلية الناقصة بأمان للنسخ الاحتياطية القديمة',
+          fixed2:
+            'تقدم أذكار الصباح والمساء لم يعد يتعطل عند وجود بيانات قديمة بها خانات عداد فارغة',
         },
         v460: {
           new1: 'يمكن لوضع المظهر الآن أن يتبع إعدادات المتصفح أو النظام تلقائيًا',
