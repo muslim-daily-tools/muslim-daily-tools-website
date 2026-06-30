@@ -304,6 +304,18 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v480: {
+          new1:
+            'Prayer times now use a visual sun-arc tracker that shows where you are in the day and highlights the next prayer',
+          improved1:
+            'Prayer settings now live directly under the prayer tracker, making location, calculation method, madhab, reminders, adhan voice, adjustments, DST, and labels easier to change',
+          improved2:
+            'Adhan volume now appears with prayer reminders, while verse volume now lives inside the verse player menu',
+          fixed1:
+            'Prayer label toggles now work correctly for users with older saved settings',
+          fixed2:
+            'Adhan voice preview buttons are clearer for screen readers, and focus rings are more consistent on glass surfaces',
+        },
         v460: {
           new1: 'System theme mode can now follow your browser or operating system automatically',
           new2: 'Quick Links can now be edited and reordered',
@@ -749,6 +761,18 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v480: {
+          new1:
+            'مواقيت الصلاة تظهر الآن في مسار بصري للشمس يوضح تقدم اليوم ويبرز الصلاة القادمة',
+          improved1:
+            'أصبحت إعدادات الصلاة موجودة مباشرة أسفل مسار المواقيت لتعديل الموقع وطريقة الحساب والمذهب والتذكيرات وصوت الأذان والضبط اليدوي والتوقيت الصيفي والأسماء بسهولة',
+          improved2:
+            'أصبح مستوى صوت الأذان داخل إعدادات التذكير، ومستوى صوت التلاوة داخل قائمة مشغل الآيات',
+          fixed1:
+            'أصبح زر إظهار أسماء الصلوات يعمل بشكل صحيح لمن لديهم إعدادات محفوظة قديمة',
+          fixed2:
+            'أزرار معاينة أصوات الأذان أوضح لقارئات الشاشة، وحلقات التركيز أصبحت أنسب على الواجهات الزجاجية',
+        },
         v460: {
           new1: 'يمكن لوضع المظهر الآن أن يتبع إعدادات المتصفح أو النظام تلقائيًا',
           new2: 'يمكن الآن تعديل الروابط السريعة وإعادة ترتيبها',
