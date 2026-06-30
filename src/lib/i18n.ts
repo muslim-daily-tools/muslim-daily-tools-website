@@ -304,6 +304,10 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v481: {
+          fixed1:
+            'Prayer settings footer now has edge arrows so hidden settings are easier to discover and open',
+        },
         v480: {
           new1: 'Prayer times now use a visual sun-arc tracker that shows where you are in the day and highlights the next prayer',
           improved1:
@@ -771,6 +775,10 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v481: {
+          fixed1:
+            'أصبح شريط إعدادات الصلاة يحتوي على أسهم جانبية لتسهيل اكتشاف وفتح الإعدادات المخفية',
+        },
         v480: {
           new1: 'مواقيت الصلاة تظهر الآن في مسار بصري للشمس يوضح تقدم اليوم ويبرز الصلاة القادمة',
           improved1:
