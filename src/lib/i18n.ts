@@ -304,6 +304,13 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v490: {
+          new1: 'A larger, curated background collection that refreshes over time, with no extension update needed',
+          improved1:
+            'Backgrounds now cross-fade smoothly when they change, load faster, and pick a size that fits your screen',
+          fixed1: 'New tabs no longer briefly show a placeholder before your background loads',
+          fixed2: 'The background picker no longer stretches the settings panel',
+        },
         v481: {
           fixed1:
             'Prayer settings footer now has edge arrows so hidden settings are easier to discover and open',
@@ -775,6 +782,13 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v490: {
+          new1: 'مجموعة خلفيات أكبر ومنسّقة تتجدّد مع الوقت دون الحاجة إلى تحديث الإضافة',
+          improved1:
+            'أصبحت الخلفيات تتلاشى بسلاسة عند تغييرها، وتُحمّل أسرع، وتختار حجمًا يناسب شاشتك',
+          fixed1: 'لم تعد الصفحات الجديدة تُظهر خلفية مؤقتة قبل تحميل خلفيتك',
+          fixed2: 'لم يعد منتقي الخلفيات يُطيل لوحة الإعدادات',
+        },
         v481: {
           fixed1:
             'أصبح شريط إعدادات الصلاة يحتوي على أسهم جانبية لتسهيل اكتشاف وفتح الإعدادات المخفية',
