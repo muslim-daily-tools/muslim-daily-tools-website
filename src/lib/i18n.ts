@@ -304,6 +304,17 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v4100: {
+          new1: 'Monthly prayer times calendar with Hijri dates',
+          new2: 'Weekly Jumuʿah (Friday) reminder in Islamic events',
+          new3: 'Audio playback for morning and evening adhkar',
+          new4: 'Save favorite backgrounds and browse them as a collection',
+          new5: 'Varied prayer reminder notifications instead of repeated messages',
+          improved1: 'Much faster new tab opening with lower memory usage',
+          improved2: 'Adhkar texts reviewed for authenticity with a refined player design',
+          improved3: 'Clearer prayer timeline at a glance',
+          improved4: 'Date now shows the weekday',
+        },
         v490: {
           new1: 'A larger, curated background collection that refreshes over time, with no extension update needed',
           improved1:
@@ -782,6 +793,17 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v4100: {
+          new1: 'تقويم شهري لمواقيت الصلاة مع التاريخ الهجري',
+          new2: 'تذكير أسبوعي بيوم الجمعة ضمن المناسبات الإسلامية',
+          new3: 'تشغيل صوتي لأذكار الصباح والمساء',
+          new4: 'حفظ الخلفيات المفضلة وتصفحها كمجموعة',
+          new5: 'تنويع رسائل تذكيرات الصلاة بدلًا من تكرارها',
+          improved1: 'فتح أسرع لعلامة التبويب الجديدة مع استهلاك أقل للذاكرة',
+          improved2: 'مراجعة نصوص الأذكار للتحقق من صحتها مع تصميم محسّن للمشغّل',
+          improved3: 'خط زمني للصلوات أوضح في لمحة',
+          improved4: 'عرض اسم اليوم مع التاريخ',
+        },
         v490: {
           new1: 'مجموعة خلفيات أكبر ومنسّقة تتجدّد مع الوقت دون الحاجة إلى تحديث الإضافة',
           improved1:
