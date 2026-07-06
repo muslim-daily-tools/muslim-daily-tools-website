@@ -304,6 +304,16 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v4101: {
+          improved1:
+            'Verse recitation now flows seamlessly between verses at normal speed, with no audible gaps',
+          improved2:
+            'Adding a quick link now checks the address and shows a clear error message when something is off',
+          fixed1:
+            '"Chrome Tab" in Quick Links opens Chrome\'s default new tab page again',
+          fixed2:
+            'Quick links with capital letters in the address no longer break when saved',
+        },
         v4100: {
           new1: 'Monthly prayer times calendar with Hijri dates',
           new2: 'Weekly Jumuʿah (Friday) reminder in Islamic events',
@@ -793,6 +803,14 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v4101: {
+          improved1:
+            'أصبح الانتقال بين الآيات في التلاوة سلسًا دون انقطاع عند السرعة العادية',
+          improved2:
+            'عند إضافة رابط سريع يتم التحقق من العنوان وتظهر رسالة توضح الخطأ',
+          fixed1: 'يفتح رابط «صفحة كروم» في الروابط السريعة صفحة كروم الافتراضية من جديد',
+          fixed2: 'لم تعد الروابط السريعة ذات الأحرف الكبيرة في العنوان تتعطل عند الحفظ',
+        },
         v4100: {
           new1: 'تقويم شهري لمواقيت الصلاة مع التاريخ الهجري',
           new2: 'تذكير أسبوعي بيوم الجمعة ضمن المناسبات الإسلامية',
