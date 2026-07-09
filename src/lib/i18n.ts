@@ -304,6 +304,15 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v4110: {
+          new1: 'Repeat-range playback for focused Quran memorization and revision',
+          improved1:
+            'Range start and end controls can now be typed directly for faster setup',
+          improved2:
+            'Prayer settings are easier to scan with a compact, collapsible layout',
+          fixed1:
+            'Lowering the start of a repeat range now keeps playback anchored to the selected verse',
+        },
         v4101: {
           improved1:
             'Verse recitation now flows seamlessly between verses at normal speed, with no audible gaps',
@@ -321,7 +330,8 @@ const resources = {
           new4: 'Save favorite backgrounds and browse them as a collection',
           new5: 'Varied prayer reminder notifications instead of repeated messages',
           improved1: 'Much faster new tab opening with lower memory usage',
-          improved2: 'Adhkar texts reviewed for authenticity with a refined player design',
+          improved2:
+            'Adhkar texts reviewed for authenticity with a refined player design',
           improved3: 'Clearer prayer timeline at a glance',
           improved4: 'Date now shows the weekday',
         },
@@ -329,8 +339,10 @@ const resources = {
           new1: 'A larger, curated background collection that refreshes over time, with no extension update needed',
           improved1:
             'Backgrounds now cross-fade smoothly when they change, load faster, and pick a size that fits your screen',
-          fixed1: 'New tabs no longer briefly show a placeholder before your background loads',
-          fixed2: 'The background picker no longer stretches the settings panel',
+          fixed1:
+            'New tabs no longer briefly show a placeholder before your background loads',
+          fixed2:
+            'The background picker no longer stretches the settings panel',
         },
         v481: {
           fixed1:
@@ -803,13 +815,24 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v4110: {
+          new1: 'تشغيل تكرار نطاق محدد لمساعدتك على حفظ القرآن ومراجعته بتركيز',
+          improved1:
+            'يمكن الآن كتابة بداية ونهاية النطاق مباشرة لإعداده بسرعة أكبر',
+          improved2:
+            'أصبحت إعدادات الصلاة أسهل في القراءة بواجهة مختصرة قابلة للطي',
+          fixed1:
+            'عند تقليل بداية نطاق التكرار، يبقى التشغيل مرتبطًا بالآية المختارة',
+        },
         v4101: {
           improved1:
             'أصبح الانتقال بين الآيات في التلاوة سلسًا دون انقطاع عند السرعة العادية',
           improved2:
             'عند إضافة رابط سريع يتم التحقق من العنوان وتظهر رسالة توضح الخطأ',
-          fixed1: 'يفتح رابط «صفحة كروم» في الروابط السريعة صفحة كروم الافتراضية من جديد',
-          fixed2: 'لم تعد الروابط السريعة ذات الأحرف الكبيرة في العنوان تتعطل عند الحفظ',
+          fixed1:
+            'يفتح رابط «صفحة كروم» في الروابط السريعة صفحة كروم الافتراضية من جديد',
+          fixed2:
+            'لم تعد الروابط السريعة ذات الأحرف الكبيرة في العنوان تتعطل عند الحفظ',
         },
         v4100: {
           new1: 'تقويم شهري لمواقيت الصلاة مع التاريخ الهجري',
@@ -818,7 +841,8 @@ const resources = {
           new4: 'حفظ الخلفيات المفضلة وتصفحها كمجموعة',
           new5: 'تنويع رسائل تذكيرات الصلاة بدلًا من تكرارها',
           improved1: 'فتح أسرع لعلامة التبويب الجديدة مع استهلاك أقل للذاكرة',
-          improved2: 'مراجعة نصوص الأذكار للتحقق من صحتها مع تصميم محسّن للمشغّل',
+          improved2:
+            'مراجعة نصوص الأذكار للتحقق من صحتها مع تصميم محسّن للمشغّل',
           improved3: 'خط زمني للصلوات أوضح في لمحة',
           improved4: 'عرض اسم اليوم مع التاريخ',
         },
