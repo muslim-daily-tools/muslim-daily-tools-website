@@ -1,11 +1,12 @@
 import { LuExternalLink, LuStar, LuUsers } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
-import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
 
+import AyahFlowLogo from '../assets/ayah-flow-logo.png'
 import PrayerCalLogo from '../assets/prayer-calendar-logo.png'
 import QuranStationLogo from '../assets/quran-station-logo.png'
 import QuranTabLogo from '../assets/quran-tab-logo.png'
 import NawayaLogo from '../assets/nawaya-logo.png'
+import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
 
 interface ToolLink {
   labelKey: string
@@ -16,14 +17,14 @@ interface Tool {
   logo: string
   titleKey: string
   descriptionKey: string
-  links: ToolLink[]
+  links: Array<ToolLink>
   comingSoon?: boolean
   rating?: number
   reviewCount?: number
   userCount?: string
 }
 
-const tools: Tool[] = [
+const tools: Array<Tool> = [
   {
     logo: QuranStationLogo,
     titleKey: 'tools.quranStation.title',
@@ -66,6 +67,17 @@ const tools: Tool[] = [
     userCount: '50K',
   },
   {
+    logo: AyahFlowLogo,
+    titleKey: 'tools.ayahFlow.title',
+    descriptionKey: 'tools.ayahFlow.description',
+    links: [
+      {
+        labelKey: 'tools.links.iosAppStore',
+        href: 'https://apps.apple.com/us/app/ayah-flow/id6758680834',
+      },
+    ],
+  },
+  {
     logo: PrayerCalLogo,
     titleKey: 'tools.prayerCal.title',
     descriptionKey: 'tools.prayerCal.description',
@@ -77,9 +89,7 @@ const tools: Tool[] = [
     logo: NawayaLogo,
     titleKey: 'tools.nawaya.title',
     descriptionKey: 'tools.nawaya.description',
-    links: [
-      { labelKey: 'tools.links.website', href: 'https://nawaya.life' },
-    ],
+    links: [{ labelKey: 'tools.links.website', href: 'https://nawaya.life' }],
   },
 ]
 
@@ -111,7 +121,10 @@ function ToolCard({ tool }: { tool: Tool }) {
   const title = t(tool.titleKey)
 
   return (
-    <div className="group relative bg-card rounded-xl p-6 shadow-sm border border-border flex flex-col h-full transition-all duration-200 hover:shadow-md hover:border-border/80">
+    <article
+      aria-label={title}
+      className="group relative bg-card rounded-xl p-6 shadow-sm border border-border flex flex-col h-full transition-all duration-200 hover:shadow-md hover:border-border/80"
+    >
       {tool.comingSoon && (
         <span className="absolute top-4 end-4 text-xs font-medium bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded-full">
           {t('tools.comingSoon')}
@@ -194,7 +207,7 @@ function ToolCard({ tool }: { tool: Tool }) {
           </a>
         ))}
       </div>
-    </div>
+    </article>
   )
 }
 
@@ -203,7 +216,7 @@ export function Tools() {
 
   return (
     <section id="tools" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <FadeIn>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
             {t('tools.title')}
@@ -212,11 +225,15 @@ export function Tools() {
 
         <StaggerContainer
           as="div"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="flex flex-wrap justify-center gap-8"
           staggerDelay={0.12}
         >
           {tools.map((tool) => (
-            <StaggerItem key={tool.titleKey} variant="scaleIn">
+            <StaggerItem
+              key={tool.titleKey}
+              variant="scaleIn"
+              className="w-full md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)] xl:w-[calc((100%-8rem)/5)]"
+            >
               <ToolCard tool={tool} />
             </StaggerItem>
           ))}
