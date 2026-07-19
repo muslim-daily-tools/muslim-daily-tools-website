@@ -304,6 +304,10 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v4111: {
+          fixed1:
+            'Prayer alarms now work reliably on older Chrome versions and Firefox',
+        },
         v4110: {
           new1: 'Repeat-range playback for focused Quran memorization and revision',
           improved1:
@@ -815,6 +819,10 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v4111: {
+          fixed1:
+            'أصبحت تنبيهات الصلاة تعمل بشكل موثوق على إصدارات كروم القديمة وفايرفوكس',
+        },
         v4110: {
           new1: 'تشغيل تكرار نطاق محدد لمساعدتك على حفظ القرآن ومراجعته بتركيز',
           improved1:
