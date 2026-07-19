@@ -88,6 +88,11 @@ const resources = {
           description:
             'A Quran-inspired new tab for your browser. Each tab greets you with an ayah, prayer times, and a calm space for reflection. Read translations in 40+ languages, listen to reciters, and save favourites.',
         },
+        ayahFlow: {
+          title: 'Ayah Flow',
+          description:
+            'A listening-first Quran app with synchronized ayah and word highlighting. Listen to renowned reciters, follow the English translation and word-by-word transliteration, build memorization playlists, and continue where you left off.',
+        },
         prayerCal: {
           title: 'Pray On Time',
           description:
@@ -103,6 +108,7 @@ const resources = {
           chrome: 'Chrome',
           firefox: 'Firefox',
           ios: 'iOS',
+          iosAppStore: 'iOS App Store',
         },
       },
       testimonials: {
@@ -154,6 +160,7 @@ const resources = {
       title: 'Resources & Tech Stack',
       subtitle:
         'A collection of APIs, libraries, and tools used to build our tools. We hope this helps developers who want to build similar Islamic applications.',
+      toolSelectorLabel: 'Choose a tool',
       openLink: 'Open link',
       noResources: 'Resources coming soon',
       footerNote:
@@ -166,6 +173,65 @@ const resources = {
         tools: 'Development Tools',
       },
       items: {
+        quranFoundation: {
+          name: 'Quran Foundation Content API/QuranCDN',
+          description:
+            'Provides recitation metadata, verse- and word-level timestamps, and word audio for synchronized Quran playback.',
+        },
+        quranicAudio: {
+          name: 'QuranicAudio',
+          description:
+            'High-quality full-surah recitations streamed for continuous Quran listening.',
+        },
+        reactNative: {
+          name: 'React Native',
+          description:
+            'Cross-platform framework powering Ayah Flow’s native mobile interface.',
+        },
+        expo: {
+          name: 'Expo',
+          description:
+            'React Native framework and native tooling used to build and ship the mobile app.',
+        },
+        reactNativeTrackPlayer: {
+          name: 'React Native Track Player v4',
+          description:
+            'Background audio, lock-screen controls, and playlist queue management.',
+        },
+        nativeWind: {
+          name: 'NativeWind',
+          description:
+            'Tailwind-style utility classes for styling React Native interfaces.',
+        },
+        flashList: {
+          name: 'FlashList',
+          description:
+            'High-performance virtualized lists for rendering synchronized Quran verses.',
+        },
+        rubik: {
+          name: 'Rubik',
+          description:
+            'Readable interface typeface used across the app’s English experience.',
+        },
+        qpcHafsFont: {
+          name: 'QPC Hafs Font',
+          description:
+            'Uthmani Hafs typeface used to render Quran text and embedded ayah markers.',
+        },
+        qulRecitationSegments: {
+          name: 'QUL Recitation Segments',
+          description:
+            'Recitation timing data used for synchronized ayah and word highlighting.',
+        },
+        saheehInternational: {
+          name: 'Saheeh International',
+          description:
+            'Bundled English ayah-by-ayah translation for reading and Quran search.',
+        },
+        maestro: {
+          name: 'Maestro',
+          description: 'End-to-end mobile UI testing for critical iOS flows.',
+        },
         quranenc: {
           name: 'QuranEnc API',
           description:
@@ -193,8 +259,7 @@ const resources = {
         },
         zustand: {
           name: 'Zustand',
-          description:
-            'Lightweight state management with localStorage persistence',
+          description: 'Lightweight state management with persistence support.',
         },
         tanstackQuery: {
           name: 'TanStack Query',
@@ -619,6 +684,11 @@ const resources = {
           description:
             'تبويب جديد مُستوحى من القرآن لمتصفحك. كل تبويب يُرحّب بك بآية، ومواقيت الصلاة، ومساحة هادئة للتأمل. اقرأ الترجمات بأكثر من 40 لغة، واستمع للقرّاء، واحفظ المفضلات.',
         },
+        ayahFlow: {
+          title: 'Ayah Flow',
+          description:
+            'تطبيق قرآن يضع الاستماع أولًا، مع تمييز متزامن للآيات والكلمات. استمع إلى نخبة من القرّاء، وتابع الترجمة الإنجليزية والنطق بالحروف اللاتينية كلمةً بكلمة، وأنشئ قوائم تشغيل للحفظ، وواصل من حيث توقفت.',
+        },
         prayerCal: {
           description:
             'لا تفوّت صلاة. زامن مواقيت الصلاة الدقيقة تلقائيًا مع تقويم Google أو Microsoft، واضبط تذكيرات ذكية، ونظّم يومك حول الصلاة.',
@@ -632,6 +702,7 @@ const resources = {
           chrome: 'كروم',
           firefox: 'فايرفوكس',
           ios: 'آيفون',
+          iosAppStore: 'متجر تطبيقات iOS',
         },
       },
       testimonials: {
@@ -680,6 +751,7 @@ const resources = {
       title: 'الموارد والتقنيات',
       subtitle:
         'مجموعة من واجهات البرمجة والمكتبات والأدوات المستخدمة في بناء أدواتنا. نأمل أن تساعد المطورين الراغبين في بناء تطبيقات إسلامية مماثلة.',
+      toolSelectorLabel: 'اختر الأداة',
       openLink: 'فتح الرابط',
       noResources: 'الموارد قريبًا',
       footerNote:
@@ -692,6 +764,64 @@ const resources = {
         tools: 'أدوات التطوير',
       },
       items: {
+        quranFoundation: {
+          name: 'Quran Foundation Content API/QuranCDN',
+          description:
+            'يوفّر بيانات التلاوات والتوقيتات على مستوى الآية والكلمة وصوت الكلمات لمزامنة تشغيل القرآن.',
+        },
+        quranicAudio: {
+          name: 'QuranicAudio',
+          description:
+            'تلاوات عالية الجودة للسور كاملة للاستماع المتواصل إلى القرآن.',
+        },
+        reactNative: {
+          name: 'React Native',
+          description:
+            'إطار عمل متعدد المنصات يشغّل واجهة Ayah Flow الأصلية على الهاتف.',
+        },
+        expo: {
+          name: 'Expo',
+          description:
+            'إطار عمل وأدوات لمنصة React Native تُستخدم في تطوير التطبيق ونشره.',
+        },
+        reactNativeTrackPlayer: {
+          name: 'React Native Track Player v4',
+          description:
+            'تشغيل الصوت في الخلفية، والتحكم من شاشة القفل، وإدارة قوائم التشغيل.',
+        },
+        nativeWind: {
+          name: 'NativeWind',
+          description: 'أدوات تنسيق بأسلوب Tailwind لواجهات React Native.',
+        },
+        flashList: {
+          name: 'FlashList',
+          description:
+            'قوائم افتراضية عالية الأداء لعرض آيات القرآن المتزامنة.',
+        },
+        rubik: {
+          name: 'Rubik',
+          description: 'خط واضح يُستخدم في الواجهة الإنجليزية للتطبيق.',
+        },
+        qpcHafsFont: {
+          name: 'خط QPC حفص',
+          description:
+            'خط عثماني برواية حفص لعرض نص القرآن وأرقام الآيات المدمجة.',
+        },
+        qulRecitationSegments: {
+          name: 'مقاطع التلاوة من QUL',
+          description:
+            'بيانات توقيت التلاوات المستخدمة لمزامنة تمييز الآيات والكلمات.',
+        },
+        saheehInternational: {
+          name: 'Saheeh International',
+          description:
+            'ترجمة إنجليزية مضمّنة آيةً بآية للقراءة والبحث في القرآن.',
+        },
+        maestro: {
+          name: 'Maestro',
+          description:
+            'اختبارات شاملة لواجهات الهاتف في المسارات الأساسية على iOS.',
+        },
         quranenc: {
           name: 'QuranEnc API',
           description:
@@ -717,7 +847,7 @@ const resources = {
         },
         zustand: {
           name: 'Zustand',
-          description: 'إدارة حالة خفيفة مع حفظ في التخزين المحلي',
+          description: 'إدارة حالة خفيفة مع دعم حفظ البيانات.',
         },
         tanstackQuery: {
           name: 'TanStack Query',
