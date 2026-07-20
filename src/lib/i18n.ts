@@ -369,6 +369,12 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v4112: {
+          fixed1:
+            'Kurdish translations and other Arabic-script languages now display every letter correctly with improved Unicode font support',
+          fixed2:
+            'Prayer alarm audio now plays reliably on older Chrome versions',
+        },
         v4111: {
           fixed1:
             'Prayer alarms now work reliably on older Chrome versions and Firefox',
@@ -949,6 +955,12 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v4112: {
+          fixed1:
+            'تظهر الآن الترجمات الكردية واللغات الأخرى المكتوبة بالحروف العربية بجميع الأحرف بشكل صحيح بفضل دعم محسّن لخطوط يونيكود',
+          fixed2:
+            'يعمل صوت تنبيهات الصلاة الآن بشكل موثوق على إصدارات كروم القديمة',
+        },
         v4111: {
           fixed1:
             'أصبحت تنبيهات الصلاة تعمل بشكل موثوق على إصدارات كروم القديمة وفايرفوكس',
