@@ -369,6 +369,25 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v4120: {
+          new1: 'Repeat Passage: one tap repeats the passage you are on — this Rubʿ, Hizb, Juz, or Surah — for memorization and revision',
+          new2: 'Prayer countdown on the extension toolbar icon so you can see the time to the next prayer from any tab',
+          new3: 'Interval zikr reminder with rotating adhkar and gentle notification sounds',
+          new4: 'New-tab essentials dock with Google apps, custom shortcuts, and optional most-visited sites',
+          new5: 'Count adhkar with your keyboard for faster dhikr sessions',
+          improved1:
+            'Quarters are now named the way the mushaf reads them — "third quarter of Hizb 31" instead of a plain number',
+          improved2:
+            'Monday and Thursday fasting reminders now mention the day by name, and settings labels are easier to tap',
+          improved3:
+            'Lower memory usage when the new tab is idle',
+          fixed1:
+            'More accurate prayer times in Iraq and the Levant with region-specific calculation methods',
+          fixed2:
+            'Prayer alarms now heal themselves if the browser clears them, and zikr reminders survive extension reloads',
+          fixed3:
+            'The toolbar countdown stays in sync through sunrise and shows clearer hour formatting',
+        },
         v4112: {
           fixed1:
             'Kurdish translations and other Arabic-script languages now display every letter correctly with improved Unicode font support',
@@ -955,6 +974,24 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v4120: {
+          new1: 'تكرار المقطع: بضغطة واحدة كرِّر ما تقرؤه الآن — الربع أو الحزب أو الجزء أو السورة — للحفظ والمراجعة',
+          new2: 'عدّاد تنازلي للصلاة القادمة على أيقونة الإضافة في المتصفح يظهر من أي صفحة',
+          new3: 'تذكير بالأذكار على فترات منتظمة مع أذكار متنوعة وأصوات تنبيه هادئة',
+          new4: 'شريط أساسيات في الصفحة الجديدة يضم تطبيقات جوجل واختصارات مخصصة والمواقع الأكثر زيارة اختياريًا',
+          new5: 'عدّ الأذكار باستخدام لوحة المفاتيح لجلسات ذكر أسرع',
+          improved1:
+            'تُسمّى الأرباع الآن كما تُقرأ في المصحف — «الربع الثالث من الحزب ٣١» بدلًا من رقم مجرد',
+          improved2:
+            'تذكيرات صيام الاثنين والخميس تذكر اسم اليوم، وأصبح الضغط على عناوين الإعدادات يفعّلها مباشرة',
+          improved3: 'استهلاك أقل للذاكرة عندما تكون الصفحة الجديدة خاملة',
+          fixed1:
+            'مواقيت صلاة أدق في العراق وبلاد الشام بطرق حساب مخصصة لكل منطقة',
+          fixed2:
+            'تنبيهات الصلاة تعيد ضبط نفسها إذا حذفها المتصفح، وتذكيرات الأذكار تستمر بعد إعادة تحميل الإضافة',
+          fixed3:
+            'العدّاد التنازلي على الأيقونة يبقى دقيقًا عند الشروق ويعرض الساعات بصيغة أوضح',
+        },
         v4112: {
           fixed1:
             'تظهر الآن الترجمات الكردية واللغات الأخرى المكتوبة بالحروف العربية بجميع الأحرف بشكل صحيح بفضل دعم محسّن لخطوط يونيكود',
