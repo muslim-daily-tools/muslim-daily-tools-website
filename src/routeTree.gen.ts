@@ -13,6 +13,7 @@ import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as MindMapsRouteImport } from './routes/mind-maps'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PedalpromptPrivacyRouteImport } from './routes/pedalprompt/privacy'
 
 const ResourcesRoute = ResourcesRouteImport.update({
   id: '/resources',
@@ -34,18 +35,25 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PedalpromptPrivacyRoute = PedalpromptPrivacyRouteImport.update({
+  id: '/pedalprompt/privacy',
+  path: '/pedalprompt/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/changelog': typeof ChangelogRoute
   '/mind-maps': typeof MindMapsRoute
   '/resources': typeof ResourcesRoute
+  '/pedalprompt/privacy': typeof PedalpromptPrivacyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/changelog': typeof ChangelogRoute
   '/mind-maps': typeof MindMapsRoute
   '/resources': typeof ResourcesRoute
+  '/pedalprompt/privacy': typeof PedalpromptPrivacyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,25 @@ export interface FileRoutesById {
   '/changelog': typeof ChangelogRoute
   '/mind-maps': typeof MindMapsRoute
   '/resources': typeof ResourcesRoute
+  '/pedalprompt/privacy': typeof PedalpromptPrivacyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/changelog' | '/mind-maps' | '/resources'
+  fullPaths:
+    | '/'
+    | '/changelog'
+    | '/mind-maps'
+    | '/resources'
+    | '/pedalprompt/privacy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/changelog' | '/mind-maps' | '/resources'
-  id: '__root__' | '/' | '/changelog' | '/mind-maps' | '/resources'
+  to: '/' | '/changelog' | '/mind-maps' | '/resources' | '/pedalprompt/privacy'
+  id:
+    | '__root__'
+    | '/'
+    | '/changelog'
+    | '/mind-maps'
+    | '/resources'
+    | '/pedalprompt/privacy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +87,7 @@ export interface RootRouteChildren {
   ChangelogRoute: typeof ChangelogRoute
   MindMapsRoute: typeof MindMapsRoute
   ResourcesRoute: typeof ResourcesRoute
+  PedalpromptPrivacyRoute: typeof PedalpromptPrivacyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +120,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pedalprompt/privacy': {
+      id: '/pedalprompt/privacy'
+      path: '/pedalprompt/privacy'
+      fullPath: '/pedalprompt/privacy'
+      preLoaderRoute: typeof PedalpromptPrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +135,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChangelogRoute: ChangelogRoute,
   MindMapsRoute: MindMapsRoute,
   ResourcesRoute: ResourcesRoute,
+  PedalpromptPrivacyRoute: PedalpromptPrivacyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
