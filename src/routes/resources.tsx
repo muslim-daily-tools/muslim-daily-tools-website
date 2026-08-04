@@ -2,12 +2,13 @@ import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { LuExternalLink } from 'react-icons/lu'
 
+import AyahFlowLogo from '../assets/ayah-flow-logo.png'
 import QuranTabLogo from '../assets/quran-tab-logo.png'
 import QuranStationLogo from '../assets/quran-station-logo.png'
 import { cn } from '@/lib/utils'
 
 // Types
-type ToolId = 'quran-tab' | 'quran-station'
+type ToolId = 'quran-tab' | 'ayah-flow' | 'quran-station'
 type ResourceCategory = 'apis' | 'libraries' | 'fonts' | 'data' | 'tools'
 
 interface ResourceItem {
@@ -180,6 +181,140 @@ const toolResources: Array<ToolResources> = [
     ],
   },
   {
+    toolId: 'ayah-flow',
+    titleKey: 'home:tools.ayahFlow.title',
+    logo: AyahFlowLogo,
+    groups: [
+      {
+        category: 'apis',
+        titleKey: 'resources:categories.apis',
+        items: [
+          {
+            nameKey: 'resources:items.quranFoundation.name',
+            descriptionKey: 'resources:items.quranFoundation.description',
+            url: 'https://api-docs.quran.foundation/docs/sdk/javascript/audio/',
+          },
+          {
+            nameKey: 'resources:items.quranicAudio.name',
+            descriptionKey: 'resources:items.quranicAudio.description',
+            url: 'https://quranicaudio.com/',
+          },
+        ],
+      },
+      {
+        category: 'libraries',
+        titleKey: 'resources:categories.libraries',
+        items: [
+          {
+            nameKey: 'resources:items.reactNative.name',
+            descriptionKey: 'resources:items.reactNative.description',
+            url: 'https://reactnative.dev/',
+            license: 'MIT',
+          },
+          {
+            nameKey: 'resources:items.expo.name',
+            descriptionKey: 'resources:items.expo.description',
+            url: 'https://expo.dev/',
+            license: 'MIT',
+          },
+          {
+            nameKey: 'resources:items.reactNativeTrackPlayer.name',
+            descriptionKey:
+              'resources:items.reactNativeTrackPlayer.description',
+            url: 'https://github.com/doublesymmetry/react-native-track-player/tree/v4',
+            license: 'Apache-2.0',
+          },
+          {
+            nameKey: 'resources:items.zustand.name',
+            descriptionKey: 'resources:items.zustand.description',
+            url: 'https://zustand.docs.pmnd.rs/',
+            license: 'MIT',
+          },
+          {
+            nameKey: 'resources:items.nativeWind.name',
+            descriptionKey: 'resources:items.nativeWind.description',
+            url: 'https://www.nativewind.dev/',
+            license: 'MIT',
+          },
+          {
+            nameKey: 'resources:items.flashList.name',
+            descriptionKey: 'resources:items.flashList.description',
+            url: 'https://shopify.github.io/flash-list/',
+            license: 'MIT',
+          },
+        ],
+      },
+      {
+        category: 'fonts',
+        titleKey: 'resources:categories.fonts',
+        items: [
+          {
+            nameKey: 'resources:items.readexPro.name',
+            descriptionKey: 'resources:items.readexPro.description',
+            url: 'https://fonts.google.com/specimen/Readex+Pro',
+            license: 'OFL',
+          },
+          {
+            nameKey: 'resources:items.rubik.name',
+            descriptionKey: 'resources:items.rubik.description',
+            url: 'https://fonts.google.com/specimen/Rubik',
+            license: 'OFL',
+          },
+          {
+            nameKey: 'resources:items.qpcHafsFont.name',
+            descriptionKey: 'resources:items.qpcHafsFont.description',
+            url: 'https://qul.tarteel.ai/resources/font/245',
+          },
+        ],
+      },
+      {
+        category: 'data',
+        titleKey: 'resources:categories.data',
+        items: [
+          {
+            nameKey: 'resources:items.qulRecitationSegments.name',
+            descriptionKey: 'resources:items.qulRecitationSegments.description',
+            url: 'https://qul.tarteel.ai/resources/recitation',
+          },
+          {
+            nameKey: 'resources:items.qpcHafs.name',
+            descriptionKey: 'resources:items.qpcHafs.description',
+            url: 'https://qul.tarteel.ai/resources/quran-script/86',
+          },
+          {
+            nameKey: 'resources:items.saheehInternational.name',
+            descriptionKey: 'resources:items.saheehInternational.description',
+            url: 'https://qul.tarteel.ai/resources/translation/193',
+          },
+        ],
+      },
+      {
+        category: 'tools',
+        titleKey: 'resources:categories.tools',
+        items: [
+          {
+            nameKey: 'resources:items.typescript.name',
+            descriptionKey: 'resources:items.typescript.description',
+            url: 'https://www.typescriptlang.org/',
+            license: 'Apache-2.0',
+          },
+          {
+            nameKey: 'resources:items.vitest.name',
+            descriptionKey: 'resources:items.vitest.description',
+            url: 'https://vitest.dev/',
+            license: 'MIT',
+          },
+          {
+            nameKey: 'resources:items.maestro.name',
+            descriptionKey: 'resources:items.maestro.description',
+            url: 'https://maestro.dev/',
+            license: 'Apache-2.0',
+          },
+        ],
+      },
+    ],
+  },
+  {
     toolId: 'quran-station',
     titleKey: 'home:tools.quranStation.title',
     logo: QuranStationLogo,
@@ -299,7 +434,11 @@ interface ResourcesSearch {
 
 export const Route = createFileRoute('/resources')({
   validateSearch: (search: Record<string, unknown>): ResourcesSearch => {
-    const validTools: Array<ToolId> = ['quran-tab', 'quran-station']
+    const validTools: Array<ToolId> = [
+      'quran-tab',
+      'ayah-flow',
+      'quran-station',
+    ]
     const tool = search.tool as string | undefined
     return {
       tool: validTools.includes(tool as ToolId) ? (tool as ToolId) : undefined,
@@ -319,10 +458,16 @@ function ToolTabs({ tools, activeToolId, onTabChange }: ToolTabsProps) {
   const { t } = useTranslation()
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-muted rounded-xl">
+    <div
+      role="group"
+      aria-label={t('resources:toolSelectorLabel')}
+      className="flex flex-wrap items-center justify-center gap-2 p-1.5 bg-muted rounded-xl"
+    >
       {tools.map((tool) => (
         <button
           key={tool.toolId}
+          type="button"
+          aria-pressed={activeToolId === tool.toolId}
           onClick={() => onTabChange(tool.toolId)}
           className={cn(
             'flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200',

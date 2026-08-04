@@ -48,6 +48,266 @@ const changelogs: ToolChangelog[] = [
     logo: QuranTabLogo,
     versions: [
       {
+        version: '4.12.0',
+        date: '2026-07-30',
+        changes: [
+          {
+            category: 'new',
+            items: [
+              { description: 'changelog:quranTab.v4120.new1' },
+              { description: 'changelog:quranTab.v4120.new2' },
+              { description: 'changelog:quranTab.v4120.new3' },
+              { description: 'changelog:quranTab.v4120.new4' },
+              { description: 'changelog:quranTab.v4120.new5' },
+            ],
+          },
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v4120.improved1' },
+              { description: 'changelog:quranTab.v4120.improved2' },
+              { description: 'changelog:quranTab.v4120.improved3' },
+            ],
+          },
+          {
+            category: 'fixed',
+            items: [
+              { description: 'changelog:quranTab.v4120.fixed1' },
+              { description: 'changelog:quranTab.v4120.fixed2' },
+              { description: 'changelog:quranTab.v4120.fixed3' },
+            ],
+          },
+        ],
+      },
+      {
+        version: '4.11.2',
+        date: '2026-07-20',
+        changes: [
+          {
+            category: 'fixed',
+            items: [
+              { description: 'changelog:quranTab.v4112.fixed1' },
+              { description: 'changelog:quranTab.v4112.fixed2' },
+            ],
+          },
+        ],
+      },
+      {
+        version: '4.11.1',
+        date: '2026-07-19',
+        changes: [
+          {
+            category: 'fixed',
+            items: [{ description: 'changelog:quranTab.v4111.fixed1' }],
+          },
+        ],
+      },
+      {
+        version: '4.11.0',
+        date: '2026-07-09',
+        changes: [
+          {
+            category: 'new',
+            items: [{ description: 'changelog:quranTab.v4110.new1' }],
+          },
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v4110.improved1' },
+              { description: 'changelog:quranTab.v4110.improved2' },
+            ],
+          },
+          {
+            category: 'fixed',
+            items: [{ description: 'changelog:quranTab.v4110.fixed1' }],
+          },
+        ],
+      },
+      {
+        version: '4.10.1',
+        date: '2026-07-06',
+        changes: [
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v4101.improved1' },
+              { description: 'changelog:quranTab.v4101.improved2' },
+            ],
+          },
+          {
+            category: 'fixed',
+            items: [
+              { description: 'changelog:quranTab.v4101.fixed1' },
+              { description: 'changelog:quranTab.v4101.fixed2' },
+            ],
+          },
+        ],
+      },
+      {
+        version: '4.10.0',
+        date: '2026-07-05',
+        changes: [
+          {
+            category: 'new',
+            items: [
+              { description: 'changelog:quranTab.v4100.new1' },
+              { description: 'changelog:quranTab.v4100.new2' },
+              { description: 'changelog:quranTab.v4100.new3' },
+              { description: 'changelog:quranTab.v4100.new4' },
+              { description: 'changelog:quranTab.v4100.new5' },
+            ],
+          },
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v4100.improved1' },
+              { description: 'changelog:quranTab.v4100.improved2' },
+              { description: 'changelog:quranTab.v4100.improved3' },
+              { description: 'changelog:quranTab.v4100.improved4' },
+            ],
+          },
+        ],
+      },
+      {
+        version: '4.9.0',
+        date: '2026-07-01',
+        changes: [
+          {
+            category: 'new',
+            items: [{ description: 'changelog:quranTab.v490.new1' }],
+          },
+          {
+            category: 'improved',
+            items: [{ description: 'changelog:quranTab.v490.improved1' }],
+          },
+          {
+            category: 'fixed',
+            items: [
+              { description: 'changelog:quranTab.v490.fixed1' },
+              { description: 'changelog:quranTab.v490.fixed2' },
+            ],
+          },
+        ],
+      },
+      {
+        version: '4.8.1',
+        date: '2026-06-30',
+        changes: [
+          {
+            category: 'fixed',
+            items: [{ description: 'changelog:quranTab.v481.fixed1' }],
+          },
+        ],
+      },
+      {
+        version: '4.8.0',
+        date: '2026-06-30',
+        changes: [
+          {
+            category: 'new',
+            items: [{ description: 'changelog:quranTab.v480.new1' }],
+          },
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v480.improved1' },
+              { description: 'changelog:quranTab.v480.improved2' },
+            ],
+          },
+          {
+            category: 'fixed',
+            items: [
+              { description: 'changelog:quranTab.v480.fixed1' },
+              { description: 'changelog:quranTab.v480.fixed2' },
+            ],
+          },
+        ],
+      },
+      {
+        version: '4.7.0',
+        date: '2026-06-27',
+        changes: [
+          {
+            category: 'new',
+            items: [
+              { description: 'changelog:quranTab.v470.new1' },
+              { description: 'changelog:quranTab.v470.new2' },
+            ],
+          },
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v470.improved1' },
+              { description: 'changelog:quranTab.v470.improved2' },
+            ],
+          },
+          {
+            category: 'fixed',
+            items: [
+              { description: 'changelog:quranTab.v470.fixed1' },
+              { description: 'changelog:quranTab.v470.fixed2' },
+            ],
+          },
+        ],
+      },
+      {
+        version: '4.6.0',
+        date: '2026-06-24',
+        changes: [
+          {
+            category: 'new',
+            items: [
+              { description: 'changelog:quranTab.v460.new1' },
+              { description: 'changelog:quranTab.v460.new2' },
+            ],
+          },
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v460.improved1' },
+              { description: 'changelog:quranTab.v460.improved2' },
+            ],
+          },
+        ],
+      },
+      {
+        version: '4.5.3',
+        date: '2026-06-07',
+        changes: [
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v453.improved1' },
+              { description: 'changelog:quranTab.v453.improved2' },
+            ],
+          },
+          {
+            category: 'fixed',
+            items: [{ description: 'changelog:quranTab.v453.fixed1' }],
+          },
+        ],
+      },
+      {
+        version: '4.5.2',
+        date: '2026-05-29',
+        changes: [
+          {
+            category: 'improved',
+            items: [
+              { description: 'changelog:quranTab.v452.improved1' },
+              { description: 'changelog:quranTab.v452.improved2' },
+            ],
+          },
+          {
+            category: 'fixed',
+            items: [
+              { description: 'changelog:quranTab.v452.fixed1' },
+              { description: 'changelog:quranTab.v452.fixed2' },
+            ],
+          },
+        ],
+      },
+      {
         version: '4.5.0',
         date: '2026-02-08',
         changes: [
@@ -67,9 +327,7 @@ const changelogs: ToolChangelog[] = [
           },
           {
             category: 'fixed',
-            items: [
-              { description: 'changelog:quranTab.v450.fixed1' },
-            ],
+            items: [{ description: 'changelog:quranTab.v450.fixed1' }],
           },
         ],
       },

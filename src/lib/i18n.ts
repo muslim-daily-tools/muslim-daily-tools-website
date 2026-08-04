@@ -88,6 +88,11 @@ const resources = {
           description:
             'A Quran-inspired new tab for your browser. Each tab greets you with an ayah, prayer times, and a calm space for reflection. Read translations in 40+ languages, listen to reciters, and save favourites.',
         },
+        ayahFlow: {
+          title: 'Ayah Flow',
+          description:
+            'A listening-first Quran app with synchronized ayah and word highlighting. Listen to renowned reciters, follow the English translation and word-by-word transliteration, build memorization playlists, and continue where you left off.',
+        },
         prayerCal: {
           title: 'Pray On Time',
           description:
@@ -103,6 +108,7 @@ const resources = {
           chrome: 'Chrome',
           firefox: 'Firefox',
           ios: 'iOS',
+          iosAppStore: 'iOS App Store',
         },
       },
       testimonials: {
@@ -154,6 +160,7 @@ const resources = {
       title: 'Resources & Tech Stack',
       subtitle:
         'A collection of APIs, libraries, and tools used to build our tools. We hope this helps developers who want to build similar Islamic applications.',
+      toolSelectorLabel: 'Choose a tool',
       openLink: 'Open link',
       noResources: 'Resources coming soon',
       footerNote:
@@ -166,6 +173,65 @@ const resources = {
         tools: 'Development Tools',
       },
       items: {
+        quranFoundation: {
+          name: 'Quran Foundation Content API/QuranCDN',
+          description:
+            'Provides recitation metadata, verse- and word-level timestamps, and word audio for synchronized Quran playback.',
+        },
+        quranicAudio: {
+          name: 'QuranicAudio',
+          description:
+            'High-quality full-surah recitations streamed for continuous Quran listening.',
+        },
+        reactNative: {
+          name: 'React Native',
+          description:
+            'Cross-platform framework powering Ayah Flow’s native mobile interface.',
+        },
+        expo: {
+          name: 'Expo',
+          description:
+            'React Native framework and native tooling used to build and ship the mobile app.',
+        },
+        reactNativeTrackPlayer: {
+          name: 'React Native Track Player v4',
+          description:
+            'Background audio, lock-screen controls, and playlist queue management.',
+        },
+        nativeWind: {
+          name: 'NativeWind',
+          description:
+            'Tailwind-style utility classes for styling React Native interfaces.',
+        },
+        flashList: {
+          name: 'FlashList',
+          description:
+            'High-performance virtualized lists for rendering synchronized Quran verses.',
+        },
+        rubik: {
+          name: 'Rubik',
+          description:
+            'Readable interface typeface used across the app’s English experience.',
+        },
+        qpcHafsFont: {
+          name: 'QPC Hafs Font',
+          description:
+            'Uthmani Hafs typeface used to render Quran text and embedded ayah markers.',
+        },
+        qulRecitationSegments: {
+          name: 'QUL Recitation Segments',
+          description:
+            'Recitation timing data used for synchronized ayah and word highlighting.',
+        },
+        saheehInternational: {
+          name: 'Saheeh International',
+          description:
+            'Bundled English ayah-by-ayah translation for reading and Quran search.',
+        },
+        maestro: {
+          name: 'Maestro',
+          description: 'End-to-end mobile UI testing for critical iOS flows.',
+        },
         quranenc: {
           name: 'QuranEnc API',
           description:
@@ -193,8 +259,7 @@ const resources = {
         },
         zustand: {
           name: 'Zustand',
-          description:
-            'Lightweight state management with localStorage persistence',
+          description: 'Lightweight state management with persistence support.',
         },
         tanstackQuery: {
           name: 'TanStack Query',
@@ -304,10 +369,130 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v4120: {
+          new1: 'Repeat Passage: one tap repeats the passage you are on — this Rubʿ, Hizb, Juz, or Surah — for memorization and revision',
+          new2: 'Prayer countdown on the extension toolbar icon so you can see the time to the next prayer from any tab',
+          new3: 'Interval zikr reminder with rotating adhkar and gentle notification sounds',
+          new4: 'New-tab essentials dock with Google apps, custom shortcuts, and optional most-visited sites',
+          new5: 'Count adhkar with your keyboard for faster dhikr sessions',
+          improved1:
+            'Quarters are now named the way the mushaf reads them — "third quarter of Hizb 31" instead of a plain number',
+          improved2:
+            'Monday and Thursday fasting reminders now mention the day by name, and settings labels are easier to tap',
+          improved3:
+            'Lower memory usage when the new tab is idle',
+          fixed1:
+            'More accurate prayer times in Iraq and the Levant with region-specific calculation methods',
+          fixed2:
+            'Prayer alarms now heal themselves if the browser clears them, and zikr reminders survive extension reloads',
+          fixed3:
+            'The toolbar countdown stays in sync through sunrise and shows clearer hour formatting',
+        },
+        v4112: {
+          fixed1:
+            'Kurdish translations and other Arabic-script languages now display every letter correctly with improved Unicode font support',
+          fixed2:
+            'Prayer alarm audio now plays reliably on older Chrome versions',
+        },
+        v4111: {
+          fixed1:
+            'Prayer alarms now work reliably on older Chrome versions and Firefox',
+        },
+        v4110: {
+          new1: 'Repeat-range playback for focused Quran memorization and revision',
+          improved1:
+            'Range start and end controls can now be typed directly for faster setup',
+          improved2:
+            'Prayer settings are easier to scan with a compact, collapsible layout',
+          fixed1:
+            'Lowering the start of a repeat range now keeps playback anchored to the selected verse',
+        },
+        v4101: {
+          improved1:
+            'Verse recitation now flows seamlessly between verses at normal speed, with no audible gaps',
+          improved2:
+            'Adding a quick link now checks the address and shows a clear error message when something is off',
+          fixed1:
+            '"Chrome Tab" in Quick Links opens Chrome\'s default new tab page again',
+          fixed2:
+            'Quick links with capital letters in the address no longer break when saved',
+        },
+        v4100: {
+          new1: 'Monthly prayer times calendar with Hijri dates',
+          new2: 'Weekly Jumuʿah (Friday) reminder in Islamic events',
+          new3: 'Audio playback for morning and evening adhkar',
+          new4: 'Save favorite backgrounds and browse them as a collection',
+          new5: 'Varied prayer reminder notifications instead of repeated messages',
+          improved1: 'Much faster new tab opening with lower memory usage',
+          improved2:
+            'Adhkar texts reviewed for authenticity with a refined player design',
+          improved3: 'Clearer prayer timeline at a glance',
+          improved4: 'Date now shows the weekday',
+        },
+        v490: {
+          new1: 'A larger, curated background collection that refreshes over time, with no extension update needed',
+          improved1:
+            'Backgrounds now cross-fade smoothly when they change, load faster, and pick a size that fits your screen',
+          fixed1:
+            'New tabs no longer briefly show a placeholder before your background loads',
+          fixed2:
+            'The background picker no longer stretches the settings panel',
+        },
+        v481: {
+          fixed1:
+            'Prayer settings footer now has edge arrows so hidden settings are easier to discover and open',
+        },
+        v480: {
+          new1: 'Prayer times now use a visual sun-arc tracker that shows where you are in the day and highlights the next prayer',
+          improved1:
+            'Prayer settings now live directly under the prayer tracker, making location, calculation method, madhab, reminders, adhan voice, adjustments, DST, and labels easier to change',
+          improved2:
+            'Adhan volume now appears with prayer reminders, while verse volume now lives inside the verse player menu',
+          fixed1:
+            'Prayer label toggles now work correctly for users with older saved settings',
+          fixed2:
+            'Adhan voice preview buttons are clearer for screen readers, and focus rings are more consistent on glass surfaces',
+        },
+        v470: {
+          new1: 'Islamic event reminders now highlight upcoming sunnah fasts and special days from the new tab',
+          new2: 'A new Islamic Events Center lets you review upcoming reminders, event details, and source links',
+          improved1:
+            'Menus, modals, settings, favourites, and reciter selection now have a more polished frosted-glass design',
+          improved2: 'The Share Thawab modal is clearer and easier to use',
+          fixed1:
+            'Settings import and app startup now restore missing nested settings safely for older backups',
+          fixed2:
+            'Adhkar progress no longer crashes when older saved data contains empty counter slots',
+        },
+        v460: {
+          new1: 'System theme mode can now follow your browser or operating system automatically',
+          new2: 'Quick Links can now be edited and reordered',
+          improved1:
+            'Morning and evening adhkar now open based on the time of day, with clearer localized counters',
+          improved2:
+            'Favorites and verse search are easier to use with quick add and remove controls',
+        },
+        v453: {
+          improved1:
+            'Prayer settings now open as a side panel on desktop, keeping prayer times visible while you adjust them',
+          improved2:
+            'Prayer settings now open full screen on mobile for easier reading and controls',
+          fixed1: 'Restored the prayer settings slide-in animation',
+        },
+        v452: {
+          improved1:
+            'Mobile layouts now fit better across header, footer, popovers, modals, verse controls, and prayer times',
+          improved2:
+            'Audio playback mode and speed controls are easier to scan and adjust',
+          fixed1: 'Prayer time settings are more reliable on smaller screens',
+          fixed2:
+            'Removed unused extension permissions to keep browser store review cleaner',
+        },
         v450: {
           new1: 'Search, sort, and group reciters for easier selection',
           new2: 'Repeat current surah for continuous listening',
-          improved1: 'Seamless gapless audio playback with new Gapless-5 engine',
+          improved1:
+            'Seamless gapless audio playback with new Gapless-5 engine',
           improved2: 'Better audio error messages and memory management',
           fixed1: 'Audio playback stability improvements in background tabs',
         },
@@ -398,17 +583,17 @@ const resources = {
       items: {
         prophetLineage: {
           title: "Prophet's Lineage",
-          description: "Memorize the lineage of Prophet Muhammad ﷺ",
+          description: 'Memorize the lineage of Prophet Muhammad ﷺ',
         },
         juzAmmaNames: {
-          title: "Juz Amma Surah Names",
+          title: 'Juz Amma Surah Names',
           description:
-            "Mind map for memorizing the names of all surahs in Juz Amma (30th Juz)",
+            'Mind map for memorizing the names of all surahs in Juz Amma (30th Juz)',
         },
         juzTabarakNames: {
-          title: "Juz Tabarak Surah Names",
+          title: 'Juz Tabarak Surah Names',
           description:
-            "Mind map for memorizing the names of all surahs in Juz Tabarak (29th Juz)",
+            'Mind map for memorizing the names of all surahs in Juz Tabarak (29th Juz)',
         },
         surahAlMursalat: {
           title: 'Surah Al-Mursalat',
@@ -420,15 +605,18 @@ const resources = {
         },
         surahAlQiyamah: {
           title: 'Surah Al-Qiyamah',
-          description: 'Visual mind map for Surah Al-Qiyamah (The Resurrection)',
+          description:
+            'Visual mind map for Surah Al-Qiyamah (The Resurrection)',
         },
         surahAlMuddathir: {
           title: 'Surah Al-Muddathir',
-          description: 'Visual mind map for Surah Al-Muddathir (The Cloaked One)',
+          description:
+            'Visual mind map for Surah Al-Muddathir (The Cloaked One)',
         },
         surahAlMuzzammil: {
           title: 'Surah Al-Muzzammil',
-          description: 'Visual mind map for Surah Al-Muzzammil (The Enshrouded One)',
+          description:
+            'Visual mind map for Surah Al-Muzzammil (The Enshrouded One)',
         },
         surahAlJinn: {
           title: 'Surah Al-Jinn',
@@ -440,7 +628,8 @@ const resources = {
         },
         surahAlMaarij: {
           title: 'Surah Al-Maarij',
-          description: 'Visual mind map for Surah Al-Maarij (The Ascending Stairways)',
+          description:
+            'Visual mind map for Surah Al-Maarij (The Ascending Stairways)',
         },
         surahAlHaqqah: {
           title: 'Surah Al-Haqqah',
@@ -452,7 +641,8 @@ const resources = {
         },
         bookFindingFlow: {
           title: 'The Art of Finding Flow',
-          description: 'Book summary mind map for achieving flow state and productivity',
+          description:
+            'Book summary mind map for achieving flow state and productivity',
         },
         bookTodoFormula: {
           title: 'To-Do List Formula',
@@ -519,6 +709,11 @@ const resources = {
           description:
             'تبويب جديد مُستوحى من القرآن لمتصفحك. كل تبويب يُرحّب بك بآية، ومواقيت الصلاة، ومساحة هادئة للتأمل. اقرأ الترجمات بأكثر من 40 لغة، واستمع للقرّاء، واحفظ المفضلات.',
         },
+        ayahFlow: {
+          title: 'Ayah Flow',
+          description:
+            'تطبيق قرآن يضع الاستماع أولًا، مع تمييز متزامن للآيات والكلمات. استمع إلى نخبة من القرّاء، وتابع الترجمة الإنجليزية والنطق بالحروف اللاتينية كلمةً بكلمة، وأنشئ قوائم تشغيل للحفظ، وواصل من حيث توقفت.',
+        },
         prayerCal: {
           description:
             'لا تفوّت صلاة. زامن مواقيت الصلاة الدقيقة تلقائيًا مع تقويم Google أو Microsoft، واضبط تذكيرات ذكية، ونظّم يومك حول الصلاة.',
@@ -532,6 +727,7 @@ const resources = {
           chrome: 'كروم',
           firefox: 'فايرفوكس',
           ios: 'آيفون',
+          iosAppStore: 'متجر تطبيقات iOS',
         },
       },
       testimonials: {
@@ -580,6 +776,7 @@ const resources = {
       title: 'الموارد والتقنيات',
       subtitle:
         'مجموعة من واجهات البرمجة والمكتبات والأدوات المستخدمة في بناء أدواتنا. نأمل أن تساعد المطورين الراغبين في بناء تطبيقات إسلامية مماثلة.',
+      toolSelectorLabel: 'اختر الأداة',
       openLink: 'فتح الرابط',
       noResources: 'الموارد قريبًا',
       footerNote:
@@ -592,6 +789,64 @@ const resources = {
         tools: 'أدوات التطوير',
       },
       items: {
+        quranFoundation: {
+          name: 'Quran Foundation Content API/QuranCDN',
+          description:
+            'يوفّر بيانات التلاوات والتوقيتات على مستوى الآية والكلمة وصوت الكلمات لمزامنة تشغيل القرآن.',
+        },
+        quranicAudio: {
+          name: 'QuranicAudio',
+          description:
+            'تلاوات عالية الجودة للسور كاملة للاستماع المتواصل إلى القرآن.',
+        },
+        reactNative: {
+          name: 'React Native',
+          description:
+            'إطار عمل متعدد المنصات يشغّل واجهة Ayah Flow الأصلية على الهاتف.',
+        },
+        expo: {
+          name: 'Expo',
+          description:
+            'إطار عمل وأدوات لمنصة React Native تُستخدم في تطوير التطبيق ونشره.',
+        },
+        reactNativeTrackPlayer: {
+          name: 'React Native Track Player v4',
+          description:
+            'تشغيل الصوت في الخلفية، والتحكم من شاشة القفل، وإدارة قوائم التشغيل.',
+        },
+        nativeWind: {
+          name: 'NativeWind',
+          description: 'أدوات تنسيق بأسلوب Tailwind لواجهات React Native.',
+        },
+        flashList: {
+          name: 'FlashList',
+          description:
+            'قوائم افتراضية عالية الأداء لعرض آيات القرآن المتزامنة.',
+        },
+        rubik: {
+          name: 'Rubik',
+          description: 'خط واضح يُستخدم في الواجهة الإنجليزية للتطبيق.',
+        },
+        qpcHafsFont: {
+          name: 'خط QPC حفص',
+          description:
+            'خط عثماني برواية حفص لعرض نص القرآن وأرقام الآيات المدمجة.',
+        },
+        qulRecitationSegments: {
+          name: 'مقاطع التلاوة من QUL',
+          description:
+            'بيانات توقيت التلاوات المستخدمة لمزامنة تمييز الآيات والكلمات.',
+        },
+        saheehInternational: {
+          name: 'Saheeh International',
+          description:
+            'ترجمة إنجليزية مضمّنة آيةً بآية للقراءة والبحث في القرآن.',
+        },
+        maestro: {
+          name: 'Maestro',
+          description:
+            'اختبارات شاملة لواجهات الهاتف في المسارات الأساسية على iOS.',
+        },
         quranenc: {
           name: 'QuranEnc API',
           description:
@@ -617,7 +872,7 @@ const resources = {
         },
         zustand: {
           name: 'Zustand',
-          description: 'إدارة حالة خفيفة مع حفظ في التخزين المحلي',
+          description: 'إدارة حالة خفيفة مع دعم حفظ البيانات.',
         },
         tanstackQuery: {
           name: 'TanStack Query',
@@ -687,8 +942,7 @@ const resources = {
         },
         posthog: {
           name: 'PostHog',
-          description:
-            'منصة تحليلات مفتوحة المصدر لرؤى المستخدم وتتبع الأحداث',
+          description: 'منصة تحليلات مفتوحة المصدر لرؤى المستخدم وتتبع الأحداث',
         },
         nextjs: {
           name: 'Next.js 15',
@@ -697,17 +951,16 @@ const resources = {
         },
         nextIntl: {
           name: 'next-intl',
-          description:
-            'مكتبة تدويل لـ Next.js مع دعم مكونات الخادم',
+          description: 'مكتبة تدويل لـ Next.js مع دعم مكونات الخادم',
         },
         radixUi: {
           name: 'Radix UI',
-          description:
-            'مكونات UI بدون تنسيق وقابلة للوصول لبناء أنظمة التصميم',
+          description: 'مكونات UI بدون تنسيق وقابلة للوصول لبناء أنظمة التصميم',
         },
         surahMetadata: {
           name: 'بيانات السور',
-          description: 'قائمة كاملة لجميع السور الـ 114 مع عدد الآيات والبيانات',
+          description:
+            'قائمة كاملة لجميع السور الـ 114 مع عدد الآيات والبيانات',
         },
       },
     },
@@ -721,6 +974,121 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v4120: {
+          new1: 'تكرار المقطع: بضغطة واحدة كرِّر ما تقرؤه الآن — الربع أو الحزب أو الجزء أو السورة — للحفظ والمراجعة',
+          new2: 'عدّاد تنازلي للصلاة القادمة على أيقونة الإضافة في المتصفح يظهر من أي صفحة',
+          new3: 'تذكير بالأذكار على فترات منتظمة مع أذكار متنوعة وأصوات تنبيه هادئة',
+          new4: 'شريط أساسيات في الصفحة الجديدة يضم تطبيقات جوجل واختصارات مخصصة والمواقع الأكثر زيارة اختياريًا',
+          new5: 'عدّ الأذكار باستخدام لوحة المفاتيح لجلسات ذكر أسرع',
+          improved1:
+            'تُسمّى الأرباع الآن كما تُقرأ في المصحف — «الربع الثالث من الحزب ٣١» بدلًا من رقم مجرد',
+          improved2:
+            'تذكيرات صيام الاثنين والخميس تذكر اسم اليوم، وأصبح الضغط على عناوين الإعدادات يفعّلها مباشرة',
+          improved3: 'استهلاك أقل للذاكرة عندما تكون الصفحة الجديدة خاملة',
+          fixed1:
+            'مواقيت صلاة أدق في العراق وبلاد الشام بطرق حساب مخصصة لكل منطقة',
+          fixed2:
+            'تنبيهات الصلاة تعيد ضبط نفسها إذا حذفها المتصفح، وتذكيرات الأذكار تستمر بعد إعادة تحميل الإضافة',
+          fixed3:
+            'العدّاد التنازلي على الأيقونة يبقى دقيقًا عند الشروق ويعرض الساعات بصيغة أوضح',
+        },
+        v4112: {
+          fixed1:
+            'تظهر الآن الترجمات الكردية واللغات الأخرى المكتوبة بالحروف العربية بجميع الأحرف بشكل صحيح بفضل دعم محسّن لخطوط يونيكود',
+          fixed2:
+            'يعمل صوت تنبيهات الصلاة الآن بشكل موثوق على إصدارات كروم القديمة',
+        },
+        v4111: {
+          fixed1:
+            'أصبحت تنبيهات الصلاة تعمل بشكل موثوق على إصدارات كروم القديمة وفايرفوكس',
+        },
+        v4110: {
+          new1: 'تشغيل تكرار نطاق محدد لمساعدتك على حفظ القرآن ومراجعته بتركيز',
+          improved1:
+            'يمكن الآن كتابة بداية ونهاية النطاق مباشرة لإعداده بسرعة أكبر',
+          improved2:
+            'أصبحت إعدادات الصلاة أسهل في القراءة بواجهة مختصرة قابلة للطي',
+          fixed1:
+            'عند تقليل بداية نطاق التكرار، يبقى التشغيل مرتبطًا بالآية المختارة',
+        },
+        v4101: {
+          improved1:
+            'أصبح الانتقال بين الآيات في التلاوة سلسًا دون انقطاع عند السرعة العادية',
+          improved2:
+            'عند إضافة رابط سريع يتم التحقق من العنوان وتظهر رسالة توضح الخطأ',
+          fixed1:
+            'يفتح رابط «صفحة كروم» في الروابط السريعة صفحة كروم الافتراضية من جديد',
+          fixed2:
+            'لم تعد الروابط السريعة ذات الأحرف الكبيرة في العنوان تتعطل عند الحفظ',
+        },
+        v4100: {
+          new1: 'تقويم شهري لمواقيت الصلاة مع التاريخ الهجري',
+          new2: 'تذكير أسبوعي بيوم الجمعة ضمن المناسبات الإسلامية',
+          new3: 'تشغيل صوتي لأذكار الصباح والمساء',
+          new4: 'حفظ الخلفيات المفضلة وتصفحها كمجموعة',
+          new5: 'تنويع رسائل تذكيرات الصلاة بدلًا من تكرارها',
+          improved1: 'فتح أسرع لعلامة التبويب الجديدة مع استهلاك أقل للذاكرة',
+          improved2:
+            'مراجعة نصوص الأذكار للتحقق من صحتها مع تصميم محسّن للمشغّل',
+          improved3: 'خط زمني للصلوات أوضح في لمحة',
+          improved4: 'عرض اسم اليوم مع التاريخ',
+        },
+        v490: {
+          new1: 'مجموعة خلفيات أكبر ومنسّقة تتجدّد مع الوقت دون الحاجة إلى تحديث الإضافة',
+          improved1:
+            'أصبحت الخلفيات تتلاشى بسلاسة عند تغييرها، وتُحمّل أسرع، وتختار حجمًا يناسب شاشتك',
+          fixed1: 'لم تعد الصفحات الجديدة تُظهر خلفية مؤقتة قبل تحميل خلفيتك',
+          fixed2: 'لم يعد منتقي الخلفيات يُطيل لوحة الإعدادات',
+        },
+        v481: {
+          fixed1:
+            'أصبح شريط إعدادات الصلاة يحتوي على أسهم جانبية لتسهيل اكتشاف وفتح الإعدادات المخفية',
+        },
+        v480: {
+          new1: 'مواقيت الصلاة تظهر الآن في مسار بصري للشمس يوضح تقدم اليوم ويبرز الصلاة القادمة',
+          improved1:
+            'أصبحت إعدادات الصلاة موجودة مباشرة أسفل مسار المواقيت لتعديل الموقع وطريقة الحساب والمذهب والتذكيرات وصوت الأذان والضبط اليدوي والتوقيت الصيفي والأسماء بسهولة',
+          improved2:
+            'أصبح مستوى صوت الأذان داخل إعدادات التذكير، ومستوى صوت التلاوة داخل قائمة مشغل الآيات',
+          fixed1:
+            'أصبح زر إظهار أسماء الصلوات يعمل بشكل صحيح لمن لديهم إعدادات محفوظة قديمة',
+          fixed2:
+            'أزرار معاينة أصوات الأذان أوضح لقارئات الشاشة، وحلقات التركيز أصبحت أنسب على الواجهات الزجاجية',
+        },
+        v470: {
+          new1: 'تذكيرات المناسبات الإسلامية تعرض الآن صيام السنن والأيام الفاضلة القريبة من تبويبك الجديد',
+          new2: 'مركز جديد للمناسبات الإسلامية يعرض التذكيرات القادمة والتفاصيل وروابط المصادر',
+          improved1:
+            'تحسين شكل القوائم والنوافذ والإعدادات والمفضلة واختيار القارئ بواجهة زجاجية أهدأ',
+          improved2: 'نافذة شارك الثواب أصبحت أوضح وأسهل في الاستخدام',
+          fixed1:
+            'استيراد الإعدادات وبدء التطبيق يعيدان الحقول الداخلية الناقصة بأمان للنسخ الاحتياطية القديمة',
+          fixed2:
+            'تقدم أذكار الصباح والمساء لم يعد يتعطل عند وجود بيانات قديمة بها خانات عداد فارغة',
+        },
+        v460: {
+          new1: 'يمكن لوضع المظهر الآن أن يتبع إعدادات المتصفح أو النظام تلقائيًا',
+          new2: 'يمكن الآن تعديل الروابط السريعة وإعادة ترتيبها',
+          improved1:
+            'تفتح أذكار الصباح والمساء الآن حسب وقت اليوم، مع عدادات أوضح حسب اللغة',
+          improved2:
+            'أصبح استخدام المفضلة والبحث في الآيات أسهل مع أزرار سريعة للإضافة والإزالة',
+        },
+        v453: {
+          improved1:
+            'إعدادات الصلاة تفتح الآن كلوحة جانبية على الكمبيوتر حتى تبقى مواقيت الصلاة ظاهرة أثناء التعديل',
+          improved2:
+            'إعدادات الصلاة تفتح الآن بملء الشاشة على الهاتف لتكون القراءة والتحكم أسهل',
+          fixed1: 'تمت إعادة حركة ظهور إعدادات الصلاة',
+        },
+        v452: {
+          improved1:
+            'أصبحت الواجهة على الهاتف أنسب في الهيدر والفوتر والنوافذ والقوائم وأدوات الآيات ومواقيت الصلاة',
+          improved2:
+            'أصبحت خيارات وضع التشغيل وسرعة الصوت أوضح وأسهل في التعديل',
+          fixed1: 'تحسين موثوقية إعدادات مواقيت الصلاة على الشاشات الصغيرة',
+          fixed2: 'إزالة صلاحيات غير مستخدمة لتسهيل مراجعة الإضافة في المتاجر',
+        },
         v450: {
           new1: 'البحث والترتيب والتجميع للقراء لاختيار أسهل',
           new2: 'تكرار السورة الحالية للاستماع المتواصل',
