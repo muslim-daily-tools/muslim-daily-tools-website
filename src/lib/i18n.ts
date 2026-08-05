@@ -368,6 +368,14 @@ const resources = {
         improved: 'Improved',
         fixed: 'Fixed',
       },
+      quranStation: {
+        v206: {
+          new1: 'Build playlists from Surah ranges, reorder them, and resume from where you stopped.',
+          improved1: 'Choose from a refreshed catalog of reciters.',
+          fixed1:
+            'Edit playlists more smoothly, with more reliable app startup and playback.',
+        },
+      },
       quranTab: {
         v4120: {
           new1: 'Repeat Passage: one tap repeats the passage you are on — this Rubʿ, Hizb, Juz, or Surah — for memorization and revision',
@@ -379,8 +387,7 @@ const resources = {
             'Quarters are now named the way the mushaf reads them — "third quarter of Hizb 31" instead of a plain number',
           improved2:
             'Monday and Thursday fasting reminders now mention the day by name, and settings labels are easier to tap',
-          improved3:
-            'Lower memory usage when the new tab is idle',
+          improved3: 'Lower memory usage when the new tab is idle',
           fixed1:
             'More accurate prayer times in Iraq and the Levant with region-specific calculation methods',
           fixed2:
@@ -972,6 +979,14 @@ const resources = {
         new: 'جديد',
         improved: 'تحسينات',
         fixed: 'إصلاحات',
+      },
+      quranStation: {
+        v206: {
+          new1: 'أنشئ قوائم تشغيل من نطاقات السور، وأعد ترتيبها، واستكمل من حيث توقفت.',
+          improved1: 'اختر من قائمة محدّثة من القرّاء.',
+          fixed1:
+            'حرّر قوائم التشغيل بسلاسة أكبر، مع تشغيل أكثر موثوقية للتطبيق والصوت.',
+        },
       },
       quranTab: {
         v4120: {
