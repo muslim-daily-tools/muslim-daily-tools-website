@@ -1,8 +1,9 @@
 import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 
-import { cn } from '@/lib/utils'
+import QuranStationLogo from '../assets/quran-station-logo.png'
 import QuranTabLogo from '../assets/quran-tab-logo.png'
+import { cn } from '@/lib/utils'
 
 // Types
 type ToolId = 'quran-station' | 'quran-tab' | 'prayercal'
@@ -14,20 +15,20 @@ interface ChangeItem {
 
 interface ChangeGroup {
   category: ChangeCategory
-  items: ChangeItem[]
+  items: Array<ChangeItem>
 }
 
 interface Version {
   version: string
   date: string // ISO date string
-  changes: ChangeGroup[]
+  changes: Array<ChangeGroup>
 }
 
 interface ToolChangelog {
   toolId: ToolId
   titleKey: string
   logo: string
-  versions: Version[]
+  versions: Array<Version>
 }
 
 // Category configuration
@@ -40,8 +41,33 @@ const categoryConfig: Record<
   fixed: { emoji: '🐛', labelKey: 'changelog:categories.fixed' },
 }
 
-// Changelog data for Quran Tab
-const changelogs: ToolChangelog[] = [
+// Changelog data, newest releases first
+const changelogs: Array<ToolChangelog> = [
+  {
+    toolId: 'quran-station',
+    titleKey: 'home:tools.quranStation.title',
+    logo: QuranStationLogo,
+    versions: [
+      {
+        version: '2.0.6',
+        date: '2026-08-03',
+        changes: [
+          {
+            category: 'new',
+            items: [{ description: 'changelog:quranStation.v206.new1' }],
+          },
+          {
+            category: 'improved',
+            items: [{ description: 'changelog:quranStation.v206.improved1' }],
+          },
+          {
+            category: 'fixed',
+            items: [{ description: 'changelog:quranStation.v206.fixed1' }],
+          },
+        ],
+      },
+    ],
+  },
   {
     toolId: 'quran-tab',
     titleKey: 'home:tools.quranTab.title',
@@ -505,7 +531,11 @@ interface ChangelogSearch {
 
 export const Route = createFileRoute('/changelog')({
   validateSearch: (search: Record<string, unknown>): ChangelogSearch => {
-    const validTools: ToolId[] = ['quran-station', 'quran-tab', 'prayercal']
+    const validTools: Array<ToolId> = [
+      'quran-station',
+      'quran-tab',
+      'prayercal',
+    ]
     const tool = search.tool as string | undefined
     return {
       tool: validTools.includes(tool as ToolId) ? (tool as ToolId) : undefined,
@@ -516,7 +546,7 @@ export const Route = createFileRoute('/changelog')({
 
 // Tab Navigation Component
 interface ToolTabsProps {
-  tools: ToolChangelog[]
+  tools: Array<ToolChangelog>
   activeToolId: ToolId
   onTabChange: (toolId: ToolId) => void
 }
