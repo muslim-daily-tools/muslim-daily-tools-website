@@ -369,6 +369,20 @@ const resources = {
         fixed: 'Fixed',
       },
       quranTab: {
+        v4130: {
+          new1: 'Tafseer now reads right under the verse, so you can follow the explanation without opening a window',
+          new2: 'New reciter: the 1965 murattal recording of Sheikh Al-Minshawy',
+          new3: 'Share verse images in ready-made social sizes, with the translation and tafseer of every verse you picked',
+          new4: 'Share straight to any app through your device share sheet',
+          improved1:
+            'Share and copy now sit together in the verse options menu, and your image choices are remembered for next time',
+          improved2: 'The tafseer window was rebuilt for easier reading and faster source switching',
+          improved3: 'The new tab uses less graphics power while it sits idle',
+          improved4: 'The three Al-Minshawy recordings now sit together in the reciter list',
+          fixed1: 'Verse search results open the verse when you click them, and long lists scroll smoothly',
+          fixed2: 'A new tab shows your random verse even while Repeat Passage is running',
+          fixed3: 'Open tabs no longer overwrite each other settings and favorites',
+        },
         v4120: {
           new1: 'Repeat Passage: one tap repeats the passage you are on — this Rubʿ, Hizb, Juz, or Surah — for memorization and revision',
           new2: 'Prayer countdown on the extension toolbar icon so you can see the time to the next prayer from any tab',
@@ -974,6 +988,20 @@ const resources = {
         fixed: 'إصلاحات',
       },
       quranTab: {
+        v4130: {
+          new1: 'يظهر التفسير الآن أسفل الآية مباشرة، فتتابع الشرح دون فتح نافذة',
+          new2: 'قارئ جديد: المصحف المرتل للشيخ محمد صديق المنشاوي (١٩٦٥)',
+          new3: 'شارك صور الآيات بمقاسات جاهزة لمنصات التواصل، مع ترجمة وتفسير كل آية اخترتها',
+          new4: 'شارك مباشرة إلى أي تطبيق عبر قائمة المشاركة في جهازك',
+          improved1:
+            'أصبحت المشاركة والنسخ معًا في قائمة خيارات الآية، وتُحفظ خيارات الصورة للمرة القادمة',
+          improved2: 'أُعيد بناء نافذة التفسير لقراءة أسهل وتنقل أسرع بين المصادر',
+          improved3: 'تستهلك الصفحة الجديدة طاقة رسومية أقل أثناء الخمول',
+          improved4: 'تظهر تسجيلات الشيخ المنشاوي الثلاثة الآن متجاورة في قائمة القرّاء',
+          fixed1: 'نتائج البحث في الآيات تفتح الآية عند الضغط عليها، والقوائم الطويلة تنساب بسلاسة',
+          fixed2: 'تعرض الصفحة الجديدة آيتك العشوائية حتى أثناء تشغيل تكرار المقطع',
+          fixed3: 'لم تعد الصفحات المفتوحة تلغي إعدادات وتفضيلات بعضها',
+        },
         v4120: {
           new1: 'تكرار المقطع: بضغطة واحدة كرِّر ما تقرؤه الآن — الربع أو الحزب أو الجزء أو السورة — للحفظ والمراجعة',
           new2: 'عدّاد تنازلي للصلاة القادمة على أيقونة الإضافة في المتصفح يظهر من أي صفحة',
