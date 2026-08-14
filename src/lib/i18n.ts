@@ -377,6 +377,12 @@ const resources = {
         },
       },
       quranTab: {
+        v4131: {
+          fixed1:
+            'Al-Qurtubi no longer appears as a tafseer source, and saved selections move to Al-Muyassar',
+          fixed2:
+            'Prayer timeline labels and arrows now stay inside the card, with clearer imminent-prayer contrast',
+        },
         v4130: {
           new1: 'Tafseer now reads right under the verse, so you can follow the explanation without opening a window',
           new2: 'New reciter: the 1965 murattal recording of Sheikh Al-Minshawy',
@@ -384,12 +390,17 @@ const resources = {
           new4: 'Share straight to any app through your device share sheet',
           improved1:
             'Share and copy now sit together in the verse options menu, and your image choices are remembered for next time',
-          improved2: 'The tafseer window was rebuilt for easier reading and faster source switching',
+          improved2:
+            'The tafseer window was rebuilt for easier reading and faster source switching',
           improved3: 'The new tab uses less graphics power while it sits idle',
-          improved4: 'The three Al-Minshawy recordings now sit together in the reciter list',
-          fixed1: 'Verse search results open the verse when you click them, and long lists scroll smoothly',
-          fixed2: 'A new tab shows your random verse even while Repeat Passage is running',
-          fixed3: 'Open tabs no longer overwrite each other settings and favorites',
+          improved4:
+            'The three Al-Minshawy recordings now sit together in the reciter list',
+          fixed1:
+            'Verse search results open the verse when you click them, and long lists scroll smoothly',
+          fixed2:
+            'A new tab shows your random verse even while Repeat Passage is running',
+          fixed3:
+            'Open tabs no longer overwrite each other settings and favorites',
         },
         v4120: {
           new1: 'Repeat Passage: one tap repeats the passage you are on — this Rubʿ, Hizb, Juz, or Surah — for memorization and revision',
@@ -1003,6 +1014,12 @@ const resources = {
         },
       },
       quranTab: {
+        v4131: {
+          fixed1:
+            'لم يعد تفسير القرطبي يظهر ضمن مصادر التفسير، وتنتقل الاختيارات المحفوظة إلى التفسير الميسر',
+          fixed2:
+            'تبقى تسميات خط الصلاة وأسهمه داخل البطاقة، مع وضوح أفضل لحالة الصلاة الوشيكة',
+        },
         v4130: {
           new1: 'يظهر التفسير الآن أسفل الآية مباشرة، فتتابع الشرح دون فتح نافذة',
           new2: 'قارئ جديد: المصحف المرتل للشيخ محمد صديق المنشاوي (١٩٦٥)',
@@ -1010,11 +1027,15 @@ const resources = {
           new4: 'شارك مباشرة إلى أي تطبيق عبر قائمة المشاركة في جهازك',
           improved1:
             'أصبحت المشاركة والنسخ معًا في قائمة خيارات الآية، وتُحفظ خيارات الصورة للمرة القادمة',
-          improved2: 'أُعيد بناء نافذة التفسير لقراءة أسهل وتنقل أسرع بين المصادر',
+          improved2:
+            'أُعيد بناء نافذة التفسير لقراءة أسهل وتنقل أسرع بين المصادر',
           improved3: 'تستهلك الصفحة الجديدة طاقة رسومية أقل أثناء الخمول',
-          improved4: 'تظهر تسجيلات الشيخ المنشاوي الثلاثة الآن متجاورة في قائمة القرّاء',
-          fixed1: 'نتائج البحث في الآيات تفتح الآية عند الضغط عليها، والقوائم الطويلة تنساب بسلاسة',
-          fixed2: 'تعرض الصفحة الجديدة آيتك العشوائية حتى أثناء تشغيل تكرار المقطع',
+          improved4:
+            'تظهر تسجيلات الشيخ المنشاوي الثلاثة الآن متجاورة في قائمة القرّاء',
+          fixed1:
+            'نتائج البحث في الآيات تفتح الآية عند الضغط عليها، والقوائم الطويلة تنساب بسلاسة',
+          fixed2:
+            'تعرض الصفحة الجديدة آيتك العشوائية حتى أثناء تشغيل تكرار المقطع',
           fixed3: 'لم تعد الصفحات المفتوحة تلغي إعدادات وتفضيلات بعضها',
         },
         v4120: {
