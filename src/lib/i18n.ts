@@ -377,6 +377,12 @@ const resources = {
         },
       },
       quranTab: {
+        v4132: {
+          improved1:
+            'Shared verse images in Arabic no longer repeat the surah name and verse number, because the decorated header already shows them',
+          improved2:
+            'Tafseer text in the tafseer window is easier to read, with a sturdier font and tighter spacing between paragraphs',
+        },
         v4131: {
           fixed1:
             'Al-Qurtubi no longer appears as a tafseer source, and saved selections move to Al-Muyassar',
@@ -1014,6 +1020,12 @@ const resources = {
         },
       },
       quranTab: {
+        v4132: {
+          improved1:
+            'لم تعد صور الآيات بالعربية تكرر اسم السورة ورقم الآية، لأن الإطار المزخرف يعرضهما بالفعل',
+          improved2:
+            'أصبح نص التفسير في نافذة التفسير أوضح للقراءة، بخط أمتن وتباعد أقل بين الفقرات',
+        },
         v4131: {
           fixed1:
             'لم يعد تفسير القرطبي يظهر ضمن مصادر التفسير، وتنتقل الاختيارات المحفوظة إلى التفسير الميسر',
