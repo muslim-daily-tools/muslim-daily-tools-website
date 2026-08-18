@@ -377,6 +377,15 @@ const resources = {
         },
       },
       quranTab: {
+        v4140: {
+          new1: 'Click the Quran Tab toolbar icon to see prayer-friendly meeting times without opening a new tab',
+          improved1:
+            'Tafseer now retries temporary loading failures automatically and gives you a retry button when needed',
+          fixed1:
+            'Changing the verse or tafseer source now stops the previous request, keeping the explanation matched to your current verse',
+          fixed2:
+            'Keyboard hints for adhkar now follow the direction of the selected app language',
+        },
         v4132: {
           improved1:
             'Shared verse images in Arabic no longer repeat the surah name and verse number, because the decorated header already shows them',
@@ -1020,6 +1029,15 @@ const resources = {
         },
       },
       quranTab: {
+        v4140: {
+          new1: 'اضغط على أيقونة Quran Tab في شريط المتصفح لمعرفة الأوقات المناسبة للاجتماعات بين الصلوات دون فتح تبويب جديد',
+          improved1:
+            'يحاول التفسير التحميل تلقائيًا عند حدوث عطل مؤقت، ويعرض زرًا لإعادة المحاولة عند الحاجة',
+          fixed1:
+            'يتوقف طلب التفسير السابق عند تغيير الآية أو المصدر، ليبقى الشرح مطابقًا للآية الحالية',
+          fixed2:
+            'تظهر تلميحات لوحة المفاتيح في الأذكار بالاتجاه الصحيح حسب لغة التطبيق',
+        },
         v4132: {
           improved1:
             'لم تعد صور الآيات بالعربية تكرر اسم السورة ورقم الآية، لأن الإطار المزخرف يعرضهما بالفعل',
