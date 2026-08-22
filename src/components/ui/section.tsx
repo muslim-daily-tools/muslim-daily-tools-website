@@ -60,12 +60,12 @@ export function Section({
           >
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
             {title && (
-              <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-[1.1] text-balance">
+              <h2 className="font-display text-4xl md:text-6xl font-medium text-foreground leading-[1.05] text-balance">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl text-pretty">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl text-pretty">
                 {description}
               </p>
             )}

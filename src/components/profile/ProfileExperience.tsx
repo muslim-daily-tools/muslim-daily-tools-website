@@ -20,7 +20,7 @@ export function ProfileExperience({
     >
       <StaggerContainer
         as="ol"
-        className="relative max-w-3xl border-s border-border ms-2"
+        className="relative max-w-3xl border-s border-hairline ms-2"
         staggerDelay={0.08}
       >
         {member.experience.map((job) => (
@@ -29,7 +29,7 @@ export function ProfileExperience({
             as="li"
             className="relative ps-8 pb-10 last:pb-0"
           >
-            <span className="absolute -start-[5px] top-2 w-2.5 h-2.5 rounded-full bg-gold ring-4 ring-card" />
+            <span className="absolute -start-[5px] top-2 w-2.5 h-2.5 rounded-full bg-gold shadow-[0_0_0_4px_var(--background),0_0_18px_var(--gold)]" />
             <div className="flex flex-col gap-1">
               <h3 className="text-lg font-semibold text-foreground">
                 {job.href ? (

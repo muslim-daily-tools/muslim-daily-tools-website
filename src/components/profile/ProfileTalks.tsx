@@ -23,7 +23,7 @@ export function ProfileTalks({
           href={member.socials.youtube}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col sm:flex-row sm:items-center gap-5 rounded-3xl border border-border bg-card p-6 md:p-8 transition-all duration-300 hover:border-gold/60"
+          className="glass-surface accent-card group flex flex-col sm:flex-row sm:items-center gap-5 rounded-[1.5rem] p-6 md:p-8"
         >
           <span className="flex w-14 h-14 shrink-0 items-center justify-center rounded-2xl bg-gold-soft text-gold">
             <LuYoutube className="w-7 h-7" />
@@ -54,7 +54,7 @@ export function ProfileTalks({
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card transition-all duration-300 hover:border-gold/60"
+                  className="glass-surface accent-card group flex h-full flex-col overflow-hidden rounded-[1.5rem]"
                 >
                   {talk.youtubeId && (
                     <img

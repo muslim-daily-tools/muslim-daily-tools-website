@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import { LuArrowUpRight, LuStar, LuUsers } from 'react-icons/lu'
 import { FaApple, FaChrome, FaFirefoxBrowser, FaGlobe } from 'react-icons/fa6'
+import type { CSSProperties } from 'react'
 import type { IconType } from 'react-icons'
-import type {Platform, Tool} from '@/data/tools';
+import type { Platform, Tool } from '@/data/tools'
 import { StaggerContainer, StaggerItem } from '@/lib/animations'
-import {   tools } from '@/data/tools'
+import { tools } from '@/data/tools'
 import { Section } from '@/components/ui/section'
 import { cn } from '@/lib/utils'
 
@@ -78,11 +79,11 @@ function PlatformLinks({ tool }: { tool: Tool }): React.JSX.Element {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-border bg-background text-xs font-medium text-foreground transition-colors hover:border-gold hover:text-gold"
+            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full border border-hairline bg-background/40 text-xs font-medium text-foreground transition-colors hover:[border-color:var(--tool-accent)] hover:[color:var(--tool-accent)]"
           >
             <Icon className="w-3.5 h-3.5" />
             {t(link.labelKey)}
-            <LuArrowUpRight className="w-3 h-3 opacity-60" />
+            <LuArrowUpRight className="w-3 h-3 opacity-60 rtl:-scale-x-100" />
           </a>
         )
       })}
@@ -104,17 +105,17 @@ function ToolCard({
     <article
       id={tool.slug}
       aria-label={title}
+      style={{ '--tool-accent': tool.accent } as CSSProperties}
       className={cn(
-        'group relative flex h-full flex-col gap-5 rounded-3xl border border-border bg-card p-6 md:p-8',
-        'transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-[0_24px_48px_-24px_rgba(0,0,0,0.25)]',
+        'accent-card glass-surface group flex h-full flex-col gap-6 rounded-[1.75rem] p-6 md:p-8',
         featured && 'md:flex-row md:items-start md:gap-8',
       )}
     >
       <div
         className={cn(
-          'shrink-0 rounded-2xl border border-border bg-background overflow-hidden flex items-center justify-center',
-          featured ? 'w-20 h-20 md:w-28 md:h-28' : 'w-14 h-14',
-          tool.fullBleedLogo ? 'p-0' : featured ? 'p-3' : 'p-2',
+          'accent-tile shrink-0 rounded-2xl border border-hairline bg-background/60 overflow-hidden flex items-center justify-center',
+          featured ? 'w-20 h-20 md:w-28 md:h-28' : 'w-16 h-16',
+          tool.fullBleedLogo ? 'p-0' : featured ? 'p-3' : 'p-2.5',
         )}
       >
         <img
@@ -125,7 +126,10 @@ function ToolCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-4">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2.5">
+          <span className="accent-badge inline-flex w-fit items-center h-6 px-2.5 rounded-full text-[0.7rem] font-semibold uppercase tracking-[0.12em]">
+            {t(tool.badgeKey)}
+          </span>
           <h3
             className={cn(
               'font-display font-medium text-foreground leading-tight',
@@ -140,6 +144,8 @@ function ToolCard({
         <p className="text-muted-foreground leading-relaxed text-pretty flex-1">
           {t(tool.descriptionKey)}
         </p>
+
+        <div className="accent-rule h-px w-full" />
 
         <PlatformLinks tool={tool} />
       </div>
@@ -157,6 +163,7 @@ export function Tools(): React.JSX.Element {
       eyebrow={t('tools.eyebrow')}
       title={t('tools.title')}
       description={t('tools.subtitle')}
+      className="relative"
     >
       <StaggerContainer
         as="div"

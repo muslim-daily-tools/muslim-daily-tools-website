@@ -27,6 +27,10 @@ export interface Tool {
   fullBleedLogo?: boolean
   titleKey: string
   descriptionKey: string
+  /** Signature colour for the card glow, badge, and logo tile */
+  accent: string
+  /** Short badge label shown on the tool card */
+  badgeKey: string
   links: Array<ToolLink>
   rating?: number
   reviewCount?: number
@@ -40,6 +44,8 @@ export const tools: Array<Tool> = [
     logo: QuranStationLogo,
     titleKey: 'tools.quranStation.title',
     descriptionKey: 'tools.quranStation.description',
+    accent: 'oklch(0.72 0.13 185)',
+    badgeKey: 'tools.quranStation.badge',
     links: [
       {
         platform: 'website',
@@ -72,6 +78,8 @@ export const tools: Array<Tool> = [
     logo: QuranTabLogo,
     titleKey: 'tools.quranTab.title',
     descriptionKey: 'tools.quranTab.description',
+    accent: 'oklch(0.66 0.16 255)',
+    badgeKey: 'tools.quranTab.badge',
     links: [
       {
         platform: 'chrome',
@@ -95,6 +103,8 @@ export const tools: Array<Tool> = [
     fullBleedLogo: true,
     titleKey: 'tools.ayahFlow.title',
     descriptionKey: 'tools.ayahFlow.description',
+    accent: 'oklch(0.78 0.15 70)',
+    badgeKey: 'tools.ayahFlow.badge',
     links: [
       {
         platform: 'ios',
@@ -109,6 +119,8 @@ export const tools: Array<Tool> = [
     logo: PrayerCalLogo,
     titleKey: 'tools.prayerCal.title',
     descriptionKey: 'tools.prayerCal.description',
+    accent: 'oklch(0.63 0.19 295)',
+    badgeKey: 'tools.prayerCal.badge',
     links: [
       {
         platform: 'website',
@@ -123,6 +135,8 @@ export const tools: Array<Tool> = [
     logo: NawayaLogo,
     titleKey: 'tools.nawaya.title',
     descriptionKey: 'tools.nawaya.description',
+    accent: 'oklch(0.62 0.2 20)',
+    badgeKey: 'tools.nawaya.badge',
     links: [
       {
         platform: 'website',

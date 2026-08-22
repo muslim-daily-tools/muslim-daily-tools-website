@@ -7,7 +7,7 @@ import { Eyebrow } from '@/components/ui/eyebrow'
 import { SocialLinks } from '@/components/SocialLinks'
 
 const ctaClass =
-  'inline-flex items-center gap-2 h-11 px-5 rounded-full text-sm font-medium transition-colors'
+  'inline-flex items-center gap-2 h-11 px-5 rounded-full text-sm font-medium transition-all duration-300'
 
 export function ProfileHero({
   member,
@@ -19,7 +19,7 @@ export function ProfileHero({
   const name = tHome(`team.members.${member.slug}.name`)
 
   return (
-    <section className="geo-pattern px-6 md:px-12 pt-10 pb-16 md:pt-16 md:pb-24">
+    <section className="glow-field grid-lines relative overflow-hidden px-6 md:px-12 pt-10 pb-16 md:pt-16 md:pb-24">
       <div className="max-w-5xl mx-auto">
         <FadeIn className="print:hidden">
           <Link
@@ -39,7 +39,7 @@ export function ProfileHero({
               alt={name}
               width={224}
               height={224}
-              className="w-40 h-40 md:w-56 md:h-56 rounded-3xl object-cover border border-border shadow-[0_24px_48px_-24px_rgba(0,0,0,0.35)]"
+              className="w-40 h-40 md:w-56 md:h-56 rounded-[1.75rem] object-cover border border-hairline shadow-[0_40px_80px_-40px_rgba(0,0,0,0.6)]"
             />
           </FadeIn>
 
@@ -48,7 +48,7 @@ export function ProfileHero({
               <Eyebrow>{t(`${member.slug}.role`)}</Eyebrow>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium text-foreground leading-[1.02]">
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium text-foreground leading-[1.0]">
                 {name}
               </h1>
             </FadeIn>
@@ -64,7 +64,7 @@ export function ProfileHero({
               {member.email && (
                 <a
                   href={`mailto:${member.email}`}
-                  className={`${ctaClass} bg-foreground text-background hover:bg-gold hover:text-ink`}
+                  className={`${ctaClass} bg-gold text-ink font-semibold shadow-[0_16px_40px_-18px_var(--gold)] hover:scale-[1.03]`}
                 >
                   <LuMail className="w-4 h-4" />
                   {t('actions.email')}
@@ -73,7 +73,7 @@ export function ProfileHero({
               {member.cvUrl && (
                 <a
                   href={member.cvUrl}
-                  className={`${ctaClass} border border-border bg-card/60 text-foreground hover:border-gold hover:text-gold`}
+                  className={`${ctaClass} glass-surface text-foreground hover:text-gold`}
                 >
                   <LuDownload className="w-4 h-4" />
                   {t('actions.downloadCv')}
@@ -84,7 +84,7 @@ export function ProfileHero({
                   href={member.socials.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${ctaClass} border border-border bg-card/60 text-foreground hover:border-gold hover:text-gold`}
+                  className={`${ctaClass} glass-surface text-foreground hover:text-gold`}
                 >
                   <LuYoutube className="w-4 h-4" />
                   {t('actions.watchChannel')}

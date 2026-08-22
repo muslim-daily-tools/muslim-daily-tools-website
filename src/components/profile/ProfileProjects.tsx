@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { LuArrowUpRight } from 'react-icons/lu'
+import type { CSSProperties } from 'react'
 import type { TeamMember } from '@/data/team'
 import { getToolBySlug } from '@/data/tools'
 import { StaggerContainer, StaggerItem } from '@/lib/animations'
@@ -8,7 +9,7 @@ import { Eyebrow } from '@/components/ui/eyebrow'
 import { cn } from '@/lib/utils'
 
 const cardClass =
-  'group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60'
+  'accent-card glass-surface group flex h-full flex-col gap-4 rounded-[1.5rem] p-6'
 
 export function ProfileProjects({
   member,
@@ -41,11 +42,12 @@ export function ProfileProjects({
                 href={primaryLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                style={{ '--tool-accent': tool.accent } as CSSProperties}
                 className={cardClass}
               >
                 <div
                   className={cn(
-                    'w-14 h-14 rounded-2xl border border-border bg-background overflow-hidden flex items-center justify-center',
+                    'accent-tile w-14 h-14 rounded-2xl border border-hairline bg-background/60 overflow-hidden flex items-center justify-center',
                     tool.fullBleedLogo ? 'p-0' : 'p-2',
                   )}
                 >
@@ -60,7 +62,7 @@ export function ProfileProjects({
                     {tHome(tool.titleKey)}
                   </h3>
                   {tool.userCount && (
-                    <p className="text-xs font-medium text-gold">
+                    <p className="accent-text text-xs font-semibold">
                       {tool.userCount} {tHome('tools.users')}
                     </p>
                   )}

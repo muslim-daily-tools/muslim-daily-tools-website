@@ -117,7 +117,7 @@ import { Hero } from '@/components/Hero'
 
 ### Data Files
 
-- `src/data/tools.ts` - tools, platforms, store stats (`getToolBySlug`, `getFeaturedTools`)
+- `src/data/tools.ts` - tools, platforms, store stats, per-tool `accent` colour and `badgeKey` (`getToolBySlug`, `getFeaturedTools`)
 - `src/data/team.ts` - team members, socials, projects, experience, talks (`getTeamMember`)
 - `src/data/stats.ts` - homepage stats strip
 - Copy for all of these lives in `src/lib/i18n.ts`
@@ -128,10 +128,21 @@ import { Hero } from '@/components/Hero'
 
 ### Custom CSS Classes (in `src/styles.css`)
 
-- `.glass-header` - Apple-style glassmorphism for header (saturate + blur + transparency)
-- `.glass-panel` - Glass effect for dropdowns/panels (mobile menu)
+Bold product direction (dark-first launch-page surfaces, all token-driven so
+both themes work):
 
-Both support dark mode automatically via `.dark` variant.
+- `.glow-field` - gradient glow backdrop (hero, About quote, Donate, profile hero/contact)
+- `.grid-lines` - masked hairline grid, Linear style
+- `.glass-surface` - blurred card/panel: `--glass-bg` + 1px `--glass-border` + `--glass-shadow`
+- `.glass-bar` - lighter blur for the header and the mobile menu panel
+- `.accent-card` / `.accent-badge` / `.accent-tile` / `.accent-text` / `.accent-rule` -
+  read the inline `--tool-accent` custom property for per-tool colour
+- `.text-glow-gradient` - warm gradient headline text
+- `.marquee` / `.marquee-track` - testimonial marquee (paused on hover, off under reduced motion)
+- `.stat-number` - tabular, tight-tracked big numbers
+
+Tokens behind them: `--glass-bg`, `--glass-border`, `--glass-shadow`,
+`--hairline` (exposed as `border-hairline`), `--glow-warm`, `--glow-cool`.
 
 ### Mobile Menu Pattern
 
@@ -144,16 +155,17 @@ The mobile menu in `Navigation.tsx` uses:
 
 ### Section Pattern
 
-Homepage sections alternate `Section` tones for visual rhythm:
+Homepage sections, top to bottom:
 
-- **Hero** - `geo-pattern`, two columns, stats strip
-- **About** - `tone="card"`, pull-quote split
-- **Tools** - default, bento grid (featured tools span two columns)
-- **Testimonials** - `tone="card"`, masonry
-- **Team** - default, compact cards linking to `/team/$slug`
-- **Donate** - default, gold gradient panel
+- **Hero** - `glow-field grid-lines`, centred headline, tool tile row, big-number strip, sticky CTA
+- **About** - glass pull-quote panel next to the mission text
+- **Tools** - bento grid of accent glass cards (featured tools span two columns)
+- **Testimonials** - two marquee rows, opposite directions
+- **Team** - accent glass cards linking to `/team/$slug`
+- **Donate** - glow panel with a glass payment widget
 
-When adding new sections, alternate `tone="card"` with the default tone.
+`src/components/StickyCta.tsx` is the dismissible bottom bar; the Hero mounts it,
+so it stays on the homepage only.
 
 ### Stripe Support Widget
 
@@ -176,19 +188,13 @@ The site supports light and dark themes with:
 - For semantic colors (amber badges), add dark variants: `bg-amber-100 dark:bg-amber-900/30`
 - Star ratings use `fill-amber-400` (works in both modes) and `fill-muted` for empty
 
-### Testimonials Design (Chrome Web Store Style)
+### Testimonials Design (Marquee)
 
-Combined stats + testimonials section inspired by Chrome Web Store reviews:
+Store reviews scroll in two marquee rows:
 
-- **Stats row** at top with key metrics (users, ratings, downloads, languages)
-  - Stats with optional star ratings displayed inline
-  - Vertical dividers between stats on desktop
-- **Masonry layout** - Cards distributed across 3 columns for varying heights
-- **Testimonial cards** feature:
-  - Circular avatar (image or colored initials based on name)
-  - Author name next to avatar
-  - 5-star rating with amber fill
-  - Review text in muted color
-  - Subtle hover shadow and border effect
-  - Staggered fade-in animation
-- **Avatar generation**: Initials from name with deterministic color based on first character
+- **Row split** - the list is cut in half; the top row scrolls one way, the bottom row the other
+- **Duplicate copy** - each row renders its cards twice; the second copy is `aria-hidden`
+- **Duration** - set per row through the `--marquee-duration` custom property
+- **Pause** - hover pauses the row; `prefers-reduced-motion` stops the animation
+- **Cards** - glass cards that take the accent colour of the reviewed tool
+- **Avatar generation** - initials from the name with a deterministic colour

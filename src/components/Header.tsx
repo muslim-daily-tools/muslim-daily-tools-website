@@ -19,15 +19,14 @@ export function Header(): React.JSX.Element {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full px-6 md:px-12',
-        'backdrop-blur-xl backdrop-saturate-150 transition-all duration-300',
+        'sticky top-0 z-50 w-full px-6 md:px-12 transition-all duration-300',
         'border-b',
         isScrolled
-          ? 'bg-background/85 border-border shadow-sm shadow-black/5'
-          : 'bg-background/60 border-transparent',
+          ? 'glass-bar border-hairline shadow-[0_18px_40px_-32px_rgba(0,0,0,0.9)]'
+          : 'border-transparent bg-transparent',
       )}
     >
-      <div className="relative max-w-7xl mx-auto h-16 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
+      <div className="relative max-w-7xl mx-auto h-18 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
         <Logo />
         <Navigation />
       </div>

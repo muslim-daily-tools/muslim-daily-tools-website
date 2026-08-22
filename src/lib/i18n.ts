@@ -71,6 +71,8 @@ const resources = {
         cta: 'Explore Our Tools',
         eyebrow: 'Built by Muslims, for the Ummah',
         secondaryCta: 'Support the work',
+        badge: 'Five tools. One daily rhythm.',
+        proof: 'Free forever. No account. No tracking.',
         trustedBy: 'Trusted by',
         usersWorldwide: 'Muslims worldwide',
       },
@@ -98,26 +100,31 @@ const resources = {
         ratings: 'ratings',
         users: 'users',
         quranStation: {
+          badge: 'Quran radio',
           title: 'Quran Station',
           description:
             'Stream 100+ Quran radio stations from renowned reciters. One-click play, lightweight, and synced across your devices so your favourite station is always ready.',
         },
         quranTab: {
+          badge: 'New tab',
           title: 'Quran Tab',
           description:
             'A Quran-inspired new tab for your browser. Each tab greets you with an ayah, prayer times, and a calm space for reflection. Read translations in 40+ languages, listen to reciters, and save favourites.',
         },
         ayahFlow: {
+          badge: 'Listen and follow',
           title: 'Ayah Flow',
           description:
             'A listening-first Quran app with synchronized ayah and word highlighting. Listen to renowned reciters, follow the English translation and word-by-word transliteration, build memorization playlists, and continue where you left off.',
         },
         prayerCal: {
+          badge: 'Prayer calendar',
           title: 'Pray On Time',
           description:
             'Never miss a prayer. Automatically sync accurate prayer times to your Google or Microsoft calendar, set smart reminders, and plan your day around Salah.',
         },
         nawaya: {
+          badge: 'Daily intentions',
           title: 'Nawaya',
           description:
             'Transform everyday actions into worship through mindful Islamic intentions. Browse Quran and Hadith-based intentions for daily life, share beautiful cards, and build a habit of purposeful living.',
@@ -134,12 +141,20 @@ const resources = {
         title: 'Trusted by thousands of Muslims worldwide',
         eyebrow: 'From the Chrome Web Store',
         reviewFor: 'Review for',
+        subtitle:
+          'Every word below is a real store review, left by someone who opens these tools every day.',
         stats: {
           activeUsers: 'Active Users',
           listeningSessions: 'Listening Sessions',
           downloads: 'Downloads',
           languages: 'Languages',
         },
+      },
+      stickyCta: {
+        message: 'Five free tools, built for your daily worship.',
+        primary: 'Get the tools',
+        secondary: 'Support',
+        dismiss: 'Hide this bar',
       },
       donate: {
         eyebrow: 'Sadaqah jariyah',
@@ -831,6 +846,8 @@ const resources = {
         cta: 'استكشف أدواتنا',
         eyebrow: 'صنعها مسلمون لخدمة الأمة',
         secondaryCta: 'ادعم العمل',
+        badge: 'خمس أدوات. إيقاع يومي واحد.',
+        proof: 'مجاني دائمًا. بلا حساب. بلا تتبّع.',
         trustedBy: 'يثق به',
         usersWorldwide: 'مسلم حول العالم',
       },
@@ -858,23 +875,28 @@ const resources = {
         ratings: 'تقييم',
         users: 'مستخدم',
         quranStation: {
+          badge: 'إذاعة القرآن',
           description:
             'استمع لأكثر من 100 محطة إذاعية للقرآن الكريم بأصوات قرّاء مشهورين. تشغيل بنقرة واحدة، خفيف الوزن، ومُزامن عبر أجهزتك لتكون محطتك المفضلة دائمًا.',
         },
         quranTab: {
+          badge: 'تبويب جديد',
           description:
             'تبويب جديد مُستوحى من القرآن لمتصفحك. كل تبويب يُرحّب بك بآية، ومواقيت الصلاة، ومساحة هادئة للتأمل. اقرأ الترجمات بأكثر من 40 لغة، واستمع للقرّاء، واحفظ المفضلات.',
         },
         ayahFlow: {
+          badge: 'استمع وتابع',
           title: 'Ayah Flow',
           description:
             'تطبيق قرآن يضع الاستماع أولًا، مع تمييز متزامن للآيات والكلمات. استمع إلى نخبة من القرّاء، وتابع الترجمة الإنجليزية والنطق بالحروف اللاتينية كلمةً بكلمة، وأنشئ قوائم تشغيل للحفظ، وواصل من حيث توقفت.',
         },
         prayerCal: {
+          badge: 'تقويم الصلاة',
           description:
             'لا تفوّت صلاة. زامن مواقيت الصلاة الدقيقة تلقائيًا مع تقويم Google أو Microsoft، واضبط تذكيرات ذكية، ونظّم يومك حول الصلاة.',
         },
         nawaya: {
+          badge: 'نوايا يومية',
           description:
             'حوّل أعمالك اليومية إلى عبادة من خلال النوايا الإسلامية. تصفّح نوايا مستندة إلى القرآن والحديث لحياتك اليومية، وشارك بطاقات جميلة، وابنِ عادة الحياة الهادفة.',
         },
@@ -890,12 +912,20 @@ const resources = {
         title: 'يثق به آلاف المسلمين حول العالم',
         eyebrow: 'من متجر Chrome',
         reviewFor: 'تقييم لـ',
+        subtitle:
+          'كل كلمة هنا تقييم حقيقي من المتجر، كتبه شخص يفتح هذه الأدوات كل يوم.',
         stats: {
           activeUsers: 'مستخدم نشط',
           listeningSessions: 'جلسة استماع',
           downloads: 'تحميل',
           languages: 'لغة',
         },
+      },
+      stickyCta: {
+        message: 'خمس أدوات مجانية، صُنعت لعبادتك اليومية.',
+        primary: 'احصل على الأدوات',
+        secondary: 'ادعمنا',
+        dismiss: 'إخفاء الشريط',
       },
       donate: {
         eyebrow: 'صدقة جارية',

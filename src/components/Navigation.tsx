@@ -44,7 +44,7 @@ function NavItem({
       <Link to={link.href} className={classes} onClick={onClick}>
         {t(link.labelKey)}
         {isActive && (
-          <span className="hidden md:block absolute -bottom-1.5 left-0 right-0 h-0.5 rounded-full bg-gold" />
+          <span className="hidden md:block absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-gold" />
         )}
       </Link>
     )
@@ -69,9 +69,14 @@ export function Navigation(): React.JSX.Element {
   return (
     <>
       {/* Desktop navigation */}
-      <nav className="hidden md:flex items-center justify-center gap-8">
+      <nav className="hidden md:flex items-center justify-center gap-1 rounded-full border border-hairline bg-background/30 px-2 py-1.5 backdrop-blur-md">
         {navLinks.map((link) => (
-          <NavItem key={link.href} link={link} isActive={isActive(link)} />
+          <NavItem
+            key={link.href}
+            link={link}
+            isActive={isActive(link)}
+            className="px-3.5 py-1.5 rounded-full hover:bg-foreground/5"
+          />
         ))}
       </nav>
 
@@ -81,7 +86,7 @@ export function Navigation(): React.JSX.Element {
         <LanguageSwitcher />
         <a
           href="/#donate"
-          className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium transition-colors hover:bg-gold hover:text-ink"
+          className="inline-flex items-center gap-2 h-10 px-5 rounded-full bg-gold text-ink text-sm font-semibold shadow-[0_14px_36px_-16px_var(--gold)] transition-transform duration-300 hover:scale-[1.04]"
         >
           <FaHandHoldingHeart className="w-3.5 h-3.5" />
           {t('nav.support')}
@@ -108,7 +113,7 @@ export function Navigation(): React.JSX.Element {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="absolute top-full inset-x-[-1.5rem] md:hidden bg-background border-b border-border shadow-lg shadow-black/5"
+            className="absolute top-full inset-x-[-1.5rem] md:hidden glass-bar border-b border-hairline"
           >
             <nav className="flex flex-col px-6 py-4 gap-1">
               {navLinks.map((link) => (
@@ -120,14 +125,14 @@ export function Navigation(): React.JSX.Element {
                   className="py-3 text-base"
                 />
               ))}
-              <div className="mt-2 pt-4 border-t border-border flex items-center justify-between">
+              <div className="mt-2 pt-4 border-t border-hairline flex items-center justify-between">
                 <div className="flex items-center gap-5">
                   <ThemeToggle />
                   <LanguageSwitcher />
                 </div>
                 <a
                   href="/#donate"
-                  className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium"
+                  className="inline-flex items-center gap-2 h-10 px-5 rounded-full bg-gold text-ink text-sm font-semibold"
                   onClick={closeMenu}
                 >
                   <FaHandHoldingHeart className="w-3.5 h-3.5" />

@@ -1,7 +1,9 @@
 import { LuStar } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
-import { StaggerContainer, StaggerItem } from '@/lib/animations'
+import type { CSSProperties } from 'react'
+import { FadeIn } from '@/lib/animations'
 import { Section } from '@/components/ui/section'
+import { cn } from '@/lib/utils'
 
 interface Testimonial {
   quote: string
@@ -143,90 +145,107 @@ function Avatar({ name, avatar }: { name: string; avatar?: string }) {
   )
 }
 
-function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+const toolAccents: Record<Testimonial['tool'], string> = {
+  'Quran Station': 'oklch(0.72 0.13 185)',
+  'Quran Tab': 'oklch(0.66 0.16 255)',
+}
+
+function TestimonialCard({
+  testimonial,
+}: {
+  testimonial: Testimonial
+}): React.JSX.Element {
   const { t } = useTranslation('home')
 
   return (
-    <div className="group bg-background rounded-2xl p-5 border border-border hover:border-gold/60 transition-all duration-200 flex flex-col h-full">
-      {/* Header: Avatar + Name */}
-      <div className="flex items-center gap-3 mb-3">
+    <figure
+      style={
+        { '--tool-accent': toolAccents[testimonial.tool] } as CSSProperties
+      }
+      className="accent-card glass-surface flex h-full w-[19rem] md:w-[23rem] shrink-0 flex-col gap-4 rounded-[1.5rem] p-6"
+    >
+      <div className="flex items-center gap-3">
         <Avatar name={testimonial.author} avatar={testimonial.avatar} />
-        <span className="font-medium text-foreground text-sm">
-          {testimonial.author}
-        </span>
+        <div className="flex flex-col">
+          <figcaption className="text-sm font-semibold text-foreground">
+            {testimonial.author}
+          </figcaption>
+          <StarRating rating={testimonial.rating} />
+        </div>
       </div>
 
-      {/* Star Rating */}
-      <div className="mb-3">
-        <StarRating rating={testimonial.rating} />
-      </div>
-
-      {/* Quote */}
-      <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+      <blockquote className="text-sm text-muted-foreground leading-relaxed line-clamp-6">
         {testimonial.quote}
-      </p>
+      </blockquote>
 
-      {/* Tool badge at bottom */}
-      <div className="mt-4 pt-3 border-t border-border">
-        <span className="text-xs text-muted-foreground/70">
-          {t('testimonials.reviewFor')}{' '}
-          <span className="font-medium text-foreground/70">
-            {testimonial.tool}
-          </span>
+      <div className="mt-auto flex items-center gap-2 pt-2">
+        <span className="text-[0.7rem] text-muted-foreground/70">
+          {t('testimonials.reviewFor')}
         </span>
+        <span className="accent-badge inline-flex items-center h-6 px-2.5 rounded-full text-[0.7rem] font-semibold">
+          {testimonial.tool}
+        </span>
+      </div>
+    </figure>
+  )
+}
+
+function MarqueeRow({
+  items,
+  reverse = false,
+  duration,
+}: {
+  items: Array<Testimonial>
+  reverse?: boolean
+  duration: number
+}): React.JSX.Element {
+  return (
+    <div className="marquee overflow-hidden">
+      <div
+        className={cn(
+          'marquee-track gap-4 py-2',
+          reverse && 'marquee-track-reverse',
+        )}
+        style={{ '--marquee-duration': `${duration}s` } as CSSProperties}
+      >
+        {[0, 1].map((copy) => (
+          <div
+            key={copy}
+            className="flex gap-4 pe-4"
+            aria-hidden={copy === 1 || undefined}
+          >
+            {items.map((testimonial) => (
+              <TestimonialCard
+                key={`${copy}-${testimonial.author}`}
+                testimonial={testimonial}
+              />
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   )
 }
 
-export function Testimonials() {
+export function Testimonials(): React.JSX.Element {
   const { t } = useTranslation('home')
-
-  // Split testimonials into 3 columns for masonry effect
-  const columns: Array<Array<Testimonial>> = [[], [], []]
-  testimonials.forEach((testimonial, index) => {
-    columns[index % 3].push(testimonial)
-  })
+  const half = Math.ceil(testimonials.length / 2)
+  const topRow = testimonials.slice(0, half)
+  const bottomRow = testimonials.slice(half)
 
   return (
     <Section
       id="testimonials"
-      tone="card"
       width="wide"
       eyebrow={t('testimonials.eyebrow')}
       title={t('testimonials.title')}
+      description={t('testimonials.subtitle')}
+      className="relative overflow-hidden"
     >
-      <div>
-        {/* Masonry testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Column 1 */}
-          <StaggerContainer className="flex flex-col gap-4" staggerDelay={0.1}>
-            {columns[0].map((testimonial) => (
-              <StaggerItem key={testimonial.author}>
-                <TestimonialCard testimonial={testimonial} />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          {/* Column 2 */}
-          <StaggerContainer className="flex flex-col gap-4" staggerDelay={0.1}>
-            {columns[1].map((testimonial) => (
-              <StaggerItem key={testimonial.author}>
-                <TestimonialCard testimonial={testimonial} />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          {/* Column 3 */}
-          <StaggerContainer className="flex flex-col gap-4" staggerDelay={0.1}>
-            {columns[2].map((testimonial) => (
-              <StaggerItem key={testimonial.author}>
-                <TestimonialCard testimonial={testimonial} />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </div>
+      <FadeIn className="flex flex-col gap-4 -mx-6 md:-mx-12">
+        <MarqueeRow items={topRow} duration={72} />
+        <MarqueeRow items={bottomRow} duration={88} reverse />
+      </FadeIn>
     </Section>
   )
 }

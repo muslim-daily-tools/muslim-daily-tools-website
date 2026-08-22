@@ -16,7 +16,11 @@ export function ProfileBio({
       tone="card"
       align="start"
       eyebrow={t('sections.about')}
-      title={tHome(`team.members.${member.slug}.title`)}
+      title={
+        <span className="block text-3xl md:text-4xl leading-[1.2]">
+          {tHome(`team.members.${member.slug}.title`)}
+        </span>
+      }
       className="py-16 md:py-20"
     >
       <div className="max-w-3xl flex flex-col gap-5">
