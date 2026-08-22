@@ -2,29 +2,17 @@ import { StaggerContainer, StaggerItem } from '@/lib/animations'
 import { tools } from '@/data/tools'
 import { cn } from '@/lib/utils'
 
-/* Each tile gets a fixed offset so the cluster reads as an arranged still life */
-const layout = [
-  'md:translate-y-3',
-  'md:-translate-y-3',
-  'md:translate-y-3',
-  'md:-translate-y-1',
-  'md:translate-y-5',
-]
-
 export function ToolsPreview(): React.JSX.Element {
   return (
     <StaggerContainer
-      className="flex flex-wrap items-start justify-center gap-5 md:gap-7 max-w-[22rem] md:max-w-[26rem] mx-auto"
+      className="grid grid-cols-3 justify-items-center gap-x-5 gap-y-8 md:gap-x-8 max-w-[22rem] md:max-w-[26rem] mx-auto [&>*:nth-child(4)]:col-start-1 [&>*:nth-child(4)]:translate-x-1/2 [&>*:nth-child(5)]:translate-x-1/2 rtl:[&>*:nth-child(4)]:-translate-x-1/2 rtl:[&>*:nth-child(5)]:-translate-x-1/2"
       staggerDelay={0.1}
     >
-      {tools.map((tool, index) => (
+      {tools.map((tool) => (
         <StaggerItem key={tool.slug} variant="scaleIn">
           <a
             href={`#${tool.slug}`}
-            className={cn(
-              'group flex flex-col items-center transition-transform duration-300 hover:-translate-y-1',
-              layout[index],
-            )}
+            className="group flex flex-col items-center transition-transform duration-300 hover:-translate-y-1"
           >
             <div
               className={cn(

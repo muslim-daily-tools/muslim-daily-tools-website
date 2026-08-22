@@ -18,8 +18,10 @@ body {
 
 [dir='rtl'] .font-display {
   font-family: 'Readex Pro', var(--font-sans);
-  font-weight: 600;
+  font-weight: 500;
+  font-style: normal;
   letter-spacing: 0;
+  line-height: 1.35;
 }
 
 code {
