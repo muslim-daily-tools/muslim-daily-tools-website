@@ -17,13 +17,13 @@ export function ProfileBio({
       align="start"
       eyebrow={t('sections.about')}
       title={tHome(`team.members.${member.slug}.title`)}
-      className="py-16 md:py-20"
+      className="py-20 md:py-28"
     >
-      <div className="max-w-3xl flex flex-col gap-5">
+      <div className="max-w-3xl flex flex-col gap-6">
         {paragraphs.map((paragraph, index) => (
           <p
             key={index}
-            className="text-lg text-muted-foreground leading-relaxed text-pretty"
+            className="type-body text-muted-foreground text-pretty"
           >
             {paragraph}
           </p>

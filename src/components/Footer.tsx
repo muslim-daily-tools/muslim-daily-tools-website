@@ -26,18 +26,20 @@ const socials = [
 ]
 
 const linkClass =
-  'text-sm text-muted-foreground hover:text-foreground transition-colors'
+  'type-caption font-normal text-muted-foreground hover:text-foreground transition-colors'
+
+const headingClass = 'type-caption uppercase tracking-[0.14em] text-foreground'
 
 export function Footer(): React.JSX.Element {
   const { t } = useTranslation('common')
 
   return (
-    <footer className="w-full border-t border-border bg-card/60">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-14">
-        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
+    <footer className="w-full border-t border-border">
+      <div className="mx-auto max-w-6xl px-6 md:px-10 py-16">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
           <div className="flex flex-col items-start gap-4">
             <Logo />
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+            <p className="type-caption font-normal max-w-xs leading-relaxed text-muted-foreground">
               {t('footer.tagline')}
             </p>
             <div className="flex items-center gap-4 mt-2">
@@ -57,9 +59,7 @@ export function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-4">
-              {t('footer.tools')}
-            </h3>
+            <h3 className={`${headingClass} mb-5`}>{t('footer.tools')}</h3>
             <ul className="flex flex-col gap-2.5">
               {toolLinks.map((link) => (
                 <li key={link.label}>
@@ -72,9 +72,7 @@ export function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-4">
-              {t('footer.company')}
-            </h3>
+            <h3 className={`${headingClass} mb-5`}>{t('footer.company')}</h3>
             <ul className="flex flex-col gap-2.5">
               <li>
                 <a href="/#team" className={linkClass}>
@@ -105,7 +103,7 @@ export function Footer(): React.JSX.Element {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 type-caption font-normal text-muted-foreground md:flex-row">
           <p>
             &copy; {new Date().getFullYear()} {t('footer.copyright')}
           </p>

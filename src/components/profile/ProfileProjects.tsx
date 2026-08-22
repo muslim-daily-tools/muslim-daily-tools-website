@@ -8,7 +8,10 @@ import { Eyebrow } from '@/components/ui/eyebrow'
 import { cn } from '@/lib/utils'
 
 const cardClass =
-  'group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60'
+  'motion-lift group flex h-full flex-col gap-4 rounded-2xl bg-card p-6 md:p-8'
+
+const cardLinkClass =
+  'inline-flex items-center gap-1 text-[0.9375rem] font-medium text-gold transition-opacity group-hover:opacity-75'
 
 export function ProfileProjects({
   member,
@@ -26,7 +29,7 @@ export function ProfileProjects({
       align="start"
       eyebrow={t('sections.tools')}
       title={tHome('tools.title')}
-      className="py-16 md:py-20"
+      className="py-20 md:py-28"
     >
       <StaggerContainer
         as="div"
@@ -56,21 +59,21 @@ export function ProfileProjects({
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="font-display text-2xl font-medium text-foreground">
+                  <h3 className="type-title text-foreground">
                     {tHome(tool.titleKey)}
                   </h3>
                   {tool.userCount && (
-                    <p className="text-xs font-medium text-gold">
+                    <p className="type-caption text-muted-foreground">
                       {tool.userCount} {tHome('tools.users')}
                     </p>
                   )}
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed flex-1 text-pretty">
+                <p className="type-body flex-1 text-muted-foreground text-pretty">
                   {tHome(tool.descriptionKey)}
                 </p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-foreground group-hover:text-gold transition-colors">
+                <span className={cardLinkClass}>
                   {t('actions.openTool')}
-                  <LuArrowUpRight className="w-4 h-4" />
+                  <LuArrowUpRight className="w-4 h-4 rtl:-scale-x-100" />
                 </span>
               </a>
             </StaggerItem>
@@ -99,19 +102,19 @@ export function ProfileProjects({
                   className={cardClass}
                 >
                   <div className="flex flex-col gap-1">
-                    <h3 className="font-display text-2xl font-medium text-foreground">
+                    <h3 className="type-title text-foreground">
                       {project.name}
                     </h3>
-                    <p className="text-xs font-medium text-gold">
+                    <p className="type-caption text-muted-foreground">
                       {t(project.roleKey)}
                     </p>
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-1 text-pretty">
+                  <p className="type-body flex-1 text-muted-foreground text-pretty">
                     {t(project.descriptionKey)}
                   </p>
-                  <span className="inline-flex items-center gap-1 text-sm font-medium text-foreground group-hover:text-gold transition-colors">
+                  <span className={cardLinkClass}>
                     {t('actions.visit')}
-                    <LuArrowUpRight className="w-4 h-4" />
+                    <LuArrowUpRight className="w-4 h-4 rtl:-scale-x-100" />
                   </span>
                 </a>
               </StaggerItem>

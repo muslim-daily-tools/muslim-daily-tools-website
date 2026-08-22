@@ -26,7 +26,7 @@ const toneClasses: Record<SectionTone, string> = {
 const widthClasses = {
   narrow: 'max-w-3xl',
   default: 'max-w-5xl',
-  wide: 'max-w-7xl',
+  wide: 'max-w-6xl',
 }
 
 export function Section({
@@ -47,7 +47,7 @@ export function Section({
   return (
     <section
       className={cn(
-        'py-20 md:py-28 px-6 md:px-12',
+        'py-24 md:py-36 px-6 md:px-10',
         toneClasses[tone],
         className,
       )}
@@ -56,16 +56,20 @@ export function Section({
       <div className={cn('mx-auto', widthClasses[width])}>
         {hasHeader && (
           <FadeIn
-            className={cn('flex flex-col gap-4 mb-12 md:mb-16', alignClasses)}
+            className={cn(
+              'flex flex-col gap-4 mb-16 md:mb-24',
+              alignClasses,
+              align === 'center' && 'mx-auto max-w-3xl',
+            )}
           >
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
             {title && (
-              <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-[1.1] text-balance">
+              <h2 className="type-headline text-foreground text-balance">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl text-pretty">
+              <p className="type-body text-muted-foreground max-w-2xl text-pretty">
                 {description}
               </p>
             )}

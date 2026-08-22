@@ -6,8 +6,11 @@ import { FadeIn } from '@/lib/animations'
 import { Eyebrow } from '@/components/ui/eyebrow'
 import { SocialLinks } from '@/components/SocialLinks'
 
-const ctaClass =
-  'inline-flex items-center gap-2 h-11 px-5 rounded-full text-sm font-medium transition-colors'
+const primaryCtaClass =
+  'inline-flex items-center gap-2 h-11 px-6 rounded-full bg-foreground text-background text-[0.9375rem] font-medium transition-opacity hover:opacity-85'
+
+const secondaryCtaClass =
+  'inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-gold transition-opacity hover:opacity-75'
 
 export function ProfileHero({
   member,
@@ -19,27 +22,27 @@ export function ProfileHero({
   const name = tHome(`team.members.${member.slug}.name`)
 
   return (
-    <section className="geo-pattern px-6 md:px-12 pt-10 pb-16 md:pt-16 md:pb-24">
+    <section className="geo-pattern px-6 md:px-10 pt-10 pb-20 md:pt-16 md:pb-28">
       <div className="max-w-5xl mx-auto">
         <FadeIn className="print:hidden">
           <Link
             to="/"
             hash="team"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 type-caption font-normal text-muted-foreground hover:text-foreground transition-colors"
           >
             <LuArrowLeft className="w-4 h-4 rtl:rotate-180" />
             {t('backToTeam')}
           </Link>
         </FadeIn>
 
-        <div className="mt-10 grid gap-10 md:grid-cols-[auto_1fr] md:items-center">
+        <div className="mt-14 grid gap-12 md:grid-cols-[auto_1fr] md:items-center md:gap-16">
           <FadeIn variant="scaleIn">
             <img
               src={member.image}
               alt={name}
               width={224}
               height={224}
-              className="w-40 h-40 md:w-56 md:h-56 rounded-3xl object-cover border border-border shadow-[0_24px_48px_-24px_rgba(0,0,0,0.35)]"
+              className="frame-shadow h-40 w-40 rounded-full object-cover md:h-52 md:w-52"
             />
           </FadeIn>
 
@@ -48,33 +51,27 @@ export function ProfileHero({
               <Eyebrow>{t(`${member.slug}.role`)}</Eyebrow>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium text-foreground leading-[1.02]">
+              <h1 className="type-display text-foreground text-balance">
                 {name}
               </h1>
             </FadeIn>
             <FadeIn delay={0.15}>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl text-pretty">
+              <p className="type-body max-w-xl text-muted-foreground text-pretty">
                 {t(`${member.slug}.tagline`)}
               </p>
             </FadeIn>
             <FadeIn
               delay={0.2}
-              className="flex flex-wrap items-center gap-3 print:hidden"
+              className="flex flex-wrap items-center gap-x-7 gap-y-3 print:hidden"
             >
               {member.email && (
-                <a
-                  href={`mailto:${member.email}`}
-                  className={`${ctaClass} bg-foreground text-background hover:bg-gold hover:text-ink`}
-                >
+                <a href={`mailto:${member.email}`} className={primaryCtaClass}>
                   <LuMail className="w-4 h-4" />
                   {t('actions.email')}
                 </a>
               )}
               {member.cvUrl && (
-                <a
-                  href={member.cvUrl}
-                  className={`${ctaClass} border border-border bg-card/60 text-foreground hover:border-gold hover:text-gold`}
-                >
+                <a href={member.cvUrl} className={secondaryCtaClass}>
                   <LuDownload className="w-4 h-4" />
                   {t('actions.downloadCv')}
                 </a>
@@ -84,7 +81,7 @@ export function ProfileHero({
                   href={member.socials.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${ctaClass} border border-border bg-card/60 text-foreground hover:border-gold hover:text-gold`}
+                  className={secondaryCtaClass}
                 >
                   <LuYoutube className="w-4 h-4" />
                   {t('actions.watchChannel')}

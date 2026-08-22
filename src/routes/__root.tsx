@@ -97,16 +97,16 @@ export const Route = createRootRoute({
         href: 'https://fonts.gstatic.com',
         crossOrigin: 'anonymous',
       },
-      // Preload font CSS (Fraunces display serif + Readex Pro for Arabic)
+      // Preload font CSS (Readex Pro for Arabic; Latin type is the system sans)
       {
         rel: 'preload',
-        href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Readex+Pro:wght@200..700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200..700&display=swap',
         as: 'style',
       },
-      // Fraunces for headlines, Readex Pro for Arabic RTL
+      // Readex Pro for Arabic RTL
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Readex+Pro:wght@200..700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200..700&display=swap',
       },
       {
         rel: 'stylesheet',

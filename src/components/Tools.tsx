@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import { LuArrowUpRight, LuStar, LuUsers } from 'react-icons/lu'
+import { LuChevronRight, LuStar, LuUsers } from 'react-icons/lu'
 import { FaApple, FaChrome, FaFirefoxBrowser, FaGlobe } from 'react-icons/fa6'
 import type { IconType } from 'react-icons'
-import type {Platform, Tool} from '@/data/tools';
-import { StaggerContainer, StaggerItem } from '@/lib/animations'
-import {   tools } from '@/data/tools'
+import type { Platform, Tool } from '@/data/tools'
+import { FadeIn } from '@/lib/animations'
+import { tools } from '@/data/tools'
 import { Section } from '@/components/ui/section'
+import { BrowserFrame, PhoneFrame } from '@/components/ui/device-frame'
 import { cn } from '@/lib/utils'
 
 const platformIcons: Record<Platform, IconType> = {
@@ -15,12 +16,24 @@ const platformIcons: Record<Platform, IconType> = {
   ios: FaApple,
 }
 
+/** Tools that live in a browser get a window, phone-only tools get a handset */
+function isBrowserTool(tool: Tool): boolean {
+  return tool.links.some((link) => link.platform !== 'ios')
+}
+
+/** Address bar text: the product domain, or a new-tab label for tab extensions */
+function frameLabel(tool: Tool, newTabLabel: string): string {
+  const site = tool.links.find((link) => link.platform === 'website')
+  if (!site) return newTabLabel
+  return new URL(site.href).hostname.replace(/^www\./, '')
+}
+
 function StarRating({ rating }: { rating: number }): React.JSX.Element {
   const fullStars = Math.floor(rating)
   const hasHalfStar = rating % 1 >= 0.5
 
   return (
-    <div className="inline-flex items-center gap-0.5">
+    <span className="inline-flex items-center gap-0.5">
       {[...Array(5)].map((_, i) => (
         <LuStar
           key={i}
@@ -34,7 +47,7 @@ function StarRating({ rating }: { rating: number }): React.JSX.Element {
           )}
         />
       ))}
-    </div>
+    </span>
   )
 }
 
@@ -43,7 +56,7 @@ function ToolStats({ tool }: { tool: Tool }): React.JSX.Element | null {
   if (tool.rating === undefined && !tool.userCount) return null
 
   return (
-    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
+    <div className="flex flex-wrap items-center gap-x-5 gap-y-1 type-caption text-muted-foreground">
       {tool.rating !== undefined && (
         <span className="inline-flex items-center gap-1.5">
           <StarRating rating={tool.rating} />
@@ -69,7 +82,7 @@ function PlatformLinks({ tool }: { tool: Tool }): React.JSX.Element {
   const { t } = useTranslation('home')
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
       {tool.links.map((link) => {
         const Icon = platformIcons[link.platform]
         return (
@@ -78,11 +91,11 @@ function PlatformLinks({ tool }: { tool: Tool }): React.JSX.Element {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-border bg-background text-xs font-medium text-foreground transition-colors hover:border-gold hover:text-gold"
+            className="inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-gold transition-opacity hover:opacity-75"
           >
             <Icon className="w-3.5 h-3.5" />
             {t(link.labelKey)}
-            <LuArrowUpRight className="w-3 h-3 opacity-60" />
+            <LuChevronRight className="w-3.5 h-3.5 rtl:-scale-x-100" />
           </a>
         )
       })}
@@ -90,12 +103,46 @@ function PlatformLinks({ tool }: { tool: Tool }): React.JSX.Element {
   )
 }
 
-function ToolCard({
+function ToolShowcase({ tool }: { tool: Tool }): React.JSX.Element {
+  const { t } = useTranslation('home')
+  const title = t(tool.titleKey)
+
+  const tileClass = cn(
+    'flex items-center justify-center overflow-hidden rounded-[1.5rem]',
+    'border border-border bg-background frame-shadow',
+    tool.fullBleedLogo ? 'p-0' : 'p-3',
+  )
+  /* A mock launch screen: the product mark and its name, nothing else */
+  const splash = (sizeClass: string): React.JSX.Element => (
+    <span className="flex flex-col items-center gap-5">
+      <span className={cn(tileClass, sizeClass)}>
+        <img
+          src={tool.logo}
+          alt={`${title} logo`}
+          className="h-full w-full object-contain"
+        />
+      </span>
+      <span className="type-title text-foreground">{title}</span>
+    </span>
+  )
+
+  if (!isBrowserTool(tool)) {
+    return <PhoneFrame>{splash('h-24 w-24')}</PhoneFrame>
+  }
+
+  return (
+    <BrowserFrame label={frameLabel(tool, t('tools.newTab'))}>
+      {splash('h-24 w-24 md:h-28 md:w-28')}
+    </BrowserFrame>
+  )
+}
+
+function ToolRow({
   tool,
-  featured,
+  reversed,
 }: {
   tool: Tool
-  featured: boolean
+  reversed: boolean
 }): React.JSX.Element {
   const { t } = useTranslation('home')
   const title = t(tool.titleKey)
@@ -104,45 +151,23 @@ function ToolCard({
     <article
       id={tool.slug}
       aria-label={title}
-      className={cn(
-        'group relative flex h-full flex-col gap-5 rounded-3xl border border-border bg-card p-6 md:p-8',
-        'transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-[0_24px_48px_-24px_rgba(0,0,0,0.25)]',
-        featured && 'md:flex-row md:items-start md:gap-8',
-      )}
+      className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20"
     >
-      <div
-        className={cn(
-          'shrink-0 rounded-2xl border border-border bg-background overflow-hidden flex items-center justify-center',
-          featured ? 'w-20 h-20 md:w-28 md:h-28' : 'w-14 h-14',
-          tool.fullBleedLogo ? 'p-0' : featured ? 'p-3' : 'p-2',
-        )}
+      <FadeIn
+        variant="scaleIn"
+        className={cn('w-full', reversed && 'lg:order-2')}
       >
-        <img
-          src={tool.logo}
-          alt={`${title} logo`}
-          className="w-full h-full object-contain"
-        />
-      </div>
+        <ToolShowcase tool={tool} />
+      </FadeIn>
 
-      <div className="flex flex-1 flex-col gap-4">
-        <div className="flex flex-col gap-2">
-          <h3
-            className={cn(
-              'font-display font-medium text-foreground leading-tight',
-              featured ? 'text-3xl md:text-4xl' : 'text-2xl',
-            )}
-          >
-            {title}
-          </h3>
-          <ToolStats tool={tool} />
-        </div>
-
-        <p className="text-muted-foreground leading-relaxed text-pretty flex-1">
+      <FadeIn delay={0.05} className="flex flex-col items-start gap-5">
+        <h3 className="type-headline text-foreground text-balance">{title}</h3>
+        <ToolStats tool={tool} />
+        <p className="type-body max-w-xl text-muted-foreground text-pretty">
           {t(tool.descriptionKey)}
         </p>
-
         <PlatformLinks tool={tool} />
-      </div>
+      </FadeIn>
     </article>
   )
 }
@@ -158,27 +183,11 @@ export function Tools(): React.JSX.Element {
       title={t('tools.title')}
       description={t('tools.subtitle')}
     >
-      <StaggerContainer
-        as="div"
-        className="grid gap-5 md:grid-cols-2 lg:grid-cols-6"
-        staggerDelay={0.08}
-      >
-        {tools.map((tool) => {
-          const featured = tool.rating !== undefined
-          return (
-            <StaggerItem
-              key={tool.slug}
-              variant="scaleIn"
-              className={cn(
-                'h-full',
-                featured ? 'md:col-span-2 lg:col-span-3' : 'lg:col-span-2',
-              )}
-            >
-              <ToolCard tool={tool} featured={featured} />
-            </StaggerItem>
-          )
-        })}
-      </StaggerContainer>
+      <div className="flex flex-col gap-28 md:gap-40">
+        {tools.map((tool, index) => (
+          <ToolRow key={tool.slug} tool={tool} reversed={index % 2 === 1} />
+        ))}
+      </div>
     </Section>
   )
 }

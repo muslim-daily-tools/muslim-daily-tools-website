@@ -11,17 +11,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* RTL (Arabic): Readex Pro for body and headlines, no Latin serif */
+/* RTL (Arabic): Readex Pro everywhere, including display type */
 [dir='rtl'] body {
   font-family: 'Readex Pro', var(--font-sans);
-}
-
-[dir='rtl'] .font-display {
-  font-family: 'Readex Pro', var(--font-sans);
-  font-weight: 500;
-  font-style: normal;
-  letter-spacing: 0;
-  line-height: 1.35;
 }
 
 code {
@@ -30,119 +22,98 @@ code {
 }
 
 /*
- * Light Theme: "Desert Dawn"
- * Warm cream background with clean white cards
- * Subtle warmth that feels inviting and calm
+ * Light theme: neutral grays, one accent
+ * Pure white page, light gray alternating surfaces.
  */
 :root {
-  /* Warm cream background - not pure white */
-  --background: oklch(0.98 0.01 85);
-  --foreground: oklch(0.18 0.02 260);
-  /* Clean white cards for contrast */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.02 260);
-  /* Popovers match cards */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.19 0 0);
+  /* Alternating surface, Apple-style light gray */
+  --card: oklch(0.968 0 0);
+  --card-foreground: oklch(0.19 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.02 260);
-  /* Primary */
-  --primary: oklch(0.76 0.12 81.89);
+  --popover-foreground: oklch(0.19 0 0);
+  --primary: oklch(0.19 0 0);
   --primary-foreground: oklch(1 0 0);
-  /* Secondary: warm gray */
-  --secondary: oklch(0.96 0.008 85);
-  --secondary-foreground: oklch(0.25 0.03 260);
-  /* Muted elements */
-  --muted: oklch(0.96 0.008 85);
-  --muted-foreground: oklch(0.5 0.02 260);
-  /* Accent */
-  --accent: oklch(0.96 0.008 85);
-  --accent-foreground: oklch(0.25 0.03 260);
-  /* Destructive */
+  --secondary: oklch(0.968 0 0);
+  --secondary-foreground: oklch(0.19 0 0);
+  --muted: oklch(0.955 0 0);
+  --muted-foreground: oklch(0.53 0 0);
+  --accent: oklch(0.955 0 0);
+  --accent-foreground: oklch(0.19 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.98 0.01 85);
-  /* Borders: subtle warm gray */
-  --border: oklch(0.92 0.01 85);
-  --input: oklch(0.92 0.01 85);
-  --ring: oklch(0.8 0.03 85);
-  /* Charts */
+  --destructive-foreground: oklch(1 0 0);
+  /* Hairline borders */
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: oklch(0.76 0.12 81.89);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  /* Brand accents */
-  --gold: oklch(0.76 0.12 81.89);
-  --gold-soft: oklch(0.93 0.05 85);
-  --ink: oklch(0.18 0.02 260);
-  /* Sidebar */
-  --sidebar: oklch(0.99 0.005 85);
-  --sidebar-foreground: oklch(0.18 0.02 260);
-  --sidebar-primary: oklch(0.25 0.03 260);
-  --sidebar-primary-foreground: oklch(0.98 0.01 85);
-  --sidebar-accent: oklch(0.96 0.008 85);
-  --sidebar-accent-foreground: oklch(0.25 0.03 260);
-  --sidebar-border: oklch(0.92 0.01 85);
-  --sidebar-ring: oklch(0.8 0.03 85);
+  --radius: 0.875rem;
+  /* The single accent */
+  --gold: oklch(0.7 0.13 78);
+  --gold-soft: oklch(0.96 0.03 85);
+  --ink: oklch(0.19 0 0);
+  --sidebar: oklch(0.99 0 0);
+  --sidebar-foreground: oklch(0.19 0 0);
+  --sidebar-primary: oklch(0.19 0 0);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.955 0 0);
+  --sidebar-accent-foreground: oklch(0.19 0 0);
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: oklch(0.76 0.12 81.89);
 }
 
 /*
- * Dark Theme: "Midnight Oasis"
- * Deep indigo/slate backgrounds with warm sand/amber accents
- * Inspired by night sky over desert - serene and spiritual
+ * Dark theme: near-black page, one step lighter surfaces
  */
 .dark {
-  /* Deep slate-blue background - not pure black */
-  --background: oklch(0.16 0.02 260);
-  /* Warm off-white text for better readability */
-  --foreground: oklch(0.95 0.01 80);
-  /* Cards slightly elevated from background */
-  --card: oklch(0.19 0.022 258);
-  --card-foreground: oklch(0.95 0.01 80);
-  /* Popovers match cards */
-  --popover: oklch(0.19 0.022 258);
-  --popover-foreground: oklch(0.95 0.01 80);
-  /* Secondary: muted slate */
-  --secondary: oklch(0.25 0.025 255);
-  --secondary-foreground: oklch(0.9 0.01 80);
-  /* Muted elements */
-  --muted: oklch(0.24 0.02 258);
-  --muted-foreground: oklch(0.65 0.02 250);
-  /* Accent: subtle warmth */
-  --accent: oklch(0.28 0.03 255);
-  --accent-foreground: oklch(0.92 0.01 80);
-  /* Destructive */
+  --background: oklch(0.16 0 0);
+  --foreground: oklch(0.97 0 0);
+  --card: oklch(0.21 0 0);
+  --card-foreground: oklch(0.97 0 0);
+  --popover: oklch(0.21 0 0);
+  --popover-foreground: oklch(0.97 0 0);
+  --primary: oklch(0.97 0 0);
+  --primary-foreground: oklch(0.16 0 0);
+  --secondary: oklch(0.25 0 0);
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.68 0 0);
+  --accent: oklch(0.27 0 0);
+  --accent-foreground: oklch(0.97 0 0);
   --destructive: oklch(0.45 0.18 25);
   --destructive-foreground: oklch(0.92 0.05 25);
-  /* Borders: subtle but visible */
-  --border: oklch(0.3 0.025 255);
-  --input: oklch(0.25 0.025 258);
-  --ring: oklch(0.7 0.1 85);
-  /* Brand accents */
-  --gold: oklch(0.82 0.12 85);
-  --gold-soft: oklch(0.3 0.05 80);
-  --ink: oklch(0.95 0.01 80);
-  /* Charts with warm/cool contrast */
+  --border: oklch(0.3 0 0);
+  --input: oklch(0.27 0 0);
+  --ring: oklch(0.82 0.12 85);
+  --gold: oklch(0.84 0.12 85);
+  --gold-soft: oklch(0.28 0.04 85);
+  --ink: oklch(0.16 0 0);
   --chart-1: oklch(0.75 0.15 85);
   --chart-2: oklch(0.65 0.12 200);
   --chart-3: oklch(0.7 0.14 150);
   --chart-4: oklch(0.68 0.16 35);
   --chart-5: oklch(0.6 0.1 280);
-  /* Sidebar */
-  --sidebar: oklch(0.14 0.02 260);
-  --sidebar-foreground: oklch(0.95 0.01 80);
-  --sidebar-primary: oklch(0.8 0.12 85);
-  --sidebar-primary-foreground: oklch(0.18 0.03 260);
-  --sidebar-accent: oklch(0.24 0.025 258);
-  --sidebar-accent-foreground: oklch(0.92 0.01 80);
-  --sidebar-border: oklch(0.28 0.025 255);
-  --sidebar-ring: oklch(0.7 0.1 85);
+  --sidebar: oklch(0.14 0 0);
+  --sidebar-foreground: oklch(0.97 0 0);
+  --sidebar-primary: oklch(0.84 0.12 85);
+  --sidebar-primary-foreground: oklch(0.16 0 0);
+  --sidebar-accent: oklch(0.25 0 0);
+  --sidebar-accent-foreground: oklch(0.97 0 0);
+  --sidebar-border: oklch(0.3 0 0);
+  --sidebar-ring: oklch(0.82 0.12 85);
 }
 
 @theme inline {
   --font-sans:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue',
-    sans-serif;
-  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino', Georgia, serif;
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+    'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  /* Sans-serif only: display type is the same family, tighter and heavier */
+  --font-display: var(--font-sans);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
   --color-ink: var(--ink);
@@ -170,10 +141,10 @@ code {
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 6px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -201,61 +172,106 @@ code {
 }
 
 /*
- * Ambient Glow
- * Spotlight effect - highlights important content areas
- * Applied to bg-background sections only
+ * Type scale
+ * Four sizes only. Contrast comes from weight, not from more sizes.
+ * Kept in the components layer so Tailwind utilities can still override.
+ */
+@layer components {
+  .type-display {
+    font-size: clamp(2.5rem, 6.5vw, 4.75rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  .type-headline {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .type-title {
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .type-body {
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  .type-caption {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+
+  /* Legacy display hook kept in sync with the sans display type */
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  /* Arabic needs looser lines and no negative tracking */
+  [dir='rtl'] .type-display,
+  [dir='rtl'] .type-headline,
+  [dir='rtl'] .type-title,
+  [dir='rtl'] .type-body,
+  [dir='rtl'] .font-display {
+    font-family: 'Readex Pro', var(--font-sans);
+    letter-spacing: 0;
+  }
+
+  [dir='rtl'] .type-display {
+    font-size: clamp(2.125rem, 5.5vw, 4rem);
+    line-height: 1.25;
+  }
+
+  [dir='rtl'] .type-headline {
+    font-size: clamp(1.625rem, 3.4vw, 2.5rem);
+    line-height: 1.3;
+  }
+
+  [dir='rtl'] .type-title {
+    line-height: 1.45;
+  }
+
+  [dir='rtl'] .type-body {
+    line-height: 1.85;
+  }
+}
+
+/*
+ * Ambient wash
+ * One faint accent glow at the top of the page. Nothing else.
  */
 .ambient-glow {
-  background-image:
-    radial-gradient(
-      ellipse 100% 60% at 50% -10%,
-      oklch(0.94 0.06 75) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      ellipse 70% 50% at 105% 90%,
-      oklch(0.92 0.05 55) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse 60% 45% at -5% 70%,
-      oklch(0.93 0.04 95) 0%,
-      transparent 40%
-    );
+  background-image: radial-gradient(
+    120% 55% at 50% -15%,
+    color-mix(in oklch, var(--gold) 9%, transparent) 0%,
+    transparent 60%
+  );
+  background-repeat: no-repeat;
 }
 
 .dark .ambient-glow {
-  background-image:
-    radial-gradient(
-      ellipse 100% 60% at 50% -10%,
-      oklch(0.22 0.06 270) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      ellipse 70% 50% at 105% 90%,
-      oklch(0.2 0.08 300) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse 60% 45% at -5% 70%,
-      oklch(0.25 0.1 60) 0%,
-      transparent 40%
-    );
+  background-image: radial-gradient(
+    120% 55% at 50% -15%,
+    color-mix(in oklch, var(--gold) 7%, transparent) 0%,
+    transparent 60%
+  );
 }
 
 /*
- * Display type
- * Fraunces with optical size axis. Headlines only.
- */
-.font-display {
-  font-family: var(--font-display);
-  font-variation-settings: 'opsz' 144;
-  letter-spacing: -0.02em;
-}
-
-/*
- * Geometric pattern
- * CSS-only 8-point star lattice. Low opacity backdrop for sections.
+ * Section wash
+ * Replaces the old star lattice with a single quiet gradient.
  */
 .geo-pattern {
   position: relative;
@@ -268,31 +284,65 @@ code {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.3;
-  background-image:
-    radial-gradient(circle at center, var(--gold) 1px, transparent 1.5px),
-    repeating-conic-gradient(
-      from 22.5deg at 50% 50%,
-      var(--gold) 0deg 2deg,
-      transparent 2deg 45deg
-    );
-  background-size:
-    48px 48px,
-    48px 48px;
-  -webkit-mask-image: radial-gradient(
-    ellipse 80% 70% at 50% 40%,
-    black 0%,
-    transparent 75%
-  );
-  mask-image: radial-gradient(
-    ellipse 80% 70% at 50% 40%,
-    black 0%,
-    transparent 75%
+  background-image: linear-gradient(
+    to bottom,
+    color-mix(in oklch, var(--card) 70%, transparent) 0%,
+    transparent 100%
   );
 }
 
-.dark .geo-pattern::before {
-  opacity: 0.15;
+/*
+ * Mock product frames
+ * No screenshots exist, so each product is shown inside a CSS device.
+ */
+.frame-screen {
+  background-image:
+    radial-gradient(
+      130% 110% at 50% -10%,
+      color-mix(in oklch, var(--gold) 20%, transparent) 0%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklch, var(--background) 90%, transparent) 0%,
+      color-mix(in oklch, var(--background) 20%, transparent) 100%
+    );
+  background-color: var(--card);
+}
+
+.dark .frame-screen {
+  background-image:
+    radial-gradient(
+      130% 110% at 50% -10%,
+      color-mix(in oklch, var(--gold) 18%, transparent) 0%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklch, var(--background) 70%, transparent) 0%,
+      color-mix(in oklch, var(--background) 10%, transparent) 100%
+    );
+}
+
+.frame-shadow {
+  box-shadow:
+    0 1px 2px color-mix(in oklch, var(--foreground) 8%, transparent),
+    0 24px 60px -30px color-mix(in oklch, var(--foreground) 35%, transparent);
+}
+
+/*
+ * Motion
+ * One shared curve, short durations, nothing decorative.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .motion-lift {
+    transition:
+      transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+      box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .motion-lift:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* Personal pages print as a one-page CV */

@@ -97,6 +97,7 @@ const resources = {
         comingSoon: 'Coming Soon',
         ratings: 'ratings',
         users: 'users',
+        newTab: 'New Tab',
         quranStation: {
           title: 'Quran Station',
           description:
@@ -857,6 +858,7 @@ const resources = {
         comingSoon: 'قريبًا',
         ratings: 'تقييم',
         users: 'مستخدم',
+        newTab: 'تبويب جديد',
         quranStation: {
           description:
             'استمع لأكثر من 100 محطة إذاعية للقرآن الكريم بأصوات قرّاء مشهورين. تشغيل بنقرة واحدة، خفيف الوزن، ومُزامن عبر أجهزتك لتكون محطتك المفضلة دائمًا.',

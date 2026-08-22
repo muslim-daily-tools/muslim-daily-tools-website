@@ -16,7 +16,7 @@ export function ProfileExperience({
       align="start"
       eyebrow={t('sections.experience')}
       title={t('sections.experience')}
-      className="py-16 md:py-20"
+      className="py-20 md:py-28"
     >
       <StaggerContainer
         as="ol"
@@ -31,13 +31,13 @@ export function ProfileExperience({
           >
             <span className="absolute -start-[5px] top-2 w-2.5 h-2.5 rounded-full bg-gold ring-4 ring-card" />
             <div className="flex flex-col gap-1">
-              <h3 className="text-lg font-semibold text-foreground">
+              <h3 className="type-title text-foreground">
                 {job.href ? (
                   <a
                     href={job.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gold transition-colors"
+                    className="transition-opacity hover:opacity-70"
                   >
                     {job.company}
                   </a>
@@ -45,9 +45,11 @@ export function ProfileExperience({
                   job.company
                 )}
               </h3>
-              <p className="text-muted-foreground">{t(job.roleKey)}</p>
+              <p className="type-body text-muted-foreground">
+                {t(job.roleKey)}
+              </p>
               {job.period && (
-                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground/70">
+                <p className="type-caption uppercase tracking-[0.14em] text-muted-foreground/70">
                   {job.period}
                 </p>
               )}

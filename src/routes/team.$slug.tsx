@@ -71,11 +71,11 @@ function ProfileNotFound(): React.JSX.Element {
   const { t } = useTranslation('profile')
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4 px-6 text-center">
-      <h1 className="font-display text-4xl text-foreground">404</h1>
+      <h1 className="type-headline text-foreground">404</h1>
       <Link
         to="/"
         hash="team"
-        className="inline-flex items-center gap-2 text-sm font-medium text-gold"
+        className="inline-flex items-center gap-2 text-[0.9375rem] font-medium text-gold"
       >
         <LuArrowLeft className="w-4 h-4 rtl:rotate-180" />
         {t('backToTeam')}

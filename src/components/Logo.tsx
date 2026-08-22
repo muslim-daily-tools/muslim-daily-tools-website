@@ -7,13 +7,7 @@ export function Logo(): React.JSX.Element {
 
   return (
     <Link to="/" className="flex items-center" aria-label="Muslim Daily Tools">
-      <img
-        src={logoSrc}
-        width={96}
-        height={96}
-        alt=""
-        className="h-11 w-auto"
-      />
+      <img src={logoSrc} width={96} height={96} alt="" className="h-9 w-auto" />
     </Link>
   )
 }

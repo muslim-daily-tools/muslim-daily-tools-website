@@ -7,57 +7,57 @@ import { getPaymentLink } from '@/lib/stripe'
 
 const PRESET_AMOUNTS = [10, 50, 100] as const
 
-export function Donate() {
+export function Donate(): React.JSX.Element {
   const { t } = useTranslation('home')
   const [billingMode, setBillingMode] = useState<'one_time' | 'monthly'>(
     'monthly',
   )
   const [selectedAmount, setSelectedAmount] = useState<number>(50)
 
-  const handleCheckout = () => {
+  const handleCheckout = (): void => {
     const link = getPaymentLink(billingMode, selectedAmount)
     if (link) window.open(link, '_blank', 'noopener')
   }
 
-  const handleCustom = () => {
+  const handleCustom = (): void => {
     const link = getPaymentLink('one_time', 'custom')
     if (link) window.open(link, '_blank', 'noopener')
   }
 
   return (
-    <section id="donate" className="py-20 md:py-28 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto rounded-[2rem] border border-gold/30 bg-gradient-to-br from-gold-soft via-card to-card p-8 md:p-14 grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
-        <div className="flex flex-col gap-6 text-start">
+    <section id="donate" className="px-6 md:px-10 py-24 md:py-36">
+      <div className="mx-auto grid max-w-6xl items-center gap-14 rounded-[1.75rem] bg-card p-8 md:p-16 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
+        <div className="flex flex-col items-start gap-6 text-start">
           <FadeIn>
             <Eyebrow>{t('donate.eyebrow')}</Eyebrow>
           </FadeIn>
           <FadeIn delay={0.05}>
-            <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-[1.1] text-balance">
+            <h2 className="type-headline text-foreground text-balance">
               {t('donate.title')}
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <p className="text-lg text-muted-foreground leading-relaxed text-pretty max-w-xl">
+            <p className="type-body max-w-xl text-muted-foreground text-pretty">
               {t('donate.description')}
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
-            <blockquote className="font-display text-xl md:text-2xl italic text-foreground/90 leading-relaxed border-s-2 border-gold ps-5 text-pretty">
+            <blockquote className="type-body border-s border-gold ps-5 text-foreground/80 text-pretty">
               {t('donate.hadith')}
             </blockquote>
           </FadeIn>
         </div>
 
         {/* Stripe Payment Widget */}
-        <FadeIn delay={0.2}>
-          <div className="w-full max-w-md mx-auto lg:ms-auto bg-background rounded-2xl border border-border p-5 md:p-6 shadow-sm">
+        <FadeIn delay={0.2} className="w-full">
+          <div className="mx-auto w-full max-w-md rounded-2xl border border-border bg-background p-6 lg:ms-auto">
             {/* Billing toggle */}
-            <div className="flex rounded-lg bg-muted p-1 mb-4">
+            <div className="mb-5 flex rounded-full bg-muted p-1">
               <button
                 onClick={() => setBillingMode('one_time')}
-                className={`flex-1 py-2 rounded-md text-sm font-medium transition-all ${
+                className={`flex-1 rounded-full py-2 type-caption transition-colors ${
                   billingMode === 'one_time'
-                    ? 'bg-card text-foreground shadow-sm'
+                    ? 'bg-background text-foreground shadow-sm'
                     : 'text-muted-foreground'
                 }`}
               >
@@ -65,29 +65,29 @@ export function Donate() {
               </button>
               <button
                 onClick={() => setBillingMode('monthly')}
-                className={`flex-1 py-2 rounded-md text-sm font-medium transition-all flex items-center justify-center gap-1.5 ${
+                className={`flex flex-1 items-center justify-center gap-1.5 rounded-full py-2 type-caption transition-colors ${
                   billingMode === 'monthly'
-                    ? 'bg-card text-foreground shadow-sm'
+                    ? 'bg-background text-foreground shadow-sm'
                     : 'text-muted-foreground'
                 }`}
               >
-                <FaHeart className="w-3 h-3 text-rose-500" />
+                <FaHeart className="h-3 w-3 text-gold" />
                 {t('donate.monthly')}
               </button>
             </div>
 
             {/* Amount buttons */}
             <div
-              className={`grid ${billingMode === 'one_time' ? 'grid-cols-4' : 'grid-cols-3'} gap-2 mb-4`}
+              className={`grid ${billingMode === 'one_time' ? 'grid-cols-4' : 'grid-cols-3'} mb-5 gap-2`}
             >
               {PRESET_AMOUNTS.map((amount) => (
                 <button
                   key={amount}
                   onClick={() => setSelectedAmount(amount)}
-                  className={`py-2.5 rounded-lg text-sm font-semibold border transition-all ${
+                  className={`rounded-xl border py-3 text-[0.9375rem] font-medium tabular-nums transition-colors ${
                     selectedAmount === amount
-                      ? 'border-gold bg-gold-soft text-foreground'
-                      : 'border-border bg-card text-foreground hover:border-gold'
+                      ? 'border-gold text-gold'
+                      : 'border-border text-foreground hover:border-foreground/30'
                   }`}
                 >
                   ${amount}
@@ -96,7 +96,7 @@ export function Donate() {
               {billingMode === 'one_time' && (
                 <button
                   onClick={handleCustom}
-                  className="py-2.5 rounded-lg text-xs font-semibold border border-border bg-card text-foreground hover:border-gold transition-all"
+                  className="rounded-xl border border-border py-3 type-caption text-foreground transition-colors hover:border-foreground/30"
                 >
                   {t('donate.custom')}
                 </button>
@@ -106,7 +106,7 @@ export function Donate() {
             {/* CTA */}
             <button
               onClick={handleCheckout}
-              className="w-full bg-foreground text-background hover:bg-gold hover:text-ink rounded-lg py-3 text-sm font-semibold shadow-sm transition-all"
+              className="w-full rounded-full bg-foreground py-3 text-[0.9375rem] font-medium text-background transition-opacity hover:opacity-85"
             >
               {billingMode === 'monthly'
                 ? t('donate.startMonthly')

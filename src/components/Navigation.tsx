@@ -23,7 +23,7 @@ const navLinks: Array<NavLink> = [
 ]
 
 const linkBase =
-  'relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground'
+  'relative type-caption font-normal text-muted-foreground transition-colors hover:text-foreground'
 
 function NavItem({
   link,
@@ -37,14 +37,18 @@ function NavItem({
   className?: string
 }): React.JSX.Element {
   const { t } = useTranslation('common')
-  const classes = cn(linkBase, isActive && 'text-foreground', className)
+  const classes = cn(
+    linkBase,
+    isActive && 'text-foreground font-medium',
+    className,
+  )
 
   if (link.isRoute) {
     return (
       <Link to={link.href} className={classes} onClick={onClick}>
         {t(link.labelKey)}
         {isActive && (
-          <span className="hidden md:block absolute -bottom-1.5 left-0 right-0 h-0.5 rounded-full bg-gold" />
+          <span className="hidden md:block absolute -bottom-2 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-gold" />
         )}
       </Link>
     )
@@ -81,7 +85,7 @@ export function Navigation(): React.JSX.Element {
         <LanguageSwitcher />
         <a
           href="/#donate"
-          className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium transition-colors hover:bg-gold hover:text-ink"
+          className="inline-flex items-center gap-2 h-8 px-4 rounded-full bg-foreground text-background type-caption transition-opacity hover:opacity-85"
         >
           <FaHandHoldingHeart className="w-3.5 h-3.5" />
           {t('nav.support')}
@@ -127,7 +131,7 @@ export function Navigation(): React.JSX.Element {
                 </div>
                 <a
                   href="/#donate"
-                  className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium"
+                  className="inline-flex items-center gap-2 h-8 px-4 rounded-full bg-foreground text-background type-caption"
                   onClick={closeMenu}
                 >
                   <FaHandHoldingHeart className="w-3.5 h-3.5" />
