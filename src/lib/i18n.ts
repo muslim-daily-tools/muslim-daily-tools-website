@@ -42,10 +42,16 @@ const resources = {
         changelog: 'Changelog',
         mindMaps: 'Mind Maps',
         donate: 'Share Thawab 🌱',
+        support: 'Support',
         theme: 'Theme',
       },
       footer: {
         copyright: 'Muslim Daily Tools',
+        tagline:
+          'Fast, private, and beautifully simple tools that keep worship close through the day.',
+        tools: 'Tools',
+        company: 'Company',
+        madeWith: 'Built with love for the Ummah',
       },
       accessibility: {
         openMenu: 'Open menu',
@@ -712,10 +718,15 @@ const resources = {
         changelog: 'سجل التحديثات',
         mindMaps: 'الخرائط الذهنية',
         donate: 'شارك الثواب 🌱',
+        support: 'ادعمنا',
         theme: 'المظهر',
       },
       footer: {
         copyright: 'أدوات المسلم اليومية',
+        tagline: 'أدوات سريعة وخاصة وبسيطة تُبقي العبادة قريبة طوال اليوم.',
+        tools: 'الأدوات',
+        company: 'عن المشروع',
+        madeWith: 'صُنع بحب لخدمة الأمة',
       },
       accessibility: {
         openMenu: 'افتح القائمة',

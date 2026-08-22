@@ -6,20 +6,20 @@
 
 body {
   @apply m-0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* RTL (Arabic) font support */
+/* RTL (Arabic): Readex Pro for body and headlines, no Latin serif */
 [dir='rtl'] body {
-  font-family:
-    'Readex Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font-family: 'Readex Pro', var(--font-sans);
+}
+
+[dir='rtl'] .font-display {
+  font-family: 'Readex Pro', var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 code {
@@ -68,6 +68,10 @@ code {
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
+  /* Brand accents */
+  --gold: oklch(0.76 0.12 81.89);
+  --gold-soft: oklch(0.93 0.05 85);
+  --ink: oklch(0.18 0.02 260);
   /* Sidebar */
   --sidebar: oklch(0.99 0.005 85);
   --sidebar-foreground: oklch(0.18 0.02 260);
@@ -111,6 +115,10 @@ code {
   --border: oklch(0.3 0.025 255);
   --input: oklch(0.25 0.025 258);
   --ring: oklch(0.7 0.1 85);
+  /* Brand accents */
+  --gold: oklch(0.82 0.12 85);
+  --gold-soft: oklch(0.3 0.05 80);
+  --ink: oklch(0.95 0.01 80);
   /* Charts with warm/cool contrast */
   --chart-1: oklch(0.75 0.15 85);
   --chart-2: oklch(0.65 0.12 200);
@@ -129,6 +137,13 @@ code {
 }
 
 @theme inline {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue',
+    sans-serif;
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino', Georgia, serif;
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -224,4 +239,56 @@ code {
       oklch(0.25 0.1 60) 0%,
       transparent 40%
     );
+}
+
+/*
+ * Display type
+ * Fraunces with optical size axis. Headlines only.
+ */
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 144;
+  letter-spacing: -0.02em;
+}
+
+/*
+ * Geometric pattern
+ * CSS-only 8-point star lattice. Low opacity backdrop for sections.
+ */
+.geo-pattern {
+  position: relative;
+  isolation: isolate;
+}
+
+.geo-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image:
+    radial-gradient(circle at center, var(--gold) 1px, transparent 1.5px),
+    repeating-conic-gradient(
+      from 22.5deg at 50% 50%,
+      var(--gold) 0deg 2deg,
+      transparent 2deg 45deg
+    );
+  background-size:
+    48px 48px,
+    48px 48px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 40%,
+    black 0%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 40%,
+    black 0%,
+    transparent 75%
+  );
+}
+
+.dark .geo-pattern::before {
+  opacity: 0.25;
 }

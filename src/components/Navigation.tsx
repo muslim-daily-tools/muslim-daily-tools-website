@@ -1,11 +1,20 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from '@tanstack/react-router'
+import { Link, useRouterState } from '@tanstack/react-router'
+import { AnimatePresence, m } from 'framer-motion'
+import { LuMenu, LuX } from 'react-icons/lu'
 import { FaHandHoldingHeart } from 'react-icons/fa6'
 import { ThemeToggle } from './ThemeToggle'
 import { LanguageSwitcher } from './LanguageSwitcher'
+import { cn } from '@/lib/utils'
 
-const navLinks = [
+interface NavLink {
+  href: string
+  labelKey: string
+  isRoute?: boolean
+}
+
+const navLinks: Array<NavLink> = [
   { href: '/#tools', labelKey: 'nav.tools' },
   { href: '/#testimonials', labelKey: 'nav.testimonials' },
   { href: '/#team', labelKey: 'nav.team' },
@@ -13,137 +22,122 @@ const navLinks = [
   { href: '/mind-maps', labelKey: 'nav.mindMaps', isRoute: true },
 ]
 
-export function Navigation() {
+const linkBase =
+  'relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground'
+
+function NavItem({
+  link,
+  isActive,
+  onClick,
+  className,
+}: {
+  link: NavLink
+  isActive: boolean
+  onClick?: () => void
+  className?: string
+}): React.JSX.Element {
+  const { t } = useTranslation('common')
+  const classes = cn(linkBase, isActive && 'text-foreground', className)
+
+  if (link.isRoute) {
+    return (
+      <Link to={link.href} className={classes} onClick={onClick}>
+        {t(link.labelKey)}
+        {isActive && (
+          <span className="hidden md:block absolute -bottom-1.5 left-0 right-0 h-0.5 rounded-full bg-gold" />
+        )}
+      </Link>
+    )
+  }
+
+  return (
+    <a href={link.href} className={classes} onClick={onClick}>
+      {t(link.labelKey)}
+    </a>
+  )
+}
+
+export function Navigation(): React.JSX.Element {
   const [isOpen, setIsOpen] = useState(false)
   const { t } = useTranslation('common')
+  const pathname = useRouterState({ select: (s) => s.location.pathname })
 
   const closeMenu = () => setIsOpen(false)
+  const isActive = (link: NavLink) =>
+    Boolean(link.isRoute) && pathname.startsWith(link.href)
 
   return (
     <>
-      {/* Desktop Navigation - Center column */}
-      <nav className="hidden md:flex items-center justify-center gap-8 col-span-3">
-        {navLinks.map((link) =>
-          link.isRoute ? (
-            <Link
-              key={link.href}
-              to={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {t(link.labelKey)}
-            </Link>
-          ) : (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {t(link.labelKey)}
-            </a>
-          ),
-        )}
+      {/* Desktop navigation */}
+      <nav className="hidden md:flex items-center justify-center gap-8">
+        {navLinks.map((link) => (
+          <NavItem key={link.href} link={link} isActive={isActive(link)} />
+        ))}
       </nav>
 
-      {/* Desktop Actions - Right column */}
+      {/* Desktop actions */}
       <div className="hidden md:flex items-center justify-end gap-5">
         <ThemeToggle />
         <LanguageSwitcher />
         <a
           href="/#donate"
-          className="flex items-center justify-center w-9 h-9 rounded-full bg-primary text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow"
-          aria-label={t('nav.donate')}
-          title={t('nav.donate')}
+          className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium transition-colors hover:bg-gold hover:text-ink"
         >
-          <FaHandHoldingHeart className="w-4 h-4" />
+          <FaHandHoldingHeart className="w-3.5 h-3.5" />
+          {t('nav.support')}
         </a>
       </div>
 
       {/* Mobile menu button */}
       <button
-        className="md:hidden p-2 text-foreground"
+        className="md:hidden p-2 -me-2 text-foreground"
         aria-label={
           isOpen ? t('accessibility.closeMenu') : t('accessibility.openMenu')
         }
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isOpen ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
-        )}
+        {isOpen ? <LuX className="w-6 h-6" /> : <LuMenu className="w-6 h-6" />}
       </button>
 
       {/* Mobile menu panel */}
-      {isOpen && (
-        <div className="absolute top-full left-0 right-0 md:hidden bg-white/90 dark:bg-slate-900/95 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5 dark:border-white/10">
-          <nav className="flex flex-col px-6 py-4 gap-4">
-            {navLinks.map((link) =>
-              link.isRoute ? (
-                <Link
+      <AnimatePresence>
+        {isOpen && (
+          <m.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="absolute top-full inset-x-[-1.5rem] md:hidden bg-background border-b border-border shadow-lg shadow-black/5"
+          >
+            <nav className="flex flex-col px-6 py-4 gap-1">
+              {navLinks.map((link) => (
+                <NavItem
                   key={link.href}
-                  to={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                  link={link}
+                  isActive={isActive(link)}
                   onClick={closeMenu}
-                >
-                  {t(link.labelKey)}
-                </Link>
-              ) : (
+                  className="py-3 text-base"
+                />
+              ))}
+              <div className="mt-2 pt-4 border-t border-border flex items-center justify-between">
+                <div className="flex items-center gap-5">
+                  <ThemeToggle />
+                  <LanguageSwitcher />
+                </div>
                 <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                  href="/#donate"
+                  className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium"
                   onClick={closeMenu}
                 >
-                  {t(link.labelKey)}
+                  <FaHandHoldingHeart className="w-3.5 h-3.5" />
+                  {t('nav.support')}
                 </a>
-              ),
-            )}
-            <div className="flex items-center justify-between py-2">
-              <span className="text-sm font-medium text-muted-foreground">
-                {t('nav.theme')}
-              </span>
-              <ThemeToggle />
-            </div>
-            <div className="flex items-center justify-between py-2">
-              <LanguageSwitcher />
-            </div>
-            <a
-              href="/#donate"
-              className="flex items-center justify-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
-              onClick={closeMenu}
-            >
-              {t('nav.donate')}
-            </a>
-          </nav>
-        </div>
-      )}
+              </div>
+            </nav>
+          </m.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }
