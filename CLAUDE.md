@@ -21,6 +21,7 @@ pnpm format:fix       # Prettier with auto-fix
 - To fix specific files only: `pnpm exec prettier --write <file>` or `pnpm exec eslint --fix <file>`
 
 **Add shadcn components:**
+
 ```bash
 pnpm dlx shadcn@latest add <component>
 ```
@@ -60,6 +61,7 @@ pnpm dlx shadcn@latest add <component>
 **TanStack Start + React 19** application deployed on Cloudflare Workers with SSR support.
 
 ### Stack
+
 - **Framework**: TanStack Start (full-stack React meta-framework)
 - **Routing**: TanStack Router with file-based routing (`src/routes/`)
 - **Styling**: Tailwind CSS v4 + shadcn/ui (new-york style, zinc base)
@@ -68,6 +70,7 @@ pnpm dlx shadcn@latest add <component>
 - **Testing**: Vitest + Testing Library
 
 ### Key Directories
+
 - `src/routes/` - File-based routes (auto-generates `routeTree.gen.ts`)
 - `src/components/` - React components (page-level and shared)
 - `src/assets/` - Static images (tool logos)
@@ -75,63 +78,98 @@ pnpm dlx shadcn@latest add <component>
 - `public/` - Static assets (favicon, manifest, robots.txt)
 
 ### Routing Pattern
+
 Routes use TanStack Router's file-based convention:
+
 - `__root.tsx` - Root layout with Header/Footer shell
 - `index.tsx` - Home page (renders Hero component)
 - Route files export `Route = createFileRoute('/path')({...})`
 
 ### Path Aliases
+
 Use `@/*` to import from `src/*`:
+
 ```tsx
 import { cn } from '@/lib/utils'
 import { Hero } from '@/components/Hero'
 ```
 
 ### Component Conventions
+
 - shadcn components go in `src/components/ui/`
 - Icons from `react-icons` (e.g., `react-icons/fi` for Feather icons)
 - Styling uses Tailwind with CSS variables for theming
 
 ### Layout Components
-- `Header.tsx` - Sticky header with Apple-style glassmorphism, contains Logo + Navigation
-- `Navigation.tsx` - Desktop nav + mobile hamburger menu with toggle state
+
+- `Header.tsx` - Sticky 64px header with blur, contains Logo + Navigation
+- `Navigation.tsx` - Centered desktop nav with active-route underline, "Support" pill, animated mobile menu (`AnimatePresence`)
 - `Logo.tsx` - Site logo/branding
-- `Footer.tsx` - Site footer
+- `Footer.tsx` - Three-column footer (brand, tools, company) + socials
+
+### Design System
+
+- Display font: Fraunces (`.font-display`), body: system sans, Arabic: Readex Pro (RTL overrides in `styles.css`)
+- Tokens: `gold`, `gold-soft`, `ink` (both themes) on top of the shadcn palette
+- `.geo-pattern` - CSS-only 8-point star backdrop for hero-type sections
+- `src/components/ui/section.tsx` - `Section` wrapper with `eyebrow`, `title`, `description`, `tone` (`default|card|pattern`), `align`, `width`
+- `src/components/ui/eyebrow.tsx` - small gold uppercase label
+
+### Data Files
+
+- `src/data/tools.ts` - tools, platforms, store stats (`getToolBySlug`, `getFeaturedTools`)
+- `src/data/team.ts` - team members, socials, projects, experience, talks (`getTeamMember`)
+- `src/data/stats.ts` - homepage stats strip
+- Copy for all of these lives in `src/lib/i18n.ts`
+
+### Personal Pages
+
+`/team/$slug` renders `src/components/profile/*` from `src/data/team.ts`. See `docs/personal-pages.md`.
 
 ### Custom CSS Classes (in `src/styles.css`)
+
 - `.glass-header` - Apple-style glassmorphism for header (saturate + blur + transparency)
 - `.glass-panel` - Glass effect for dropdowns/panels (mobile menu)
 
 Both support dark mode automatically via `.dark` variant.
 
 ### Mobile Menu Pattern
+
 The mobile menu in `Navigation.tsx` uses:
+
 - `useState` for open/close toggle
 - Hamburger icon switches to X when open
 - Menu panel uses absolute positioning relative to header
 - Links call `closeMenu()` on click to dismiss
 
 ### Section Pattern
-Homepage sections alternate backgrounds for visual separation:
-- **Hero** - inherits `bg-background` (transparent/default)
-- **About** - explicit `bg-card` (for contrast)
-- **Tools** - inherits `bg-background` (transparent/default)
-- **Testimonials** - inherits `bg-background` (transparent/default), includes stats row
-- **Team** - inherits `bg-background` (transparent/default)
 
-When adding new sections, alternate between `bg-card` and no background class to maintain visual rhythm.
+Homepage sections alternate `Section` tones for visual rhythm:
+
+- **Hero** - `geo-pattern`, two columns, stats strip
+- **About** - `tone="card"`, pull-quote split
+- **Tools** - default, bento grid (featured tools span two columns)
+- **Testimonials** - `tone="card"`, masonry
+- **Team** - default, compact cards linking to `/team/$slug`
+- **Donate** - default, gold gradient panel
+
+When adding new sections, alternate `tone="card"` with the default tone.
 
 ### Stripe Support Widget
+
 The Donate section uses Stripe Payment Links (hardcoded in `src/lib/stripe.ts`) for $10/$50/$100 one-time and monthly tiers plus a custom amount option. No Stripe SDK or server-side code needed — links open Stripe's hosted checkout page directly.
 
 ### Dark Mode / Theming
+
 The site supports light and dark themes with:
+
 - **Theme Context** (`src/lib/theme.tsx`) - `ThemeProvider` wraps the app, `useTheme()` hook for access
 - **Theme Toggle** (`src/components/ThemeToggle.tsx`) - Sun/Moon button in header
 - **Persistence** - Theme stored in localStorage, defaults to system preference
 - **Flash Prevention** - Inline script in `<head>` applies `.dark` class before paint
 
 **Color conventions for dark mode compatibility:**
+
 - Use `bg-background` for page background, `bg-card` for elevated surfaces
 - Use `border-border` instead of hardcoded gray borders
 - Use `text-foreground` and `text-muted-foreground` for text
@@ -139,7 +177,9 @@ The site supports light and dark themes with:
 - Star ratings use `fill-amber-400` (works in both modes) and `fill-muted` for empty
 
 ### Testimonials Design (Chrome Web Store Style)
+
 Combined stats + testimonials section inspired by Chrome Web Store reviews:
+
 - **Stats row** at top with key metrics (users, ratings, downloads, languages)
   - Stats with optional star ratings displayed inline
   - Vertical dividers between stats on desktop
