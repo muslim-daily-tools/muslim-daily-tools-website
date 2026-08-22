@@ -390,6 +390,66 @@ const resources = {
         },
       },
     },
+    profile: {
+      backToTeam: 'Back to team',
+      sections: {
+        about: 'About',
+        tools: 'Tools I build',
+        projects: 'Other projects',
+        experience: 'Experience',
+        talks: 'Talks & videos',
+        contact: 'Get in touch',
+      },
+      actions: {
+        email: 'Email me',
+        downloadCv: 'Download CV',
+        watchChannel: 'Watch on YouTube',
+        visit: 'Visit',
+        openTool: 'Open',
+      },
+      contact: {
+        title: 'Let’s build something that matters',
+        description:
+          'Open to speaking at events, collaborating on Islamic tools, and senior engineering roles.',
+      },
+      talksEmpty: 'Talks and recordings are published on our YouTube channel.',
+      roles: {
+        founder: 'Founder',
+        coFounder: 'Co-founder',
+        cgo: 'Chief Growth Officer',
+        creator: 'Creator',
+        coBuilder: 'Co-builder',
+      },
+      projects: {
+        almdrasa:
+          'An EdTech platform empowering learners across the Arab world.',
+        haramblur:
+          'A browser tool that protects the digital experience of Muslims.',
+      },
+      ahmed: {
+        role: 'Senior Engineering Manager · Founder · Growth leader',
+        tagline:
+          'I build products, lead engineering teams, and grow companies that serve the Ummah.',
+        jobs: {
+          yassir: 'Senior Engineering Manager',
+          fivos: 'Engineering leadership',
+          crossover: 'Engineering leadership',
+          qbdvision: 'Engineering leadership',
+        },
+      },
+      mohamed: {
+        role: 'Staff Frontend Engineer · Co-founder · Creator',
+        tagline:
+          'I design and ship frontends that millions of Muslims use every day.',
+        jobs: {
+          yassir: 'Staff Frontend Engineer',
+          qbdvision: 'Frontend engineering',
+          nord: 'Frontend engineering',
+          deliveryHero: 'Frontend engineering',
+          landmark: 'Frontend engineering',
+        },
+      },
+    },
     changelog: {
       title: 'Changelog',
       subtitle: 'Stay updated with the latest improvements',
@@ -1070,6 +1130,62 @@ const resources = {
         },
       },
     },
+    profile: {
+      backToTeam: 'العودة إلى الفريق',
+      sections: {
+        about: 'نبذة',
+        tools: 'أدوات أبنيها',
+        projects: 'مشاريع أخرى',
+        experience: 'الخبرات',
+        talks: 'محاضرات وفيديوهات',
+        contact: 'تواصل معي',
+      },
+      actions: {
+        email: 'راسلني',
+        downloadCv: 'تحميل السيرة الذاتية',
+        watchChannel: 'شاهد على YouTube',
+        visit: 'زيارة',
+        openTool: 'فتح',
+      },
+      contact: {
+        title: 'لنبنِ شيئًا ذا قيمة',
+        description:
+          'متاح للتحدث في الفعاليات، والتعاون في الأدوات الإسلامية، والأدوار الهندسية القيادية.',
+      },
+      talksEmpty: 'تُنشر المحاضرات والتسجيلات على قناتنا في YouTube.',
+      roles: {
+        founder: 'مؤسس',
+        coFounder: 'شريك مؤسس',
+        cgo: 'مسؤول النمو',
+        creator: 'مبتكر',
+        coBuilder: 'مشارك في البناء',
+      },
+      projects: {
+        almdrasa: 'منصة تعليمية تُمكّن المتعلمين في العالم العربي.',
+        haramblur: 'أداة متصفح تحمي التجربة الرقمية للمسلمين.',
+      },
+      ahmed: {
+        role: 'مدير هندسة أول · مؤسس · قائد نمو',
+        tagline: 'أبني المنتجات، وأقود فرق الهندسة، وأنمّي شركات تخدم الأمة.',
+        jobs: {
+          yassir: 'مدير هندسة أول',
+          fivos: 'قيادة هندسية',
+          crossover: 'قيادة هندسية',
+          qbdvision: 'قيادة هندسية',
+        },
+      },
+      mohamed: {
+        role: 'مهندس واجهات أمامية أول · شريك مؤسس · مبتكر',
+        tagline: 'أصمّم وأطلق واجهات يستخدمها ملايين المسلمين كل يوم.',
+        jobs: {
+          yassir: 'مهندس واجهات أمامية أول (Staff)',
+          qbdvision: 'هندسة الواجهات الأمامية',
+          nord: 'هندسة الواجهات الأمامية',
+          deliveryHero: 'هندسة الواجهات الأمامية',
+          landmark: 'هندسة الواجهات الأمامية',
+        },
+      },
+    },
     changelog: {
       title: 'سجل التحديثات',
       subtitle: 'تابع آخر التحسينات والتحديثات',
@@ -1413,7 +1529,7 @@ i18n
     fallbackLng: 'en',
     supportedLngs: supportedLanguages,
     defaultNS: 'common',
-    ns: ['common', 'home', 'changelog', 'resources', 'mindMaps'],
+    ns: ['common', 'home', 'changelog', 'resources', 'mindMaps', 'profile'],
 
     interpolation: {
       escapeValue: false, // React already escapes values

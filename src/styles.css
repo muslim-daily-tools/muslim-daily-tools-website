@@ -268,7 +268,7 @@ code {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.3;
   background-image:
     radial-gradient(circle at center, var(--gold) 1px, transparent 1.5px),
     repeating-conic-gradient(
@@ -292,5 +292,17 @@ code {
 }
 
 .dark .geo-pattern::before {
-  opacity: 0.25;
+  opacity: 0.15;
+}
+
+/* Personal pages print as a one-page CV */
+@media print {
+  header,
+  footer,
+  .geo-pattern::before {
+    display: none !important;
+  }
+  .profile-page {
+    color: black;
+  }
 }
