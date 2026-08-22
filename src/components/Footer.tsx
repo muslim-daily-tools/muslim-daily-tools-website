@@ -32,7 +32,8 @@ export function Footer(): React.JSX.Element {
   const { t } = useTranslation('common')
 
   return (
-    <footer className="w-full border-t border-border bg-card/60">
+    <footer className="w-full bg-card/70">
+      <div className="arabesque-rule" />
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-14">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
           <div className="flex flex-col items-start gap-4">
@@ -57,7 +58,7 @@ export function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-4">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.22em] text-gold mb-4">
               {t('footer.tools')}
             </h3>
             <ul className="flex flex-col gap-2.5">
@@ -72,7 +73,7 @@ export function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-4">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.22em] text-gold mb-4">
               {t('footer.company')}
             </h3>
             <ul className="flex flex-col gap-2.5">
@@ -105,7 +106,20 @@ export function Footer(): React.JSX.Element {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+        <div className="mt-12 flex flex-col items-center gap-2 pt-10 border-t border-gold/20">
+          <p
+            lang="ar"
+            dir="rtl"
+            className="font-arabic text-2xl md:text-3xl text-gold"
+          >
+            {t('footer.dua')}
+          </p>
+          <p className="text-xs text-muted-foreground">
+            {t('footer.duaTranslation')}
+          </p>
+        </div>
+
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <p>
             &copy; {new Date().getFullYear()} {t('footer.copyright')}
           </p>

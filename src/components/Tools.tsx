@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next'
 import { LuArrowUpRight, LuStar, LuUsers } from 'react-icons/lu'
 import { FaApple, FaChrome, FaFirefoxBrowser, FaGlobe } from 'react-icons/fa6'
 import type { IconType } from 'react-icons'
-import type {Platform, Tool} from '@/data/tools';
+import type { Platform, Tool } from '@/data/tools'
 import { StaggerContainer, StaggerItem } from '@/lib/animations'
-import {   tools } from '@/data/tools'
+import { tools } from '@/data/tools'
 import { Section } from '@/components/ui/section'
 import { cn } from '@/lib/utils'
 
@@ -78,7 +78,7 @@ function PlatformLinks({ tool }: { tool: Tool }): React.JSX.Element {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-border bg-background text-xs font-medium text-foreground transition-colors hover:border-gold hover:text-gold"
+            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full border border-border bg-background text-xs font-medium text-foreground transition-colors hover:border-gold hover:bg-gold-soft hover:text-gold"
           >
             <Icon className="w-3.5 h-3.5" />
             {t(link.labelKey)}
@@ -105,14 +105,14 @@ function ToolCard({
       id={tool.slug}
       aria-label={title}
       className={cn(
-        'group relative flex h-full flex-col gap-5 rounded-3xl border border-border bg-card p-6 md:p-8',
-        'transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-[0_24px_48px_-24px_rgba(0,0,0,0.25)]',
+        'group relative flex h-full flex-col gap-5 rounded-[1.75rem] border border-border bg-card p-7 md:p-9 shadow-soft',
+        'transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-soft-lg',
         featured && 'md:flex-row md:items-start md:gap-8',
       )}
     >
       <div
         className={cn(
-          'shrink-0 rounded-2xl border border-border bg-background overflow-hidden flex items-center justify-center',
+          'shrink-0 rounded-[1.25rem] border border-gold/25 bg-background overflow-hidden flex items-center justify-center',
           featured ? 'w-20 h-20 md:w-28 md:h-28' : 'w-14 h-14',
           tool.fullBleedLogo ? 'p-0' : featured ? 'p-3' : 'p-2',
         )}
@@ -128,8 +128,8 @@ function ToolCard({
         <div className="flex flex-col gap-2">
           <h3
             className={cn(
-              'font-display font-medium text-foreground leading-tight',
-              featured ? 'text-3xl md:text-4xl' : 'text-2xl',
+              'font-display font-semibold text-foreground leading-[1.15]',
+              featured ? 'text-4xl md:text-5xl' : 'text-3xl',
             )}
           >
             {title}
@@ -154,6 +154,7 @@ export function Tools(): React.JSX.Element {
     <Section
       id="tools"
       width="wide"
+      ornament
       eyebrow={t('tools.eyebrow')}
       title={t('tools.title')}
       description={t('tools.subtitle')}

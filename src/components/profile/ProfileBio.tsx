@@ -15,9 +15,10 @@ export function ProfileBio({
     <Section
       tone="card"
       align="start"
+      ornament
       eyebrow={t('sections.about')}
       title={tHome(`team.members.${member.slug}.title`)}
-      className="py-16 md:py-20"
+      className="py-16 md:py-20 border-y border-gold/20"
     >
       <div className="max-w-3xl flex flex-col gap-5">
         {paragraphs.map((paragraph, index) => (

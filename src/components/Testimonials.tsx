@@ -109,15 +109,16 @@ function getInitials(name: string): string {
 }
 
 function getAvatarColor(name: string): string {
+  // Calm, on-brand avatar tones: deep greens, teals and warm golds
   const colors = [
-    'bg-emerald-500',
-    'bg-blue-500',
-    'bg-purple-500',
-    'bg-rose-500',
-    'bg-amber-500',
-    'bg-cyan-500',
-    'bg-indigo-500',
-    'bg-teal-500',
+    'bg-emerald-800',
+    'bg-teal-700',
+    'bg-amber-700',
+    'bg-green-900',
+    'bg-yellow-800',
+    'bg-lime-900',
+    'bg-orange-800',
+    'bg-cyan-800',
   ]
   const index = name.charCodeAt(0) % colors.length
   return colors[index]
@@ -147,7 +148,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const { t } = useTranslation('home')
 
   return (
-    <div className="group bg-background rounded-2xl p-5 border border-border hover:border-gold/60 transition-all duration-200 flex flex-col h-full">
+    <div className="group bg-background rounded-[1.5rem] p-6 border border-border shadow-soft hover:border-gold/60 hover:shadow-soft-lg transition-all duration-300 flex flex-col h-full">
       {/* Header: Avatar + Name */}
       <div className="flex items-center gap-3 mb-3">
         <Avatar name={testimonial.author} avatar={testimonial.avatar} />
@@ -179,7 +180,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   )
 }
 
-export function Testimonials() {
+export function Testimonials(): React.JSX.Element {
   const { t } = useTranslation('home')
 
   // Split testimonials into 3 columns for masonry effect
@@ -193,6 +194,8 @@ export function Testimonials() {
       id="testimonials"
       tone="card"
       width="wide"
+      ornament
+      className="border-y border-gold/20"
       eyebrow={t('testimonials.eyebrow')}
       title={t('testimonials.title')}
     >

@@ -44,7 +44,7 @@ function NavItem({
       <Link to={link.href} className={classes} onClick={onClick}>
         {t(link.labelKey)}
         {isActive && (
-          <span className="hidden md:block absolute -bottom-1.5 left-0 right-0 h-0.5 rounded-full bg-gold" />
+          <span className="hidden md:block absolute -bottom-2 start-0 end-0 h-px bg-gold" />
         )}
       </Link>
     )
@@ -81,7 +81,7 @@ export function Navigation(): React.JSX.Element {
         <LanguageSwitcher />
         <a
           href="/#donate"
-          className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium transition-colors hover:bg-gold hover:text-ink"
+          className="inline-flex items-center gap-2 h-10 px-5 rounded-full bg-primary text-primary-foreground text-sm font-medium shadow-soft transition-colors hover:bg-gold hover:text-ink"
         >
           <FaHandHoldingHeart className="w-3.5 h-3.5" />
           {t('nav.support')}
@@ -108,7 +108,7 @@ export function Navigation(): React.JSX.Element {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="absolute top-full inset-x-[-1.5rem] md:hidden bg-background border-b border-border shadow-lg shadow-black/5"
+            className="absolute top-full inset-x-[-1.5rem] md:hidden bg-background/95 backdrop-blur-xl border-y border-gold/25 shadow-soft-lg"
           >
             <nav className="flex flex-col px-6 py-4 gap-1">
               {navLinks.map((link) => (
@@ -127,7 +127,7 @@ export function Navigation(): React.JSX.Element {
                 </div>
                 <a
                   href="/#donate"
-                  className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium"
+                  className="inline-flex items-center gap-2 h-10 px-5 rounded-full bg-primary text-primary-foreground text-sm font-medium"
                   onClick={closeMenu}
                 >
                   <FaHandHoldingHeart className="w-3.5 h-3.5" />

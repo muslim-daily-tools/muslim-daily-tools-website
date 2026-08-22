@@ -11,17 +11,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* RTL (Arabic): Readex Pro for body and headlines, no Latin serif */
+/* RTL (Arabic): Readex Pro for body, Amiri for display headlines */
 [dir='rtl'] body {
   font-family: 'Readex Pro', var(--font-sans);
 }
 
-[dir='rtl'] .font-display {
-  font-family: 'Readex Pro', var(--font-sans);
-  font-weight: 500;
+[dir='rtl'] .font-display,
+[dir='rtl'] .font-display .italic {
+  font-family: var(--font-arabic-display);
+  font-weight: 700;
+  /* Amiri has no italic, so never let the browser slant it */
   font-style: normal;
   letter-spacing: 0;
-  line-height: 1.35;
+  /* Amiri carries tall diacritics - keep the box taller than the glyphs */
+  line-height: 1.55;
 }
 
 code {
@@ -30,121 +33,129 @@ code {
 }
 
 /*
- * Light Theme: "Desert Dawn"
- * Warm cream background with clean white cards
- * Subtle warmth that feels inviting and calm
+ * Arabesque star tile
+ * One 8-point star (two squares at 45 degrees) per corner and one in the
+ * middle, so the tile repeats into a classic offset star lattice.
+ * Used as a mask, so the stroke colour here is irrelevant.
  */
 :root {
-  /* Warm cream background - not pure white */
-  --background: oklch(0.98 0.01 85);
-  --foreground: oklch(0.18 0.02 260);
-  /* Clean white cards for contrast */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.02 260);
-  /* Popovers match cards */
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.02 260);
-  /* Primary */
-  --primary: oklch(0.76 0.12 81.89);
-  --primary-foreground: oklch(1 0 0);
-  /* Secondary: warm gray */
-  --secondary: oklch(0.96 0.008 85);
-  --secondary-foreground: oklch(0.25 0.03 260);
-  /* Muted elements */
-  --muted: oklch(0.96 0.008 85);
-  --muted-foreground: oklch(0.5 0.02 260);
-  /* Accent */
-  --accent: oklch(0.96 0.008 85);
-  --accent-foreground: oklch(0.25 0.03 260);
-  /* Destructive */
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.98 0.01 85);
-  /* Borders: subtle warm gray */
-  --border: oklch(0.92 0.01 85);
-  --input: oklch(0.92 0.01 85);
-  --ring: oklch(0.8 0.03 85);
-  /* Charts */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  /* Brand accents */
-  --gold: oklch(0.76 0.12 81.89);
-  --gold-soft: oklch(0.93 0.05 85);
-  --ink: oklch(0.18 0.02 260);
-  /* Sidebar */
-  --sidebar: oklch(0.99 0.005 85);
-  --sidebar-foreground: oklch(0.18 0.02 260);
-  --sidebar-primary: oklch(0.25 0.03 260);
-  --sidebar-primary-foreground: oklch(0.98 0.01 85);
-  --sidebar-accent: oklch(0.96 0.008 85);
-  --sidebar-accent-foreground: oklch(0.25 0.03 260);
-  --sidebar-border: oklch(0.92 0.01 85);
-  --sidebar-ring: oklch(0.8 0.03 85);
+  --star-tile: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='88'%20height='88'%20viewBox='0%200%2088%2088'%20fill='none'%20stroke='%23000'%20stroke-width='1.25'%3E%3Crect%20x='26'%20y='26'%20width='36'%20height='36'/%3E%3Crect%20x='26'%20y='26'%20width='36'%20height='36'%20transform='rotate(45%2044%2044)'/%3E%3Crect%20x='-18'%20y='-18'%20width='36'%20height='36'/%3E%3Crect%20x='-18'%20y='-18'%20width='36'%20height='36'%20transform='rotate(45%200%200)'/%3E%3Crect%20x='70'%20y='-18'%20width='36'%20height='36'/%3E%3Crect%20x='70'%20y='-18'%20width='36'%20height='36'%20transform='rotate(45%2088%200)'/%3E%3Crect%20x='-18'%20y='70'%20width='36'%20height='36'/%3E%3Crect%20x='-18'%20y='70'%20width='36'%20height='36'%20transform='rotate(45%200%2088)'/%3E%3Crect%20x='70'%20y='70'%20width='36'%20height='36'/%3E%3Crect%20x='70'%20y='70'%20width='36'%20height='36'%20transform='rotate(45%2088%2088)'/%3E%3C/svg%3E");
 }
 
 /*
- * Dark Theme: "Midnight Oasis"
- * Deep indigo/slate backgrounds with warm sand/amber accents
- * Inspired by night sky over desert - serene and spiritual
+ * Light Theme: "Masjid Courtyard"
+ * Cream paper, deep-green ink, gold hairlines.
+ * Warm and traditional, still calm and modern.
+ */
+:root {
+  /* Cream paper background */
+  --background: oklch(0.975 0.014 84);
+  /* Deep green ink instead of neutral black */
+  --foreground: oklch(0.24 0.035 160);
+  /* Cards: warm near-white, lifted off the cream */
+  --card: oklch(0.995 0.006 84);
+  --card-foreground: oklch(0.24 0.035 160);
+  --popover: oklch(0.995 0.006 84);
+  --popover-foreground: oklch(0.24 0.035 160);
+  /* Primary: deep mosque green */
+  --primary: oklch(0.35 0.08 160);
+  --primary-foreground: oklch(0.985 0.012 84);
+  /* Secondary: warm cream tint */
+  --secondary: oklch(0.955 0.016 84);
+  --secondary-foreground: oklch(0.3 0.04 160);
+  --muted: oklch(0.955 0.016 84);
+  --muted-foreground: oklch(0.5 0.025 160);
+  --accent: oklch(0.945 0.024 160);
+  --accent-foreground: oklch(0.3 0.05 160);
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: oklch(0.985 0.012 84);
+  /* Borders: warm sand hairlines */
+  --border: oklch(0.905 0.02 84);
+  --input: oklch(0.905 0.02 84);
+  --ring: oklch(0.63 0.11 75);
+  /* Charts */
+  --chart-1: oklch(0.35 0.08 160);
+  --chart-2: oklch(0.63 0.11 75);
+  --chart-3: oklch(0.52 0.07 200);
+  --chart-4: oklch(0.7 0.09 45);
+  --chart-5: oklch(0.45 0.06 280);
+  /* Generous rounding */
+  --radius: 1.5rem;
+  /* Brand accents */
+  --gold: oklch(0.63 0.11 75);
+  --gold-soft: oklch(0.94 0.045 82);
+  --emerald: oklch(0.35 0.08 160);
+  --emerald-soft: oklch(0.94 0.028 160);
+  --ink: oklch(0.24 0.035 160);
+  /* Sidebar */
+  --sidebar: oklch(0.985 0.012 84);
+  --sidebar-foreground: oklch(0.24 0.035 160);
+  --sidebar-primary: oklch(0.35 0.08 160);
+  --sidebar-primary-foreground: oklch(0.985 0.012 84);
+  --sidebar-accent: oklch(0.955 0.016 84);
+  --sidebar-accent-foreground: oklch(0.3 0.04 160);
+  --sidebar-border: oklch(0.905 0.02 84);
+  --sidebar-ring: oklch(0.63 0.11 75);
+}
+
+/*
+ * Dark Theme: "Night Prayer"
+ * Near-black green backgrounds, cream text, warm gold accents.
  */
 .dark {
-  /* Deep slate-blue background - not pure black */
-  --background: oklch(0.16 0.02 260);
-  /* Warm off-white text for better readability */
-  --foreground: oklch(0.95 0.01 80);
-  /* Cards slightly elevated from background */
-  --card: oklch(0.19 0.022 258);
-  --card-foreground: oklch(0.95 0.01 80);
-  /* Popovers match cards */
-  --popover: oklch(0.19 0.022 258);
-  --popover-foreground: oklch(0.95 0.01 80);
-  /* Secondary: muted slate */
-  --secondary: oklch(0.25 0.025 255);
-  --secondary-foreground: oklch(0.9 0.01 80);
-  /* Muted elements */
-  --muted: oklch(0.24 0.02 258);
-  --muted-foreground: oklch(0.65 0.02 250);
-  /* Accent: subtle warmth */
-  --accent: oklch(0.28 0.03 255);
-  --accent-foreground: oklch(0.92 0.01 80);
-  /* Destructive */
-  --destructive: oklch(0.45 0.18 25);
-  --destructive-foreground: oklch(0.92 0.05 25);
-  /* Borders: subtle but visible */
-  --border: oklch(0.3 0.025 255);
-  --input: oklch(0.25 0.025 258);
-  --ring: oklch(0.7 0.1 85);
+  --background: oklch(0.155 0.018 160);
+  --foreground: oklch(0.945 0.014 85);
+  --card: oklch(0.195 0.022 162);
+  --card-foreground: oklch(0.945 0.014 85);
+  --popover: oklch(0.195 0.022 162);
+  --popover-foreground: oklch(0.945 0.014 85);
+  --primary: oklch(0.72 0.09 162);
+  --primary-foreground: oklch(0.15 0.02 160);
+  --secondary: oklch(0.25 0.025 162);
+  --secondary-foreground: oklch(0.92 0.014 85);
+  --muted: oklch(0.235 0.022 162);
+  --muted-foreground: oklch(0.7 0.02 160);
+  --accent: oklch(0.28 0.03 162);
+  --accent-foreground: oklch(0.92 0.014 85);
+  --destructive: oklch(0.48 0.17 25);
+  --destructive-foreground: oklch(0.94 0.05 25);
+  --border: oklch(0.305 0.026 162);
+  --input: oklch(0.26 0.024 162);
+  --ring: oklch(0.8 0.1 80);
   /* Brand accents */
-  --gold: oklch(0.82 0.12 85);
-  --gold-soft: oklch(0.3 0.05 80);
-  --ink: oklch(0.95 0.01 80);
-  /* Charts with warm/cool contrast */
-  --chart-1: oklch(0.75 0.15 85);
-  --chart-2: oklch(0.65 0.12 200);
-  --chart-3: oklch(0.7 0.14 150);
-  --chart-4: oklch(0.68 0.16 35);
-  --chart-5: oklch(0.6 0.1 280);
+  --gold: oklch(0.81 0.1 80);
+  --gold-soft: oklch(0.28 0.05 82);
+  --emerald: oklch(0.72 0.09 162);
+  --emerald-soft: oklch(0.25 0.04 162);
+  --ink: oklch(0.945 0.014 85);
+  /* Charts */
+  --chart-1: oklch(0.72 0.09 162);
+  --chart-2: oklch(0.81 0.1 80);
+  --chart-3: oklch(0.68 0.09 200);
+  --chart-4: oklch(0.74 0.11 45);
+  --chart-5: oklch(0.62 0.08 285);
   /* Sidebar */
-  --sidebar: oklch(0.14 0.02 260);
-  --sidebar-foreground: oklch(0.95 0.01 80);
-  --sidebar-primary: oklch(0.8 0.12 85);
-  --sidebar-primary-foreground: oklch(0.18 0.03 260);
-  --sidebar-accent: oklch(0.24 0.025 258);
-  --sidebar-accent-foreground: oklch(0.92 0.01 80);
-  --sidebar-border: oklch(0.28 0.025 255);
-  --sidebar-ring: oklch(0.7 0.1 85);
+  --sidebar: oklch(0.135 0.018 160);
+  --sidebar-foreground: oklch(0.945 0.014 85);
+  --sidebar-primary: oklch(0.81 0.1 80);
+  --sidebar-primary-foreground: oklch(0.16 0.02 160);
+  --sidebar-accent: oklch(0.235 0.022 162);
+  --sidebar-accent-foreground: oklch(0.92 0.014 85);
+  --sidebar-border: oklch(0.29 0.026 162);
+  --sidebar-ring: oklch(0.8 0.1 80);
 }
 
 @theme inline {
   --font-sans:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue',
     sans-serif;
-  --font-display: 'Fraunces', 'Iowan Old Style', 'Palatino', Georgia, serif;
+  --font-display:
+    'Cormorant Garamond', 'Iowan Old Style', 'Palatino', Georgia, serif;
+  --font-arabic-display: 'Amiri', 'Readex Pro', Georgia, serif;
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
+  --color-emerald-deep: var(--emerald);
+  --color-emerald-soft: var(--emerald-soft);
   --color-ink: var(--ink);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -170,10 +181,11 @@ code {
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* Small controls stay calm; cards use Tailwind's rounded-3xl (1.5rem) */
+  --radius-sm: calc(var(--radius) - 1rem);
+  --radius-md: calc(var(--radius) - 0.75rem);
+  --radius-lg: calc(var(--radius) - 0.5rem);
+  --radius-xl: var(--radius);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -202,25 +214,24 @@ code {
 
 /*
  * Ambient Glow
- * Spotlight effect - highlights important content areas
- * Applied to bg-background sections only
+ * Cream daylight in light mode, deep green dusk in dark mode.
  */
 .ambient-glow {
   background-image:
     radial-gradient(
       ellipse 100% 60% at 50% -10%,
-      oklch(0.94 0.06 75) 0%,
-      transparent 50%
+      oklch(0.95 0.035 120) 0%,
+      transparent 55%
     ),
     radial-gradient(
-      ellipse 70% 50% at 105% 90%,
-      oklch(0.92 0.05 55) 0%,
+      ellipse 70% 50% at 105% 85%,
+      oklch(0.94 0.04 82) 0%,
       transparent 45%
     ),
     radial-gradient(
-      ellipse 60% 45% at -5% 70%,
-      oklch(0.93 0.04 95) 0%,
-      transparent 40%
+      ellipse 60% 45% at -5% 65%,
+      oklch(0.95 0.03 160) 0%,
+      transparent 42%
     );
 }
 
@@ -228,34 +239,40 @@ code {
   background-image:
     radial-gradient(
       ellipse 100% 60% at 50% -10%,
-      oklch(0.22 0.06 270) 0%,
-      transparent 50%
+      oklch(0.22 0.04 165) 0%,
+      transparent 55%
     ),
     radial-gradient(
-      ellipse 70% 50% at 105% 90%,
-      oklch(0.2 0.08 300) 0%,
+      ellipse 70% 50% at 105% 85%,
+      oklch(0.2 0.035 85) 0%,
       transparent 45%
     ),
     radial-gradient(
-      ellipse 60% 45% at -5% 70%,
-      oklch(0.25 0.1 60) 0%,
-      transparent 40%
+      ellipse 60% 45% at -5% 65%,
+      oklch(0.19 0.03 190) 0%,
+      transparent 42%
     );
 }
 
 /*
  * Display type
- * Fraunces with optical size axis. Headlines only.
+ * Cormorant Garamond for Latin headlines, Amiri for Arabic.
+ * Cormorant runs small and light, so headlines set the weight explicitly.
  */
 .font-display {
   font-family: var(--font-display);
-  font-variation-settings: 'opsz' 144;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.005em;
+}
+
+/* Amiri, used for Qur'anic lines and Arabic ornaments in any direction */
+.font-arabic {
+  font-family: var(--font-arabic-display);
+  line-height: 1.6;
 }
 
 /*
- * Geometric pattern
- * CSS-only 8-point star lattice. Low opacity backdrop for sections.
+ * Arabesque lattice
+ * Low-contrast 8-point star grid. Backdrop for hero-type sections.
  */
 .geo-pattern {
   position: relative;
@@ -268,37 +285,81 @@ code {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.3;
-  background-image:
-    radial-gradient(circle at center, var(--gold) 1px, transparent 1.5px),
-    repeating-conic-gradient(
-      from 22.5deg at 50% 50%,
-      var(--gold) 0deg 2deg,
-      transparent 2deg 45deg
-    );
-  background-size:
-    48px 48px,
-    48px 48px;
-  -webkit-mask-image: radial-gradient(
-    ellipse 80% 70% at 50% 40%,
-    black 0%,
-    transparent 75%
-  );
-  mask-image: radial-gradient(
-    ellipse 80% 70% at 50% 40%,
-    black 0%,
-    transparent 75%
-  );
+  opacity: 0.24;
+  background-color: var(--gold);
+  /* Star tile masked by a soft ellipse, so the lattice fades at the edges */
+  -webkit-mask-image:
+    var(--star-tile),
+    radial-gradient(ellipse 85% 75% at 50% 35%, black 0%, transparent 72%);
+  mask-image:
+    var(--star-tile),
+    radial-gradient(ellipse 85% 75% at 50% 35%, black 0%, transparent 72%);
+  -webkit-mask-repeat: repeat, no-repeat;
+  mask-repeat: repeat, no-repeat;
+  -webkit-mask-size:
+    88px 88px,
+    100% 100%;
+  mask-size:
+    88px 88px,
+    100% 100%;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 
 .dark .geo-pattern::before {
-  opacity: 0.15;
+  opacity: 0.2;
+}
+
+/*
+ * Arabesque hairline
+ * A thin repeating diamond rule. Used on section and footer edges.
+ */
+.arabesque-rule {
+  height: 14px;
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent 46%,
+      var(--gold) 46%,
+      var(--gold) 54%,
+      transparent 54%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 46%,
+      var(--gold) 46%,
+      var(--gold) 54%,
+      transparent 54%
+    );
+  background-size: 14px 14px;
+  opacity: 0.4;
+}
+
+/*
+ * Soft shadow
+ * One shadow language for every raised card.
+ */
+.shadow-soft {
+  box-shadow: 0 18px 40px -28px oklch(0.24 0.035 160 / 0.45);
+}
+
+.shadow-soft-lg {
+  box-shadow: 0 30px 60px -30px oklch(0.24 0.035 160 / 0.5);
+}
+
+.dark .shadow-soft {
+  box-shadow: 0 18px 40px -24px oklch(0 0 0 / 0.7);
+}
+
+.dark .shadow-soft-lg {
+  box-shadow: 0 30px 60px -26px oklch(0 0 0 / 0.8);
 }
 
 /* Personal pages print as a one-page CV */
 @media print {
   header,
   footer,
+  .arabesque-rule,
   .geo-pattern::before {
     display: none !important;
   }

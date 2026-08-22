@@ -14,11 +14,17 @@ export function About(): React.JSX.Element {
   const { t } = useTranslation('home')
 
   return (
-    <Section id="about" tone="card" width="wide">
+    <Section
+      id="about"
+      tone="card"
+      width="wide"
+      ornament
+      className="border-y border-gold/20"
+    >
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
         <FadeIn className="flex flex-col gap-6">
           <Eyebrow>{t('about.eyebrow')}</Eyebrow>
-          <blockquote className="font-display text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.15] text-foreground text-balance">
+          <blockquote className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.15] text-foreground text-balance">
             <span className="text-gold">“</span>
             {t('about.quote')}
             <span className="text-gold">”</span>
@@ -39,7 +45,7 @@ export function About(): React.JSX.Element {
             {values.map(({ key, Icon }) => (
               <li
                 key={key}
-                className="inline-flex items-center gap-2 h-9 px-3.5 rounded-full border border-border bg-background text-sm font-medium text-foreground"
+                className="inline-flex items-center gap-2 h-10 px-4 rounded-full border border-gold/30 bg-emerald-soft text-sm font-medium text-foreground"
               >
                 <Icon className="w-3.5 h-3.5 text-gold" />
                 {t(key)}

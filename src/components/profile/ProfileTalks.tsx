@@ -14,6 +14,7 @@ export function ProfileTalks({
   return (
     <Section
       align="start"
+      ornament
       eyebrow={t('sections.talks')}
       title={t('sections.talks')}
       className="py-16 md:py-20 print:hidden"
@@ -23,9 +24,9 @@ export function ProfileTalks({
           href={member.socials.youtube}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col sm:flex-row sm:items-center gap-5 rounded-3xl border border-border bg-card p-6 md:p-8 transition-all duration-300 hover:border-gold/60"
+          className="group flex flex-col sm:flex-row sm:items-center gap-5 rounded-[1.75rem] border border-border bg-card p-7 md:p-9 shadow-soft transition-all duration-300 hover:border-gold/60 hover:shadow-soft-lg"
         >
-          <span className="flex w-14 h-14 shrink-0 items-center justify-center rounded-2xl bg-gold-soft text-gold">
+          <span className="flex w-14 h-14 shrink-0 items-center justify-center rounded-[1.25rem] bg-gold-soft text-gold">
             <LuYoutube className="w-7 h-7" />
           </span>
           <span className="flex-1 text-lg text-muted-foreground text-pretty">
@@ -54,7 +55,7 @@ export function ProfileTalks({
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card transition-all duration-300 hover:border-gold/60"
+                  className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-soft transition-all duration-300 hover:border-gold/60 hover:shadow-soft-lg"
                 >
                   {talk.youtubeId && (
                     <img

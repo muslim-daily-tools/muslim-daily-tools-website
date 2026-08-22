@@ -19,6 +19,9 @@ import '../lib/i18n' // Initialize i18n
 
 import appCss from '../styles.css?url'
 
+const fontsHref =
+  'https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400..700;1,400..600&family=Readex+Pro:wght@200..700&display=swap'
+
 export const Route = createRootRoute({
   // Set language on server before rendering (reads from cookie)
   beforeLoad: async () => {
@@ -35,7 +38,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'Muslim Daily Tools - Quran & Prayer Tools for Your Daily Worship' },
+      {
+        title:
+          'Muslim Daily Tools - Quran & Prayer Tools for Your Daily Worship',
+      },
       {
         name: 'description',
         content:
@@ -48,21 +54,25 @@ export const Route = createRootRoute({
       },
       { name: 'author', content: 'Muslim Daily Tools' },
       { name: 'robots', content: 'index, follow' },
-      { name: 'theme-color', content: '#d7a94f' },
+      { name: 'theme-color', content: '#17503f' },
       { name: 'color-scheme', content: 'light dark' },
       // Open Graph / Facebook
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://muslimdailytools.com' },
       {
         property: 'og:title',
-        content: 'Muslim Daily Tools - Quran & Prayer Tools for Your Daily Worship',
+        content:
+          'Muslim Daily Tools - Quran & Prayer Tools for Your Daily Worship',
       },
       {
         property: 'og:description',
         content:
           "Muslim Daily Tools helps you keep the Qur'an close, your prayers on time, and remembrance in rhythm with fast, minimalist browser extensions and apps.",
       },
-      { property: 'og:image', content: 'https://muslimdailytools.com/og-image.jpg' },
+      {
+        property: 'og:image',
+        content: 'https://muslimdailytools.com/og-image.jpg',
+      },
       { property: 'og:site_name', content: 'Muslim Daily Tools' },
       { property: 'og:locale', content: 'en_US' },
       { property: 'og:locale:alternate', content: 'ar_AR' },
@@ -71,14 +81,18 @@ export const Route = createRootRoute({
       { name: 'twitter:url', content: 'https://muslimdailytools.com' },
       {
         name: 'twitter:title',
-        content: 'Muslim Daily Tools - Quran & Prayer Tools for Your Daily Worship',
+        content:
+          'Muslim Daily Tools - Quran & Prayer Tools for Your Daily Worship',
       },
       {
         name: 'twitter:description',
         content:
           "Muslim Daily Tools helps you keep the Qur'an close, your prayers on time, and remembrance in rhythm with fast, minimalist browser extensions and apps.",
       },
-      { name: 'twitter:image', content: 'https://muslimdailytools.com/og-image.jpg' },
+      {
+        name: 'twitter:image',
+        content: 'https://muslimdailytools.com/og-image.jpg',
+      },
     ],
     links: [
       // Canonical URL
@@ -97,16 +111,18 @@ export const Route = createRootRoute({
         href: 'https://fonts.gstatic.com',
         crossOrigin: 'anonymous',
       },
-      // Preload font CSS (Fraunces display serif + Readex Pro for Arabic)
+      // Preload font CSS (Cormorant Garamond + Amiri + Readex Pro)
       {
         rel: 'preload',
-        href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Readex+Pro:wght@200..700&display=swap',
+        href: fontsHref,
         as: 'style',
       },
-      // Fraunces for headlines, Readex Pro for Arabic RTL
+      // Cormorant Garamond: Latin headlines
+      // Amiri: Arabic headlines and Qur'anic lines
+      // Readex Pro: Arabic body copy
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Readex+Pro:wght@200..700&display=swap',
+        href: fontsHref,
       },
       {
         rel: 'stylesheet',

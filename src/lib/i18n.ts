@@ -52,6 +52,8 @@ const resources = {
         tools: 'Tools',
         company: 'Company',
         madeWith: 'Built with love for the Ummah',
+        dua: 'رَبَّنَا تَقَبَّلْ مِنَّا',
+        duaTranslation: 'Our Lord, accept this from us',
       },
       accessibility: {
         openMenu: 'Open menu',
@@ -64,6 +66,7 @@ const resources = {
     },
     home: {
       hero: {
+        bismillah: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
         headline: 'A World Organized Around',
         headlineLine2: 'Daily Worship',
         subtext:
@@ -812,6 +815,8 @@ const resources = {
         tools: 'الأدوات',
         company: 'عن المشروع',
         madeWith: 'صُنع بحب لخدمة الأمة',
+        dua: 'رَبَّنَا تَقَبَّلْ مِنَّا',
+        duaTranslation: 'اللهم تقبّل منا هذا العمل',
       },
       accessibility: {
         openMenu: 'افتح القائمة',
@@ -824,6 +829,7 @@ const resources = {
     },
     home: {
       hero: {
+        bismillah: 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
         headline: 'عالَم مُنظَّم حول',
         headlineLine2: 'العبادة اليومية',
         subtext:

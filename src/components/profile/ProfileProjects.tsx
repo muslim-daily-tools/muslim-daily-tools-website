@@ -8,7 +8,7 @@ import { Eyebrow } from '@/components/ui/eyebrow'
 import { cn } from '@/lib/utils'
 
 const cardClass =
-  'group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60'
+  'group flex h-full flex-col gap-4 rounded-[1.75rem] border border-border bg-card p-7 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-soft-lg'
 
 export function ProfileProjects({
   member,
@@ -24,6 +24,7 @@ export function ProfileProjects({
   return (
     <Section
       align="start"
+      ornament
       eyebrow={t('sections.tools')}
       title={tHome('tools.title')}
       className="py-16 md:py-20"
@@ -45,7 +46,7 @@ export function ProfileProjects({
               >
                 <div
                   className={cn(
-                    'w-14 h-14 rounded-2xl border border-border bg-background overflow-hidden flex items-center justify-center',
+                    'w-14 h-14 rounded-[1.25rem] border border-gold/25 bg-background overflow-hidden flex items-center justify-center',
                     tool.fullBleedLogo ? 'p-0' : 'p-2',
                   )}
                 >
@@ -56,7 +57,7 @@ export function ProfileProjects({
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="font-display text-2xl font-medium text-foreground">
+                  <h3 className="font-display text-3xl font-semibold text-foreground leading-[1.2]">
                     {tHome(tool.titleKey)}
                   </h3>
                   {tool.userCount && (
@@ -99,7 +100,7 @@ export function ProfileProjects({
                   className={cardClass}
                 >
                   <div className="flex flex-col gap-1">
-                    <h3 className="font-display text-2xl font-medium text-foreground">
+                    <h3 className="font-display text-3xl font-semibold text-foreground leading-[1.2]">
                       {project.name}
                     </h3>
                     <p className="text-xs font-medium text-gold">

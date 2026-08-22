@@ -14,13 +14,14 @@ export function ProfileExperience({
     <Section
       tone="card"
       align="start"
+      ornament
       eyebrow={t('sections.experience')}
       title={t('sections.experience')}
       className="py-16 md:py-20"
     >
       <StaggerContainer
         as="ol"
-        className="relative max-w-3xl border-s border-border ms-2"
+        className="relative max-w-3xl border-s border-gold/25 ms-2"
         staggerDelay={0.08}
       >
         {member.experience.map((job) => (

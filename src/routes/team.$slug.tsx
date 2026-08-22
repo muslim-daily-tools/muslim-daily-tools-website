@@ -71,7 +71,9 @@ function ProfileNotFound(): React.JSX.Element {
   const { t } = useTranslation('profile')
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4 px-6 text-center">
-      <h1 className="font-display text-4xl text-foreground">404</h1>
+      <h1 className="font-display text-6xl font-semibold text-foreground leading-[1.2]">
+        404
+      </h1>
       <Link
         to="/"
         hash="team"

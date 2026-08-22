@@ -23,11 +23,11 @@ export function Header(): React.JSX.Element {
         'backdrop-blur-xl backdrop-saturate-150 transition-all duration-300',
         'border-b',
         isScrolled
-          ? 'bg-background/85 border-border shadow-sm shadow-black/5'
+          ? 'bg-background/90 border-gold/30 shadow-soft'
           : 'bg-background/60 border-transparent',
       )}
     >
-      <div className="relative max-w-7xl mx-auto h-16 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
+      <div className="relative max-w-7xl mx-auto h-[4.5rem] flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
         <Logo />
         <Navigation />
       </div>

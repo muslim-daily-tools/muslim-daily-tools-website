@@ -12,17 +12,17 @@ function TeamCard({ member }: { member: TeamMember }): React.JSX.Element {
   const name = t(`team.members.${member.slug}.name`)
 
   return (
-    <article className="group relative flex flex-col sm:flex-row gap-6 rounded-3xl border border-border bg-card p-6 md:p-8 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-[0_24px_48px_-24px_rgba(0,0,0,0.25)]">
+    <article className="group relative flex flex-col sm:flex-row gap-6 rounded-[1.75rem] border border-border bg-card p-7 md:p-9 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-soft-lg">
       <img
         src={member.image}
         alt={name}
         width={160}
         height={160}
-        className="w-28 h-28 md:w-36 md:h-36 shrink-0 rounded-2xl object-cover border border-border"
+        className="w-28 h-28 md:w-36 md:h-36 shrink-0 rounded-[1.5rem] object-cover border border-gold/25"
       />
       <div className="flex flex-1 flex-col gap-3">
         <div>
-          <h3 className="font-display text-2xl md:text-3xl font-medium text-foreground">
+          <h3 className="font-display text-3xl md:text-4xl font-semibold text-foreground leading-[1.2]">
             <Link
               to="/team/$slug"
               params={{ slug: member.slug }}
@@ -57,6 +57,7 @@ export function Team(): React.JSX.Element {
     <Section
       id="team"
       width="wide"
+      ornament
       eyebrow={t('team.eyebrow')}
       title={t('team.title')}
       description={t('team.subtitle')}

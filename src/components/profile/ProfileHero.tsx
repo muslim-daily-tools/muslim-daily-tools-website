@@ -39,7 +39,7 @@ export function ProfileHero({
               alt={name}
               width={224}
               height={224}
-              className="w-40 h-40 md:w-56 md:h-56 rounded-3xl object-cover border border-border shadow-[0_24px_48px_-24px_rgba(0,0,0,0.35)]"
+              className="w-40 h-40 md:w-56 md:h-56 rounded-[2rem] object-cover border border-gold/30 shadow-soft-lg"
             />
           </FadeIn>
 
@@ -48,7 +48,7 @@ export function ProfileHero({
               <Eyebrow>{t(`${member.slug}.role`)}</Eyebrow>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium text-foreground leading-[1.02]">
+              <h1 className="font-display text-6xl md:text-7xl lg:text-[5rem] font-semibold text-foreground leading-[1.05]">
                 {name}
               </h1>
             </FadeIn>
@@ -64,7 +64,7 @@ export function ProfileHero({
               {member.email && (
                 <a
                   href={`mailto:${member.email}`}
-                  className={`${ctaClass} bg-foreground text-background hover:bg-gold hover:text-ink`}
+                  className={`${ctaClass} bg-primary text-primary-foreground shadow-soft hover:bg-gold hover:text-ink`}
                 >
                   <LuMail className="w-4 h-4" />
                   {t('actions.email')}
@@ -73,7 +73,7 @@ export function ProfileHero({
               {member.cvUrl && (
                 <a
                   href={member.cvUrl}
-                  className={`${ctaClass} border border-border bg-card/60 text-foreground hover:border-gold hover:text-gold`}
+                  className={`${ctaClass} border border-gold/40 bg-card/70 text-foreground hover:border-gold hover:text-gold`}
                 >
                   <LuDownload className="w-4 h-4" />
                   {t('actions.downloadCv')}
@@ -84,7 +84,7 @@ export function ProfileHero({
                   href={member.socials.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${ctaClass} border border-border bg-card/60 text-foreground hover:border-gold hover:text-gold`}
+                  className={`${ctaClass} border border-gold/40 bg-card/70 text-foreground hover:border-gold hover:text-gold`}
                 >
                   <LuYoutube className="w-4 h-4" />
                   {t('actions.watchChannel')}

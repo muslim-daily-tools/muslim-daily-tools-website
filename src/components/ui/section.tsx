@@ -1,4 +1,5 @@
 import { Eyebrow } from './eyebrow'
+import { SectionDivider } from './ornament'
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 import { FadeIn } from '@/lib/animations'
@@ -15,6 +16,8 @@ interface SectionProps extends Omit<
   tone?: SectionTone
   align?: 'center' | 'start'
   width?: 'narrow' | 'default' | 'wide'
+  /** Thin 8-point star divider above the header. */
+  ornament?: boolean
 }
 
 const toneClasses: Record<SectionTone, string> = {
@@ -36,6 +39,7 @@ export function Section({
   tone = 'default',
   align = 'center',
   width = 'default',
+  ornament = false,
   className,
   children,
   ...props
@@ -53,14 +57,15 @@ export function Section({
       )}
       {...props}
     >
+      {ornament && <SectionDivider className="mb-16 md:mb-20" />}
       <div className={cn('mx-auto', widthClasses[width])}>
         {hasHeader && (
           <FadeIn
-            className={cn('flex flex-col gap-4 mb-12 md:mb-16', alignClasses)}
+            className={cn('flex flex-col gap-5 mb-12 md:mb-16', alignClasses)}
           >
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
             {title && (
-              <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-[1.1] text-balance">
+              <h2 className="font-display text-[2.5rem] md:text-6xl font-semibold text-foreground leading-[1.08] text-balance">
                 {title}
               </h2>
             )}

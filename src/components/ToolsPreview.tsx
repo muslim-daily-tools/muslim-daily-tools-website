@@ -16,9 +16,8 @@ export function ToolsPreview(): React.JSX.Element {
           >
             <div
               className={cn(
-                'w-20 h-20 md:w-24 md:h-24 rounded-2xl border border-border bg-card flex items-center justify-center overflow-hidden',
-                'shadow-[0_8px_24px_-12px_rgba(0,0,0,0.25)] dark:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.6)]',
-                'transition-shadow duration-300 group-hover:shadow-[0_16px_32px_-12px_rgba(0,0,0,0.3)]',
+                'w-20 h-20 md:w-24 md:h-24 rounded-[1.5rem] border border-gold/25 bg-card flex items-center justify-center overflow-hidden',
+                'shadow-soft transition-all duration-300 group-hover:border-gold/60 group-hover:shadow-soft-lg',
                 tool.fullBleedLogo ? 'p-0' : 'p-2.5',
               )}
             >
