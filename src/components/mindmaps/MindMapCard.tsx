@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { LuDownload, LuExternalLink } from 'react-icons/lu'
+import type {MindMap, MindMapCategory} from '@/data/mindmaps';
 import { cn } from '@/lib/utils'
-import { categories, type MindMap, type MindMapCategory } from '@/data/mindmaps'
+import {   categories } from '@/data/mindmaps'
 import { posthog } from '@/lib/posthog'
 
 interface MindMapCardProps {

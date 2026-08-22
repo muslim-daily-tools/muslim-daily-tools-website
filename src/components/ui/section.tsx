@@ -46,7 +46,11 @@ export function Section({
 
   return (
     <section
-      className={cn('py-20 md:py-28 px-6', toneClasses[tone], className)}
+      className={cn(
+        'py-20 md:py-28 px-6 md:px-12',
+        toneClasses[tone],
+        className,
+      )}
       {...props}
     >
       <div className={cn('mx-auto', widthClasses[width])}>

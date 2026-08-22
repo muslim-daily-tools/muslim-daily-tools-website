@@ -9,7 +9,7 @@ export interface MindMap {
   published: boolean
 }
 
-export const mindMaps: MindMap[] = [
+export const mindMaps: Array<MindMap> = [
   // MVP Launch (published: true)
   {
     slug: 'prophet-lineage',
@@ -148,4 +148,3 @@ export const categories: Record<MindMapCategory, { labelKey: string }> = {
   seerah: { labelKey: 'mindMaps:categories.seerah' },
   books: { labelKey: 'mindMaps:categories.books' },
 }
-

@@ -1,10 +1,11 @@
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import {
-  mindMaps,
+  
+  
   categories,
-  type MindMap,
-  type MindMapCategory,
+  mindMaps
 } from './mindmaps'
+import type {MindMap, MindMapCategory} from './mindmaps';
 
 describe('mindmaps data layer', () => {
   describe('mindMaps array', () => {
@@ -14,7 +15,7 @@ describe('mindmaps data layer', () => {
     })
 
     it('should have all required fields for each mind map', () => {
-      const requiredFields: (keyof MindMap)[] = [
+      const requiredFields: Array<keyof MindMap> = [
         'slug',
         'titleKey',
         'descriptionKey',
@@ -37,7 +38,7 @@ describe('mindmaps data layer', () => {
     })
 
     it('should have valid category values', () => {
-      const validCategories: MindMapCategory[] = ['quran', 'seerah', 'books']
+      const validCategories: Array<MindMapCategory> = ['quran', 'seerah', 'books']
       mindMaps.forEach((map) => {
         expect(validCategories).toContain(map.category)
       })

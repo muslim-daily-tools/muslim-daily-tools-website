@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
+import type {MindMapCategory} from '@/data/mindmaps';
 import { cn } from '@/lib/utils'
-import { categories, type MindMapCategory } from '@/data/mindmaps'
+import {  categories } from '@/data/mindmaps'
 
 interface CategoryTabsProps {
   activeCategory: MindMapCategory | 'all'

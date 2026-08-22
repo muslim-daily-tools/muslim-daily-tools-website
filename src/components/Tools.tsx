@@ -1,99 +1,21 @@
-import { LuExternalLink, LuStar, LuUsers } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
+import { LuArrowUpRight, LuStar, LuUsers } from 'react-icons/lu'
+import { FaApple, FaChrome, FaFirefoxBrowser, FaGlobe } from 'react-icons/fa6'
+import type { IconType } from 'react-icons'
+import type {Platform, Tool} from '@/data/tools';
+import { StaggerContainer, StaggerItem } from '@/lib/animations'
+import {   tools } from '@/data/tools'
+import { Section } from '@/components/ui/section'
+import { cn } from '@/lib/utils'
 
-import AyahFlowLogo from '../assets/ayah-flow-logo.png'
-import PrayerCalLogo from '../assets/prayer-calendar-logo.png'
-import QuranStationLogo from '../assets/quran-station-logo.png'
-import QuranTabLogo from '../assets/quran-tab-logo.png'
-import NawayaLogo from '../assets/nawaya-logo.png'
-import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
-
-interface ToolLink {
-  labelKey: string
-  href: string
+const platformIcons: Record<Platform, IconType> = {
+  website: FaGlobe,
+  chrome: FaChrome,
+  firefox: FaFirefoxBrowser,
+  ios: FaApple,
 }
 
-interface Tool {
-  logo: string
-  titleKey: string
-  descriptionKey: string
-  links: Array<ToolLink>
-  comingSoon?: boolean
-  rating?: number
-  reviewCount?: number
-  userCount?: string
-}
-
-const tools: Array<Tool> = [
-  {
-    logo: QuranStationLogo,
-    titleKey: 'tools.quranStation.title',
-    descriptionKey: 'tools.quranStation.description',
-    links: [
-      { labelKey: 'tools.links.website', href: 'https://quran-station.com/' },
-      {
-        labelKey: 'tools.links.chrome',
-        href: 'https://chromewebstore.google.com/detail/quran-station/angdimijeelplemmdnedhnjidadfphom',
-      },
-      {
-        labelKey: 'tools.links.firefox',
-        href: 'https://addons.mozilla.org/en-US/firefox/addon/quran-station/',
-      },
-      {
-        labelKey: 'tools.links.ios',
-        href: 'https://apps.apple.com/us/app/quran-station-app/id6740748479',
-      },
-    ],
-    rating: 5.0,
-    reviewCount: 298,
-    userCount: '10K',
-  },
-  {
-    logo: QuranTabLogo,
-    titleKey: 'tools.quranTab.title',
-    descriptionKey: 'tools.quranTab.description',
-    links: [
-      {
-        labelKey: 'tools.links.chrome',
-        href: 'https://chromewebstore.google.com/detail/quran-tab/afaihcdgkjebgabomemccdneglknjkdd',
-      },
-      {
-        labelKey: 'tools.links.firefox',
-        href: 'https://addons.mozilla.org/en-US/firefox/addon/quran-tab-original/',
-      },
-    ],
-    rating: 4.9,
-    reviewCount: 886,
-    userCount: '50K',
-  },
-  {
-    logo: AyahFlowLogo,
-    titleKey: 'tools.ayahFlow.title',
-    descriptionKey: 'tools.ayahFlow.description',
-    links: [
-      {
-        labelKey: 'tools.links.iosAppStore',
-        href: 'https://apps.apple.com/us/app/ayah-flow/id6758680834',
-      },
-    ],
-  },
-  {
-    logo: PrayerCalLogo,
-    titleKey: 'tools.prayerCal.title',
-    descriptionKey: 'tools.prayerCal.description',
-    links: [
-      { labelKey: 'tools.links.website', href: 'https://prayontime.today' },
-    ],
-  },
-  {
-    logo: NawayaLogo,
-    titleKey: 'tools.nawaya.title',
-    descriptionKey: 'tools.nawaya.description',
-    links: [{ labelKey: 'tools.links.website', href: 'https://nawaya.life' }],
-  },
-]
-
-function StarRating({ rating }: { rating: number }) {
+function StarRating({ rating }: { rating: number }): React.JSX.Element {
   const fullStars = Math.floor(rating)
   const hasHalfStar = rating % 1 >= 0.5
 
@@ -102,143 +24,161 @@ function StarRating({ rating }: { rating: number }) {
       {[...Array(5)].map((_, i) => (
         <LuStar
           key={i}
-          className={`w-3 h-3 ${
+          className={cn(
+            'w-3.5 h-3.5',
             i < fullStars
-              ? 'fill-amber-400 text-amber-400'
+              ? 'fill-gold text-gold'
               : i === fullStars && hasHalfStar
-                ? 'fill-amber-400/50 text-amber-400'
-                : 'fill-muted text-muted'
-          }`}
+                ? 'fill-gold/50 text-gold'
+                : 'fill-muted text-muted',
+          )}
         />
       ))}
     </div>
   )
 }
 
-function ToolCard({ tool }: { tool: Tool }) {
+function ToolStats({ tool }: { tool: Tool }): React.JSX.Element | null {
   const { t } = useTranslation('home')
-  const hasStats = !tool.comingSoon && (tool.rating || tool.userCount)
+  if (tool.rating === undefined && !tool.userCount) return null
+
+  return (
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
+      {tool.rating !== undefined && (
+        <span className="inline-flex items-center gap-1.5">
+          <StarRating rating={tool.rating} />
+          <span className="font-semibold text-foreground">{tool.rating}</span>
+          {tool.reviewCount && (
+            <span>
+              ({tool.reviewCount.toLocaleString()} {t('tools.ratings')})
+            </span>
+          )}
+        </span>
+      )}
+      {tool.userCount && (
+        <span className="inline-flex items-center gap-1.5">
+          <LuUsers className="w-3.5 h-3.5" />
+          {tool.userCount} {t('tools.users')}
+        </span>
+      )}
+    </div>
+  )
+}
+
+function PlatformLinks({ tool }: { tool: Tool }): React.JSX.Element {
+  const { t } = useTranslation('home')
+
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      {tool.links.map((link) => {
+        const Icon = platformIcons[link.platform]
+        return (
+          <a
+            key={link.href}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-border bg-background text-xs font-medium text-foreground transition-colors hover:border-gold hover:text-gold"
+          >
+            <Icon className="w-3.5 h-3.5" />
+            {t(link.labelKey)}
+            <LuArrowUpRight className="w-3 h-3 opacity-60" />
+          </a>
+        )
+      })}
+    </div>
+  )
+}
+
+function ToolCard({
+  tool,
+  featured,
+}: {
+  tool: Tool
+  featured: boolean
+}): React.JSX.Element {
+  const { t } = useTranslation('home')
   const title = t(tool.titleKey)
 
   return (
     <article
+      id={tool.slug}
       aria-label={title}
-      className="group relative bg-card rounded-xl p-6 shadow-sm border border-border flex flex-col h-full transition-all duration-200 hover:shadow-md hover:border-border/80"
-    >
-      {tool.comingSoon && (
-        <span className="absolute top-4 end-4 text-xs font-medium bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 px-2 py-1 rounded-full">
-          {t('tools.comingSoon')}
-        </span>
+      className={cn(
+        'group relative flex h-full flex-col gap-5 rounded-3xl border border-border bg-card p-6 md:p-8',
+        'transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-[0_24px_48px_-24px_rgba(0,0,0,0.25)]',
+        featured && 'md:flex-row md:items-start md:gap-8',
       )}
-
-      {/* Header: Logo + Title & Stats */}
-      <div className="flex items-start gap-4 mb-4">
-        <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0">
-          <img
-            src={tool.logo}
-            alt={`${title} logo`}
-            className="w-full h-full object-contain"
-          />
-        </div>
-
-        <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-semibold text-foreground mb-1 leading-tight">
-            {title}
-          </h3>
-
-          {hasStats ? (
-            <div className="flex flex-col gap-1">
-              {tool.rating && (
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <StarRating rating={tool.rating} />
-                  <span className="font-medium text-foreground">
-                    {tool.rating}
-                  </span>
-                  {tool.reviewCount && (
-                    <span>
-                      ({tool.reviewCount.toLocaleString()} {t('tools.ratings')})
-                    </span>
-                  )}
-                </div>
-              )}
-              {tool.userCount && (
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                  <LuUsers className="w-3 h-3" />
-                  <span>
-                    {tool.userCount} {t('tools.users')}
-                  </span>
-                </div>
-              )}
-            </div>
-          ) : tool.comingSoon ? (
-            <div className="flex flex-col gap-1">
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground/50">
-                <StarRating rating={0} />
-              </div>
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground/50">
-                <LuUsers className="w-3 h-3" />
-                <span>∞ {t('tools.users')}</span>
-              </div>
-            </div>
-          ) : null}
-        </div>
+    >
+      <div
+        className={cn(
+          'shrink-0 rounded-2xl border border-border bg-background overflow-hidden flex items-center justify-center',
+          featured ? 'w-20 h-20 md:w-28 md:h-28' : 'w-14 h-14',
+          tool.fullBleedLogo ? 'p-0' : featured ? 'p-3' : 'p-2',
+        )}
+      >
+        <img
+          src={tool.logo}
+          alt={`${title} logo`}
+          className="w-full h-full object-contain"
+        />
       </div>
 
-      <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-        {t(tool.descriptionKey)}
-      </p>
-
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        {tool.links.map((link, index) => (
-          <a
-            key={index}
-            href={link.href}
-            target={tool.comingSoon ? undefined : '_blank'}
-            rel={tool.comingSoon ? undefined : 'noopener noreferrer'}
-            className={`inline-flex items-center gap-1 text-sm font-medium transition-colors ${
-              tool.comingSoon
-                ? 'text-muted-foreground cursor-not-allowed'
-                : 'text-primary hover:text-primary/80'
-            }`}
-            onClick={tool.comingSoon ? (e) => e.preventDefault() : undefined}
+      <div className="flex flex-1 flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <h3
+            className={cn(
+              'font-display font-medium text-foreground leading-tight',
+              featured ? 'text-3xl md:text-4xl' : 'text-2xl',
+            )}
           >
-            {t(link.labelKey)}
-            {!tool.comingSoon && <LuExternalLink className="w-3 h-3" />}
-          </a>
-        ))}
+            {title}
+          </h3>
+          <ToolStats tool={tool} />
+        </div>
+
+        <p className="text-muted-foreground leading-relaxed text-pretty flex-1">
+          {t(tool.descriptionKey)}
+        </p>
+
+        <PlatformLinks tool={tool} />
       </div>
     </article>
   )
 }
 
-export function Tools() {
+export function Tools(): React.JSX.Element {
   const { t } = useTranslation('home')
 
   return (
-    <section id="tools" className="py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12">
-            {t('tools.title')}
-          </h2>
-        </FadeIn>
-
-        <StaggerContainer
-          as="div"
-          className="flex flex-wrap justify-center gap-8"
-          staggerDelay={0.12}
-        >
-          {tools.map((tool) => (
+    <Section
+      id="tools"
+      width="wide"
+      eyebrow={t('tools.eyebrow')}
+      title={t('tools.title')}
+      description={t('tools.subtitle')}
+    >
+      <StaggerContainer
+        as="div"
+        className="grid gap-5 md:grid-cols-2 lg:grid-cols-6"
+        staggerDelay={0.08}
+      >
+        {tools.map((tool) => {
+          const featured = tool.rating !== undefined
+          return (
             <StaggerItem
-              key={tool.titleKey}
+              key={tool.slug}
               variant="scaleIn"
-              className="w-full md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)] xl:w-[calc((100%-8rem)/5)]"
+              className={cn(
+                'h-full',
+                featured ? 'md:col-span-2 lg:col-span-3' : 'lg:col-span-2',
+              )}
             >
-              <ToolCard tool={tool} />
+              <ToolCard tool={tool} featured={featured} />
             </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
+          )
+        })}
+      </StaggerContainer>
+    </Section>
   )
 }

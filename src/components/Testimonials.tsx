@@ -1,6 +1,7 @@
 import { LuStar } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
-import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
+import { StaggerContainer, StaggerItem } from '@/lib/animations'
+import { Section } from '@/components/ui/section'
 
 interface Testimonial {
   quote: string
@@ -10,19 +11,7 @@ interface Testimonial {
   tool: 'Quran Tab' | 'Quran Station' // Which tool the review is for
 }
 
-interface Stat {
-  value: string
-  labelKey: string
-}
-
-const stats: Stat[] = [
-  { value: '50,000+', labelKey: 'testimonials.stats.activeUsers' },
-  { value: '1M+', labelKey: 'testimonials.stats.listeningSessions' },
-  { value: '500K+', labelKey: 'testimonials.stats.downloads' },
-  { value: '40+', labelKey: 'testimonials.stats.languages' },
-]
-
-const testimonials: Testimonial[] = [
+const testimonials: Array<Testimonial> = [
   {
     quote:
       'The Quran Tab extension is truly a gem! 🌟 Every time I open a new tab, I’m greeted with beautiful Quranic verses that instantly uplift my mood and remind me of my purpose. The interface is clean, simple, and elegant, no distractions, just the words of Allah. What I love most is how customizable it is: you can choose translations, adjust settings to your preference, and it fits seamlessly into daily browsing. It’s not just an extension, it’s a spiritual companion that keeps you connected to the Quran throughout your day. Highly recommended!!',
@@ -102,9 +91,7 @@ function StarRating({
         <LuStar
           key={star}
           className={`${sizeClass} ${
-            star <= rating
-              ? 'fill-amber-400 text-amber-400'
-              : 'fill-muted text-muted'
+            star <= rating ? 'fill-gold text-gold' : 'fill-muted text-muted'
           }`}
         />
       ))}
@@ -156,30 +143,11 @@ function Avatar({ name, avatar }: { name: string; avatar?: string }) {
   )
 }
 
-function StatCard({ stat }: { stat: Stat }) {
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const { t } = useTranslation('home')
 
   return (
-    <div className="flex flex-col items-center text-center px-4 py-2">
-      <span className="text-2xl md:text-3xl font-bold text-foreground">
-        {stat.value}
-      </span>
-      <span className="text-sm text-muted-foreground mt-1">
-        {t(stat.labelKey)}
-      </span>
-    </div>
-  )
-}
-
-function TestimonialCard({
-  testimonial,
-}: {
-  testimonial: Testimonial
-}) {
-  const { t } = useTranslation('home')
-
-  return (
-    <div className="group bg-card rounded-xl p-5 shadow-sm border border-border hover:shadow-md hover:border-border/80 transition-all duration-200 flex flex-col h-full">
+    <div className="group bg-background rounded-2xl p-5 border border-border hover:border-gold/60 transition-all duration-200 flex flex-col h-full">
       {/* Header: Avatar + Name */}
       <div className="flex items-center gap-3 mb-3">
         <Avatar name={testimonial.author} avatar={testimonial.avatar} />
@@ -215,35 +183,20 @@ export function Testimonials() {
   const { t } = useTranslation('home')
 
   // Split testimonials into 3 columns for masonry effect
-  const columns: Testimonial[][] = [[], [], []]
+  const columns: Array<Array<Testimonial>> = [[], [], []]
   testimonials.forEach((testimonial, index) => {
     columns[index % 3].push(testimonial)
   })
 
   return (
-    <section id="testimonials" className="bg-card py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Section header */}
-        <FadeIn className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            {t('testimonials.title')}
-          </h2>
-        </FadeIn>
-
-        {/* Stats row */}
-        <FadeIn delay={0.1}>
-          <div className="flex flex-wrap justify-center items-center gap-x-2 md:gap-x-4 mb-16">
-            {stats.map((stat, index) => (
-              <div key={stat.labelKey} className="flex items-center">
-                <StatCard stat={stat} />
-                {index < stats.length - 1 && (
-                  <div className="hidden md:block w-px h-12 bg-border ms-4" />
-                )}
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-
+    <Section
+      id="testimonials"
+      tone="card"
+      width="wide"
+      eyebrow={t('testimonials.eyebrow')}
+      title={t('testimonials.title')}
+    >
+      <div>
         {/* Masonry testimonials grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Column 1 */}
@@ -274,6 +227,6 @@ export function Testimonials() {
           </StaggerContainer>
         </div>
       </div>
-    </section>
+    </Section>
   )
 }
