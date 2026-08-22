@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Navigation } from './Navigation'
 import { Logo } from './Logo'
+import { cn } from '@/lib/utils'
 
-export function Header() {
+export function Header(): React.JSX.Element {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 24)
     }
 
     handleScroll()
@@ -17,19 +18,16 @@ export function Header() {
 
   return (
     <header
-      className={`
-        sticky top-0 z-50 w-full px-6 py-4 md:px-12 md:py-4
-        backdrop-blur-xl backdrop-saturate-150
-        border-b border-white/50 dark:border-white/10
-        transition-all duration-300
-        ${
-          isScrolled
-            ? 'bg-white/85 dark:bg-slate-900/90 shadow-lg shadow-black/5 dark:shadow-black/20'
-            : 'bg-white/70 dark:bg-slate-900/80'
-        }
-      `}
+      className={cn(
+        'sticky top-0 z-50 w-full px-6 md:px-12',
+        'backdrop-blur-xl backdrop-saturate-150 transition-all duration-300',
+        'border-b',
+        isScrolled
+          ? 'bg-background/85 border-border shadow-sm shadow-black/5'
+          : 'bg-background/60 border-transparent',
+      )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between md:grid md:grid-cols-5">
+      <div className="relative max-w-7xl mx-auto h-16 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr]">
         <Logo />
         <Navigation />
       </div>
