@@ -69,9 +69,19 @@ const resources = {
         subtext:
           "Muslim Daily Tools helps you keep the Qur'an close, your prayers on time, and remembrance in rhythm with fast, minimalist tools that fit your day.",
         cta: 'Explore Our Tools',
+        eyebrow: 'Built by Muslims, for the Ummah',
+        secondaryCta: 'Support the work',
+        trustedBy: 'Trusted by',
+        usersWorldwide: 'Muslims worldwide',
       },
       about: {
         title: 'Who Are We',
+        eyebrow: 'Our mission',
+        values: {
+          private: 'Private by design',
+          lightweight: 'Lightweight and fast',
+          free: 'Free, forever',
+        },
         paragraph1:
           "Muslim Daily Tools is a purpose-driven initiative dedicated to helping Muslims weave worship into everyday life. We build lightweight browser extensions and micro-apps that are respectful, private, and beautifully simple. Whether you're reading, listening, or scheduling your day, our aim is to keep guidance near and distractions away.",
         paragraph2:
@@ -81,6 +91,9 @@ const resources = {
       },
       tools: {
         title: 'Tools',
+        eyebrow: 'What we build',
+        subtitle:
+          'Browser extensions, apps, and small services. Each one does one thing well.',
         comingSoon: 'Coming Soon',
         ratings: 'ratings',
         users: 'users',
@@ -119,6 +132,7 @@ const resources = {
       },
       testimonials: {
         title: 'Trusted by thousands of Muslims worldwide',
+        eyebrow: 'From the Chrome Web Store',
         reviewFor: 'Review for',
         stats: {
           activeUsers: 'Active Users',
@@ -128,6 +142,7 @@ const resources = {
         },
       },
       donate: {
+        eyebrow: 'Sadaqah jariyah',
         title: 'Support Muslim Daily Tools 🌱',
         description:
           'We started with a simple idea: to bring the Quran closer every day. Today, thousands of Muslims use our tools and your support helps us continue building tools that serve the Ummah.',
@@ -146,17 +161,27 @@ const resources = {
       },
       team: {
         title: 'Team',
+        eyebrow: 'The people',
+        subtitle:
+          'Two engineers who build in the evenings and ship on Fridays.',
+        viewProfile: 'View profile',
         members: {
           ahmed: {
             name: 'Ahmed Fathy',
             title:
               'Senior Engineering Manager at Yassir | Founder of Almdrasa | CGO of HaramBlur',
+            shortTitle: 'Engineering leader and founder',
+            summary:
+              '18+ years building products and teams. Founder of Almdrasa, CGO of HaramBlur.',
             bio: "Ahmed Fathy is a seasoned technology leader and entrepreneur with over 18 years of experience building products, leading engineering teams, and scaling businesses. He has founded and co-founded 8 startups, including Almdrasa, an EdTech platform empowering learners across the Arab world, and currently serves as Chief Growth Officer at HaramBlur, an innovative tool protecting Muslims' digital experience.\n\nAlongside his entrepreneurial journey, Ahmed has held senior roles at global companies such as Yassir, Fivos Health, Crossover, and QbDVision, where he led high-performing teams and delivered mission-critical software at scale. His expertise spans engineering management, product strategy, and growth, with a track record of bridging business vision with technical execution.\n\nDriven by a passion for impact, innovation, and Islamic values, Ahmed continues to build tools and platforms that serve communities and shape the future of technology.",
           },
           mohamed: {
             name: 'Mohamed Abusrea',
             title:
               'Staff Frontend Engineer | Co-Founder of Almdrasa | Creator of Quran Tab & Quran Station',
+            shortTitle: 'Staff Frontend Engineer',
+            summary:
+              'Creator of Quran Tab and Quran Station. Co-founder of Almdrasa.',
             bio: 'Mohamed Abusrea is a Staff Frontend Engineer and entrepreneur with over 10 years of experience building scalable, user-focused web applications and digital products. He is the creator of Quran Tab and Quran Station, two widely adopted tools that help millions of Muslims stay connected to the Quran in their daily lives.\n\nOver the past decade, Mohamed has contributed to global companies such as Yassir, QbDVision, Nord Security, Delivery Hero, and Landmark Group, where he specialized in frontend architecture, performance optimization, and building seamless user experiences at scale.\n\nPassionate about the intersection of faith and technology, Mohamed continues to pioneer products that combine modern design, accessibility, and spiritual purpose, making Islamic tools available and delightful for users worldwide.',
           },
         },
@@ -744,9 +769,19 @@ const resources = {
         subtext:
           'أدوات المسلم اليومية تُساعدك على إبقاء القرآن قريبًا، وصلواتك في وقتها، وذكرك منتظمًا بأدوات سريعة وبسيطة تناسب يومك.',
         cta: 'استكشف أدواتنا',
+        eyebrow: 'صنعها مسلمون لخدمة الأمة',
+        secondaryCta: 'ادعم العمل',
+        trustedBy: 'يثق به',
+        usersWorldwide: 'مسلم حول العالم',
       },
       about: {
         title: 'من نحن',
+        eyebrow: 'رسالتنا',
+        values: {
+          private: 'خصوصية في الأساس',
+          lightweight: 'خفيف وسريع',
+          free: 'مجاني دائمًا',
+        },
         paragraph1:
           'أدوات المسلم اليومية هي مبادرة هادفة مكرّسة لمساعدة المسلمين على دمج العبادة في حياتهم اليومية. نبني إضافات متصفح خفيفة وتطبيقات صغيرة تحترم خصوصيتك وتتميز بالبساطة والجمال. سواء كنت تقرأ أو تستمع أو تنظّم يومك، هدفنا هو إبقاء الهداية قريبة والمشتّتات بعيدة.',
         paragraph2:
@@ -756,6 +791,9 @@ const resources = {
       },
       tools: {
         title: 'الأدوات',
+        eyebrow: 'ما نبنيه',
+        subtitle:
+          'إضافات متصفح وتطبيقات وخدمات صغيرة. كل أداة تؤدي مهمة واحدة بإتقان.',
         comingSoon: 'قريبًا',
         ratings: 'تقييم',
         users: 'مستخدم',
@@ -790,6 +828,7 @@ const resources = {
       },
       testimonials: {
         title: 'يثق به آلاف المسلمين حول العالم',
+        eyebrow: 'من متجر Chrome',
         reviewFor: 'تقييم لـ',
         stats: {
           activeUsers: 'مستخدم نشط',
@@ -799,6 +838,7 @@ const resources = {
         },
       },
       donate: {
+        eyebrow: 'صدقة جارية',
         label: 'شارك الثواب',
         title: 'شارك الثواب 🌱',
         description:
@@ -818,13 +858,21 @@ const resources = {
       },
       team: {
         title: 'الفريق',
+        eyebrow: 'الأشخاص',
+        subtitle: 'مهندسان يبنيان في المساء ويطلقان يوم الجمعة.',
+        viewProfile: 'عرض الملف',
         members: {
           ahmed: {
             name: 'أحمد فتحي',
+            shortTitle: 'قائد هندسي ومؤسس',
+            summary:
+              'أكثر من 18 عامًا في بناء المنتجات والفرق. مؤسس المدرسة ومسؤول النمو في HaramBlur.',
             bio: 'أحمد فتحي هو قائد تقني ورائد أعمال متمرس يمتلك أكثر من 18 عامًا من الخبرة في بناء المنتجات وقيادة فرق الهندسة وتوسيع الأعمال. أسس وشارك في تأسيس 8 شركات ناشئة، من بينها المدرسة، وهي منصة تعليمية تُمكّن المتعلمين في العالم العربي، ويشغل حاليًا منصب مسؤول النمو في HaramBlur، أداة مبتكرة لحماية تجربة المسلمين الرقمية.\n\nإلى جانب مسيرته الريادية، شغل أحمد مناصب قيادية في شركات عالمية مثل Yassir وFivos Health وCrossover وQbDVision، حيث قاد فرقًا عالية الأداء وأنجز برمجيات حيوية على نطاق واسع. تمتد خبرته لتشمل إدارة الهندسة واستراتيجية المنتجات والنمو، مع سجل حافل في الربط بين الرؤية التجارية والتنفيذ التقني.\n\nمدفوعًا بشغفه للتأثير والابتكار والقيم الإسلامية، يواصل أحمد بناء أدوات ومنصات تخدم المجتمعات وتُشكّل مستقبل التكنولوجيا.',
           },
           mohamed: {
             name: 'محمد أبوسريع',
+            shortTitle: 'مهندس واجهات أمامية أول',
+            summary: 'مبتكر Quran Tab وQuran Station. شريك مؤسس في المدرسة.',
             bio: 'محمد أبو سريع هو مهندس برمجيات ورائد أعمال يمتلك أكثر من 10 سنوات من الخبرة في بناء تطبيقات ويب قابلة للتوسع ومُركّزة على المستخدم ومنتجات رقمية متنوعة. هو مُبتكر Quran Tab و Quran Station، أداتان مُعتمدتان على نطاق واسع تُساعدان ملايين المسلمين على البقاء على اتصال بالقرآن في حياتهم اليومية.\n\nعلى مدار العقد الماضي، ساهم محمد في شركات عالمية مثل Yassir وQbDVision وNord Security وDelivery Hero وLandmark Group، حيث تخصص في بنية الواجهات الأمامية وتحسين الأداء وبناء تجارب مستخدم سلسة على نطاق واسع.\n\nشغوفًا بالتقاطع بين الإيمان والتكنولوجيا، يواصل محمد ريادة منتجات تجمع بين التصميم الحديث وسهولة الوصول والهدف الروحي، مما يجعل الأدوات الإسلامية متاحة وممتعة للمستخدمين في جميع أنحاء العالم.',
           },
         },

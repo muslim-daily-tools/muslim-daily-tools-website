@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { LuGlobe } from 'react-icons/lu'
+import type {SupportedLanguage} from '@/lib/i18n';
 import {
-  supportedLanguages,
+  
   languageNames,
-  type SupportedLanguage,
+  supportedLanguages
 } from '@/lib/i18n'
 
 export function LanguageSwitcher() {

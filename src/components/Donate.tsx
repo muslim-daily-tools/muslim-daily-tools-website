@@ -2,14 +2,16 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FaHeart } from 'react-icons/fa6'
 import { FadeIn } from '@/lib/animations'
+import { Eyebrow } from '@/components/ui/eyebrow'
 import { getPaymentLink } from '@/lib/stripe'
 
 const PRESET_AMOUNTS = [10, 50, 100] as const
 
-
 export function Donate() {
   const { t } = useTranslation('home')
-  const [billingMode, setBillingMode] = useState<'one_time' | 'monthly'>('monthly')
+  const [billingMode, setBillingMode] = useState<'one_time' | 'monthly'>(
+    'monthly',
+  )
   const [selectedAmount, setSelectedAmount] = useState<number>(50)
 
   const handleCheckout = () => {
@@ -23,27 +25,32 @@ export function Donate() {
   }
 
   return (
-    <section id="donate" className="bg-card py-24 px-6">
-      <div className="max-w-3xl mx-auto text-center">
-        {/* Heading */}
-        <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            {t('donate.title')}
-          </h2>
-        </FadeIn>
-        {/* Description */}
-        <FadeIn delay={0.1}>
-          <p className="flex flex-col gap-3 text-muted-foreground mt-4 max-w-xl mx-auto leading-relaxed">
-            <span>{t('donate.description')}</span>
-            <span className="text-primary font-semibold">
+    <section id="donate" className="py-20 md:py-28 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto rounded-[2rem] border border-gold/30 bg-gradient-to-br from-gold-soft via-card to-card p-8 md:p-14 grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
+        <div className="flex flex-col gap-6 text-start">
+          <FadeIn>
+            <Eyebrow>{t('donate.eyebrow')}</Eyebrow>
+          </FadeIn>
+          <FadeIn delay={0.05}>
+            <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-[1.1] text-balance">
+              {t('donate.title')}
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="text-lg text-muted-foreground leading-relaxed text-pretty max-w-xl">
+              {t('donate.description')}
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <blockquote className="font-display text-xl md:text-2xl italic text-foreground/90 leading-relaxed border-s-2 border-gold ps-5 text-pretty">
               {t('donate.hadith')}
-            </span>
-          </p>
-        </FadeIn>
+            </blockquote>
+          </FadeIn>
+        </div>
 
         {/* Stripe Payment Widget */}
         <FadeIn delay={0.2}>
-          <div className="mt-10 max-w-md mx-auto bg-background rounded-2xl border border-border p-5 md:p-6 shadow-sm">
+          <div className="w-full max-w-md mx-auto lg:ms-auto bg-background rounded-2xl border border-border p-5 md:p-6 shadow-sm">
             {/* Billing toggle */}
             <div className="flex rounded-lg bg-muted p-1 mb-4">
               <button
@@ -70,15 +77,17 @@ export function Donate() {
             </div>
 
             {/* Amount buttons */}
-            <div className={`grid ${billingMode === 'one_time' ? 'grid-cols-4' : 'grid-cols-3'} gap-2 mb-4`}>
+            <div
+              className={`grid ${billingMode === 'one_time' ? 'grid-cols-4' : 'grid-cols-3'} gap-2 mb-4`}
+            >
               {PRESET_AMOUNTS.map((amount) => (
                 <button
                   key={amount}
                   onClick={() => setSelectedAmount(amount)}
                   className={`py-2.5 rounded-lg text-sm font-semibold border transition-all ${
                     selectedAmount === amount
-                      ? 'border-amber-400 dark:border-amber-500 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300'
-                      : 'border-border bg-card text-foreground hover:border-amber-300 dark:hover:border-amber-500'
+                      ? 'border-gold bg-gold-soft text-foreground'
+                      : 'border-border bg-card text-foreground hover:border-gold'
                   }`}
                 >
                   ${amount}
@@ -87,7 +96,7 @@ export function Donate() {
               {billingMode === 'one_time' && (
                 <button
                   onClick={handleCustom}
-                  className="py-2.5 rounded-lg text-xs font-semibold border border-border bg-card text-foreground hover:border-amber-300 dark:hover:border-amber-500 transition-all"
+                  className="py-2.5 rounded-lg text-xs font-semibold border border-border bg-card text-foreground hover:border-gold transition-all"
                 >
                   {t('donate.custom')}
                 </button>
@@ -97,7 +106,7 @@ export function Donate() {
             {/* CTA */}
             <button
               onClick={handleCheckout}
-              className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-lg py-3 text-sm font-semibold shadow-sm transition-all"
+              className="w-full bg-foreground text-background hover:bg-gold hover:text-ink rounded-lg py-3 text-sm font-semibold shadow-sm transition-all"
             >
               {billingMode === 'monthly'
                 ? t('donate.startMonthly')
@@ -105,7 +114,6 @@ export function Donate() {
             </button>
           </div>
         </FadeIn>
-
       </div>
     </section>
   )
