@@ -82,7 +82,7 @@ function StarRating({
 }: {
   rating: number
   size?: 'sm' | 'md'
-}) {
+}): React.JSX.Element {
   const sizeClass = size === 'sm' ? 'w-3.5 h-3.5' : 'w-4 h-4'
 
   return (
@@ -108,78 +108,70 @@ function getInitials(name: string): string {
     .slice(0, 2)
 }
 
-function getAvatarColor(name: string): string {
-  const colors = [
-    'bg-emerald-500',
-    'bg-blue-500',
-    'bg-purple-500',
-    'bg-rose-500',
-    'bg-amber-500',
-    'bg-cyan-500',
-    'bg-indigo-500',
-    'bg-teal-500',
-  ]
-  const index = name.charCodeAt(0) % colors.length
-  return colors[index]
-}
-
-function Avatar({ name, avatar }: { name: string; avatar?: string }) {
+function Avatar({
+  name,
+  avatar,
+}: {
+  name: string
+  avatar?: string
+}): React.JSX.Element {
   if (avatar) {
     return (
       <img
         src={avatar}
         alt={name}
-        className="w-10 h-10 rounded-full object-cover"
+        className="h-10 w-10 border border-border object-cover"
       />
     )
   }
 
   return (
-    <div
-      className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-medium text-sm ${getAvatarColor(name)}`}
-    >
+    <div className="flex h-10 w-10 items-center justify-center border border-lapis/30 bg-lapis-soft text-sm font-semibold text-lapis">
       {getInitials(name)}
     </div>
   )
 }
 
-function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+function TestimonialCard({
+  testimonial,
+  index,
+}: {
+  testimonial: Testimonial
+  index: number
+}): React.JSX.Element {
   const { t } = useTranslation('home')
 
   return (
-    <div className="group bg-background rounded-2xl p-5 border border-border hover:border-gold/60 transition-all duration-200 flex flex-col h-full">
-      {/* Header: Avatar + Name */}
-      <div className="flex items-center gap-3 mb-3">
+    <article className="instrument-panel group flex h-full flex-col p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-lapis/70">
+      <div className="mb-5 flex items-center justify-between border-b border-border pb-3">
+        <span className="coordinate-label text-muted-foreground">
+          SIGNAL / {String(index + 1).padStart(2, '0')}
+        </span>
+        <StarRating rating={testimonial.rating} />
+      </div>
+
+      <div className="mb-4 flex items-center gap-3">
         <Avatar name={testimonial.author} avatar={testimonial.avatar} />
-        <span className="font-medium text-foreground text-sm">
+        <span className="text-sm font-semibold text-foreground">
           {testimonial.author}
         </span>
       </div>
 
-      {/* Star Rating */}
-      <div className="mb-3">
-        <StarRating rating={testimonial.rating} />
-      </div>
-
-      {/* Quote */}
-      <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+      <p className="flex-grow text-sm leading-relaxed text-muted-foreground before:me-1 before:text-xl before:text-copper before:content-['“']">
         {testimonial.quote}
       </p>
 
-      {/* Tool badge at bottom */}
-      <div className="mt-4 pt-3 border-t border-border">
-        <span className="text-xs text-muted-foreground/70">
+      <div className="mt-5 border-t border-border pt-3">
+        <span className="coordinate-label text-[0.58rem] text-muted-foreground/70">
           {t('testimonials.reviewFor')}{' '}
-          <span className="font-medium text-foreground/70">
-            {testimonial.tool}
-          </span>
+          <span className="text-foreground/80">{testimonial.tool}</span>
         </span>
       </div>
-    </div>
+    </article>
   )
 }
 
-export function Testimonials() {
+export function Testimonials(): React.JSX.Element {
   const { t } = useTranslation('home')
 
   // Split testimonials into 3 columns for masonry effect
@@ -193,39 +185,40 @@ export function Testimonials() {
       id="testimonials"
       tone="card"
       width="wide"
+      align="start"
       eyebrow={t('testimonials.eyebrow')}
       title={t('testimonials.title')}
     >
-      <div>
-        {/* Masonry testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Column 1 */}
-          <StaggerContainer className="flex flex-col gap-4" staggerDelay={0.1}>
-            {columns[0].map((testimonial) => (
-              <StaggerItem key={testimonial.author}>
-                <TestimonialCard testimonial={testimonial} />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+      <div className="grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
+        <StaggerContainer className="flex flex-col gap-px" staggerDelay={0.1}>
+          {columns[0].map((testimonial, index) => (
+            <StaggerItem key={testimonial.author}>
+              <TestimonialCard testimonial={testimonial} index={index * 3} />
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
-          {/* Column 2 */}
-          <StaggerContainer className="flex flex-col gap-4" staggerDelay={0.1}>
-            {columns[1].map((testimonial) => (
-              <StaggerItem key={testimonial.author}>
-                <TestimonialCard testimonial={testimonial} />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+        <StaggerContainer className="flex flex-col gap-px" staggerDelay={0.1}>
+          {columns[1].map((testimonial, index) => (
+            <StaggerItem key={testimonial.author}>
+              <TestimonialCard
+                testimonial={testimonial}
+                index={index * 3 + 1}
+              />
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
-          {/* Column 3 */}
-          <StaggerContainer className="flex flex-col gap-4" staggerDelay={0.1}>
-            {columns[2].map((testimonial) => (
-              <StaggerItem key={testimonial.author}>
-                <TestimonialCard testimonial={testimonial} />
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
+        <StaggerContainer className="flex flex-col gap-px" staggerDelay={0.1}>
+          {columns[2].map((testimonial, index) => (
+            <StaggerItem key={testimonial.author}>
+              <TestimonialCard
+                testimonial={testimonial}
+                index={index * 3 + 2}
+              />
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </div>
     </Section>
   )

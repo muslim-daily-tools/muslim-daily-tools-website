@@ -23,7 +23,7 @@ const navLinks: Array<NavLink> = [
 ]
 
 const linkBase =
-  'relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground'
+  'relative text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:text-foreground rtl:normal-case rtl:tracking-normal'
 
 function NavItem({
   link,
@@ -44,7 +44,7 @@ function NavItem({
       <Link to={link.href} className={classes} onClick={onClick}>
         {t(link.labelKey)}
         {isActive && (
-          <span className="hidden md:block absolute -bottom-1.5 left-0 right-0 h-0.5 rounded-full bg-gold" />
+          <span className="absolute -bottom-2 start-1/2 hidden h-1.5 w-1.5 -translate-x-1/2 rotate-45 bg-copper lg:block rtl:translate-x-1/2" />
         )}
       </Link>
     )
@@ -68,29 +68,29 @@ export function Navigation(): React.JSX.Element {
 
   return (
     <>
-      {/* Desktop navigation */}
-      <nav className="hidden md:flex items-center justify-center gap-8">
+      <nav className="hidden items-center justify-center gap-6 lg:flex xl:gap-8">
         {navLinks.map((link) => (
           <NavItem key={link.href} link={link} isActive={isActive(link)} />
         ))}
       </nav>
 
-      {/* Desktop actions */}
-      <div className="hidden md:flex items-center justify-end gap-5">
-        <ThemeToggle />
-        <LanguageSwitcher />
+      <div className="hidden items-center justify-end gap-3 lg:flex">
+        <div className="flex h-9 items-center gap-4 border border-border px-3">
+          <ThemeToggle />
+          <span className="h-3 w-px bg-border" />
+          <LanguageSwitcher />
+        </div>
         <a
           href="/#donate"
-          className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium transition-colors hover:bg-gold hover:text-ink"
+          className="inline-flex h-9 items-center gap-2 bg-lapis px-4 text-xs font-semibold uppercase tracking-[0.06em] text-white transition-colors hover:bg-copper hover:text-[#102044]"
         >
           <FaHandHoldingHeart className="w-3.5 h-3.5" />
           {t('nav.support')}
         </a>
       </div>
 
-      {/* Mobile menu button */}
       <button
-        className="md:hidden p-2 -me-2 text-foreground"
+        className="-me-2 border border-border p-2 text-foreground lg:hidden"
         aria-label={
           isOpen ? t('accessibility.closeMenu') : t('accessibility.openMenu')
         }
@@ -100,7 +100,6 @@ export function Navigation(): React.JSX.Element {
         {isOpen ? <LuX className="w-6 h-6" /> : <LuMenu className="w-6 h-6" />}
       </button>
 
-      {/* Mobile menu panel */}
       <AnimatePresence>
         {isOpen && (
           <m.div
@@ -108,26 +107,26 @@ export function Navigation(): React.JSX.Element {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="absolute top-full inset-x-[-1.5rem] md:hidden bg-background border-b border-border shadow-lg shadow-black/5"
+            className="absolute inset-x-[-1.5rem] top-full border-b border-border bg-background shadow-[0_24px_48px_-24px_rgba(15,35,75,0.55)] lg:hidden"
           >
-            <nav className="flex flex-col px-6 py-4 gap-1">
+            <nav className="flex flex-col gap-1 px-6 py-5">
               {navLinks.map((link) => (
                 <NavItem
                   key={link.href}
                   link={link}
                   isActive={isActive(link)}
                   onClick={closeMenu}
-                  className="py-3 text-base"
+                  className="border-b border-border/60 py-3 text-sm"
                 />
               ))}
-              <div className="mt-2 pt-4 border-t border-border flex items-center justify-between">
+              <div className="mt-3 flex items-center justify-between pt-3">
                 <div className="flex items-center gap-5">
                   <ThemeToggle />
                   <LanguageSwitcher />
                 </div>
                 <a
                   href="/#donate"
-                  className="inline-flex items-center gap-2 h-9 px-4 rounded-full bg-foreground text-background text-sm font-medium"
+                  className="inline-flex h-10 items-center gap-2 bg-lapis px-4 text-sm font-semibold text-white"
                   onClick={closeMenu}
                 >
                   <FaHandHoldingHeart className="w-3.5 h-3.5" />

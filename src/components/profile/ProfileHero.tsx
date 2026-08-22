@@ -7,7 +7,7 @@ import { Eyebrow } from '@/components/ui/eyebrow'
 import { SocialLinks } from '@/components/SocialLinks'
 
 const ctaClass =
-  'inline-flex items-center gap-2 h-11 px-5 rounded-full text-sm font-medium transition-colors'
+  'inline-flex h-11 items-center gap-2 px-5 text-sm font-semibold transition-colors'
 
 export function ProfileHero({
   member,
@@ -19,41 +19,51 @@ export function ProfileHero({
   const name = tHome(`team.members.${member.slug}.name`)
 
   return (
-    <section className="geo-pattern px-6 md:px-12 pt-10 pb-16 md:pt-16 md:pb-24">
-      <div className="max-w-5xl mx-auto">
-        <FadeIn className="print:hidden">
+    <section className="celestial-hero px-6 pb-16 pt-8 md:px-12 md:pb-24 md:pt-12">
+      <div className="mx-auto max-w-7xl">
+        <FadeIn className="flex items-center justify-between border-b border-white/15 pb-4 print:hidden">
           <Link
             to="/"
             hash="team"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-white/55 transition-colors hover:text-white"
           >
-            <LuArrowLeft className="w-4 h-4 rtl:rotate-180" />
+            <LuArrowLeft className="h-4 w-4 rtl:rotate-180" />
             {t('backToTeam')}
           </Link>
+          <span className="coordinate-label hidden text-white/35 sm:inline">
+            PERSONNEL RECORD / {member.slug.toUpperCase()}
+          </span>
         </FadeIn>
 
-        <div className="mt-10 grid gap-10 md:grid-cols-[auto_1fr] md:items-center">
-          <FadeIn variant="scaleIn">
+        <div className="mt-10 grid gap-12 md:mt-16 md:grid-cols-[minmax(14rem,0.7fr)_1.3fr] md:items-center lg:gap-20">
+          <FadeIn variant="scaleIn" className="relative max-w-sm">
+            <div className="absolute -start-3 -top-3 h-12 w-12 border-s border-t border-copper" />
+            <div className="absolute -bottom-3 -end-3 h-12 w-12 border-b border-e border-copper" />
             <img
               src={member.image}
               alt={name}
-              width={224}
-              height={224}
-              className="w-40 h-40 md:w-56 md:h-56 rounded-3xl object-cover border border-border shadow-[0_24px_48px_-24px_rgba(0,0,0,0.35)]"
+              width={480}
+              height={560}
+              className="aspect-[4/5] w-full border border-white/20 object-cover object-top grayscale-[12%] shadow-[0_30px_70px_-35px_rgba(0,0,0,0.8)]"
             />
+            <span className="coordinate-label absolute bottom-4 start-4 bg-[#102044]/85 px-2 py-1.5 text-white/65">
+              MDT / TEAM
+            </span>
           </FadeIn>
 
-          <div className="flex flex-col items-start gap-5">
+          <div className="flex flex-col items-start gap-6">
             <FadeIn delay={0.05}>
-              <Eyebrow>{t(`${member.slug}.role`)}</Eyebrow>
+              <Eyebrow className="text-copper before:border-copper">
+                {t(`${member.slug}.role`)}
+              </Eyebrow>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium text-foreground leading-[1.02]">
+              <h1 className="font-display text-5xl font-semibold leading-[0.98] text-white sm:text-6xl lg:text-8xl rtl:leading-[1.35]">
                 {name}
               </h1>
             </FadeIn>
             <FadeIn delay={0.15}>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl text-pretty">
+              <p className="max-w-2xl border-s border-white/25 ps-5 text-xl leading-relaxed text-pretty text-white/68">
                 {t(`${member.slug}.tagline`)}
               </p>
             </FadeIn>
@@ -64,18 +74,18 @@ export function ProfileHero({
               {member.email && (
                 <a
                   href={`mailto:${member.email}`}
-                  className={`${ctaClass} bg-foreground text-background hover:bg-gold hover:text-ink`}
+                  className={`${ctaClass} bg-copper text-[#102044] hover:bg-white`}
                 >
-                  <LuMail className="w-4 h-4" />
+                  <LuMail className="h-4 w-4" />
                   {t('actions.email')}
                 </a>
               )}
               {member.cvUrl && (
                 <a
                   href={member.cvUrl}
-                  className={`${ctaClass} border border-border bg-card/60 text-foreground hover:border-gold hover:text-gold`}
+                  className={`${ctaClass} border border-white/25 text-white hover:border-white hover:bg-white/10`}
                 >
-                  <LuDownload className="w-4 h-4" />
+                  <LuDownload className="h-4 w-4" />
                   {t('actions.downloadCv')}
                 </a>
               )}
@@ -84,14 +94,17 @@ export function ProfileHero({
                   href={member.socials.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${ctaClass} border border-border bg-card/60 text-foreground hover:border-gold hover:text-gold`}
+                  className={`${ctaClass} border border-white/25 text-white hover:border-white hover:bg-white/10`}
                 >
-                  <LuYoutube className="w-4 h-4" />
+                  <LuYoutube className="h-4 w-4" />
                   {t('actions.watchChannel')}
                 </a>
               )}
             </FadeIn>
-            <FadeIn delay={0.25}>
+            <FadeIn
+              delay={0.25}
+              className="[&_a]:text-white/55 [&_a:hover]:text-copper"
+            >
               <SocialLinks socials={member.socials} size="md" />
             </FadeIn>
           </div>

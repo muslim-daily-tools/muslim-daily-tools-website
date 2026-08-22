@@ -15,34 +15,51 @@ export function About(): React.JSX.Element {
 
   return (
     <Section id="about" tone="card" width="wide">
-      <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
-        <FadeIn className="flex flex-col gap-6">
-          <Eyebrow>{t('about.eyebrow')}</Eyebrow>
-          <blockquote className="font-display text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.15] text-foreground text-balance">
-            <span className="text-gold">“</span>
+      <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+        <FadeIn className="flex flex-col items-start">
+          <div className="mb-10 flex w-full items-center justify-between border-b border-border pb-4">
+            <Eyebrow>{t('about.eyebrow')}</Eyebrow>
+            <span className="coordinate-label text-muted-foreground">
+              FIELD NOTE / 01
+            </span>
+          </div>
+          <blockquote className="font-display relative text-4xl font-semibold leading-[1.08] text-balance text-foreground md:text-5xl rtl:leading-[1.45]">
+            <span
+              aria-hidden="true"
+              className="absolute -start-2 -top-8 font-mono text-7xl font-light text-copper/35"
+            >
+              “
+            </span>
             {t('about.quote')}
-            <span className="text-gold">”</span>
           </blockquote>
+          <div className="mt-10 h-px w-24 bg-copper" />
         </FadeIn>
 
-        <FadeIn delay={0.1} className="flex flex-col gap-6">
-          <h2 className="text-2xl font-semibold text-foreground">
+        <FadeIn delay={0.1} className="flex flex-col gap-7">
+          <h2 className="font-display text-3xl font-semibold text-foreground md:text-4xl">
             {t('about.title')}
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
+          <p className="text-lg leading-relaxed text-pretty text-muted-foreground">
             {t('about.paragraph1')}
           </p>
-          <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
+          <p className="text-lg leading-relaxed text-pretty text-muted-foreground">
             {t('about.paragraph2')} {t('about.quote')}.
           </p>
-          <ul className="flex flex-wrap gap-2.5 mt-2">
-            {values.map(({ key, Icon }) => (
+          <ul className="mt-2 grid border-s border-t border-border sm:grid-cols-3">
+            {values.map(({ key, Icon }, index) => (
               <li
                 key={key}
-                className="inline-flex items-center gap-2 h-9 px-3.5 rounded-full border border-border bg-background text-sm font-medium text-foreground"
+                className="flex min-h-32 flex-col justify-between border-b border-e border-border bg-background/50 p-4"
               >
-                <Icon className="w-3.5 h-3.5 text-gold" />
-                {t(key)}
+                <div className="flex items-start justify-between">
+                  <Icon className="h-5 w-5 text-lapis" />
+                  <span className="coordinate-label text-muted-foreground/60">
+                    0{index + 1}
+                  </span>
+                </div>
+                <span className="text-sm font-semibold text-foreground">
+                  {t(key)}
+                </span>
               </li>
             ))}
           </ul>

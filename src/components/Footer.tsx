@@ -1,7 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { FaGithub, FaXTwitter, FaYoutube } from 'react-icons/fa6'
-import { Logo } from './Logo'
 
 const toolLinks = [
   { label: 'Quran Tab', href: '/#tools' },
@@ -25,22 +24,36 @@ const socials = [
   },
 ]
 
-const linkClass =
-  'text-sm text-muted-foreground hover:text-foreground transition-colors'
+const linkClass = 'text-sm text-white/55 transition-colors hover:text-copper'
 
 export function Footer(): React.JSX.Element {
   const { t } = useTranslation('common')
 
   return (
-    <footer className="w-full border-t border-border bg-card/60">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-14">
-        <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
-          <div className="flex flex-col items-start gap-4">
-            <Logo />
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+    <footer className="celestial-hero w-full border-t border-white/15">
+      <div className="mx-auto max-w-7xl px-6 py-14 md:px-12 md:py-20">
+        <div className="mb-12 flex items-center justify-between border-b border-white/15 pb-4">
+          <span className="coordinate-label text-white/45">
+            MDT / END OF RECORD
+          </span>
+          <span className="coordinate-label text-copper">EST. 2020</span>
+        </div>
+
+        <div className="grid gap-12 md:grid-cols-[1.4fr_0.8fr_0.8fr]">
+          <div className="flex flex-col items-start gap-5">
+            <Link to="/" aria-label="Muslim Daily Tools">
+              <img
+                src="/logo-dark.png"
+                width={160}
+                height={96}
+                alt=""
+                className="h-16 w-auto"
+              />
+            </Link>
+            <p className="max-w-sm text-sm leading-relaxed text-white/55">
               {t('footer.tagline')}
             </p>
-            <div className="flex items-center gap-4 mt-2">
+            <div className="mt-2 flex items-center gap-2">
               {socials.map(({ label, href, Icon }) => (
                 <a
                   key={label}
@@ -48,19 +61,19 @@ export function Footer(): React.JSX.Element {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex h-9 w-9 items-center justify-center border border-white/15 text-white/55 transition-colors hover:border-copper hover:text-copper"
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-4">
+            <h3 className="coordinate-label mb-5 text-copper">
               {t('footer.tools')}
             </h3>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-3">
               {toolLinks.map((link) => (
                 <li key={link.label}>
                   <a href={link.href} className={linkClass}>
@@ -72,10 +85,10 @@ export function Footer(): React.JSX.Element {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-gold mb-4">
+            <h3 className="coordinate-label mb-5 text-copper">
               {t('footer.company')}
             </h3>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-3">
               <li>
                 <a href="/#team" className={linkClass}>
                   {t('nav.team')}
@@ -105,7 +118,7 @@ export function Footer(): React.JSX.Element {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
+        <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/40 md:flex-row md:items-center">
           <p>
             &copy; {new Date().getFullYear()} {t('footer.copyright')}
           </p>

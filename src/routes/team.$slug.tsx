@@ -70,12 +70,17 @@ export const Route = createFileRoute('/team/$slug')({
 function ProfileNotFound(): React.JSX.Element {
   const { t } = useTranslation('profile')
   return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4 px-6 text-center">
-      <h1 className="font-display text-4xl text-foreground">404</h1>
+    <div className="geo-pattern flex min-h-[60vh] flex-col items-center justify-center gap-5 px-6 text-center">
+      <span className="coordinate-label text-muted-foreground">
+        RECORD NOT FOUND
+      </span>
+      <h1 className="font-display text-7xl font-semibold text-foreground">
+        404
+      </h1>
       <Link
         to="/"
         hash="team"
-        className="inline-flex items-center gap-2 text-sm font-medium text-gold"
+        className="inline-flex items-center gap-2 border border-border bg-card px-5 py-3 text-sm font-semibold text-lapis transition-colors hover:border-lapis"
       >
         <LuArrowLeft className="w-4 h-4 rtl:rotate-180" />
         {t('backToTeam')}
@@ -88,7 +93,7 @@ function ProfilePage(): React.JSX.Element {
   const { member } = Route.useLoaderData()
 
   return (
-    <article className="profile-page">
+    <article className="profile-page overflow-hidden">
       <ProfileHero member={member} />
       <ProfileBio member={member} />
       <ProfileProjects member={member} />

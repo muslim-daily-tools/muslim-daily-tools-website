@@ -20,24 +20,27 @@ export function ProfileExperience({
     >
       <StaggerContainer
         as="ol"
-        className="relative max-w-3xl border-s border-border ms-2"
+        className="max-w-4xl border-s border-t border-border"
         staggerDelay={0.08}
       >
-        {member.experience.map((job) => (
+        {member.experience.map((job, index) => (
           <StaggerItem
             key={job.company}
             as="li"
-            className="relative ps-8 pb-10 last:pb-0"
+            className="grid border-b border-border sm:grid-cols-[5rem_1fr]"
           >
-            <span className="absolute -start-[5px] top-2 w-2.5 h-2.5 rounded-full bg-gold ring-4 ring-card" />
-            <div className="flex flex-col gap-1">
+            <span className="coordinate-label border-e border-border p-5 text-muted-foreground/60">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <div className="relative flex flex-col gap-1 p-5 md:p-7">
+              <span className="absolute end-5 top-5 h-1.5 w-1.5 rotate-45 bg-copper" />
               <h3 className="text-lg font-semibold text-foreground">
                 {job.href ? (
                   <a
                     href={job.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-gold transition-colors"
+                    className="transition-colors hover:text-lapis"
                   >
                     {job.company}
                   </a>
@@ -47,7 +50,7 @@ export function ProfileExperience({
               </h3>
               <p className="text-muted-foreground">{t(job.roleKey)}</p>
               {job.period && (
-                <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground/70">
+                <p className="coordinate-label mt-2 text-muted-foreground/70">
                   {job.period}
                 </p>
               )}

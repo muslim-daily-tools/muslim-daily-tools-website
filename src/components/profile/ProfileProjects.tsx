@@ -8,7 +8,7 @@ import { Eyebrow } from '@/components/ui/eyebrow'
 import { cn } from '@/lib/utils'
 
 const cardClass =
-  'group flex h-full flex-col gap-4 rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60'
+  'instrument-panel group flex h-full flex-col gap-4 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-lapis/70'
 
 export function ProfileProjects({
   member,
@@ -30,10 +30,10 @@ export function ProfileProjects({
     >
       <StaggerContainer
         as="div"
-        className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+        className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3"
         staggerDelay={0.08}
       >
-        {memberTools.map((tool) => {
+        {memberTools.map((tool, index) => {
           const primaryLink = tool.links[0]
           return (
             <StaggerItem key={tool.slug} variant="scaleIn" className="h-full">
@@ -43,9 +43,15 @@ export function ProfileProjects({
                 rel="noopener noreferrer"
                 className={cardClass}
               >
+                <div className="mb-2 flex items-center justify-between border-b border-border pb-3">
+                  <span className="coordinate-label text-muted-foreground">
+                    TOOL / {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="h-1.5 w-1.5 rotate-45 bg-copper" />
+                </div>
                 <div
                   className={cn(
-                    'w-14 h-14 rounded-2xl border border-border bg-background overflow-hidden flex items-center justify-center',
+                    'flex h-16 w-16 items-center justify-center overflow-hidden border border-border bg-background',
                     tool.fullBleedLogo ? 'p-0' : 'p-2',
                   )}
                 >
@@ -56,11 +62,11 @@ export function ProfileProjects({
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h3 className="font-display text-2xl font-medium text-foreground">
+                  <h3 className="font-display text-2xl font-semibold text-foreground">
                     {tHome(tool.titleKey)}
                   </h3>
                   {tool.userCount && (
-                    <p className="text-xs font-medium text-gold">
+                    <p className="coordinate-label mt-1 text-lapis">
                       {tool.userCount} {tHome('tools.users')}
                     </p>
                   )}
@@ -68,7 +74,7 @@ export function ProfileProjects({
                 <p className="text-sm text-muted-foreground leading-relaxed flex-1 text-pretty">
                   {tHome(tool.descriptionKey)}
                 </p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-foreground group-hover:text-gold transition-colors">
+                <span className="inline-flex items-center gap-1 text-sm font-semibold text-foreground transition-colors group-hover:text-lapis">
                   {t('actions.openTool')}
                   <LuArrowUpRight className="w-4 h-4" />
                 </span>
@@ -83,10 +89,10 @@ export function ProfileProjects({
           <Eyebrow>{t('sections.projects')}</Eyebrow>
           <StaggerContainer
             as="div"
-            className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3"
             staggerDelay={0.08}
           >
-            {member.projects.map((project) => (
+            {member.projects.map((project, index) => (
               <StaggerItem
                 key={project.name}
                 variant="scaleIn"
@@ -98,18 +104,21 @@ export function ProfileProjects({
                   rel="noopener noreferrer"
                   className={cardClass}
                 >
+                  <span className="coordinate-label border-b border-border pb-3 text-muted-foreground">
+                    PROJECT / {String(index + 1).padStart(2, '0')}
+                  </span>
                   <div className="flex flex-col gap-1">
-                    <h3 className="font-display text-2xl font-medium text-foreground">
+                    <h3 className="font-display text-2xl font-semibold text-foreground">
                       {project.name}
                     </h3>
-                    <p className="text-xs font-medium text-gold">
+                    <p className="coordinate-label mt-1 text-lapis">
                       {t(project.roleKey)}
                     </p>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed flex-1 text-pretty">
                     {t(project.descriptionKey)}
                   </p>
-                  <span className="inline-flex items-center gap-1 text-sm font-medium text-foreground group-hover:text-gold transition-colors">
+                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-foreground transition-colors group-hover:text-lapis">
                     {t('actions.visit')}
                     <LuArrowUpRight className="w-4 h-4" />
                   </span>

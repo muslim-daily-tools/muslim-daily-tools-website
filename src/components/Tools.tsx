@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next'
 import { LuArrowUpRight, LuStar, LuUsers } from 'react-icons/lu'
 import { FaApple, FaChrome, FaFirefoxBrowser, FaGlobe } from 'react-icons/fa6'
 import type { IconType } from 'react-icons'
-import type {Platform, Tool} from '@/data/tools';
+import type { Platform, Tool } from '@/data/tools'
 import { StaggerContainer, StaggerItem } from '@/lib/animations'
-import {   tools } from '@/data/tools'
+import { tools } from '@/data/tools'
 import { Section } from '@/components/ui/section'
 import { cn } from '@/lib/utils'
 
@@ -20,16 +20,16 @@ function StarRating({ rating }: { rating: number }): React.JSX.Element {
   const hasHalfStar = rating % 1 >= 0.5
 
   return (
-    <div className="inline-flex items-center gap-0.5">
-      {[...Array(5)].map((_, i) => (
+    <div className="inline-flex items-center gap-0.5" aria-hidden="true">
+      {[...Array(5)].map((_, index) => (
         <LuStar
-          key={i}
+          key={index}
           className={cn(
-            'w-3.5 h-3.5',
-            i < fullStars
-              ? 'fill-gold text-gold'
-              : i === fullStars && hasHalfStar
-                ? 'fill-gold/50 text-gold'
+            'h-3 w-3',
+            index < fullStars
+              ? 'fill-copper text-copper'
+              : index === fullStars && hasHalfStar
+                ? 'fill-copper/50 text-copper'
                 : 'fill-muted text-muted',
           )}
         />
@@ -57,7 +57,7 @@ function ToolStats({ tool }: { tool: Tool }): React.JSX.Element | null {
       )}
       {tool.userCount && (
         <span className="inline-flex items-center gap-1.5">
-          <LuUsers className="w-3.5 h-3.5" />
+          <LuUsers className="h-3.5 w-3.5" />
           {tool.userCount} {t('tools.users')}
         </span>
       )}
@@ -78,11 +78,11 @@ function PlatformLinks({ tool }: { tool: Tool }): React.JSX.Element {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-border bg-background text-xs font-medium text-foreground transition-colors hover:border-gold hover:text-gold"
+            className="inline-flex h-9 items-center gap-2 border border-border bg-background px-3 text-xs font-semibold text-foreground transition-colors hover:border-lapis hover:bg-lapis hover:text-white"
           >
-            <Icon className="w-3.5 h-3.5" />
+            <Icon className="h-3.5 w-3.5" />
             {t(link.labelKey)}
-            <LuArrowUpRight className="w-3 h-3 opacity-60" />
+            <LuArrowUpRight className="h-3 w-3 opacity-60 rtl:-scale-x-100" />
           </a>
         )
       })}
@@ -93,9 +93,11 @@ function PlatformLinks({ tool }: { tool: Tool }): React.JSX.Element {
 function ToolCard({
   tool,
   featured,
+  index,
 }: {
   tool: Tool
   featured: boolean
+  index: number
 }): React.JSX.Element {
   const { t } = useTranslation('home')
   const title = t(tool.titleKey)
@@ -105,43 +107,56 @@ function ToolCard({
       id={tool.slug}
       aria-label={title}
       className={cn(
-        'group relative flex h-full flex-col gap-5 rounded-3xl border border-border bg-card p-6 md:p-8',
-        'transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/60 hover:shadow-[0_24px_48px_-24px_rgba(0,0,0,0.25)]',
-        featured && 'md:flex-row md:items-start md:gap-8',
+        'instrument-panel group flex h-full flex-col p-5 transition-all duration-300 hover:-translate-y-1 hover:border-lapis/70 md:p-7',
+        featured && 'md:min-h-[25rem]',
       )}
     >
-      <div
-        className={cn(
-          'shrink-0 rounded-2xl border border-border bg-background overflow-hidden flex items-center justify-center',
-          featured ? 'w-20 h-20 md:w-28 md:h-28' : 'w-14 h-14',
-          tool.fullBleedLogo ? 'p-0' : featured ? 'p-3' : 'p-2',
-        )}
-      >
-        <img
-          src={tool.logo}
-          alt={`${title} logo`}
-          className="w-full h-full object-contain"
-        />
+      <div className="mb-7 flex items-center justify-between border-b border-border pb-3">
+        <span className="coordinate-label text-muted-foreground">
+          TOOL / {String(index + 1).padStart(2, '0')}
+        </span>
+        <span aria-hidden="true" className="h-1.5 w-1.5 rotate-45 bg-copper" />
       </div>
 
-      <div className="flex flex-1 flex-col gap-4">
-        <div className="flex flex-col gap-2">
-          <h3
-            className={cn(
-              'font-display font-medium text-foreground leading-tight',
-              featured ? 'text-3xl md:text-4xl' : 'text-2xl',
-            )}
-          >
-            {title}
-          </h3>
-          <ToolStats tool={tool} />
+      <div
+        className={cn(
+          'flex flex-1 flex-col gap-6',
+          featured && 'sm:grid sm:grid-cols-[auto_1fr] sm:items-start',
+        )}
+      >
+        <div
+          className={cn(
+            'flex shrink-0 items-center justify-center overflow-hidden border border-border bg-background',
+            featured ? 'h-20 w-20 md:h-24 md:w-24' : 'h-16 w-16',
+            tool.fullBleedLogo ? 'p-0' : 'p-2.5',
+          )}
+        >
+          <img
+            src={tool.logo}
+            alt={`${title} logo`}
+            className="h-full w-full object-contain"
+          />
         </div>
 
-        <p className="text-muted-foreground leading-relaxed text-pretty flex-1">
-          {t(tool.descriptionKey)}
-        </p>
+        <div className="flex h-full flex-col gap-4">
+          <div className="flex flex-col gap-2">
+            <h3
+              className={cn(
+                'font-display font-semibold leading-tight text-foreground',
+                featured ? 'text-3xl md:text-4xl' : 'text-2xl',
+              )}
+            >
+              {title}
+            </h3>
+            <ToolStats tool={tool} />
+          </div>
 
-        <PlatformLinks tool={tool} />
+          <p className="flex-1 text-sm leading-relaxed text-pretty text-muted-foreground md:text-base">
+            {t(tool.descriptionKey)}
+          </p>
+
+          <PlatformLinks tool={tool} />
+        </div>
       </div>
     </article>
   )
@@ -154,27 +169,28 @@ export function Tools(): React.JSX.Element {
     <Section
       id="tools"
       width="wide"
+      align="start"
       eyebrow={t('tools.eyebrow')}
       title={t('tools.title')}
       description={t('tools.subtitle')}
     >
       <StaggerContainer
         as="div"
-        className="grid gap-5 md:grid-cols-2 lg:grid-cols-6"
+        className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-6"
         staggerDelay={0.08}
       >
-        {tools.map((tool) => {
+        {tools.map((tool, index) => {
           const featured = tool.rating !== undefined
           return (
             <StaggerItem
               key={tool.slug}
               variant="scaleIn"
               className={cn(
-                'h-full',
-                featured ? 'md:col-span-2 lg:col-span-3' : 'lg:col-span-2',
+                'h-full bg-background',
+                featured ? 'md:col-span-1 lg:col-span-3' : 'lg:col-span-2',
               )}
             >
-              <ToolCard tool={tool} featured={featured} />
+              <ToolCard tool={tool} featured={featured} index={index} />
             </StaggerItem>
           )
         })}

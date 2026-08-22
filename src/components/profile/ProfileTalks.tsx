@@ -23,15 +23,15 @@ export function ProfileTalks({
           href={member.socials.youtube}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col sm:flex-row sm:items-center gap-5 rounded-3xl border border-border bg-card p-6 md:p-8 transition-all duration-300 hover:border-gold/60"
+          className="instrument-panel group flex flex-col gap-5 p-6 transition-all duration-300 hover:border-lapis/70 sm:flex-row sm:items-center md:p-8"
         >
-          <span className="flex w-14 h-14 shrink-0 items-center justify-center rounded-2xl bg-gold-soft text-gold">
+          <span className="flex h-14 w-14 shrink-0 items-center justify-center border border-lapis/25 bg-lapis-soft text-lapis">
             <LuYoutube className="w-7 h-7" />
           </span>
           <span className="flex-1 text-lg text-muted-foreground text-pretty">
             {t('talksEmpty')}
           </span>
-          <span className="inline-flex items-center gap-2 text-sm font-medium text-foreground group-hover:text-gold transition-colors">
+          <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors group-hover:text-lapis">
             <LuPlay className="w-4 h-4" />
             {t('actions.watchChannel')}
           </span>
@@ -39,7 +39,7 @@ export function ProfileTalks({
       ) : (
         <StaggerContainer
           as="div"
-          className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3"
           staggerDelay={0.08}
         >
           {member.talks.map((talk) => {
@@ -54,14 +54,14 @@ export function ProfileTalks({
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card transition-all duration-300 hover:border-gold/60"
+                  className="instrument-panel group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-lapis/70"
                 >
                   {talk.youtubeId && (
                     <img
                       src={`https://img.youtube.com/vi/${talk.youtubeId}/hqdefault.jpg`}
                       alt=""
                       loading="lazy"
-                      className="aspect-video w-full object-cover"
+                      className="aspect-video w-full border-b border-border object-cover grayscale-[15%] transition-all group-hover:grayscale-0"
                     />
                   )}
                   <div className="flex flex-col gap-1 p-5">

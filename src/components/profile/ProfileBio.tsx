@@ -19,14 +19,19 @@ export function ProfileBio({
       title={tHome(`team.members.${member.slug}.title`)}
       className="py-16 md:py-20"
     >
-      <div className="max-w-3xl flex flex-col gap-5">
+      <div className="max-w-4xl border-s border-border">
         {paragraphs.map((paragraph, index) => (
-          <p
+          <div
             key={index}
-            className="text-lg text-muted-foreground leading-relaxed text-pretty"
+            className="grid border-b border-border sm:grid-cols-[5rem_1fr]"
           >
-            {paragraph}
-          </p>
+            <span className="coordinate-label border-e border-border p-5 text-muted-foreground/60">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <p className="p-5 text-lg leading-relaxed text-pretty text-muted-foreground md:p-7">
+              {paragraph}
+            </p>
+          </div>
         ))}
       </div>
     </Section>

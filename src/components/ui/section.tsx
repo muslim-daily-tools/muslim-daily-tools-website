@@ -19,7 +19,7 @@ interface SectionProps extends Omit<
 
 const toneClasses: Record<SectionTone, string> = {
   default: '',
-  card: 'bg-card',
+  card: 'bg-card/70 border-y border-border',
   pattern: 'geo-pattern',
 }
 
@@ -47,7 +47,7 @@ export function Section({
   return (
     <section
       className={cn(
-        'py-20 md:py-28 px-6 md:px-12',
+        'px-6 py-20 md:px-12 md:py-28',
         toneClasses[tone],
         className,
       )}
@@ -56,16 +56,16 @@ export function Section({
       <div className={cn('mx-auto', widthClasses[width])}>
         {hasHeader && (
           <FadeIn
-            className={cn('flex flex-col gap-4 mb-12 md:mb-16', alignClasses)}
+            className={cn('mb-12 flex flex-col gap-5 md:mb-16', alignClasses)}
           >
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
             {title && (
-              <h2 className="font-display text-4xl md:text-5xl font-medium text-foreground leading-[1.1] text-balance">
+              <h2 className="font-display max-w-4xl text-4xl font-semibold leading-[1.02] text-balance text-foreground md:text-6xl rtl:leading-[1.35]">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl text-pretty">
+              <p className="max-w-2xl text-lg leading-relaxed text-pretty text-muted-foreground">
                 {description}
               </p>
             )}
