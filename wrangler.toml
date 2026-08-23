@@ -1,6 +1,8 @@
 #:schema node_modules/wrangler/config-schema.json
 
 name = "muslim-daily-tools"
+# The API token can see more than one account; pin the one that owns this Worker
+account_id = "d0d4093e165b172528b24f10b4fa6e25"
 main = "@tanstack/react-start/server-entry"
 compatibility_date = "2025-01-01"
 compatibility_flags = ["nodejs_compat"]
