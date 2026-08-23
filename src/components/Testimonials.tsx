@@ -1,6 +1,7 @@
 import { LuStar } from 'react-icons/lu'
 import { useTranslation } from 'react-i18next'
 import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
+import { CountUp } from './CountUp'
 
 interface Testimonial {
   quote: string
@@ -161,9 +162,10 @@ function StatCard({ stat }: { stat: Stat }) {
 
   return (
     <div className="flex flex-col items-center text-center px-4 py-2">
-      <span className="text-2xl md:text-3xl font-bold text-foreground">
-        {stat.value}
-      </span>
+      <CountUp
+        value={stat.value}
+        className="text-2xl md:text-3xl font-bold text-foreground tabular-nums"
+      />
       <span className="text-sm text-muted-foreground mt-1">
         {t(stat.labelKey)}
       </span>
@@ -171,11 +173,7 @@ function StatCard({ stat }: { stat: Stat }) {
   )
 }
 
-function TestimonialCard({
-  testimonial,
-}: {
-  testimonial: Testimonial
-}) {
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const { t } = useTranslation('home')
 
   return (

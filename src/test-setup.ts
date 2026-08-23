@@ -8,7 +8,7 @@ class MockIntersectionObserver implements IntersectionObserver {
 
   constructor(
     private callback: IntersectionObserverCallback,
-    _options?: IntersectionObserverInit
+    _options?: IntersectionObserverInit,
   ) {
     // Immediately trigger callback with all observed elements as visible
     setTimeout(() => {
@@ -26,3 +26,17 @@ class MockIntersectionObserver implements IntersectionObserver {
 }
 
 global.IntersectionObserver = MockIntersectionObserver
+
+// jsdom has no matchMedia; components treat every query as not matching
+if (typeof window !== 'undefined' && !window.matchMedia) {
+  window.matchMedia = (query: string): MediaQueryList => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => false,
+  })
+}

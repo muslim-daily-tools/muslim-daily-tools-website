@@ -1,10 +1,11 @@
 import { LuArrowUpRight, LuStar, LuUsers } from 'react-icons/lu'
 import { FaApple, FaChrome, FaFirefoxBrowser, FaGlobe } from 'react-icons/fa6'
 import { useTranslation } from 'react-i18next'
+import { PinnedPair } from './PinnedPair'
 import type { IconType } from 'react-icons'
-import type {Platform, Tool} from '@/data/tools';
+import type { Platform, Tool } from '@/data/tools'
 import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
-import {   tools } from '@/data/tools'
+import { getFeaturedTools, tools } from '@/data/tools'
 import { cn } from '@/lib/utils'
 
 const platformIcons: Record<Platform, IconType> = {
@@ -148,6 +149,8 @@ function ToolCard({
 
 export function Tools(): React.JSX.Element {
   const { t } = useTranslation('home')
+  const featuredTools = getFeaturedTools()
+  const otherTools = tools.filter((tool) => tool.rating === undefined)
 
   return (
     <section id="tools" className="py-24 px-6">
@@ -158,26 +161,22 @@ export function Tools(): React.JSX.Element {
           </h2>
         </FadeIn>
 
+        <PinnedPair
+          className="grid gap-5 md:grid-cols-2"
+          first={<ToolCard tool={featuredTools[0]} featured />}
+          second={<ToolCard tool={featuredTools[1]} featured />}
+        />
+
         <StaggerContainer
           as="div"
-          className="grid gap-5 md:grid-cols-2 lg:grid-cols-6"
+          className="mt-5 grid gap-5 md:grid-cols-3"
           staggerDelay={0.08}
         >
-          {tools.map((tool) => {
-            const featured = tool.rating !== undefined
-            return (
-              <StaggerItem
-                key={tool.slug}
-                variant="scaleIn"
-                className={cn(
-                  'h-full',
-                  featured ? 'md:col-span-2 lg:col-span-3' : 'lg:col-span-2',
-                )}
-              >
-                <ToolCard tool={tool} featured={featured} />
-              </StaggerItem>
-            )
-          })}
+          {otherTools.map((tool) => (
+            <StaggerItem key={tool.slug} variant="scaleIn" className="h-full">
+              <ToolCard tool={tool} featured={false} />
+            </StaggerItem>
+          ))}
         </StaggerContainer>
       </div>
     </section>
