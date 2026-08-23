@@ -11,6 +11,7 @@ import type { IconType } from 'react-icons'
 import type { Platform, Tool } from '@/data/tools'
 import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
 import { tools } from '@/data/tools'
+import { formatCount } from '@/lib/format-count'
 import { cn } from '@/lib/utils'
 
 const platformIcons: Record<Platform, IconType> = {
@@ -56,7 +57,7 @@ function ToolStats({ tool }: { tool: Tool }): React.JSX.Element | null {
           <span className="font-semibold text-foreground">{tool.rating}</span>
           {tool.reviewCount && (
             <span>
-              ({tool.reviewCount.toLocaleString()} {t('tools.ratings')})
+              ({formatCount(tool.reviewCount)} {t('tools.ratings')})
             </span>
           )}
         </span>

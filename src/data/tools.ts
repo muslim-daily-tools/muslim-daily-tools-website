@@ -67,9 +67,9 @@ export const tools: Array<Tool> = [
         href: 'https://play.google.com/store/apps/details?id=com.mohamedabusrea.quranstation',
       },
     ],
-    rating: 5.0,
-    reviewCount: 298,
-    userCount: '10K',
+    rating: 4.9,
+    reviewCount: 521,
+    userCount: '11K',
   },
   {
     slug: 'quran-tab',
@@ -90,7 +90,7 @@ export const tools: Array<Tool> = [
       },
     ],
     rating: 4.9,
-    reviewCount: 886,
+    reviewCount: 1100,
     userCount: '50K',
   },
   {
