@@ -378,6 +378,10 @@ const resources = {
         },
       },
       quranTab: {
+        v4150: {
+          improved1:
+            'Improved Quran Tab’s foundations to help us understand which features are most useful and focus future improvements where they matter most.',
+        },
         v4140: {
           new1: 'Click the Quran Tab toolbar icon to see prayer-friendly meeting times without opening a new tab',
           improved1:
@@ -1031,6 +1035,10 @@ const resources = {
         },
       },
       quranTab: {
+        v4150: {
+          improved1:
+            'حسّنّا أساسات Quran Tab لنعرف الميزات الأكثر فائدة ونركّز التحسينات القادمة حيث تكون أهم للمستخدمين.',
+        },
         v4140: {
           new1: 'اضغط على أيقونة Quran Tab في شريط المتصفح لمعرفة الأوقات المناسبة للاجتماعات بين الصلوات دون فتح تبويب جديد',
           improved1:
