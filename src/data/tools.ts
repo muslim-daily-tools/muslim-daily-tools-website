@@ -11,7 +11,7 @@ export type ToolSlug =
   | 'pray-on-time'
   | 'nawaya'
 
-export type Platform = 'website' | 'chrome' | 'firefox' | 'ios'
+export type Platform = 'website' | 'chrome' | 'firefox' | 'ios' | 'android'
 
 export interface ToolLink {
   platform: Platform
@@ -60,6 +60,11 @@ export const tools: Array<Tool> = [
         platform: 'ios',
         labelKey: 'tools.links.ios',
         href: 'https://apps.apple.com/us/app/quran-station-app/id6740748479',
+      },
+      {
+        platform: 'android',
+        labelKey: 'tools.links.android',
+        href: 'https://play.google.com/store/apps/details?id=com.mohamedabusrea.quranstation',
       },
     ],
     rating: 5.0,
