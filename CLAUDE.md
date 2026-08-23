@@ -71,6 +71,7 @@ pnpm dlx shadcn@latest add <component>
 - `src/routes/` - File-based routes (auto-generates `routeTree.gen.ts`)
 - `src/components/` - React components (page-level and shared)
 - `src/assets/` - Static images (tool logos)
+- `src/data/` - Static data (tools with platforms and store stats, mind maps)
 - `src/lib/` - Utilities (includes shadcn `cn()` helper, `stripe.ts` for payment links)
 - `public/` - Static assets (favicon, manifest, robots.txt)
 
