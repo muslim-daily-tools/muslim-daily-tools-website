@@ -1,10 +1,17 @@
 import { LuArrowUpRight, LuStar, LuUsers } from 'react-icons/lu'
-import { FaApple, FaChrome, FaFirefoxBrowser, FaGlobe } from 'react-icons/fa6'
+import {
+  FaAndroid,
+  FaApple,
+  FaChrome,
+  FaFirefoxBrowser,
+  FaGlobe,
+} from 'react-icons/fa6'
 import { useTranslation } from 'react-i18next'
 import type { IconType } from 'react-icons'
-import type {Platform, Tool} from '@/data/tools';
+import type { Platform, Tool } from '@/data/tools'
 import { FadeIn, StaggerContainer, StaggerItem } from '@/lib/animations'
-import {   tools } from '@/data/tools'
+import { tools } from '@/data/tools'
+import { formatCount } from '@/lib/format-count'
 import { cn } from '@/lib/utils'
 
 const platformIcons: Record<Platform, IconType> = {
@@ -12,6 +19,7 @@ const platformIcons: Record<Platform, IconType> = {
   chrome: FaChrome,
   firefox: FaFirefoxBrowser,
   ios: FaApple,
+  android: FaAndroid,
 }
 
 function StarRating({ rating }: { rating: number }): React.JSX.Element {
@@ -49,7 +57,7 @@ function ToolStats({ tool }: { tool: Tool }): React.JSX.Element | null {
           <span className="font-semibold text-foreground">{tool.rating}</span>
           {tool.reviewCount && (
             <span>
-              ({tool.reviewCount.toLocaleString()} {t('tools.ratings')})
+              ({formatCount(tool.reviewCount)} {t('tools.ratings')})
             </span>
           )}
         </span>

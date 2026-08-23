@@ -28,9 +28,18 @@ describe('tools data', () => {
     ])
   })
 
+  it('links Quran Station to the Play Store', () => {
+    const android = getToolBySlug('quran-station')?.links.find(
+      (l) => l.platform === 'android',
+    )
+    expect(android?.href).toBe(
+      'https://play.google.com/store/apps/details?id=com.mohamedabusrea.quranstation',
+    )
+  })
+
   it('lists every platform each tool ships on', () => {
     expect(
       getToolBySlug('quran-station')?.links.map((l) => l.platform),
-    ).toEqual(['website', 'chrome', 'firefox', 'ios'])
+    ).toEqual(['website', 'chrome', 'firefox', 'ios', 'android'])
   })
 })
