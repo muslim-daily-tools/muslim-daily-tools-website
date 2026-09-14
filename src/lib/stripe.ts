@@ -1,11 +1,11 @@
 const PAYMENT_LINKS: Record<string, string> = {
-  one_time_10: 'https://buy.stripe.com/bJe7sL0gT0ergZB3ZL5sA0i',
-  one_time_50: 'https://buy.stripe.com/fZu3cv4x9aT5gZBfIt5sA0j',
-  one_time_100: 'https://buy.stripe.com/7sY4gzd3F1ivbFh2VH5sA0k',
-  one_time_custom: 'https://buy.stripe.com/eVqcN5e7Jd1d7p10Nz5sA09',
-  monthly_10: 'https://buy.stripe.com/eVqcN5e7J3qD24H53P5sA0l',
-  monthly_50: 'https://buy.stripe.com/14A9AT7Jl6CPaBddAl5sA0m',
-  monthly_100: 'https://buy.stripe.com/7sY5kD8Npf9ldNpgMx5sA0n',
+  one_time_10: 'https://buy.stripe.com/bJe6oH7Pr24U2iE3Yj9Zm02',
+  one_time_50: 'https://buy.stripe.com/eVqeVd5Hj4d2f5qeCX9Zm03',
+  one_time_100: 'https://buy.stripe.com/3cIaEX9XzfVKe1m8ez9Zm04',
+  one_time_custom: 'https://buy.stripe.com/28E00j3zbcJybTe0M79Zm08',
+  monthly_10: 'https://buy.stripe.com/fZufZh0mZcJy4qM2Uf9Zm05',
+  monthly_50: 'https://buy.stripe.com/00w7sL8TvaBqcXi7av9Zm06',
+  monthly_100: 'https://buy.stripe.com/28E00j6LnbFu7CY52n9Zm07',
 }
 
 export function getPaymentLink(
