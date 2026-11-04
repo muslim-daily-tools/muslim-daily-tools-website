@@ -378,6 +378,10 @@ const resources = {
         },
       },
       quranTab: {
+        v4151: {
+          improved1:
+            'Quran Tab now sends much less anonymous usage data, keeping it lighter on your browser.',
+        },
         v4150: {
           improved1:
             'Improved Quran Tab’s foundations to help us understand which features are most useful and focus future improvements where they matter most.',
@@ -1035,6 +1039,10 @@ const resources = {
         },
       },
       quranTab: {
+        v4151: {
+          improved1:
+            'أصبح Quran Tab يرسل بيانات استخدام مجهولة أقل بكثير، ليكون أخف على متصفحك.',
+        },
         v4150: {
           improved1:
             'حسّنّا أساسات Quran Tab لنعرف الميزات الأكثر فائدة ونركّز التحسينات القادمة حيث تكون أهم للمستخدمين.',
