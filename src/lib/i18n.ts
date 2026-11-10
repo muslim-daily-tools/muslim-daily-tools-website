@@ -378,6 +378,26 @@ const resources = {
         },
       },
       quranTab: {
+        v4160: {
+          new1: 'Copy a tafseer with one click from the tafseer window, together with its verse and source',
+          new2: 'Reset all prayer time adjustments at once from the adjustments window',
+          improved1:
+            'Translation and tafseer under the verse now appear instantly when you move between verses',
+          improved2:
+            'Settings numbers follow your chosen number style, and adjustment fields accept Arabic digits',
+          improved3:
+            'Hide the verse progress bar while it plays, and read the speed button clearly in light mode',
+          fixed1:
+            'A finished adhkar counter no longer resets by accident; use the new reset button instead',
+          fixed2:
+            'Adding a custom zikr after editing another one no longer replaces the edited zikr',
+          fixed3:
+            'The verse progress bar no longer freezes after you seek with the keyboard',
+          fixed4:
+            'Fasting reminders now stay until Fajr and never appear on Eid or the days of Tashreeq',
+          fixed5:
+            'The adhan and zikr sounds now recover after a temporary failure instead of staying silent until you restart the browser',
+        },
         v4151: {
           improved1:
             'Quran Tab now sends much less anonymous usage data, keeping it lighter on your browser.',
@@ -1039,6 +1059,25 @@ const resources = {
         },
       },
       quranTab: {
+        v4160: {
+          new1: 'انسخ التفسير بنقرة واحدة من نافذة التفسير، مع الآية واسم المصدر',
+          new2: 'أعد ضبط كل تعديلات مواقيت الصلاة دفعة واحدة من نافذة التعديلات',
+          improved1:
+            'تظهر الترجمة والتفسير تحت الآية فورًا عند الانتقال بين الآيات',
+          improved2:
+            'تتبع أرقام الإعدادات نمط الأرقام الذي اخترته، وتقبل حقول التعديل الأرقام العربية',
+          improved3:
+            'أخفِ شريط تقدم الآية أثناء التشغيل، واقرأ زر السرعة بوضوح في الوضع الفاتح',
+          fixed1:
+            'لم يعد عدّاد الذكر المكتمل يُصفَّر بالخطأ، واستخدم زر إعادة الضبط الجديد بدلًا من ذلك',
+          fixed2:
+            'لم تعد إضافة ذكر مخصص بعد تعديل ذكر آخر تستبدل الذكر الذي عدّلته',
+          fixed3: 'لم يعد شريط تقدم الآية يتجمد بعد التنقل فيه بلوحة المفاتيح',
+          fixed4:
+            'تبقى تذكيرات الصيام حتى الفجر، ولا تظهر أبدًا في العيد أو أيام التشريق',
+          fixed5:
+            'يعود صوت الأذان والذكر للعمل بعد أي عطل مؤقت، بدلًا من أن يبقى صامتًا حتى تعيد تشغيل المتصفح',
+        },
         v4151: {
           improved1:
             'أصبح Quran Tab يرسل بيانات استخدام مجهولة أقل بكثير، ليكون أخف على متصفحك.',
